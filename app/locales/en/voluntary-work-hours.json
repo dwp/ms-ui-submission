@@ -1,0 +1,16 @@
+{
+  "pageTitle" : "Hours you volunteer - %s",
+  "sameHours" : {
+    "label" : "Do you volunteer for the same number of hours each week at %s?",
+    "errors" : {
+      "required": "Select yes if you volunteer for the same number of hours each week"
+    }
+  },
+  "hours" : {
+    "label" : "Hours you volunteer a week",
+    "errors" : {
+      "required" : "Enter the number of hours you volunteer a week",
+      "badFormat" : "Enter the number of hours you volunteer in the right format, for example 10.5"
+    }
+  }
+}

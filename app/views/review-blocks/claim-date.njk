@@ -1,0 +1,35 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingClaimDate') }}</h2>
+
+{% set claimDateRows = [] %}
+
+{% set claimStartDateRow = {
+    key: { text: t('check-your-answers:claimDate') },
+    value: { text: journeyData['claim-start-date'].claimStartDate | date },
+    actions: {
+        items: [{
+            attributes: { 'id': 'claim-start-date' },
+            href: "claim-start-date?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimStartDate')
+        }]
+    }
+} %}
+{{ (claimDateRows.push(claimStartDateRow), null) }}
+
+{% set claimEndDateRow = {
+    key: { text: t('check-your-answers:claimEndDate') },
+    value: { text: t('claim-end-date:claimEnd.no') if journeyData['claim-end-date'].claimEnd === 'no' else journeyData['claim-end-date'].claimEndDate | date },
+    actions: {
+        items: [{
+            attributes: { 'id': 'claim-end-date' },
+            href: "claim-end-date?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimEndDate')
+        }]
+    }
+} %}
+{{ (claimDateRows.push(claimEndDateRow), null) }}
+
+{{ govukSummaryList({
+    rows: claimDateRows
+}) }}

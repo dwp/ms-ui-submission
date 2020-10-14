@@ -1,0 +1,37 @@
+{
+  "pageTitle": "Pension or annuity details",
+  "heading": "Pension or annuity details",
+  "hint": "If you have more than one pension or annuity, you will be asked about them later.",
+  "pensionProvider": {
+    "label": "Pension or annuity provider",
+    "errors": {
+      "required": "Enter the name of the pension or annuity provider"
+    }
+  },
+  "providerRef": {
+    "label": "Pension or annuity reference number",
+    "errors": {
+      "required": "Enter the pension or annuity reference number"
+    }
+  },
+  "providerTel": {
+    "label": "Pension or annuity provider telephone number",
+    "errors": {
+      "required": "Enter a telephone number for your pension or annuity provider",
+      "badFormat": "Enter a real telephone number"
+    }
+  },
+  "providerAddress": {
+    "label": "Pension provider address",
+    "address1": {
+      "errors": {
+        "required": "Enter line 1 of the pension or annuity provider address"
+      }
+    },
+    "postcode" : {
+      "errors" : {
+        "required" : "Enter a postcode, like AA1 1AA"
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/details/macro.njk" import govukDetails %}
+{% from "components/inset-text/macro.njk" import govukInsetText %}
+{% extends "layouts/custom-journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('complete:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+
+{% set medicalEvidenceDetails %}
+    <p class="govuk-body"> {{ t('complete:medicalEvidence.conditionalReveal.text1') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('complete:medicalEvidence.conditionalReveal.li1') }}</li>
+        <li>{{ t('complete:medicalEvidence.conditionalReveal.li2') }}</li>
+        <li>{{ t('complete:medicalEvidence.conditionalReveal.li3') }}</li>
+        <li>{{ t('complete:medicalEvidence.conditionalReveal.li4') }}</li>
+    </ul>
+    <p class="govuk-body"> {{ t('complete:medicalEvidence.conditionalReveal.text2') }}</p>
+{% endset %}
+
+{% set sendEvidenceInset %}
+    <p class="govuk-body govuk-!-font-weight-bold">{{ t('complete:sendEvidence.insetText.heading') }}</p>
+    <p>
+        {{ t('complete:sendEvidence.insetText.line1') }}
+    </p>
+{% endset %}
+
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+        <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6 govuk-!-padding-0">
+            <h1 class="govuk-panel__large govuk-!-margin-bottom-2 govuk-!-font-size-36">
+                {{ t('complete:header') }}
+            </h1>
+            <div class="govuk-panel__body govuk-!-font-size-27">
+                {{ t('complete:refReminder') }}
+                <p></p>
+            </div>
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+
+            <h2 class="govuk-heading-l">{{ t('complete:whatNow.title') }}</h2>
+
+            <p class="govuk-body-l">
+                {{ t('complete:coronavirus.text1', fourteenDaysLater) }}
+            </p>
+
+            <p class="govuk-body">
+                {{ t('complete:coronavirus.text2') }}
+            </p>
+
+            <h3 class="govuk-heading-m">
+                {{ t('complete:medicalEvidence.medicalEvidenceHeading') }}
+            </h3>
+
+            <p class="govuk-body">
+                {{ t('complete:medicalEvidence.text1') }}
+            </p>
+
+            <p class="govuk-body">
+                {{ t('complete:medicalEvidence.text2') }}
+            </p>
+
+            {{ govukDetails({
+            summaryText: t('complete:medicalEvidence.conditionalReveal.heading'),
+            html: medicalEvidenceDetails
+            }) }}
+
+            <p class="govuk-body">
+                {{ t('complete:medicalEvidence.text3') }}
+            </p>
+
+            {{ govukInsetText({
+                text: t('complete:medicalEvidence.insetText')
+            }) }}
+
+            <h3 class="govuk-heading-m">
+                {{ t('complete:sendEvidence.heading') }}
+            </h3>
+
+            <p class="govuk-body">
+                {{ t('complete:sendEvidence.text1') | safe }}
+            </p>
+
+            <p class="govuk-body">
+                {{ t('complete:sendEvidence.text2') }}
+            </p>
+
+            {{ govukInsetText({
+                html: sendEvidenceInset
+            }) }}
+
+            {% if universalCredit %}
+                <h3 class="govuk-heading-m">
+                    {{ t('complete:universalCreditYes.heading') }}
+                </h3>
+                <p class="govuk-body">
+                    {{ t('complete:universalCreditYes.text1') | safe }}
+                </p>
+                <p class="govuk-body">
+                    {{ t('complete:universalCreditYes.text2') }}
+                </p>
+            {% else %}
+                <h3 class="govuk-heading-m">
+                    {{ t('complete:universalCreditNo.heading') }}
+                </h3>
+                <p class="govuk-body">
+                    {{ t('complete:universalCreditNo.text1') }}
+                </p>
+                <p class="govuk-body">
+                    {{ t('complete:universalCreditNo.text2') }}
+                </p>
+                <p class="govuk-body">
+                    {{ t('complete:universalCreditNo.text3') }}
+                </p>
+                <p class="govuk-body">
+                    {{ t('complete:universalCreditNo.text4') | safe }}
+                </p>
+            {% endif %}
+
+            <h3 class="govuk-heading-m">
+                {{ t('complete:feedback.feedbackHeading') }}
+            </h3>
+
+            <p class="govuk-body">
+                {{ t('complete:feedback.feedbackQuestionLink') | safe }}
+            </p>
+
+            <p class="govuk-body">
+                {{ t('complete:feedback.researchQuestion') | safe }}
+            </p>
+
+            <p class="govuk-body">
+                {{ govukButton({
+                    text: t('app:finish'),
+                    href: 'https://www.gov.uk/employment-support-allowance/your-esa-claim'
+                }) }}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block bodyEnd %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('employment-hours:pageTitle', employerName) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set hours %}
+        {{ casaGovukInput({
+            label: {
+                text: t('employment-hours:hours.label')
+            },
+            name: 'hours',
+            classes: 'govuk-input--width-3',
+            value: formData.hours,
+            casaErrors: formErrors
+        }) }}
+
+    {% endset -%}
+
+    {{ casaGovukRadios({
+        name: 'sameHours',
+        fieldset: {
+            legend: {
+                text: t('employment-hours:sameHours.label', employerName),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.sameHours,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('employment-hours:sameHours.label', employerName),
+                'data-answer': t('app:yes')
+            },
+            conditional: {
+                html: hours
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('employment-hours:sameHours.label', employerName),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

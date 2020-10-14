@@ -1,0 +1,9 @@
+{
+  "pageTitle" : "Any other health conditions",
+  "coronavirusOtherCondition" : {
+    "label" : "Do you have any other health conditions, illnesses, disabilities or injuries?",
+    "errors" : {
+      "required": "Select yes if you have any other conditions illnesses, disabilities or injuries"
+    }
+  }
+}

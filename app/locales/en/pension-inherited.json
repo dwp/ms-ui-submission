@@ -1,0 +1,10 @@
+{
+  "pageTitle": "Inherited pension - %s",
+  "inherited": {
+    "label": "Was the %s pension left to you by someone who has died?",
+    "hint": "This is also known as an inherited pension.",
+    "errors": {
+      "required": "Select yes if this pension was left to you by someone who has died"
+    }
+  }
+}

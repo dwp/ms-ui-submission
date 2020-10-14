@@ -1,0 +1,37 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('coronavirus-other-condition:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    {{ casaGovukRadios({
+        name: 'coronavirusOtherCondition',
+        fieldset: {
+            legend: {
+                text: t('coronavirus-other-condition:coronavirusOtherCondition.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.coronavirusOtherCondition,
+        casaErrors: formErrors,
+        items: [{
+            text: t('app:yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('coronavirus-other-condition:coronavirusOtherCondition.label'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            text: t('app:no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('coronavirus-other-condition:coronavirusOtherCondition.label'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+{% endblock %}

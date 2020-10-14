@@ -1,0 +1,38 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('work-overseas:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('work-overseas:heading') }}</h1>
+
+    <p class="govuk-hint">{{ t('work-overseas:hint') }}</p>
+
+    {{ casaGovukRadios({
+        name: 'workOverseas',
+        casaValue: formData.workOverseas,
+        casaErrors: formErrors,
+        items: [{
+            checked : formData.workOverseas === 'yes',
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('work-overseas:heading'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            checked : formData.workOverseas === 'no',
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('work-overseas:heading'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

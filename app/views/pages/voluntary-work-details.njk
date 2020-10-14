@@ -1,0 +1,37 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('voluntary-work-details:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('voluntary-work-details:heading') }}</h1>
+
+    <p class="govuk-hint">{{ t('voluntary-work-details:hint') }}</p>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('voluntary-work-details:organisationName.label')
+        },
+        name: 'organisationName',
+        value: formData.organisationName,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaPostalAddressObject({
+        fieldset: {
+            legend: {
+                text: t('voluntary-work-details:organisationAddress.label'),
+                classes: 'govuk-!-font-weight-bold'
+            }
+        },
+        name: 'organisationAddress',
+        value: formData.organisationAddress,
+        casaErrors: formErrors
+    }) }}
+{% endblock %}

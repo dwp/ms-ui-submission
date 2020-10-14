@@ -1,0 +1,8 @@
+{
+    "pageTitle": "State Pension age",
+    "statePensionAge": {
+        "label": "Are you under State Pension age?",
+        "hint": "If you're unsure, you can <a class=\"govuk-link\" href=\"https://www.gov.uk/state-pension-age\" target=\"_blank\">check your State Pension age (opens in new tab)</a>."
+    },
+    "error": "Select yes if you're under State Pension age"
+}

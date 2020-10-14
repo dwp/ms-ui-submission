@@ -1,0 +1,49 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('severe-disability-premium:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'severeDisabilityPremium',
+        fieldset: {
+            legend: {
+                text: t('severe-disability-premium:label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('severe-disability-premium:hint') | safe,
+            classes: 'govuk-hint-black'
+        },
+        casaValue: formData.severeDisabilityPremium,
+        casaErrors: formErrors,
+           items: [{
+                    text: t('app:yes'),
+                    value: 'yes',
+                    attributes: {
+                        'data-question': t('severe-disability-premium:label'),
+                        'data-answer': t('app:yes')
+                    }
+                }, {
+                    text: t('app:no'),
+                    value: 'no',
+                    attributes: {
+                        'data-question': t('severe-disability-premium:label'),
+                        'data-answer': t('app:no')
+                    }
+                }, {
+                    text: t('severe-disability-premium:notSure'),
+                    value: 'notSure',
+                    attributes: {
+                        'data-question': t('severe-disability-premium:label'),
+                        'data-answer': t('severe-disability-premium:notSure')
+                    }
+                }] 
+    }) }}
+{% endblock %}

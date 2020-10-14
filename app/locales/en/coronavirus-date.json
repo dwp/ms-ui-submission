@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Date you were first affected by coronavirus",
+  "default-text": "This might be when you or your child started self-isolating.",
+  "coronavirus-high-risk-shielding-text": "This might be when you received a letter or text message from the NHS.",
+  "coronavirusDate" : {
+    "label": "What date were you first affected by coronavirus?",
+    "hint": "For example, 28 2 2020",
+    "errors": {
+      "required": "Enter the date you were first affected by coronavirus",
+      "missingDay": "Date you were first affected by coronavirus must include a day",
+      "missingMonth": "Date you were first affected by coronavirus must include a month",
+      "missingYear": "Date you were first affected by coronavirus must include a year",
+      "missingDayAndMonth": "Date you were first affected by coronavirus must include a day and a month",
+      "missingDayAndYear": "Date you were first affected by coronavirus must include a day and a year",
+      "missingMonthAndYear": "Date you were first affected by coronavirus must include a month and a year",
+      "badFormatYear": "Enter the date you were first affected by coronavirus with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date for when you were first affected by coronavirus",
+      "notRealDigits": "Enter a real date for when you were first affected by coronavirus, using only digits",
+      "outOfRange": "Date you were first affected by coronavirus must be in the past"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{% extends "layouts/custom-journey.njk" %}
+{% from "components/inset-text/macro.njk" import govukInsetText %}
+
+{% block casaPageTitle %}
+  {{ t('check-if-you-get-severe-disability-premium:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-{% block columnWidth %}two-thirds{% endblock %}">
+    <h1 class="govuk-heading-l">
+      {{ t('check-if-you-get-severe-disability-premium:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+      {{ t('check-if-you-get-severe-disability-premium:p1') }}
+    </p>
+
+    <div class="govuk-body">
+      <h2 class="govuk-heading-m">
+        {{ t('check-if-you-get-severe-disability-premium:h2')}}
+      </h2>
+
+      <p class="govuk-body">
+        {{ t('check-if-you-get-severe-disability-premium:p2') }}
+      </p>
+    <div>
+
+    <div class="govuk-body">
+      {{ govukInsetText({
+        text: t('check-if-you-get-severe-disability-premium:inset') | safe
+      }) }}
+      <p class="govuk-body">
+        {{ t('check-if-you-get-severe-disability-premium:p3') }}
+      </p>
+      <p class="govuk-body">
+        {{ t('check-if-you-get-severe-disability-premium:p4') }}
+      </p>
+    <div>
+
+  <div>
+<div>
+{% endblock %}

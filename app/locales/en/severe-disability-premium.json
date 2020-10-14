@@ -1,0 +1,7 @@
+{
+  "pageTitle" : "Severe disability premium",
+  "label" : "Do you get or are you entitled to the severe disability premium?",
+  "hint" : "You cannot get New Style ESA if you get the <a class=\"govuk-link\" href=\"https://www.gov.uk/disability-premiums/\" target=\"_blank\">severe disability premium (opens in new tab)</a>, or got it in the last month and are still eligible for it.",
+  "notSure": "I'm not sure",
+  "error": "Select yes if you get or you're entitled to the severe disability premium"
+}

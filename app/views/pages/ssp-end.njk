@@ -1,0 +1,45 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('ssp-end:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set dayError = formErrors['sspEndDate'][0].inline | matchDay or formErrors['sspEndDate'][0].errorType | includesDay %}
+    {% set monthError = formErrors['sspEndDate'][0].inline | matchMonth or formErrors['sspEndDate'][0].errorType | includesMonth %}
+    {% set yearError = formErrors['sspEndDate'][0].inline | matchYear or formErrors['sspEndDate'][0].errorType | includesYear %}
+
+  {% set dateParams = {
+     name: 'sspEndDate',
+     fieldset: {
+         legend: {
+             text: t('ssp-end:sspEndDate.label', employerName),
+             isPageHeading: true,
+             classes: "govuk-fieldset__legend--l"
+         }
+     },
+     hint: {
+         html: t('ssp-end:sspEndDate.hint', sspEndDateHint )
+     },
+     casaValue: formData.sspEndDate,
+     casaErrors: formErrors
+  } %}
+
+  {% set dateErrorParams = {} %}
+
+  {% if dayError or monthError or yearError %}
+      {% set dateErrorParams = {
+          items: [
+                { classes: 'govuk-input--width-2' + (' govuk-input--error' if dayError ) },
+                { classes: 'govuk-input--width-2' + (' govuk-input--error' if monthError ) },
+                { classes: 'govuk-input--width-4' + (' govuk-input--error' if yearError ) }
+          ]
+      } %}
+   {% endif %}
+
+   {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('doctor-declaration:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('doctor-declaration:heading') }}</h1>
+    <p class="govuk-body">{{ t('doctor-declaration:p1' )}}</p>
+    <p class="govuk-body">{{ t('doctor-declaration:p2' )}}</p>
+
+    <p class="govuk-body">{{ t('doctor-declaration:p3' )}}</p>
+
+    <div>
+        <h2 class="govuk-heading-m">{{ t('doctor-declaration:subHeadForHowDWPUsesInfo') }}</h2>
+        <p class="govuk-body">{{ t('doctor-declaration:p4') }}</p>
+        <ul class = "govuk-list govuk-list--bullet">
+            <li> {{ t('doctor-declaration:p5') }}</li>
+            <li> {{ t('doctor-declaration:p6') }}</li>
+        </ul>
+        <p class="govuk-body">{{ t('doctor-declaration:p7') }}</p>
+        <p class="govuk-body">{{ t('doctor-declaration:p8') }}</p>
+        <p class="govuk-body">{{ t('doctor-declaration:p9') }}</p>
+    </div>
+
+    <div>
+        <h2 class="govuk-heading-m">{{ t('doctor-declaration:subHeadForChangingMind') }}</h2>
+        <p class="govuk-body">{{ t('doctor-declaration:p10') | safe }}</p>
+        <p class="govuk-body">{{ t('doctor-declaration:p11') }}</p>
+    </div>
+
+    <h2 class="govuk-heading-m">{{ t('doctor-declaration:question') }}</h2>
+
+    {{ casaGovukRadios({
+        name: 'docShareWithDWP',
+        casaValue: formData.docShareWithDWP,
+        casaErrors: formErrors,
+        items: [{
+            checked : formData.docShareWithDWP === 'yes',
+            value: 'yes',
+            text: t('doctor-declaration:yes'),
+            attributes: {
+                'data-question': t('doctor-declaration:question'),
+                'data-answer': t('doctor-declaration:yes')
+            }
+        }, {
+            checked : formData.docShareWithDWP === 'no',
+            value: 'no',
+            text: t('doctor-declaration:no'),
+            attributes: {
+                'data-question': t('doctor-declaration:question'),
+                'data-answer': t('doctor-declaration:no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

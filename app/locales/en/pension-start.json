@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Start date of pension or annuity - %s",
+  "pensionStartDate" : {
+    "label1": "When did your pension from %s start?",
+    "label2": "When did your pension start?",
+    "hint": "<p class=\"govuk-hint\">For example, <span class=\"nobr\">31 3 2005</span></p>",
+    "errors": {
+      "required": "Enter the date your pension started",
+      "missingDay": "Date your pension started must include a day",
+      "missingMonth": "Date your pension started must include a month",
+      "missingYear": "Date your pension started must include a year",
+      "missingDayAndMonth": "Date your pension started must include a day and a month",
+      "missingDayAndYear": "Date your pension started must include a day and a year",
+      "missingMonthAndYear": "Date your pension started must include a month and a year",
+      "badFormatYear": "Enter the date your pension started with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date for when your pension started",
+      "notRealDigits": "Enter a real date when your pension started using only digits",
+      "outOfRange": "Date your pension started must be today or in the past"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "pageTitle" : "Remove",
+  "heading" : "Check your answers before sending your application",
+  "remove": {
+    "voluntary": "Are you sure you want to remove your role at %s?",
+    "employment": "Are you sure you want to remove your job at %s?",
+    "pension": "Are you sure you want to remove your pension with %s?",
+    "insurance": "Are you sure you want to remove your policy with %s?",
+    "errors": {
+      "required": "Select yes if you would like to remove the details you entered for this section"
+    }
+  },
+  "removed": {
+    "list": "You have removed details for:",
+    "voluntary": "Do you do any other voluntary work?",
+    "employment": "Do you have another job?",
+    "pension": "Are you getting any other pensions or annuities?",
+    "insurance": "Are you getting money from any other permanent health insurance policy?",
+    "errors": {
+      "required": {
+        "voluntary": "Select yes if you do any other voluntary work",
+        "employment": "Select yes if you have another job",
+        "pension": "Select yes if you're getting any other pensions or annuities",
+        "insurance": "Select yes if you're getting money from another permanent health insurance policy"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pageTitle" : "Consent to share the outcome with your doctor",
+  "heading" : "Sharing the outcome of an assessment with your doctor",
+  "p1" : "The Department for Work and Pensions (DWP) would like to share the decision made based on the result of your claim with your doctor, or any doctor treating you. This will help your doctor, as it will tell them when they no longer need to provide you with Statements of Fitness for Work (also known as fit notes or medical certificates) for the purposes of this claim.",
+  "p2" : "DWP needs your agreement to do this.",
+  "p3" : "You do not have to give your agreement. This will not affect your claim for New Style ESA. DWP will keep a record of the decision you make.",
+  "p4" : "<p class=\"govuk-body\">You can withdraw your agreement at any time before DWP contacts your doctor by calling them on <span class=\"nobr\">0800 169 0310</span>. If you withdraw your agreement, DWP will not share the decision based on the outcome of your claim with your doctor. However, this will not affect the way in which DWP uses your information.</p>",
+  "subHead" : "I agree to my doctor, or any other doctor treating me, being informed about the result of my claim.",
+  "yes" : "Yes",
+  "no" : "No",
+  "errors": {
+    "required": "Select whether you agree to us sharing the outcome of an assessment with your doctor"
+  }
+}

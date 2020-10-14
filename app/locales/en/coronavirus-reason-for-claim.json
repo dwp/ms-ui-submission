@@ -1,0 +1,21 @@
+{
+  "pageTitle": "How has coronavirus affected you?",
+  "coronavirusReasonForClaim" : {
+    "label": "How has coronavirus affected you?",
+    "hint": "<p class=\"govuk-body\">This includes you or your child, now or some time in the past.</p>",
+    "reason-high-risk": "I’m at high risk because I have an underlying health condition (shielding)",
+    "reason-self-isolation-symptoms": "I’m self-isolating because I have symptoms of coronavirus",
+    "reason-self-isolation-contact": "I’m self-isolating because I came into contact with someone who has symptoms of coronavirus. Or I was told to self-isolate by a test and trace service",
+    "reason-other": "Other reason",
+    "reason-other-label": "How else has coronavirus affected you?",
+    "otherReason": {
+      "errors": {
+        "required": "Enter the other reason coronavirus has affected you",
+        "length": "Enter the other reason coronavirus has affected you in 500 characters or fewer (including spaces)"
+      }
+    },
+    "errors": {
+      "required": "Select the option that best describes how coronavirus has affected you"
+    }
+  }
+}

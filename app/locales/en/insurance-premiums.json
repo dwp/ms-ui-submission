@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Insurance premiums - %s",
+  "premiums": {
+    "label": "Did you pay more than half of the premiums for the %s policy yourself?",
+    "yes": "Yes",
+    "no": "No",
+    "notsure": "I'm not sure",
+    "errors": {
+      "required": "Select yes if you paid more than half of the premiums yourself"
+    }
+  }
+}

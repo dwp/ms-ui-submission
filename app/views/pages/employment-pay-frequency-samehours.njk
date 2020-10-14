@@ -1,0 +1,111 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('employment-pay-frequency-samehours:pageTitle', employerName) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('employment-pay-frequency-samehours:heading') }}</h1>
+
+    {{ casaGovukRadios({
+        name: 'frequency',
+        fieldset: {
+            legend: {
+                text: t('employment-pay-frequency-samehours:frequency.label', employerName),
+                classes: 'govuk-fieldset__legend--m'
+            }
+        },
+        casaValue: formData.frequency,
+        casaErrors: formErrors,
+        items: [{
+            value: 'daily',
+            text: t('employment-pay-frequency-samehours:frequency.daily'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.daily')
+            }
+        }, {
+            value: 'weekly',
+            text: t('employment-pay-frequency-samehours:frequency.weekly'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.weekly')
+            }
+        }, {
+            value: 'every2Weeks',
+            text: t('employment-pay-frequency-samehours:frequency.every2Weeks'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.every2Weeks')
+            }
+        }, {
+            value: 'every4Weeks',
+            text: t('employment-pay-frequency-samehours:frequency.every4Weeks'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.every4Weeks')
+            }
+        }, {
+            value: 'monthly',
+            text: t('employment-pay-frequency-samehours:frequency.monthly'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.monthly')
+            }
+        }, {
+            value: 'quarterly',
+            text: t('employment-pay-frequency-samehours:frequency.quarterly'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.quarterly')
+            }
+        }, {
+            value: 'every6Months',
+            text: t('employment-pay-frequency-samehours:frequency.every6Months'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.every6Months')
+            }
+        }, {
+            value: 'annually',
+            text: t('employment-pay-frequency-samehours:frequency.annually'),
+            attributes: {
+                'data-question': t('employment-pay-frequency-samehours:frequency.label', employerName),
+                'data-answer': t('employment-pay-frequency-samehours:frequency.annually')
+            }
+        }]
+    }) }}
+
+    {{ casaGovukInput({
+        name: 'netPay',
+        label: {
+            text: t('employment-pay-frequency-samehours:netPay.label', employerName),
+            classes: 'govuk-label--m'
+        },
+        hint: {
+            text: t('employment-pay-frequency-samehours:netPay.hint'),
+            classes: 'govuk-hint-black'
+        },
+        attributes: {
+            style: 'padding-left: 25px'
+        },
+        formGroup: {
+            classes: 'pound-sign'
+        },
+        classes: 'govuk-input--width-10',
+        value: formData.netPay,
+        casaErrors: formErrors
+    }) }}
+
+
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "../includes/pound-sign.njk" %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

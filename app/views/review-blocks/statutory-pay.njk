@@ -1,0 +1,99 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:statPayHeading') }}</h2>
+
+{% set statRows = [] %}
+
+{% if journeyData.employed.other === 'no' %}
+    {% set sspRow = {
+        key: { text: t('check-your-answers:ssp') },
+        value: { text: t('app:' + journeyData['statutory-pay'].statutoryPay) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'statutory-pay' },
+                href: "statutory-pay?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSsp')
+            }]
+        }
+    } %}
+    {{ (statRows.push(sspRow), null) }}
+
+    {% if journeyData['statutory-pay'].statutoryPay === 'yes' %}
+    {% set sspEndRow = {
+        key: { text: t('check-your-answers:sspEnd') },
+        value: { text: journeyData['statutory-sick-pay-end'].sspEndDate | date },
+        actions: {
+            items: [{
+                attributes: { 'id': 'statutory-sick-pay-end' },
+                href: "statutory-sick-pay-end?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSspEnd')
+            }]
+        }
+    } %}
+    {{ (statRows.push(sspEndRow), null) }}
+    {% endif %}
+{% endif %}
+
+{% if journeyData.employed.employed === 'no' or journeyData['statutory-pay'].statutoryPay === 'no' %}
+    {% set sspRecentRow = {
+        key: { text: t('check-your-answers:sspRecent') },
+        value: { text: t('app:' + journeyData['statutory-sick-pay-recent'].sspRecent) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'statutory-sick-pay-recent' },
+                href: "statutory-sick-pay-recent?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSspRecent')
+            }]
+        }
+    } %}
+    {{ (statRows.push(sspRecentRow), null) }}
+
+    {% if journeyData['statutory-sick-pay-recent'].sspRecent === 'yes' %}
+    {% set sspRecentEndRow = {
+        key: { text: t('check-your-answers:sspRecentEnd') },
+        value: { text: journeyData['statutory-sick-pay-recent-end'].sspRecentEndDate | date },
+        actions: {
+            items: [{
+                attributes: { 'id': 'statutory-sick-pay-recent-end' },
+                href: "statutory-sick-pay-recent-end?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSspRecentEnd')
+            }]
+        }
+    } %}
+    {{ (statRows.push(sspRecentEndRow), null) }}
+    {% endif %}
+{% endif %}
+
+{% set otherStatRow = {
+    key: { text: t('check-your-answers:otherStatPay') },
+    value: { text: t('check-your-answers:none') if journeyData['statutory-pay-other'].statutoryPayOther === 'none' else t('statutory-pay-other:statutoryPayOther.' + journeyData['statutory-pay-other'].statutoryPayOther) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'statutory-pay-other' },
+            href: "statutory-pay-other?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherStatPay')
+        }]
+    }
+} %}
+{{ (statRows.push(otherStatRow), null) }}
+
+{% set universalCreditRow = {
+    key: { text: t('check-your-answers:universalCredit') },
+    value: { text: t('app:' + journeyData['universal-credit'].universalCredit) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'universal-credit' },
+            href: "universal-credit?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextUniversalCredit')
+        }]
+    }
+} %}
+{{ (statRows.push(universalCreditRow), null) }}
+
+{{ govukSummaryList({
+    rows: statRows
+}) }}

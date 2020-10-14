@@ -1,0 +1,116 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "components/details/macro.njk" import govukDetails %}
+
+{% block casaPageTitle %}
+    {% if (pensionGather | length !== 0) %}
+        {{ t('pension:pageTitleOther') }}
+    {% else %}
+        {{ t('pension:pageTitle') }}
+    {% endif %}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% if (pensionGather | length !== 0) %}
+
+    <p class="govuk-heading-m govuk-!-margin-0">{{ t('pension:list') }}</p>
+    <ul class="govuk-list govuk-heading-l govuk-!-padding-0">
+        {% for pension in pensionGather %}
+        <li>{{ pension.pensionProvider if pension.pensionProvider.length > 0 else t('pension:blank') }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ casaGovukRadios({
+        name: 'other',
+        fieldset: {
+            legend: {
+                text: t('pension:other.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.other,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('pension:other.label'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('pension:other.label'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="screen" value="pension-other" />
+
+    {% else %}
+
+    {% set details %}
+        <p class="govuk-body">{{ t('pension:pension.p') }}</p>
+        <p class="govuk-body">{{ t('pension:pension.pensions') | safe }}</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>{{ t('pension:pension.li1') }}</li>
+            <li>{{ t('pension:pension.li2') }}</li>
+            <li>{{ t('pension:pension.li3') }}</li>
+            <li>{{ t('pension:pension.li4') }}</li>
+            <li>{{ t('pension:pension.li5') }}</li>
+        </ul>
+        <p class="govuk-body">{{ t('pension:pension.annuity') | safe }}</p>
+    {% endset -%}
+
+    {% set summaryDetails %}
+        {{ govukDetails({
+            summaryText: t('pension:pension.summary'),
+            html: details
+        }) }}
+    {% endset -%}
+
+    {{ casaGovukRadios({
+        name: 'pension',
+        fieldset: {
+            legend: {
+                text: t('pension:pension.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.pension,
+        casaErrors: formErrors,
+        hint: {
+            html: summaryDetails
+        },
+        items: [{
+            text: t('pension:pension.yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('pension:pension.label'),
+                'data-answer': t('pension:pension.yes')
+            }
+        }, {
+            text: t('pension:pension.no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('pension:pension.label'),
+                'data-answer': t('pension:pension.no')
+            }
+        }, {
+            text: t('pension:pension.notsure'),
+            value: 'notsure',
+            attributes: {
+                'data-question': t('pension:pension.label'),
+                'data-answer': t('pension:pension.notsure')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="screen" value="pension" />
+
+    {% endif %}
+{% endblock %}

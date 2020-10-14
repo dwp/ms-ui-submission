@@ -1,0 +1,45 @@
+{
+  "pageTitle": "Conditions",
+  "heading" : "What health conditions, illnesses, disabilities or injuries do you have?",
+  "hint": "You can add up to 12 conditions if you need to. You can add them in any order.",
+  "condition" : {
+    "heading": "Your %s condition",
+    "label": "Name of %s condition",
+    "errors": {
+      "required": "Enter the name of your %s condition"
+    }
+  },
+  "conditionStartDate" : {
+    "label": "When it first started",
+    "hint": "<p class=\"govuk-body\">If you do not know the exact date, you can give an estimate.</p><p>For example, <span class=\"nobr\">30 3 1997</span></p>",
+    "errors": {
+      "required": "Enter the date your %s condition started",
+      "missingDay": "Date your %s condition started must include a day",
+      "missingMonth": "Date your %s condition started must include a month",
+      "missingYear": "Date your %s condition started must include a year",
+      "missingDayAndMonth": "Date your %s condition started must include a day and a month",
+      "missingDayAndYear": "Date your %s condition started must include a day and a year",
+      "missingMonthAndYear": "Date your %s condition started must include a month and a year",
+      "badFormatYear": "Enter the date your %s condition started with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date for when your %s condition started",
+      "notRealDigits": "Enter a real date for when your %s condition started, using only digits",
+      "inFuture": "Date your %s condition started must be in the past"
+    }
+  },
+  "remove": "Remove",
+  "addAnother": "Add another condition",
+  "ordinals": {
+    "0": "first",
+    "1": "second",
+    "2": "third",
+    "3": "fourth",
+    "4": "fifth",
+    "5": "sixth",
+    "6": "seventh",
+    "7": "eighth",
+    "8": "ninth",
+    "9": "10th",
+    "10": "11th",
+    "11": "12th"
+  }
+}

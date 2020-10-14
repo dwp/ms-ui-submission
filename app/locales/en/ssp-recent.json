@@ -1,0 +1,9 @@
+{
+  "pageTitle" : "Recent Statutory Sick Pay",
+  "sspRecent" : {
+    "label" : "Have you had any Statutory Sick Pay in the last 12 weeks?",
+    "errors" : {
+      "required": "Select yes if you've had any Statutory Sick Pay in the last 12 weeks"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{% extends "casa/layouts/main.njk" %}
+
+{% from "components/footer/macro.njk" import govukFooter with context %}
+{% from 'components/button/macro.njk' import govukButton %}
+
+{% set mainClasses %}{{ mainClasses }} govuk-main-wrapper--l{% endset %}
+
+{% block pageTitle %}
+    {{ t('session-timeout:title') }}
+{% endblock %}
+
+{% block head %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-script.njk" %}
+  {%- endif %}
+{%  include "includes/application-styles.njk" %}
+{% endblock %}
+
+{% block bodyStart %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-noscript.njk" %}
+  {%- endif %}
+  {% if cookieMessage === "unset" or cookieChoiceMade %}
+    {% include "partials/cookie-message.njk" %}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1 class="govuk-heading-l">{{ t('session-timeout:heading') }}</h1>
+
+  <p class="govuk-body">{{ t('session-timeout:message1', timeout.sessionTimeout) }}</p>
+  <p class="govuk-body">{{ t('session-timeout:message2') }}</p>
+
+  {{ govukButton({
+    text: t('session-timeout:buttonText'),
+    href: timeout.startPageAfterTimeout
+  }) }}
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "https://www.gov.uk/help",
+        text: "Help"
+      },
+      {
+        href: "/accessibility-statement",
+        text: "Accessibility statement"
+      },
+      {
+        href: cookiePolicyUrl,
+        text: "Cookies"
+      },
+      {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: "Privacy"
+      }
+    ]
+  }
+}) }}
+{% endblock %}

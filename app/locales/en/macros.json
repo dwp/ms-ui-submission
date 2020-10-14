@@ -1,0 +1,33 @@
+{
+  "postalAddressObject": {
+    "address1": "Building and street <span class=\"govuk-visually-hidden\">line 1 of 2</span>",
+    "address2": "<span class=\"govuk-visually-hidden\">Building and street line 2 of 2</span>",
+    "address3": "Town or city",
+    "postcode": "Postcode"
+  },
+  "errors": {
+    "address": {
+      "required": "Enter an address"
+    },
+    "address1": {
+      "required": "Enter a building or street ",
+      "badFormat": "Enter a valid building or street"
+    },
+    "address2": {
+      "required": "Enter a building or street",
+      "badFormat": "Enter a valid building or street"
+    },
+    "address3": {
+      "required": "Enter a town or city",
+      "badFormat": "Town or city must not contain numbers"
+    },
+    "address4": {
+      "required": "Enter a county",
+      "badFormat": "Enter a valid county"
+    },
+    "postcode" : {
+      "required" : "Enter a postcode",
+      "badFormat" : "Enter a real postcode"
+    }
+  }
+}

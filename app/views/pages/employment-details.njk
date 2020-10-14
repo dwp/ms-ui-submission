@@ -1,0 +1,57 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('employment-details:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('employment-details:heading') }}</h1>
+
+    <p class="govuk-hint">{{ t('employment-details:hint') }}</p>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('employment-details:jobTitle.label')
+        },
+        name: 'jobTitle',
+        value: formData.jobTitle,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('employment-details:employerName.label')
+        },
+        name: 'employerName',
+        value: formData.employerName,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('employment-details:employerTel.label')
+        },
+        name: 'employerTel',
+        value: formData.employerTel,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaPostalAddressObject({
+        fieldset: {
+            legend: {
+                text: t('employment-details:employerAddress.label'),
+                classes: 'govuk-!-font-weight-bold'
+            }
+        },
+        name: 'employerAddress',
+        value: formData.employerAddress,
+        casaErrors: formErrors
+    }) }}
+{% endblock %}

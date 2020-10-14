@@ -1,0 +1,15 @@
+{
+  "pageTitle": "Frequency of pension or annuity payment - %s",
+  "frequency" : {
+    "label": "How often do you get your %s pension paid?",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "every2Weeks": "Every 2 weeks",
+    "every4Weeks": "Every 4 weeks",
+    "quarterly": "Quarterly",
+    "every6Months": "Every 6 months",
+    "annually": "Annually",
+    "none": ""
+  }
+}

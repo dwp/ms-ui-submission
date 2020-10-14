@@ -1,0 +1,97 @@
+{% extends "casa/layouts/journey.njk" %}
+
+{% from "components/error-summary/macro.njk" import govukErrorSummary with context %}
+{% from "casa/components/journey-form/macro.njk" import casaJourneyForm with context %}
+{% from "components/footer/macro.njk" import govukFooter with context %}
+
+{% block head %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-script.njk" %}
+  {%- endif %}
+{%  include "includes/application-styles.njk" %}
+{% endblock %}
+
+{% block bodyStart %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-noscript.njk" %}
+  {%- endif %}
+  {% if cookieMessage === "unset" or cookieChoiceMade %}
+    {% include "partials/cookie-message.njk" %}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+{% endblock %}
+
+{% block pageTitle -%}
+  {{- t("error:documentTtlePrefix") if formErrors -}}
+  {% block casaPageTitle %} {% endblock %} - {{ t('app:commonTitle') }}
+{%- endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        {% if formErrorsGovukArray %}
+            {{ govukErrorSummary({
+                titleText: t("error:summary.h1"),
+                errorList: formErrorsGovukArray
+            }) }}
+        {% endif %}
+
+        {% call casaJourneyForm({
+            csrfToken: casa.csrfToken,
+            inEditMode: inEditMode,
+            casaMountUrl: casa.mountUrl,
+            buttonBarHidden: true,
+            page_path: page_path,
+            cancelForm: cancelForm,
+            errorsFlag: errorsFlag
+        }) %}
+
+        {% block journey_form %}{% endblock %}
+
+        {% block journey_button %}
+          {{ govukButton({
+            text: t('common:continue'),
+            preventDoubleClick: true,
+            attributes: {
+              id: 'continue-button'
+            }
+          }) }}
+        {% endblock %}
+        {% endcall %}
+    </div>
+</div>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "https://www.gov.uk/help",
+        text: "Help"
+      },
+      {
+        href: "/accessibility-statement",
+        text: "Accessibility statement"
+      },
+      {
+        href: cookiePolicyUrl,
+        text: "Cookies"
+      },
+      {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: "Privacy"
+      }
+    ]
+  }
+}) }}
+{% endblock %}

@@ -1,0 +1,16 @@
+{
+  "pageTitle" : "Name",
+  "header" : "What is your name?",
+  "firstName" : {
+    "label" : "First name",
+    "errors" : {
+      "required": "Enter your first name"
+    }
+  },
+  "lastName" : {
+    "label" : "Last name",
+    "errors" : {
+      "required": "Enter your last name"
+    }
+  }
+}

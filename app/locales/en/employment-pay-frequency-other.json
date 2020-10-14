@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Earnings - %s",
+  "heading": "Earnings",
+  "frequency": {
+    "label": "How often are you paid by %s?",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "every2Weeks": "Every 2 weeks",
+    "every4Weeks": "Every 4 weeks",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "every6Months": "Every 6 months",
+    "annually": "Annually",
+    "errors": {
+      "required": "Select how often you are paid"
+    }
+  },
+
+  "netPay": {
+    "label": "How much was your last payment from %s?",
+    "hint": "This is the exact amount that was paid into your bank account.",
+    "errors": {
+      "required": "Enter how much you got in your last pay",
+      "notNum": "Amount you get paid must only include numbers",
+      "badFormat": "Enter the amount in the right format, like 125 or 125.50"
+    }
+  }
+}

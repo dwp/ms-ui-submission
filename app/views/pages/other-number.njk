@@ -1,0 +1,55 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('other-number:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set other %}
+        {{ casaGovukInput({
+            label: {
+                text: t('other-number:number.label')
+            },
+            name: 'number',
+            classes: 'govuk-!-width-one-half',
+            value: formData.number,
+            casaErrors: formErrors
+        }) }}
+    {% endset -%}
+
+    {{ casaGovukRadios({
+        name: 'other',
+        fieldset: {
+            legend: {
+                text: t('other-number:other.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.other,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('other-number:other.label'),
+                'data-answer': t('app:yes')
+            },
+            conditional: {
+                html: other
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('other-number:other.label'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

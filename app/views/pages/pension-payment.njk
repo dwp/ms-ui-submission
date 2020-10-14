@@ -1,0 +1,75 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "../macros/optional-details-message.njk" import optionalDetailsMessage with context %}
+
+{% block casaPageTitle %}
+    {% if deductions %}
+        {{ t('pension-payment:pageTitlePayment', pensionProvider) }}
+    {% else %}
+        {{ t('pension-payment:pageTitle', pensionProvider) }}
+    {% endif %}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('pension-payment:heading', pensionProvider) }}</h1>
+    {{ optionalDetailsMessage() }}
+    {% if deductions %}
+
+    {{ casaGovukInput({
+        name: 'amountBeforeDeductions',
+        label: {
+            text: t('pension-payment:amountBeforeDeductions.label')
+        },
+        attributes: {
+            style: 'padding-left: 25px'
+        },
+        formGroup: {
+            classes: 'pound-sign'
+        },
+        value: formData.amountBeforeDeductions,
+        casaErrors: formErrors,
+        classes: 'govuk-input--width-10'
+    }) }}
+
+    {{ casaGovukInput({
+        name: 'amountAfterDeductions',
+        label: {
+            text: t('pension-payment:amountAfterDeductions.label')
+        },
+        attributes: {
+            style: 'padding-left: 25px'
+        },
+        formGroup: {
+            classes: 'pound-sign'
+        },
+        value: formData.amountAfterDeductions,
+        casaErrors: formErrors,
+        classes: 'govuk-input--width-10'
+    }) }}
+
+    {% else %}
+
+    {{ casaGovukInput({
+        name: 'amount',
+        attributes: {
+            style: 'padding-left: 25px'
+        },
+        formGroup: {
+            classes: 'pound-sign'
+        },
+        value: formData.amount,
+        casaErrors: formErrors,
+        classes: 'govuk-input--width-10'
+    }) }}
+
+    {% endif %}
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "../includes/pound-sign.njk" %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}
+
+

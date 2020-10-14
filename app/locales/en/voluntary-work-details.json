@@ -1,0 +1,24 @@
+{
+  "pageTitle" : "Voluntary work details",
+  "heading" : "Voluntary work details",
+  "hint": "If you volunteer for more than one organisation, you will be asked about the others later.",
+  "organisationName" : {
+    "label" : "Organisation name",
+    "errors" : {
+      "required" : "Enter organisation name"
+    }
+  },
+  "organisationAddress": {
+    "label" : "Organisation address",
+    "address1": {
+      "errors": {
+        "required": "Enter line 1 of the organisation address"
+      }
+    },
+    "postcode" : {
+      "errors" : {
+        "required" : "Enter a postcode, like AA1 1AA"
+      }
+    }
+  }
+}

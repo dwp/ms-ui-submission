@@ -1,0 +1,57 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('not-eligible-disability-or-health-condition:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">
+        {{ t('not-eligible-disability-or-health-condition:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+        {{ t('not-eligible-disability-or-health-condition:p1') | safe }} 
+    </p>
+
+    <p class="govuk-body">
+        {{ t('not-eligible-disability-or-health-condition:p2') }} 
+    </p>
+
+    {{ casaGovukRadios({
+        name: 'whatDoYouWantToDo',
+        fieldset: {
+            legend: {
+                text: t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--m'
+            }
+        },
+        casaValue: formData.whatDoYouWantToDo,
+        casaErrors: formErrors,
+        items: [{
+            text: t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.uc'),
+            value: 'uc',
+            attributes: {
+                'data-question': t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.label'),
+                'data-answer': t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.uc')
+            }
+        }, {
+            text: t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.nsjsa'),
+            value: 'nsjsa',
+            attributes: {
+                'data-question': t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.label'),
+                'data-answer': t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.nsjsa')
+            }
+        }, {
+            text: t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.nsesa'),
+            value: 'nsesa',
+            attributes: {
+                'data-question': t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.label'),
+                'data-answer': t('not-eligible-disability-or-health-condition:whatDoYouWantToDo.nsesa')
+            }
+        }]
+    }) }}
+{% endblock %}

@@ -1,0 +1,10 @@
+{
+  "pageTitle" : "Claiming because of coronavirus",
+  "coronavirusReasonForClaim" : {
+    "label" : "Is coronavirus (COVID-19) the main reason for your claim?",
+    "hint": "<p class=\"govuk-body\">Select yes if one of the following applies to you or your child, now or some time in the past:</p><ul class=\"govuk-list govuk-list--bullet\"><li>you’re at high risk because you have an underlying health condition (shielding)</li><li>you’re self-isolating because you have symptoms of coronavirus</li><li>you’re self-isolating because you came into contact with someone who has symptoms of coronavirus. Or you were told to self-isolate by a test and trace service</li></ul>",
+    "errors" : {
+      "required": "Select yes if coronavirus is the main reason for your claim"
+    }
+  }
+}

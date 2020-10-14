@@ -1,0 +1,81 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "components/character-count/macro.njk" import govukCharacterCount %}
+
+{% block casaPageTitle %}
+    {{ t('coronavirus-reason-for-claim:pageTitle') }}
+{% endblock %}
+
+
+{% block journey_form %}
+
+    {% set highRiskDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-high-risk') %}
+    {% set selfIsolationSymptomsDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-symptoms') %}
+    {% set selfIsolationContactDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-contact') %}
+    {{ desc }}
+    {% set coronavirusReason %}
+        {{ govukCharacterCount({
+            id: 'other-reason-detail',
+            maxlength: 500,
+            label: {
+                text: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-other-label'),
+                isPageHeading: true
+            },
+            name: 'otherReasonDetail',
+            value: formData.otherReasonDetail,
+            errorMessage: formErrors
+        }) }}
+    {% endset -%}
+
+    {{ casaGovukRadios({
+        name: 'coronavirusReasonForClaim',
+        fieldset: {
+            legend: {
+                text: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            html: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.hint')
+        },
+        casaValue: formData.coronavirusReasonForClaim,
+        casaErrors: formErrors,
+        items: [{
+            text: highRiskDesc,
+            value: 'high-risk',
+            attributes: {
+                'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
+                'data-answer': highRiskDesc
+            }
+        }, {
+            text: selfIsolationSymptomsDesc,
+            value: 'self-isolation-symptoms',
+            attributes: {
+                'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
+                'data-answer': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-symptoms')
+            }
+        }, {
+            text: selfIsolationContactDesc,
+            value: 'self-isolation-contact',
+            attributes: {
+                'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
+                'data-answer': selfIsolationSymptomsDesc
+            }
+        }, {
+            text: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-other'),
+            value: 'other',
+            attributes: {
+                'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
+                'data-answer': selfIsolationContactDesc
+            },
+            conditional: {
+                html: coronavirusReason
+            }
+        }]
+    }) }}
+    <input type="hidden" name="highRiskDesc" value= "{{ highRiskDesc }}" />
+    <input type="hidden" name="selfIsolationSymptomsDesc" value= "{{ selfIsolationSymptomsDesc }}" />
+    <input type="hidden" name="selfIsolationContactDesc" value= "{{ selfIsolationContactDesc }}" />
+{% endblock %}

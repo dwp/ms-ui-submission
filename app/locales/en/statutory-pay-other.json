@@ -1,0 +1,16 @@
+{
+  "pageTitle" : "Other statutory payments",
+  "statutoryPayOther" : {
+    "label" : "Are you getting any of the following payments?",
+    "hint": "You only need to select one option.",
+    "maternity": "Statutory Maternity Pay",
+    "paternity": "Statutory Paternity Pay",
+    "adoption": "Statutory Adoption Pay",
+    "sharedParental": "Statutory Shared Parental Pay",
+    "or": "or",
+    "none": "None of these",
+    "errors" : {
+      "required": "Select which statutory payment you are getting or select 'none of these'"
+    }
+  }
+}

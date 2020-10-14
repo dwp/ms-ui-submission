@@ -1,0 +1,95 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {% if (insuranceGather | length !== 0) %}
+        {{ t('insurance:pageTitleOther') }}
+    {% else %}
+        {{ t('insurance:pageTitle') }}
+    {% endif %}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% if (insuranceGather | length !== 0) %}
+
+    <p class="govuk-heading-m govuk-!-margin-0">{{ t('insurance:list') }}</p>
+    <ul class="govuk-list govuk-heading-l govuk-!-padding-0">
+        {% for insurer in insuranceGather %}
+        <li>{{ insurer.insuranceProvider if (insurer.insuranceProvider|default('')).trim().length > 0 else t('insurance:blank') }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ casaGovukRadios({
+        name: 'other',
+        fieldset: {
+            legend: {
+                text: t('insurance:other.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.other,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('insurance:other.label'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('insurance:other.label'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="screen" value="insurance-other" />
+
+    {% else %}
+
+    {{ casaGovukRadios({
+        name: 'insurance',
+        fieldset: {
+            legend: {
+                text: t('insurance:insurance.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.insurance,
+        casaErrors: formErrors,
+        hint: {
+            text: t('insurance:insurance.hint')
+        },
+        items: [{
+            text: t('insurance:insurance.yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('insurance:insurance.label'),
+                'data-answer': t('insurance:insurance.yes')
+            }
+        }, {
+            text: t('insurance:insurance.no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('insurance:insurance.label'),
+                'data-answer': t('insurance:insurance.no')
+            }
+        },{
+            text: t('insurance:insurance.notsure'),
+            value: 'notsure',
+            attributes: {
+                'data-question': t('insurance:insurance.label'),
+                'data-answer': t('insurance:insurance.notsure')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="screen" value="insurance" />
+
+    {% endif %}
+{% endblock %}

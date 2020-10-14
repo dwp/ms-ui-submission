@@ -1,0 +1,53 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/summary-list/macro.njk" import govukSummaryList %}
+{% from "../macros/cya-header.njk" import cyaHeader with context %}
+
+{% block casaPageTitle %}
+    {{ t('check-your-answers:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">{{ t('check-your-answers:heading') }}</h1>
+
+        {% include '../review-blocks/personal-details.njk' %}
+        {% include '../review-blocks/health-conditions.njk' %}
+        {% include '../review-blocks/voluntary-work.njk' %}
+        {% include '../review-blocks/employed.njk' %}
+        {% include '../review-blocks/statutory-pay.njk' %}
+        {% include '../review-blocks/claim-date.njk' %}
+        {% include '../review-blocks/overseas.njk' %}
+        {% include '../review-blocks/pensions.njk' %}
+        {% include '../review-blocks/insurance.njk' %}
+        {% include '../review-blocks/consent-outcome.njk' %}
+
+
+        <form action="#" method="post" autocomplete="off" novalidate>
+            <input type="hidden" name="_csrf" value="{{ casa.csrfToken }}" />
+            <input type="hidden" name="reviewed" value="true" />
+            <p class="govuk-body">
+                {{ govukButton({
+                    attributes: { id: 'continue-button' },
+                    text: t('common:form.buttons.continue.label')
+                }) }}
+            </p>
+        </form>
+    </div>
+    <div class="govuk-grid-column-one-third"></div>
+</div>
+<style>
+    .button-link {
+        background:none!important;
+        color: #005ea5;
+        border:none;
+        padding:0!important;
+        font: inherit;
+        text-decoration:underline;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Paid work",
+  "employed": {
+    "label": "Are you currently employed or self-employed, even if you’re unable to work at the moment?",
+    "hint": "Select yes if you’re on a zero hours contract.",
+    "yes": "Yes, I’m currently employed or self-employed",
+    "no": "No, I’m unemployed",
+    "errors": {
+      "required": "Select yes if you're currently employed"
+    }
+  },
+
+  "list": "You have added details for:",
+  "pageTitleOther": "Other paid work",
+  "other" : {
+    "label" : "Do you have another job?",
+    "errors" : {
+      "required": "Select yes if you have another job"
+    }
+  }
+}

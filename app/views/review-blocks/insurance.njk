@@ -1,0 +1,121 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:insurance') }}</h2>
+
+{% if not journeyData.insurance.other %}
+
+{{ govukSummaryList({
+    rows: [{
+        key: { text: t('check-your-answers:insurance') },
+        value: { text: t('insurance:insurance.' + journeyData['insurance'].insurance )},
+        actions: {
+            items: [{
+                attributes: { 'id': 'insurance' },
+                href: "insurance?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsurance')
+            }]
+        }
+    }]
+}) }}
+
+{% else %}
+
+    {% for insurer in insuranceGather %}
+
+        {{ cyaHeader(t('check-your-answers:yourPolicyWith') + ' ' + insurer.insuranceProvider, 'insurance', loop.index0, t('check-your-answers:removeVisuallyHiddenTextInsurance', insurer.insuranceProvider)) }}
+
+        {% set insuranceDetails %}
+            {{ insurer.insuranceProvider }}<br>
+            {{ t('check-your-answers:refNum') if (insurer.providerRef|default('')).trim().length > 0 }} {{ insurer.providerRef }}<br>
+            {{ insurer.providerTel }}<br>
+            {{ insurer.providerAddress.address1 }}<br>
+            {% if insurer.providerAddress.address2 %}
+                {{ insurer.providerAddress.address2 }}<br>
+            {% endif %}
+            {{ insurer.providerAddress.address3 }}<br>
+            {{ insurer.providerAddress.postcode }}
+        {% endset %}
+
+        {% set insuranceRows = [{
+            key: { text: t('check-your-answers:insuranceDetails') },
+            value: { html: insuranceDetails },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'insurance-details-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=insurance-details&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsuranceDetails')
+                }]
+            }
+        }, {
+            key: { text: t('check-your-answers:insurancePremiums') },
+            value: { text: t('check-your-answers:' + insurer.premiums) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'insurance-premiums-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=insurance-premiums&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsurancePremiums', insurer.insuranceProvider)
+                }]
+            }
+        }] %}
+
+        {% if insurer.premiums !== 'yes' %}
+            {% set insuranceEmployer %}
+                {{ t('app:' + insurer.stillWork if insurer.stillWork and (insurer.stillWork|default('')).trim().length > 0) }}<br><br>
+                {% if insurer.stillWork === 'no' %}
+                {{ t('check-your-answers:insuranceEmployerEnd') }} {{ insurer.endDate | date }}
+                {% endif %}
+            {% endset %}
+            {% set insuranceEmployerRow = {
+                key: { text: t('check-your-answers:insuranceEmployer') },
+                value: { html: insuranceEmployer },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'insurance-employer-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=insurance-employer&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:insuranceEmployer')
+                    }]
+                }
+            } %}
+            {{ (insuranceRows.push(insuranceEmployerRow), null) }}
+        {% endif %}
+
+        {% set insurancePaymentRow = {
+            key: { text: t('check-your-answers:insuranceAmount') },
+            value: { text: '£' + insurer.amount + ' ' + t('insurance-payment:frequency.' + insurer.frequency) | lower if insurer.frequency and (insurer.frequency|default('')).trim().length > 0 },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'insurance-payment-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=insurance-payment&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsuranceAmount', insurer.insuranceProvider)
+                }]
+            }
+        } %}
+        {{ (insuranceRows.push(insurancePaymentRow), null) }}
+
+        {{ govukSummaryList({
+            rows: insuranceRows
+        }) }}
+
+    {% endfor %}
+
+<h3 class="govuk-heading-m">{{ t('check-your-answers:otherInsuranceHeading') }}</h3>
+
+{{ govukSummaryList({
+    rows: [{
+        key: { text: t('check-your-answers:otherInsurance') },
+        value: { text: t('app:no') },
+        actions: {
+            items: [{
+                attributes: { 'id': 'other-insurance' },
+                href: "insurance?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherInsurance')
+            }]
+        }
+    }]
+}) }}
+
+{% endif %}

@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Claim start date",
+  "claimStartDate" : {
+    "label": "What date do you want to claim from?",
+    "hint": "<p class=\"govuk-body\">You need evidence to cover the period – for example, a fit note (also known as a sick note) or an isolation note if you’re self-isolating because of coronavirus.</p>",
+    "errors": {
+      "required": "Enter the date you want to claim from",
+      "missingDay": "Date you want to claim from must include a day",
+      "missingMonth": "Date you want to claim from must include a month",
+      "missingYear": "Date you want to claim from must include a year",
+      "missingDayAndMonth": "Date you want to claim from must include a day and a month",
+      "missingDayAndYear": "Date you want to claim from must include a day and a year",
+      "missingMonthAndYear": "Date you want to claim from must include a month and a year",
+      "badFormatYear": "Enter the date you want to claim from with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date you want to claim from",
+      "notRealDigits": "Enter a real date you want to claim from using only digits",
+      "outOfRange": "Claim date cannot be more than 3 months in the future"
+    }
+  }
+}

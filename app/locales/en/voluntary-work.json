@@ -1,0 +1,18 @@
+{
+  "pageTitle" : "Voluntary work",
+  "voluntaryWork" : {
+    "label" : "Are you currently doing any voluntary work?",
+    "errors" : {
+      "required": "Select yes if you are doing some voluntary work"
+    }
+  },
+
+  "list": "You have added details for:",
+  "pageTitleOther": "Other voluntary work",
+  "other" : {
+    "label" : "Do you do any other voluntary work?",
+    "errors" : {
+      "required": "Select yes if you do any other voluntary work"
+    }
+  }
+}

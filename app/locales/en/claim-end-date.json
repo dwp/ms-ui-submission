@@ -1,0 +1,28 @@
+{
+  "pageTitle" : "Claim end date",
+  "claimEnd": {
+    "label": "Do you know the date you want to claim until?",
+    "hint": "<p class=\"govuk-body\">This could be:</p><ul class=\"govuk-list govuk-list--bullet\"><li>when you think you'll go back to work, if you're currently off sick</li><li>when you returned to work, if you're claiming for a time in the past</li></p>",
+    "no": "No, I do not know",
+    "errors": {
+      "required": "Select yes if you know the date you want to claim until"
+    }
+  },
+  "claimEndDate" : {
+    "label": "Date you want to claim until",
+    "hint": "For example, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Enter the date you want to claim until",
+      "missingDay": "Date you want to claim until must include a day",
+      "missingMonth": "Date you want to claim until must include a month",
+      "missingYear": "Date you want to claim until must include a year",
+      "missingDayAndMonth": "Date you want to claim until must include a day and a month",
+      "missingDayAndYear": "Date you want to claim until must include a day and a year",
+      "missingMonthAndYear": "Date you want to claim until must include a month and a year",
+      "badFormatYear": "Enter the date you want to claim until with a year in the right format, for example 2020 not 20",
+      "notReal": "Enter a real date you want to claim until",
+      "notRealDigits": "Enter a real date you want to claim until using only digits",
+      "outOfRange": "The date you want to claim until cannot be earlier than your claim start date"
+    }
+  }
+}

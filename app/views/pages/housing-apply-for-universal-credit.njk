@@ -1,0 +1,49 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('housing-apply-for-universal-credit:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">
+        {{ t('housing-apply-for-universal-credit:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+        {{ t('housing-apply-for-universal-credit:p1') | safe }} 
+    </p>
+
+    {{ casaGovukRadios({
+        name: 'whatDoYouWantToDo',
+        fieldset: {
+            legend: {
+                text: t('housing-apply-for-universal-credit:whatDoYouWantToDo.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--m'
+            }
+        },
+        hint: {
+            text: t('housing-apply-for-universal-credit:whatDoYouWantToDo.hint')
+        },
+        casaValue: formData.whatDoYouWantToDo,
+        casaErrors: formErrors,
+        items: [{
+            text: t('housing-apply-for-universal-credit:whatDoYouWantToDo.uc'),
+            value: 'uc',
+            attributes: {
+                'data-question': t('housing-apply-for-universal-credit:whatDoYouWantToDo.label'),
+                'data-answer': t('housing-apply-for-universal-credit:whatDoYouWantToDo.uc')
+            }
+        }, {
+            text: t('housing-apply-for-universal-credit:whatDoYouWantToDo.nsesa'),
+            value: 'nsesa',
+            attributes: {
+                'data-question': t('housing-apply-for-universal-credit:whatDoYouWantToDo.label'),
+                'data-answer': t('housing-apply-for-universal-credit:whatDoYouWantToDo.nsesa')
+            }
+        }]
+    }) }}
+{% endblock %}

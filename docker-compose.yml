@@ -1,0 +1,165 @@
+version: '3'
+networks:
+  test:
+services:
+  localstack:
+    container_name: localstack
+    image: localstack/localstack:0.11.2
+    ports:
+      - 4566:4566
+      - 8080:8080
+    environment:
+      SERVICES: kms
+      HOSTNAME_EXTERNAL: ${LOCALSTACK_HOSTNAME}
+      HOSTNAME: ${LOCALSTACK_HOSTNAME}
+      DEFAULT_REGION: ${AWS_REGION}
+    networks:
+      - test
+    healthcheck:
+      test: awslocal kms list-keys || exit 1
+      interval: 1s
+      timeout: 10s
+      retries: 60
+
+  localstack-init:
+    container_name: localstack-init
+    image: amazon/aws-cli
+    environment:
+      AWS_ACCESS_KEY_ID: dummyaccess
+      AWS_SECRET_ACCESS_KEY: dummysecret
+      AWS_DEFAULT_REGION: eu-west-2
+    networks:
+      - test
+    entrypoint: /bin/sh -c
+    command:
+      - |
+        until [ `curl -s http://localstack:8080/health | grep -o running | wc -l` -eq 1 ]; do echo "services not available, sleeping 5."; sleep 5; done
+        aws kms create-key --endpoint-url http://localstack:4566 --output=text | cut -f7 > key.txt
+        aws kms create-alias --endpoint-url http://localstack:4566 --alias-name ${REDIS_KMS_ID} --target-key-id `cat key.txt`
+    depends_on:
+      - localstack
+
+  redis-cluster:
+    container_name: redis-cluster
+    image: grokzen/redis-cluster:latest
+    environment:
+      IP: 0.0.0.0
+    networks:
+      - test
+    ports:
+      - "7000:7000-7005:7005"
+    environment:
+      - CLUSTER_ONLY=true
+
+  stub:
+    container_name: stub
+    networks:
+      - test
+    ports:
+      - 8081:8081
+    image: nginx:latest
+    volumes:
+      - ./stub-config/stub.conf:/etc/nginx/conf.d/stub.conf
+
+  app:
+    container_name: app_ui
+    environment:
+      DEBUG: ${DEBUG}
+      LOG_LEVEL: ${LOG_LEVEL}
+      SERVER_PORT: ${APP_PORT}
+      SERVER_SSL_ENABLED: ${SERVER_SSL_ENABLED}
+      ESA_CONTROLLER_URL: ${SUB_HANDLER_URL}
+      SESSIONS_SECRET: ${SESSIONS_SECRET}
+      SESSIONS_TTL: ${SESSIONS_TTL}
+      SESSIONS_DIR: ${SESSIONS_DIR}
+      REDIS_KMS_ID: ${REDIS_KMS_ID}
+      REDIS_AWS_REGION: ${AWS_REGION}
+      NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
+      NOTIFY_APIKEY: ${NOTIFY_APIKEY}
+      NOTIFY_PROXY: ${NOTIFY_PROXY}
+      AWS_ACCESS_KEY_ID: dummyaccess
+      AWS_SECRET_ACCESS_KEY: dummysecret
+      LOCALSTACK_HOSTNAME: ${LOCALSTACK_HOSTNAME}
+      REDIS_PORT: ${REDIS_PORT}
+      REDIS_HOST: ${REDIS_HOST}
+      KMS_ENDPOINT_URL: ${KMS_ENDPOINT_URL}
+      REDIS_MAX_RETRY: ${REDIS_MAX_RETRY}
+      NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
+      NOTIFY_APIKEY: ${NOTIFY_APIKEY}
+      NOTIFY_PROXY: ${NOTIFY_PROXY}
+      NOTIFY_URL: ${NOTIFY_URL}
+      NOTIFICATION_API_URL: ${NOTIFICATION_API_URL}
+    networks:
+      - test
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_VERSION=$NODE_VERSION
+        - HTTP_PROXY=$HTTP_PROXY
+        - HTTPS_PROXY=$HTTPS_PROXY
+    ports:
+      - '$APP_PORT:$APP_PORT'
+    depends_on:
+      - localstack
+      - localstack-init
+      - redis-cluster
+      - stub
+
+  selenium:
+    container_name: selenium_chrome
+    ports:
+      - '4444:4444'
+    image: 'selenium/standalone-chrome:3.141.59-zinc'
+    volumes:
+      - '/dev/shm:/dev/shm'
+    networks:
+      - test
+
+#To use develop image prior to merge (when working in CI)
+  smoke_test:
+    container_name: maven_smoke_test
+    image: 'gitlab.nonprod.dwpcloud.uk:8443/wa-transformation/esa-online/ns-esa-journey-tests/${TEST_IMAGE}'
+    environment:
+      - APP_URL=http://app_ui:${APP_PORT}
+      - SELENIUM_URL=http://selenium_chrome
+      - TEST_RUNNER=SmokeTests
+    volumes:
+      - '.:/usr/src/mymaven/.'
+      - './smoke-reports:/target/smoke-reports/'
+    networks:
+      - test
+    depends_on:
+      - selenium
+
+
+#To use develop image prior to merge (when working in CI)
+  journey_test:
+    container_name: maven_journey_test
+    image: 'gitlab.nonprod.dwpcloud.uk:8443/wa-transformation/esa-online/ns-esa-journey-tests/${TEST_IMAGE}'
+    environment:
+      - APP_URL=http://app_ui:${APP_PORT}
+      - SELENIUM_URL=http://selenium_chrome
+      - TEST_RUNNER=FeatureTests
+    volumes:
+      - '.:/usr/src/mymaven/.'
+      - './journey-reports:/target/feature-reports/'
+    networks:
+      - test
+    depends_on:
+      - selenium
+
+#To use develop image prior to merge (when working in CI)
+  axe_test:
+    container_name: maven_axe_test
+    image: 'gitlab.nonprod.dwpcloud.uk:8443/wa-transformation/esa-online/ns-esa-journey-tests/${TEST_IMAGE}'
+    environment:
+      - APP_URL=http://app_ui:${APP_PORT}
+      - SELENIUM_URL=http://selenium_chrome
+      - TEST_RUNNER=AxeTests
+    volumes:
+      - './aXe-reports:/target/aXe-text-reports/'
+    networks:
+      - test
+    depends_on:
+      - selenium

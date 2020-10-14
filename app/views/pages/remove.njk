@@ -1,0 +1,75 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "components/button/macro.njk" import govukButton %}
+
+{% block casaPageTitle %}
+    {{ t('remove:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        {% if formErrorsGovukArray %}
+            {{ govukErrorSummary({
+                titleText: t("error:summary.h1"),
+                errorList: formErrorsGovukArray
+            }) }}
+        {% endif %}
+        <form action="#" method="post" autocomplete="off" novalidate>
+            <input type="hidden" name="_csrf" value="{{ casa.csrfToken }}" />
+            
+            {% set map = {
+                voluntary: 'organisationName',
+                employment: 'employerName',
+                pension: 'pensionProvider',
+                insurance: 'insuranceProvider'
+            } %}
+
+            {{ casaGovukRadios({
+                name: 'remove',
+                fieldset: {
+                    legend: {
+                        text: t('remove:remove.' + section, gather[index][map[section]]),
+                        isPageHeading: true,
+                        classes: 'govuk-fieldset__legend--l'
+                    }
+                },
+                casaValue: formData.other,
+                casaErrors: formErrors,
+                items: [{
+                    value: 'yes',
+                    text: t('app:yes'),
+                    attributes: {
+                        'data-question': t('remove:remove.' + section, gather[index][map[section]]),
+                        'data-answer': t('app:yes')
+                    }
+                }, {
+                    value: 'no',
+                    text: t('app:no'),
+                    attributes: {
+                        'data-question': t('remove:remove.' + section, gather[index][map[section]]),
+                        'data-answer': t('app:no')
+                    }
+                }]
+            }) }}
+
+            <p class="govuk-body">
+                {{ govukButton({
+                    attributes: {
+                        id: 'continue-button',
+                        'data-button-action': params.page_path + ' > ' + t('app:continue')
+                    },
+                    text: t('app:continue')
+                }) }}
+                <a href="/check-your-answers" class="casa-cancel-review-link govuk-link--no-visited-state">{{ t('app:cancel') }}</a>
+            </p>
+        </form>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+    </div>
+</div>
+{% endblock %}

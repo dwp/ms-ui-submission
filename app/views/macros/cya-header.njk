@@ -1,0 +1,15 @@
+{% macro cyaHeader(header, page, index, visuallyHiddenText) %}
+<dl class="govuk-summary-list govuk-!-margin-bottom-2">
+    <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__value">
+            <h3 class="govuk-heading-m">{{ header }}</h3>
+        </dt>
+
+        <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="check-your-answers?remove&page={{ page }}&index={{ index }}" id="remove-{{ page }}-{{  index }}">
+               {{ t('check-your-answers:remove') }}<span class="govuk-visually-hidden"> {{ visuallyHiddenText }}</span>
+            </a>
+        </dd>
+    </div>
+</dl>
+{% endmacro %}

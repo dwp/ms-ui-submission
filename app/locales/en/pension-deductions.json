@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Deductions from pension or annuity payment - %s",
+  "deductions": {
+    "label": "Does any money get deducted from your %s pension, such as tax or charity donations?",
+    "yes": "Yes",
+    "no": "No",
+    "notsure": "I'm not sure",
+    "errors": {
+      "required": "Select yes if any money is deducted from your pension"
+    }
+  }
+}

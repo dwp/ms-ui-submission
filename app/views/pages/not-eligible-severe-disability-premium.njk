@@ -1,0 +1,77 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% block casaPageTitle %}
+  {{ t('not-eligible-severe-disability-premium:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-{% block columnWidth %}two-thirds{% endblock %}">
+    <h1 class="govuk-heading-l">
+      {{ t('not-eligible-severe-disability-premium:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+      {{ t('not-eligible-severe-disability-premium:p1') }}
+    </p>
+
+    <div class="govuk-body">
+      <h2 class="govuk-heading-m">
+        {{ t('not-eligible-severe-disability-premium:whatDoYouWantToDo.h2')}}
+      </h2>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:whatDoYouWantToDo.p1') }}
+      </p>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:whatDoYouWantToDo.p2') }}
+      </p>
+    <div>
+
+    <div class="govuk-body">
+      <h3 class="govuk-heading-m">
+        {{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.h3')}}
+      </h3>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.p1') }}
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.li1') }}</li>
+        <li>{{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.li2') }}</li>
+        <li>{{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.li3') }}</li>
+      </ul>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.p2') | safe }}
+      </p>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:MakeOrContinueClaim.p3') }}
+      </p>
+    <div>
+
+    <div class="govuk-body">
+      <h4>
+        {{ t('not-eligible-severe-disability-premium:LiveInNorthernIreland.h4')}}
+      </h4>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:LiveInNorthernIreland.p1') }}
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('not-eligible-severe-disability-premium:LiveInNorthernIreland.li1') }}</li>
+        <li>{{ t('not-eligible-severe-disability-premium:LiveInNorthernIreland.li2') }}</li>
+        <li>{{ t('not-eligible-severe-disability-premium:LiveInNorthernIreland.li3') }}</li>
+      </ul>
+
+      <p>
+        {{ t('not-eligible-severe-disability-premium:LiveInNorthernIreland.p2') | safe }}
+      </p>
+    <div>
+  <div>
+<div>
+{% endblock %}

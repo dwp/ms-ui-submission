@@ -1,0 +1,9 @@
+{
+  "pageTitle" : "Off sick from work - %s",
+  "offSick" : {
+    "label" : "Are you off sick from your job at %s?",
+    "errors" : {
+      "required": "Select yes if you are off sick from your job"
+    }
+  }
+}

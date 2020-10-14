@@ -1,0 +1,23 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% block casaPageTitle %}
+  {{ t('not-eligible-state-pension:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-{% block columnWidth %}two-thirds{% endblock %}">
+    <h1 class="govuk-heading-l">
+      {{ t('not-eligible-state-pension:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+      {{ t('not-eligible-state-pension:p1') }}
+    </p>
+
+    <p class="govuk-body">
+      {{ t('not-eligible-state-pension:p2') | safe }}
+    </p>
+  <div>
+<div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Permanent health insurance",
+  "insurance": {
+    "label": "Are you getting any money from permanent health insurance set up by an employer?",
+    "hint": "Permanent health insurance protects your income if you stop work due to an illness, injury or disability.",
+    "yes": "Yes",
+    "no": "No",
+    "notsure": "I'm not sure",
+    "errors": {
+      "required": "Select yes if you are getting money from permanent health insurance"
+    }
+  },
+
+  "list": "You have added details for:",
+  "pageTitleOther": "Other permanent health insurance",
+  "blank": "an insurance provider",
+  "other" : {
+    "label" : "Are you getting money from any other permanent health insurance policy?",
+    "errors" : {
+      "required": "Select yes if you're getting money from another permanent health insurance policy"
+    }
+  }
+}

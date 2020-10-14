@@ -1,0 +1,102 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('hospital-inpatient:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set hospitalInpatientDetails %}
+
+        {{ casaGovukInput({
+            label: {
+                text: t('hospital-inpatient:hospitalName.label'),
+                classes: 'govuk-!-font-weight-bold'
+            },
+            name: 'hospitalName',
+            value: formData.hospitalName,
+            casaErrors: formErrors
+        }) }}
+
+        {{ casaGovukInput({
+            label: {
+                text: t('hospital-inpatient:hospitalWard.label'),
+                classes: 'govuk-!-font-weight-bold'
+            },
+            name: 'hospitalWard',
+            value: formData.hospitalWard,
+            casaErrors: formErrors
+        }) }}
+
+    {% set dayError = formErrors['admissionDate'][0].inline | matchDay or formErrors['admissionDate'][0].errorType | includesDay %}
+    {% set monthError = formErrors['admissionDate'][0].inline | matchMonth or formErrors['admissionDate'][0].errorType | includesMonth %}
+    {% set yearError = formErrors['admissionDate'][0].inline | matchYear or formErrors['admissionDate'][0].errorType | includesYear %}
+
+        {% set dateParams = {
+             name: 'admissionDate',
+             fieldset: {
+                 legend: {
+                     text: t('hospital-inpatient:admissionDate.label'),
+                     classes: 'govuk-!-font-weight-bold'
+                 }
+             },
+             hint: {
+                 html: t('hospital-inpatient:admissionDate.hint', admissionDateHint )
+             },
+             casaValue: formData.admissionDate,
+             casaErrors: formErrors
+        } %}
+
+        {% set dateErrorParams = {} %}
+
+        {% if dayError or monthError or yearError %}
+            {% set dateErrorParams = {
+                items: [
+                      { classes: 'govuk-input--width-2' + (' govuk-input--error' if dayError ) },
+                      { classes: 'govuk-input--width-2' + (' govuk-input--error' if monthError ) },
+                      { classes: 'govuk-input--width-4' + (' govuk-input--error' if yearError ) }
+                ]
+            } %}
+         {% endif %}
+
+         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+
+    {% endset -%}
+
+    {{ casaGovukRadios({
+        name: 'hospitalInpatient',
+        casaValue: formData.hospitalInpatient,
+        casaErrors: formErrors,
+        fieldset: {
+            legend: {
+                html: '<h1 id="inpatient-question" class="govuk-fieldset__heading">' + t('hospital-inpatient:hospitalInpatient.label') + '</h1>',
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('hospital-inpatient:hospitalInpatient.label'),
+                'data-answer': t('app:yes'),
+                'aria-labelledby': 'inpatient-question'
+            },
+            conditional: {
+                html: hospitalInpatientDetails
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('hospital-inpatient:hospitalInpatient.label'),
+                'data-answer': t('app:no'),
+                'aria-labelledby': 'inpatient-question'
+            }
+        }]
+    }) }}
+
+{% endblock %}

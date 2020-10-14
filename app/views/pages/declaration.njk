@@ -1,0 +1,39 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('declaration:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form action="/declaration" method="post" autocomplete="off" novalidate>
+            <input type="hidden" name="_csrf" value="{{ casa.csrfToken }}">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('declaration:heading') }}</h1>
+            <p class="govuk-body">{{ t('declaration:intro') }}</p>
+            <div class="govuk-form-group">
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>{{ t('declaration:li1') }}</li>
+                    <li>{{ t('declaration:li2') }}</li>
+                    <li>{{ t('declaration:li3') }}</li>
+                </ul>
+                <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                        <span class="govuk-warning-text__assistive">Warning</span>
+                        {{ t('declaration:warning') }}
+                    </strong>
+                </div>
+            </div>
+            <p class="govuk-body">
+                <input type="submit" data-prevent-double-click="true" class="govuk-button" data-module="govuk-button" value="{{ t('declaration:agreeButton') }}"></input>
+            </p>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+  "pageTitle" : "Before you start",
+  "header" : "Before you start",
+  "warning": "You will not be able to save your answers and come back to the form later. But you'll get a chance to check and update your answers before you send it.",
+  "thingsYouNeed": {
+    "listTitle": "Make sure you have your:",
+    "li1": "National Insurance number",
+    "li2": "bank or building society account details",
+    "li3": "doctor's surgery name and address",
+    "alsoNeed": {
+      "listTitle": "You'll also need details of the following, if they apply to you:",
+      "li1": "current or recent work",
+      "li2": "the date any Statutory Sick Pay ended or will end"
+    }
+  },
+  "getBankAccount": "If you do not have a bank account, you can use the account of a trusted family member or friend. Find out <a class=\"govuk-link\" href=\"https://www.citizensadvice.org.uk/debt-and-money/banking/getting-a-bank-account/\">how to get a bank account</a> if you want to set one up.",
+  "continue" : "Continue"
+}

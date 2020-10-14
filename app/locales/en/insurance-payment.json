@@ -1,0 +1,28 @@
+{
+  "pageTitle": "Frequency of insurance payments - %s",
+  "heading": "How often are you paid by %s insurance?",
+  "blank": "this",
+  "frequency": {
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "every2Weeks": "Every 2 weeks",
+    "every4Weeks": "Every 4 weeks",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "every6Months": "Every 6 months",
+    "annually": "Annually",
+    "errors": {
+      "required": "Select how often your insurance provider pays you"
+    }
+  },
+
+  "amount": {
+    "label": "How much are you paid by %s insurance?",
+    "hint": "This is the exact amount that is paid into your bank account.",
+    "errors": {
+      "required": "Enter the amount paid into your account",
+      "notNum": "Amount you get paid must only include numbers",
+      "badFormat": "Enter the amount in the right format, like 125 or 125.50"
+    }
+  }
+}

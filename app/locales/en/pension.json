@@ -1,0 +1,31 @@
+{
+  "pageTitle": "Pension or annuity payments",
+  "pension": {
+    "label": "Are you getting regular payments from a pension or annuity?",
+    "yes": "Yes",
+    "no": "No",
+    "notsure": "I'm not sure",
+    "summary": "Help with pensions and annuities",
+    "p": "You do not need to tell us about single lump sum pension payments.",
+    "pensions": "Pensions include:",
+    "li1": "workplace pensions",
+    "li2": "personal pensions",
+    "li3": "public service pensions",
+    "li4": "stakeholder pensions",
+    "li5": "pension from a self-employed pension scheme",
+    "annuity": "An annuity is an insurance product that allows you to swap your pension savings for a guaranteed regular income that will last for the rest of your life.",
+    "errors": {
+      "required": "Select yes if you're getting regular payments from a pension or annuity"
+    }
+  },
+
+  "list": "You have added details for:",
+  "blank": "a pension provider",
+  "pageTitleOther": "Other pension or annuities",
+  "other" : {
+    "label" : "Are you getting any other pensions or annuities?",
+    "errors" : {
+      "required": "Select yes if you're getting any other pensions or annuities"
+    }
+  }
+}

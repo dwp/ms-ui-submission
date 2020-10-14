@@ -1,0 +1,21 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingConsentOutcome') }}</h2>
+
+{% set consentOutcomeRows = [] %}
+
+{% set consentOutcomeRow = {
+    key: { text: t('check-your-answers:consentOutcome') },
+    value: { text: t('consent-outcome:' + journeyData['consent-outcome'].dwpShareWithDoc) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'consent-outcome' },
+            href: "consent-outcome?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextDwpConsent')
+        }]
+    }
+} %}
+{{ (consentOutcomeRows.push(consentOutcomeRow), null) }}
+
+{{ govukSummaryList({
+    rows: consentOutcomeRows
+}) }}

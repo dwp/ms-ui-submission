@@ -1,0 +1,4 @@
+ignored:
+    - DL3017 # Do not use apk upgrade
+    - DL3018 # Do not add unpinned versions (gnutls - want latest)
+  

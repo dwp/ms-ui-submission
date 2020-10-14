@@ -1,0 +1,30 @@
+{
+  "pageTitle": "Last payment amount from pension or annuity - %s",
+  "pageTitlePayment": "Last pension payment amount - %s",
+  "amount" : {
+    "label": "How much was your last %s pension payment?",
+    "errors": {
+      "required": "Enter the amount of your last pension payment",
+      "notNum": "Pension amount must only include numbers",
+      "badFormat": "Enter the amount in the right format, like 85 or 85.50"
+    }
+  },
+  "heading": "How much was your last %s pension payment?",
+  "amountBeforeDeductions" : {
+    "label": "Amount before deductions",
+    "errors": {
+      "required": "Enter the amount before deductions",
+      "notNum": "Amount before deductions must only include numbers",
+      "badFormat": "Enter the amount before deductions in the right format, like 85 or 85.50"
+    }
+  },
+  "amountAfterDeductions" : {
+    "label": "Amount after deductions",
+    "errors": {
+      "required": "Enter the amount after deductions",
+      "notNum": "Amount after deductions must only include numbers",
+      "badFormat": "Enter the amount after deductions in the right format, like 85 or 85.50",
+      "notLessThan": "Amount after deductions must be less than the amount before deductions"
+    }
+  }
+}

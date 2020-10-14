@@ -1,0 +1,9 @@
+{
+  "pageTitle" : "Universal Credit",
+  "universalCredit" : {
+    "label" : "Do you get or have you applied for Universal Credit?",
+    "errors" : {
+      "required": "Select yes if you get or have applied for Universal Credit"
+    }
+  }
+}

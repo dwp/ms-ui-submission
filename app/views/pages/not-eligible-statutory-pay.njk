@@ -1,0 +1,23 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% block casaPageTitle %}
+  {{ t('not-eligible-statutory-pay:pageTitle') }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-{% block columnWidth %}two-thirds{% endblock %}">
+    <h1 class="govuk-heading-l">
+      {{ t('not-eligible-statutory-pay:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+      {{ t('not-eligible-statutory-pay:p1') | safe }}
+    </p>
+
+    <p class="govuk-body">
+      {{ t('not-eligible-statutory-pay:p2') }}
+    </p>
+  <div>
+<div>
+{% endblock %}

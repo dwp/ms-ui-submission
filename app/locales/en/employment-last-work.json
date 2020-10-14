@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Date last worked - %s",
+  "lastWorkedDate" : {
+    "label": "What date did you last work at %s?",
+    "hint": "<p class=\"govuk-body\" style=\"color:black\">If you worked a night shift, use the date that your shift ended.</p><p>For example, <span class=\"nobr\">%s</span></p>",
+    "errors": {
+      "required": "Enter the date you last worked ",
+      "missingDay": "Date you last worked must include a day",
+      "missingMonth": "Date you last worked must include a month",
+      "missingYear": "Date you last worked must include a year",
+      "missingDayAndMonth": "Date you last worked must include a day and a month",
+      "missingDayAndYear": "Date you last worked must include a day and a year",
+      "missingMonthAndYear": "Date you last worked must include a month and a year",
+      "badFormatYear": "Enter the date you last worked with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date for your last day worked",
+      "notRealDigits": "Enter a real date for your last day worked using only digits",
+      "inFuture": "Date you last worked must be today or in the past"
+    }
+  }
+}
+

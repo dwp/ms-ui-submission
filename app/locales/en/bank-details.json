@@ -1,0 +1,50 @@
+{
+  "pageTitle": "Bank or building society account details",
+  "heading": "Bank or building society account details",
+  "summary": "We will only use this to pay you any benefit you're entitled to. We will not share your account details with anyone else.",
+  "details": "If you do not have your own bank account, we can use the account of a trusted family member or friend.",
+  "hint": "If you have more than one job, you will be asked about your other jobs later.",
+  "accountName": {
+    "label": "Name of account holder",
+    "hint": "Enter the name as it appears on your bank card, cheque book or statement.",
+    "errors": {
+      "required": "Enter the name of the account holder",
+      "consecSpaces": "The name of the account holder must not contain consecutive spaces",
+      "consecOther": "The name of the account holder must not contain consecutive characters other than letters or numbers",
+      "startAndEndFormat": "The name of the account holder must start and end with a letter or number",
+      "startFormat": "The name of the account holder must start with a letter or a number",
+      "endFormat": "The name of the account holder must end with a letter or a number"
+    }
+  },
+  "bankName": {
+    "label": "Bank or building society name",
+    "errors": {
+      "required": "Enter the bank or building society name"
+    }
+  },
+  "sortCode": {
+    "label": "Sort code",
+    "hint": "Must be 6 digits long.",
+    "errors": {
+      "required": "Enter the sort code",
+      "notNum": "The sort code must contain only numbers",
+      "badLength": "The sort code must contain 6 digits"
+    }
+  },
+  "accountNumber": {
+    "label": "Account number",
+    "hint": "Must be 8 digits long.",
+    "errors": {
+      "required": "Enter the account number",
+      "notNum": "The account number must contain only numbers",
+      "badLength": "The account number must contain 8 digits"
+    }
+  },
+  "rollNumber": {
+    "label": "Building society roll number (if you have one)",
+    "hint": "You can find it on your card, statement or passbook.",
+    "errors" : {
+      "badFormat": "The building society roll or reference number must contain only letters, numbers, full stops, hyphens, apostrophes or forward slashes"
+    }
+  }
+}

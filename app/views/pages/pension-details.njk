@@ -1,0 +1,58 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "../macros/optional-details-message.njk" import optionalDetailsMessage with context %}
+
+{% block casaPageTitle %}
+    {{ t('pension-details:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('pension-details:heading') }}</h1>
+    {{ optionalDetailsMessage() }}
+
+    <p class="govuk-hint">{{ t('pension-details:hint') }}</p>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('pension-details:pensionProvider.label')
+        },
+        name: 'pensionProvider',
+        value: formData.pensionProvider,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('pension-details:providerRef.label')
+        },
+        name: 'providerRef',
+        value: formData.providerRef,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('pension-details:providerTel.label')
+        },
+        name: 'providerTel',
+        value: formData.providerTel,
+        classes:'govuk-!-width-one-half',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaPostalAddressObject({
+        fieldset: {
+            legend: {
+                text: t('pension-details:providerAddress.label'),
+                classes: 'govuk-!-font-weight-bold'
+            }
+        },
+        name: 'providerAddress',
+        value: formData.providerAddress,
+        casaErrors: formErrors
+    }) }}
+{% endblock %}

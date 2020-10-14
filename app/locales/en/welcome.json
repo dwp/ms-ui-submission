@@ -1,0 +1,23 @@
+{
+  "header" : "Apply for New Style Employment and Support Allowance (New Style ESA)",
+  "p1": "Use this service if you need financial support because you’re off work with a health condition, injury or disability.",
+  "eligibility": {
+    "header": "Check if you’re eligible",
+    "listTitle": "You might be eligible if you:",
+    "li1": "have paid or been credited with National Insurance in the last 2 or 3 tax years",
+    "li2": "do not get Statutory Sick Pay, or it’s due to end in the next 3 months",
+    "li3": "are under <a class=\"govuk-link\" href=\"https://www.gov.uk/check-state-pension\">State Pension age</a>",
+    "nationalInsurance": "If you’re not sure how much National Insurance you’ve paid, you can <a class=\"govuk-link\" href=\"https://www.gov.uk/check-national-insurance-record\">check your National Insurance record online</a>. You will need to set up or sign in to an online account to check."
+  },
+  "whatToExpect": {
+    "title": "What to expect",
+    "stageText": "The online form is the first stage of your application.",
+    "listHeader": "You will be asked questions about:",
+    "li1": "your health",
+    "li2": "any paid work",
+    "li3": "any voluntary work",
+    "li4": "any statutory payments",
+    "insetText": "<p>You may need to send us medical evidence to support your claim. This might be a fit note (also known as a sick note) from your doctor.</p><p>There are instructions for this at the end of the application.</p>"
+  },
+  "startButtonText" : "Start now"
+}

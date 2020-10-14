@@ -1,0 +1,222 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingPaidWork') }}</h2>
+
+{% if not journeyData['employed'].other %}
+
+    {{ govukSummaryList({
+        rows: [{
+            key: { text: t('check-your-answers:currentlyEmployed') },
+            value: { text: t('app:' + journeyData['employed'].employed ) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'employed'},
+                    href: "employed?edit",
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCurrentlyEmployed')
+                }]
+            }
+        }]
+    }) }}
+
+{% else %}
+
+    {% for emp in employmentGather %}
+
+        {{ cyaHeader(t('check-your-answers:yourJobAt') + ' ' + emp.employerName, 'employment', loop.index0, t('check-your-answers:removeVisuallyHiddenTextPaidWork', emp.employerName)) }}
+
+        {% set employmentDetails %}
+            {{ emp.jobTitle }}<br>
+            {{ emp.employerName }}<br>
+            {{ emp.employerTel }}<br>
+            {{ emp.employerAddress.address1 }}<br>
+            {% if emp.employerAddress.address2 %}
+                {{ emp.employerAddress.address2 }}<br>
+            {% endif %}
+            {{ emp.employerAddress.address3 }}<br>
+            {{ emp.employerAddress.postcode }}<br>
+        {% endset %}
+
+        {% set employmentHours %}
+            {% if emp.sameHours === 'yes' %}
+                {{ emp.hours + ' ' + (t('check-your-answers:hour') if emp.hours === '1' else t('check-your-answers:hours')) + ' ' + t('check-your-answers:eachWeek') }}
+            {% else %}
+                {{ t('check-your-answers:differentHours') }}
+            {% endif %}
+        {% endset %}
+
+        {% set employmentRows = [{
+            key: { text: t('check-your-answers:employmentDetails') },
+            value: { html: employmentDetails },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'employment-details-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=employment-details&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentDetails')
+                }]
+            }
+        }, {
+            key: { text: t('check-your-answers:offSick') },
+            value: { text: t('app:' + emp.offSick) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'off-sick-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=employment-off-sick&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOffSick', emp.employerName)
+                }]
+            }
+        }] %}
+
+        {% if emp.offSick === 'yes' %}
+        {% set lastWorkRow = {
+            key: { text: t('check-your-answers:lastWork') },
+            value: { text: (emp.lastWorkedDate | date) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'last-work-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=employment-last-work&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:lastWork')
+                }]
+            }
+        } %}
+        {{ (employmentRows.push(lastWorkRow), null) }}
+        {% endif %}
+
+        {% set workTypes %}
+            {% for type in emp.workTypes %}
+            {{ t('employment-status:workTypes.' + type) }}<br>
+            {% endfor %}
+        {% endset %}
+        {% set workTypesRow = {
+            key: { text: t('check-your-answers:employmentStatus') },
+            value: { html: workTypes },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'employment-status-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=employment-status&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentStatus', emp.employerName)
+                }]
+            }
+        } %}
+        {{ (employmentRows.push(workTypesRow), null) }}
+
+        {% if emp.offSick === 'no' %}
+            {% set hours %}
+                {% if emp.sameHours === 'yes' %}
+                    {{ emp.hours + ' ' + (t('check-your-answers:hour') if emp.hours === '1' else t('check-your-answers:hours')) + ' ' + t('check-your-answers:eachWeek') }}
+                {% else %}
+                    {{ t('check-your-answers:differentHours') }}
+                {% endif %}
+            {% endset %}
+            {% set hoursRow = {
+                key: { text: t('check-your-answers:employmentHours') },
+                value: { html: hours },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'employment-hours-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=employment-hours&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentHours', emp.employerName)
+                    }]
+                }
+            } %}
+            {{ (employmentRows.push(hoursRow), null) }}
+
+            {% if emp.sameHours === 'yes' and emp.hours !== '0' %}
+                {% set earningsRow = {
+                    key: { text: t('check-your-answers:earnings') },
+                    value: { text: '£' + emp.netPay + ' ' + t('employment-pay-frequency-samehours:frequency.' + emp.frequency) | lower },
+                    actions: {
+                        items: [{
+                            attributes: { 'id': 'employment-pay-frequency-'+loop.index0 },
+                            href: 'check-your-answers?edit&page=employment-pay-frequency-samehours&index='+loop.index0,
+                            text: t('check-your-answers:change'),
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEarnings', emp.employerName)
+                        }]
+                    }
+                } %}
+            {% else %}
+                {% set earningsRow = {
+                    key: { text: t('check-your-answers:earnings') },
+                    value: { text: '£' + emp.netPay + ' ' + t('employment-pay-frequency-other:frequency.' + emp.frequency) | lower },
+                    actions: {
+                        items: [{
+                            attributes: { 'id': 'employment-pay-frequency-'+loop.index0 },
+                            href: 'check-your-answers?edit&page=employment-pay-frequency-other&index='+loop.index0,
+                            text: t('check-your-answers:change'),
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEarnings', emp.employerName)
+                        }]
+                    }
+                } %}
+            {%  endif %}
+            {{ (employmentRows.push(earningsRow), null) }}
+
+            {{ (employmentRows.push({
+                key: { text: t('check-your-answers:supportWorker') },
+                value: { text: t('employment-support:support.notSure') if emp.support === 'notSure' else t('app:' + emp.support) },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'employment-support-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=employment-support&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSupportWorker', emp.employerName)
+                    }]
+                }
+            }), null) }}
+
+            {{ (employmentRows.push({
+                key: { text: t('check-your-answers:employmentExpenses') },
+                value: { text: t('app:yes') if emp.expenses === 'yes' else t('check-your-answers:none') },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'employment-expenses-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=employment-expenses&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentExpenses', emp.employerName)
+                    }]
+                }
+            }), null) }}
+
+            {% if emp.expenses === 'yes' %}
+            {{ (employmentRows.push({
+                key: { text: t('check-your-answers:employmentExpensesDetails') },
+                value: { text: emp.expensesDetails },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'employment-expenses-details-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=employment-expenses-details&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:employmentExpensesDetails')
+                    }]
+                }
+            }), null) }}
+            {% endif %}
+
+        {% endif %}
+
+        {{ govukSummaryList({
+            rows: employmentRows
+        }) }}
+
+    {% endfor %}
+
+    <h3 class="govuk-heading-m">{{ t('check-your-answers:otherEmploymentHeading') }}</h3>
+
+    {{ govukSummaryList({
+        rows: [{
+            key: { text: t('check-your-answers:otherEmployment') },
+            value: { text: t('app:' + journeyData.employed.other ) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'other-employment' },
+                    href: "employed?edit",
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherEmployment')
+                }]
+            }
+        }]
+    }) }}
+
+{% endif %}

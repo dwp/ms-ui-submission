@@ -1,0 +1,46 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('insurance-premiums:pageTitle', insuranceProvider) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'premiums',
+        fieldset: {
+            legend: {
+                text: t('insurance-premiums:premiums.label', insuranceProvider),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.premiums,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('insurance-premiums:premiums.yes'),
+            attributes: {
+                'data-question': t('insurance-premiums:premiums.label', insuranceProvider),
+                'data-answer': t('insurance-premiums:premiums.yes')
+            }
+        }, {
+            value: 'no',
+            text: t('insurance-premiums:premiums.no'),
+            attributes: {
+                'data-question': t('insurance-premiums:premiums.label', insuranceProvider),
+                'data-answer': t('insurance-premiums:premiums.no')
+            }
+        }, {
+            value: 'notsure',
+            text: t('insurance-premiums:premiums.notsure'),
+            attributes: {
+                'data-question': t('insurance-premiums:premiums.label', insuranceProvider),
+                'data-answer': t('insurance-premiums:premiums.notsure')
+            }
+        }]
+    }) }}
+
+{% endblock %}

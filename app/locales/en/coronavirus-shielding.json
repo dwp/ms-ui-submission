@@ -1,0 +1,10 @@
+{
+  "pageTitle" : "Reason for shielding",
+  "coronavirusShielding" : {
+    "label" : "Are you shielding because you got a letter or text message?",
+    "hint" : "You’ll have received these from the NHS, telling you to stay at home for at least 12 weeks because you’re at high risk of severe illness.",
+    "errors" : {
+      "required": "Select yes if you’re shielding because you got a letter or text message"
+    }
+  }
+}

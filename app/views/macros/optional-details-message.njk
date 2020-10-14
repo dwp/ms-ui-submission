@@ -1,0 +1,10 @@
+{% macro optionalDetailsMessage(title) %}
+    {% if title %}
+        <span class="govuk-!-margin-bottom-3 display-block">
+      {{ title }}
+    </span>
+    {% endif %}
+<div class="blue-border" aria-labelledby="optional-summary-message" role="region">
+    <p class="govuk-body govuk-!-font-weight-bold" id="optional-summary-message">{{ t('optional-details-message:message') }}</p>
+</div>
+{% endmacro %}

@@ -1,0 +1,13 @@
+{
+    "pageTitle": "You may not be eligible",
+    "h1": "Based on your answers, you may not be eligible for New Style ESA",
+    "p1": "New Style ESA supports you if you have a disability or health condition that affects your ability to work. If you're on a low income or out of work, you can apply for <a class=\"govuk-link\" href=\"https://www.gov.uk/how-to-claim-universal-credit\" target=\"_blank\">Universal Credit (opens in new tab)</a> or <a class=\"govuk-link\" href=\"https://www.gov.uk/guidance/new-style-jobseekers-allowance\" target=\"_blank\">New Style Jobseeker's Allowance (JSA) (opens in new tab)</a> instead.",
+    "p2": "Or you can continue to apply for New Style ESA if you still think you’re eligible for it.",
+    "whatDoYouWantToDo": {
+        "label": "What do you want to do?",
+        "uc": "Apply for Universal Credit",
+        "nsjsa": "Apply for New Style JSA",
+        "nsesa": "Continue to apply for New Style ESA"
+    },
+    "error": "Select if you want to apply for Universal Credit, apply for New Style JSA, or continue to apply for New Style ESA"
+}

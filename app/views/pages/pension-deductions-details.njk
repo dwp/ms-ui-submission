@@ -1,0 +1,67 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "../macros/optional-details-message.njk" import optionalDetailsMessage with context %}
+
+{% block casaPageTitle %}
+    {{ t('pension-deductions-details:pageTitle', pensionProvider) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('pension-deductions-details:heading', pensionProvider) }}</h1>
+    {{ optionalDetailsMessage() }}
+    {% for i in range(0, 20) %}
+    <div id="add-another-block-{{ i }}" class="add-another-block" {{ 'data-additional="true"' if i != 0 }}>
+
+        {{ casaGovukInput({
+            label: {
+                text: t('pension-deductions-details:amount.label')
+            },
+            name: 'deductionsDetails[' + i + '][amount]',
+            value: formData.deductionsDetails[i].amount,
+            casaErrors: formErrors,
+            formGroup: {
+                classes: 'pound-sign amount'
+            },
+            attributes: {
+                style: 'padding-left: 25px'
+            },
+            classes: 'govuk-input--width-10'
+        }) }}
+        {{ casaGovukInput({
+            label: {
+                text: t('pension-deductions-details:detail.label')
+            },
+            name: 'deductionsDetails[' + i + '][detail]',
+            value: formData.deductionsDetails[i].detail,
+            casaErrors: formErrors,
+            formGroup: {
+                classes: 'detail'
+            },
+            classes: 'govuk-!-width-one-half'
+        }) }}
+
+        {% if i != 0 %}
+        <p class="govuk-body">
+            <button type="button" data-index="{{ i }}" class="button-link add-another-remove add-another-hidden">{{ t('pension-deductions-details:remove') }}</button>
+        </p>
+        {% endif %}
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    </div>
+    {% endfor %}
+
+    <p class="govuk-body">
+        <button type="button" id="add-another" class="button-link add-another-hidden">{{ t('pension-deductions-details:addAnother') }}</button>
+    </p>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+    {% include "../includes/pound-sign.njk" %}
+    <script src="{{ casa.mountUrl }}govuk/esa/js/polyfills.js"></script>
+    {% include "../includes/pension-add-another.njk" %}
+{% endblock %}

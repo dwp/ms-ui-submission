@@ -1,0 +1,79 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+{% from "../macros/optional-details-message.njk" import optionalDetailsMessage with context %}
+
+{% block casaPageTitle %}
+    {{ t('insurance-employer:pageTitle', insuranceProvider) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set endDate %}
+
+    {% set dayError = formErrors['endDate'][0].inline | matchDay or formErrors['endDate'][0].errorType | includesDay %}
+    {% set monthError = formErrors['endDate'][0].inline | matchMonth or formErrors['endDate'][0].errorType | includesMonth %}
+    {% set yearError = formErrors['endDate'][0].inline | matchYear or formErrors['endDate'][0].errorType | includesYear %}
+
+        {% set dateParams = {
+             name: 'endDate',
+             fieldset: {
+                 legend: {
+                     text: t('insurance-employer:endDate.label')
+                 }
+             },
+             hint: {
+                 html: t('insurance-employer:endDate.hint')
+             },
+             casaValue: formData.endDate,
+             casaErrors: formErrors
+        } %}
+
+        {% set dateErrorParams = {} %}
+
+        {% if dayError or monthError or yearError %}
+            {% set dateErrorParams = {
+                items: [
+                      { classes: 'govuk-input--width-2' + (' govuk-input--error' if dayError ) },
+                      { classes: 'govuk-input--width-2' + (' govuk-input--error' if monthError ) },
+                      { classes: 'govuk-input--width-4' + (' govuk-input--error' if yearError ) }
+                ]
+            } %}
+         {% endif %}
+
+         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+
+    {% endset -%}
+    {{ casaGovukRadios({
+        name: 'stillWork',
+        fieldset: {
+            legend: {
+                html: optionalDetailsMessage(t('insurance-employer:stillWork.label')),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.stillWork,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('insurance-employer:stillWork.label'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('insurance-employer:stillWork.label'),
+                'data-answer': t('app:no')
+            },
+            conditional: {
+                html: endDate
+            }
+        }]
+    }) }}
+
+{% endblock %}

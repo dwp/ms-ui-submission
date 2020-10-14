@@ -1,0 +1,64 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('statutory-pay-other:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'statutoryPayOther',
+        fieldset: {
+            legend: {
+                text: t('statutory-pay-other:statutoryPayOther.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('statutory-pay-other:statutoryPayOther.hint')
+        },
+        casaValue: formData.statutoryPayOther,
+        casaErrors: formErrors,
+        items: [{
+            value: 'maternity',
+            text: t('statutory-pay-other:statutoryPayOther.maternity'),
+            attributes: {
+                'data-question': t('statutory-pay-other:statutoryPayOther.label'),
+                'data-answer': t('statutory-pay-other:statutoryPayOther.maternity')
+            }
+        }, {
+            value: 'paternity',
+            text: t('statutory-pay-other:statutoryPayOther.paternity'),
+            attributes: {
+                'data-question': t('statutory-pay-other:statutoryPayOther.label'),
+                'data-answer': t('statutory-pay-other:statutoryPayOther.paternity')
+            }
+        }, {
+            value: 'adoption',
+            text: t('statutory-pay-other:statutoryPayOther.adoption'),
+            attributes: {
+                'data-question': t('statutory-pay-other:statutoryPayOther.label'),
+                'data-answer': t('statutory-pay-other:statutoryPayOther.adoption')
+            }
+        }, {
+            value: 'sharedParental',
+            text: t('statutory-pay-other:statutoryPayOther.sharedParental'),
+            attributes: {
+                'data-question': t('statutory-pay-other:statutoryPayOther.label'),
+                'data-answer': t('statutory-pay-other:statutoryPayOther.sharedParental')
+            }
+        }, {
+            divider: t('statutory-pay-other:statutoryPayOther.or')
+        }, {
+            value: 'none',
+            text: t('statutory-pay-other:statutoryPayOther.none'),
+            attributes: {
+                'data-question': t('statutory-pay-other:statutoryPayOther.label'),
+                'data-answer': t('statutory-pay-other:statutoryPayOther.none')
+            }
+        }]
+    }) }}
+{% endblock %}

@@ -1,0 +1,24 @@
+{
+  "pageTitle" : "Consent for doctor to tell us about your health",
+  "heading" : "Sharing information about your health condition",
+  "p1" : "The Department for Work and Pensions (DWP), or approved healthcare professionals that work for them, might need more information about your health condition and how it affects your ability to work.",
+  "p2" : "They might ask for this information from your doctor, or any other relevant professional you tell them about.",
+  "question": "Do you give consent for your doctor or other relevant professionals to give DWP more information about your health condition?",
+  "yes" : "Yes, information about my health can be shared with DWP or the healthcare professionals that work for them",
+  "no" : "No, information about my health cannot be shared with DWP or the healthcare professionals that work for them",
+  "p3" : "You do not have to give consent. If you choose not to do so, DWP will make a decision based on the information they have already, as well as any you can give them yourself.",
+  "subHeadForHowDWPUsesInfo" : "How DWP uses this information",
+  "p4" : "DWP uses this information to:",
+  "p5" : "process your claim",
+  "p6" : "make a decision on your claim, or any mandatory reconsideration or appeal you make",
+  "p7" : "The law allows them to get, keep and use this information.",
+  "p8" : "DWP asks for your consent on behalf of your doctor or other relevant professionals you tell them about. This reassures your doctor and the others that they can legally share this information.",
+  "p9" : "DWP can lawfully ask your doctor, hospital, or other relevant professionals for information about your health condition and how it affects you. This is because they are asking for information to help them carry out their official social security functions.",
+  "subHeadForChangingMind": "If you change your mind",
+  "p10": "<p class=\"govuk-body\">You can change your mind later. Call <span class=\"nobr\">0800 169 0310</span> and say you want to give or withdraw consent.</p>",
+  "p11": "If you withdraw your consent, DWP cannot get information from your doctor or others named on your form.",
+  "understoodButton" : "I have read and understood",
+  "errors": {
+    "required": "Select yes if you agree the DWP can ask for more information about you"
+  }
+}

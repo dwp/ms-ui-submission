@@ -1,0 +1,38 @@
+{
+  "pageTitle" : "Currently in hospital",
+  "hospitalInpatient" : {
+    "label" : "Are you currently staying in hospital as an inpatient?",
+    "errors" : {
+      "required": "Select yes if you are currently in hospital as an inpatient"
+    }
+  },
+  "hospitalName" : {
+    "label" : "Hospital name",
+    "errors" : {
+      "required" : "Enter the name of the hospital"
+    }
+  },
+  "hospitalWard" : {
+    "label" : "Ward name or number",
+    "errors" : {
+      "required" : "Enter the ward name or number"
+    }
+  },
+  "admissionDate" : {
+    "label" : "Date you went into hospital",
+    "hint": "For example, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Enter your hospital admission date",
+      "missingDay": "Hospital admission date must include a day",
+      "missingMonth": "Hospital admission date must include a month",
+      "missingYear": "Hospital admission date must include a year",
+      "missingDayAndMonth": "Hospital admission date must include a day and a month",
+      "missingDayAndYear": "Hospital admission date must include a day and a year",
+      "missingMonthAndYear": "Hospital admission date must include a month and a year",
+      "badFormatYear": "Enter your hospital admission date with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real hospital admission date",
+      "notRealDigits": "Enter a real hospital admission date using only digits",
+      "inFuture": "Hospital admission date must be today or in the past"
+    }
+  }
+}

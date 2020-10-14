@@ -1,0 +1,26 @@
+{% from "components/button/macro.njk" import govukButton %}
+
+<div id="timeout" class="timeout-closed">
+    <div id="timeout-bg" tabindex="-1"></div>
+    <div class="govuk-width-container">
+        <div class="govuk-main-wrapper">
+            <div class="govuk-grid-row">
+                <div id="timeout-dialog" class="govuk-grid-column-full timeout-panel" role="dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+                        <h2 id="dialog-title" class="govuk-heading-l">{{ t('app:timeout.title') | safe }}</h2>
+                        <p class="govuk-body">{{ t('app:timeout.line1') }}</p>
+                        <p id="dialog-description" class="govuk-body">{{ t('app:timeout.line2') | safe }}</p>
+                        {{ govukButton({
+                            text: t('app:timeout.button'),
+                            href: timeout.refreshDestination,
+                            attributes: {
+                                id: 'timeout-refresh'
+                            }
+                        }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeout-value" hidden data-timeout="{{ timeout.sessionExpiry }}"></div>
+</div>
+
+<script src="{{ casa.mountUrl }}govuk/esa/js/timeout.min.js?{{ timeout.packageVersion }}"></script>

@@ -1,0 +1,83 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('claim-end-date:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set claimEndDate %}
+
+    {% set dayError = formErrors['claimEndDate'][0].inline | matchDay or formErrors['claimEndDate'][0].errorType | includesDay %}
+    {% set monthError = formErrors['claimEndDate'][0].inline | matchMonth or formErrors['claimEndDate'][0].errorType | includesMonth %}
+    {% set yearError = formErrors['claimEndDate'][0].inline | matchYear or formErrors['claimEndDate'][0].errorType | includesYear %}
+
+
+        {% set dateParams = {
+            name: 'claimEndDate',
+            fieldset: {
+                legend: {
+                    text: t('claim-end-date:claimEndDate.label')
+                }
+            },
+            hint: {
+                html: t('claim-end-date:claimEndDate.hint', claimEndDateHint)
+            },
+            casaValue: formData.claimEndDate,
+            casaErrors: formErrors
+        } %}
+
+        {% set dateErrorParams = {} %}
+
+        {% if dayError or monthError or yearError %}
+            {% set dateErrorParams = {
+                items: [
+                    { classes: 'govuk-input--width-2' + (' govuk-input--error' if dayError ) },
+                    { classes: 'govuk-input--width-2' + (' govuk-input--error' if monthError ) },
+                    { classes: 'govuk-input--width-4' + (' govuk-input--error' if yearError ) }
+                ]
+            } %}
+        {% endif %}
+
+         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+
+    {% endset %}
+
+    {{ casaGovukRadios({
+        name: 'claimEnd',
+        fieldset: {
+            legend: {
+                text: t('claim-end-date:claimEnd.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            html: t('claim-end-date:claimEnd.hint')
+        },
+        casaValue: formData.claimEnd,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('claim-end-date:claimEnd.label'),
+                'data-answer': t('claim-end-date:claimEnd.yes')
+            },
+            conditional: {
+                html: claimEndDate
+            }
+        }, {
+            value: 'no',
+            text: t('claim-end-date:claimEnd.no'),
+            attributes: {
+                'data-question': t('claim-end-date:claimEnd.label'),
+                'data-answer': t('claim-end-date:claimEnd.no')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="hiddenClaimStartDate" value={{ hiddenClaimStartDate }} />
+{% endblock %}

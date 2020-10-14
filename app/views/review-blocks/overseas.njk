@@ -1,0 +1,35 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingOverseas') }}</h2>
+
+{% set overseasRows = [] %}
+
+{% set workOverseasRow = {
+    key: { text: t('check-your-answers:workOverseas') },
+    value: { text: t('app:' + journeyData['work-overseas'].workOverseas) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'work-overseas' },
+            href: "work-overseas?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextWorkOverseas')
+        }]
+    }
+} %}
+{{ (overseasRows.push(workOverseasRow), null) }}
+
+{% set militaryOverseasRow = {
+    key: { text: t('check-your-answers:militaryOverseas') },
+    value: { text: t('app:' + journeyData['military-overseas'].militaryOverseas) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'military-overseas' },
+            href: "military-overseas?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextMilitaryOverseas')
+        }]
+    }
+} %}
+{{ (overseasRows.push(militaryOverseasRow), null) }}
+
+{{ govukSummaryList({
+    rows: overseasRows
+}) }}

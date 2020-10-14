@@ -1,0 +1,15 @@
+{
+  "pageTitle": "Home address",
+  "address": {
+    "label": "What is your address?"
+  },
+  "correspondence": {
+    "label": "Can we send letters about your claim to this address?",
+    "errors": {
+      "required": "Select yes if you want letters sending to this address"
+    }
+  },
+  "correspondenceAddress": {
+    "label": "Enter the address you want letters sent to"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "pageTitle" : "Hours worked - %s",
+  "sameHours" : {
+    "label" : "Do you work the same number of hours each week at %s?",
+    "errors" : {
+      "required": "Select yes if you work the same number of hours each week"
+    }
+  },
+  "hours" : {
+    "label" : "Hours worked a week",
+    "errors" : {
+      "required" : "Enter how many hours you work each week",
+      "notNum": "Hours you work each week must only include numbers",
+      "badFormat": "Enter the number of hours in the right format, like 10 or 10.5"
+    }
+  }
+}

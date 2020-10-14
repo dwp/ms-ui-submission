@@ -1,0 +1,10 @@
+{
+  "pageTitle" : "Severe condition",
+  "severeCondition" : {
+    "label" : "Does your doctor, consultant or specialist nurse think you might not live longer than 6 months, because of your condition?",
+    "hint" : "You may get benefits at a higher rate and start getting payments quicker than usual. This is sometimes called ’special rules’.",
+    "errors" : {
+      "required": "Select yes if your doctor, consultant or specialist nurse thinks you might not live longer than 6 months, because of your condition"
+    }
+  }
+}

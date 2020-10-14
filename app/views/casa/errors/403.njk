@@ -1,0 +1,15 @@
+{% extends "casa/errors/error-template.njk" %}
+
+{% block casaPageTitle %}
+    {{ t('403:pageTitle') }} - {{ t('app:commonTitle') }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ t('403:heading') }}</h1>
+            <p class="govuk-body">{{ t('403:line1') }}</p>
+            <p class="govuk-body">{{ t('403:line2') }}</p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Employment status - %s",
+  "workTypes": {
+    "label": "What is your employment status at %s?",
+    "hint": "Select all that apply.",
+    "employee": "Employee",
+    "selfEmployed": "Self-employed",
+    "subContractor": "Sub-contractor",
+    "director": "Company director",
+    "errors": {
+      "required": "Select any employment status that applies to you"
+    }
+  }
+}

@@ -1,0 +1,186 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:pensionHeading') }}</h2>
+
+{% if not journeyData['pension'].other %}
+
+{{ govukSummaryList({
+    rows: [{
+        key: { text: t('check-your-answers:pensions') },
+        value: { text: t('pension:pension.' + journeyData['pension'].pension ) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'pension' },
+                href: "pension?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensions')
+            }]
+        }
+    }]
+}) }}
+
+{% else %}
+
+    {% for pension in pensionGather %}
+
+        {{ cyaHeader(t('check-your-answers:yourPensionWith') + ' ' + pension.pensionProvider, 'pension', loop.index0, t('check-your-answers:removeVisuallyHiddenTextPension', pension.pensionProvider)) }}
+
+        {% set pensionDetails %}
+            {{ pension.pensionProvider }}<br>
+            {{ t('check-your-answers:refNum') if (pension.providerRef|default('')).trim().length > 0 }} {{ pension.providerRef }}<br>
+            {{ pension.providerTel }}<br>
+            {{ pension.providerAddress.address1 }}<br>
+            {% if pension.providerAddress.address2 %}
+                {{ pension.providerAddress.address2 }}<br>
+            {% endif %}
+            {{ pension.providerAddress.address3 }}<br>
+            {{ pension.providerAddress.postcode }}
+        {% endset %}
+
+        {% set pensionRows = [{
+            key: { text: t('check-your-answers:pensionDetails') },
+            value: { html: pensionDetails },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'pension-details-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=pension-details&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDetails')
+                }]
+            }
+        }, {
+            key: { text: t('check-your-answers:pensionStarted') },
+            value: { text: pension.pensionStartDate | date if (pension.pensionStartDate.dd|default('')).trim().length > 0 },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'pension-start-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=pension-start&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:pensionStarted')
+                }]
+            }
+        }, {
+            key: { text: t('check-your-answers:pensionFrequency') },
+            value: { text: t('pension-frequency:frequency.' + pension.frequency) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'pension-frequency-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=pension-frequency&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionFrequency', pension.pensionProvider)
+                }]
+            }
+        }, {
+            key: { text: t('check-your-answers:pensionDeductions') },
+            value: { text: t('pension-deductions:deductions.' + pension.deductions) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'pension-deductions-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=pension-deductions&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDeductions', pension.pensionProvider)
+                }]
+            }
+        }] %}
+
+        {% if pension.deductions === 'yes' %}
+            {% set pensionPayment %}
+                {% if (pension.amountBeforeDeductions|default('')).trim().length > 0 %}
+                    £{{ pension.amountBeforeDeductions }} {{ t('check-your-answers:beforeDeductions') }}<br>
+                {% endif %}
+                {% if (pension.amountAfterDeductions|default('')).trim().length > 0 %}
+                    £{{ pension.amountAfterDeductions }} {{ t('check-your-answers:afterDeductions') }}
+                {% endif %}
+            {% endset %}
+            {% set pensionPaymentRow = {
+                key: { text: t('check-your-answers:pensionPayment') },
+                value: { html: pensionPayment },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'pension-payment-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=pension-payment&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:pensionPayment')
+                    }]
+                }
+            } %}
+            {{ (pensionRows.push(pensionPaymentRow), null) }}
+
+            {% set deductions %}
+                {% for deduction in pension.deductionsDetails %}
+                    {% if (deduction.amount|default('')).trim().length > 0 %}
+                    £{{ deduction.amount }}
+                    {% endif %}
+                    {{ deduction.detail if (deduction.detail|default('')).trim().length > 0 }}<br>
+                {% endfor %}
+            {% endset %}
+            {% set deductionsRow = {
+                key: { text: t('check-your-answers:pensionDeductionDetails') },
+                value: { html: deductions },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'pension-deductions-details-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=pension-deductions-details&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDeductionDetails', pension.pensionProvider)
+                    }]
+                }
+            } %}
+            {{ (pensionRows.push(deductionsRow), null) }}
+        {% else %}
+            {% set pensionAmount %}
+                {% if (pension.amount|default('')).trim().length > 0 %}
+                    £{{ pension.amount }}
+                {% endif %}
+            {% endset %}
+            {% set pensionAmountRow = {
+                key: { text: t('check-your-answers:pensionPayment') },
+                value: { text: pensionAmount },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'pension-amount-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=pension-payment&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:pensionPayment')
+                    }]
+                }
+            } %}
+            {{ (pensionRows.push(pensionAmountRow), null) }}
+        {% endif %}
+
+        {% set inheritedRow = {
+            key: { text: t('check-your-answers:pensionInherited') },
+            value: { text: t('app:' + pension.inherited if pension.inherited and (pension.inherited|default('')).trim().length > 0) },
+            actions: {
+                items: [{
+                attributes: { 'id': 'pension-inherited-'+loop.index0 },
+                    href: 'check-your-answers?edit&page=pension-inherited&index='+loop.index0,
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionInherited', pension.pensionProvider)
+                }]
+            }
+        } %}
+        {{ (pensionRows.push(inheritedRow), null) }}
+
+        {{ govukSummaryList({
+            rows: pensionRows
+        }) }}
+
+    {% endfor %}
+
+<h3 class="govuk-heading-m">{{ t('check-your-answers:otherPensionsHeading') }}</h3>
+
+{{ govukSummaryList({
+    rows: [{
+        key: { text: t('check-your-answers:otherPensions') },
+        value: { text: t('app:no') },
+        actions: {
+            items: [{
+                attributes: { 'id': 'other-pension' },
+                href: "pension?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherPensions')
+            }]
+        }
+    }]
+}) }}
+
+{% endif %}

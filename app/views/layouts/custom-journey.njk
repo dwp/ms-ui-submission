@@ -1,0 +1,131 @@
+{% extends "casa/layouts/journey.njk" %}
+
+{% from "components/error-summary/macro.njk" import govukErrorSummary with context %}
+{% from "casa/components/journey-form/macro.njk" import casaJourneyForm with context %}
+{% from "components/footer/macro.njk" import govukFooter with context %}
+
+{% block head %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-script.njk" %}
+  {%- endif %}
+{%  include "includes/application-styles.njk" %}
+{% endblock %}
+
+{% block bodyStart %}
+  {%- if cookieMessage === "accept" -%}
+    {% include "partials/gtm-noscript.njk" %}
+  {%- endif %}
+  {% if cookieMessage === "unset" or cookieChoiceMade %}
+    {% include "partials/cookie-message.njk" %}
+  {% endif %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+    {% if page_path == '/eligibility' %}
+        {{ govukBackLink({
+            text: t('app:back'),
+            href: '/before-you-start'
+        }) }}
+    {% elif page_path == '/check-your-answers' or page_path == '/complete' %}
+    {% else %}
+        {{ govukBackLink({
+            text: t('app:back'),
+            href: '/back'
+        }) }}
+    {% endif %}
+{% endblock %}
+{% block pageTitle -%}
+  {{- t("error:documentTtlePrefix") if formErrors -}}
+  {% block casaPageTitle %} {% endblock %} - {{ t('app:commonTitle') }}
+{%- endblock %}
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        {% if formErrorsGovukArray %}
+            {{ govukErrorSummary({
+                titleText: t("error:summary.h1"),
+                errorList: formErrorsGovukArray
+            }) }}
+        {% endif %}
+
+        {% call casaJourneyForm({
+            csrfToken: casa.csrfToken,
+            inEditMode: inEditMode,
+            casaMountUrl: casa.mountUrl,
+            page_path: page_path,
+            cancelForm: cancelForm,
+            errorsFlag: errorsFlag
+        }) %}
+        {% block journey_form %}{% endblock %}
+        {% endcall %}
+
+        {% if inEditMode and cancelForm and not errorsFlag %}
+        <form class="govuk-body cancel-form" action="/cancel" method="post" autocomplete="off" novalidate>
+            <input type="hidden" name="_csrf" value="{{ casa.csrfToken }}" />
+            <button class="button-link">{{ t('app:cancel') }}</button>
+        </form>
+        <style>
+            .cancel-form {
+                position: relative
+            }
+            .cancel-form .button-link {
+                position: absolute;
+                top: -43px;
+                left: 10px;
+            }
+            @media (min-width: 40.0625em) {
+                .cancel-form .button-link {
+                    top: -81px;
+                    left: 151px
+                }
+            }
+            .button-link {
+                background:none!important;
+                color: #005ea5;
+                border:none;
+                padding:0!important;
+                font: inherit;
+                text-decoration:underline;
+                cursor: pointer;
+            }
+        </style>
+        {% endif %}
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+    </div>
+</div>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "https://www.gov.uk/help",
+        text: "Help"
+      },
+      {
+        href: "/accessibility-statement",
+        text: "Accessibility statement"
+      },
+      {
+        href: cookiePolicyUrl,
+        text: "Cookies"
+      },
+      {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: "Privacy"
+      }
+    ]
+  }
+}) }}
+{% endblock %}

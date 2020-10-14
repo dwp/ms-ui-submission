@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Date of birth",
+  "dateOfBirth" : {
+    "label": "What is your date of birth?",
+    "hint": "For example, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Enter your date of birth",
+      "missingDay": "Date of birth must include a day",
+      "missingMonth": "Date of birth must include a month",
+      "missingYear": "Date of birth must include a year",
+      "missingDayAndMonth": "Date of birth must include a day and a month",
+      "missingDayAndYear": "Date of birth must include a day and a year",
+      "missingMonthAndYear": "Date of birth must include a month and a year",
+      "badFormatYear": "Enter your date of birth with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date of birth",
+      "notRealDigits": "Enter a real date of birth using only digits",
+      "outOfRange": "Date of birth must be in the past"
+    }
+  }
+}

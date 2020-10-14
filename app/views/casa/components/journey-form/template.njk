@@ -1,0 +1,26 @@
+{% from "components/button/macro.njk" import govukButton %}
+
+<form action="#" method="post" autocomplete="off" novalidate>
+  <input type="hidden" name="_csrf" value="{{ params.csrfToken }}" />
+  {% if params.inEditMode %}<input type="hidden" name="edit" value="true" />{% endif %}
+
+  {# FORM CONTENT HERE #}
+  {{ caller() }}
+  {% if not params.buttonBarHidden %}
+    <p class="govuk-body">
+        {% if params.page_path !== '/feedback' and params.page_path !== '/thankyou' %}
+          {{ govukButton({
+            attributes: {
+              id: 'continue-button',
+              'data-button-action': params.page_path + ' > ' + (t('app:saveChanges') if params.inEditMode else t('app:continue'))
+            },
+            text: t('app:saveChanges') if params.inEditMode else (t('doctor-declaration:understoodButton') if params.page_path === '/doctor-declaration' else t('app:continue'))
+          }) }}
+
+          {% if params.inEditMode and not params.cancelForm and not params.errorsFlag %}
+            <a href="{{ params.casa.mountUrl }}check-your-answers" class="casa-cancel-review-link govuk-link--no-visited-state">{{ t('app:cancel') }}</a>
+          {% endif %}
+        {% endif %}
+    </p>
+  {% endif %}
+</form>

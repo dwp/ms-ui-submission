@@ -1,0 +1,38 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('military-overseas:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('military-overseas:heading') }}</h1>
+
+    <p class="govuk-hint">{{ t('military-overseas:hint') }}</p>
+
+    {{ casaGovukRadios({
+        name: 'militaryOverseas',
+        casaValue: formData.militaryOverseas,
+        casaErrors: formErrors,
+        items: [{
+            checked : formData.militaryOverseas === 'yes',
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('military-overseas:heading'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            checked : formData.militaryOverseas === 'no',
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('military-overseas:heading'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

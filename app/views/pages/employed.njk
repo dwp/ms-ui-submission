@@ -1,0 +1,91 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {% if (employmentGather | length !== 0) %}
+        {{ t('employed:pageTitleOther') }}
+    {% else %}
+        {{ t('employed:pageTitle') }}
+    {% endif %}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% if (employmentGather | length !== 0) %}
+
+    <p class="govuk-heading-m govuk-!-margin-0">{{ t('employed:list') }}</p>
+    <ul class="govuk-list govuk-heading-m govuk-!-padding-0">
+        {% for employer in employmentGather %}
+        <li>{{ employer.employerName }}</li>
+        {% endfor %}
+    </ul>
+
+    {{ casaGovukRadios({
+        name: 'other',
+        fieldset: {
+            legend: {
+                text: t('employed:other.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.other,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('app:yes'),
+            attributes: {
+                'data-question': t('employed:other.label'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            value: 'no',
+            text: t('app:no'),
+            attributes: {
+                'data-question': t('employed:other.label'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="screen" value="employed-other" />
+
+    {% else %}
+
+    {{ casaGovukRadios({
+        name: 'employed',
+        fieldset: {
+            legend: {
+                text: t('employed:employed.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('employed:employed.hint'),
+            attributes: {
+                style: 'color:black'
+            }
+        },
+        casaValue: formData.employed,
+        casaErrors: formErrors,
+        items: [{
+            text: t('employed:employed.yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('employed:employed.label'),
+                'data-answer': t('employed:employed.yes')
+            }
+        }, {
+            text: t('employed:employed.no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('employed:employed.label'),
+                'data-answer': t('employed:employed.no')
+            }
+        }]
+    }) }}
+    <input type="hidden" name="screen" value="employed" />
+
+    {% endif %}
+{% endblock %}

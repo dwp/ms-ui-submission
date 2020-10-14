@@ -1,0 +1,60 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
+
+{% block casaPageTitle %}
+    {{ t('employment-status:pageTitle', employerName) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukCheckboxes({
+        name: 'workTypes',
+        fieldset: {
+            legend: {
+                text: t('employment-status:workTypes.label', employerName),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('employment-status:workTypes.hint')
+        },
+        casaValue: formData.workTypes,
+        casaErrors: formErrors,
+        items: [{
+            checked: true if formData.workTypes and 'employee' in formData.workTypes,
+            value: 'employee',
+            text: t('employment-status:workTypes.employee'),
+            attributes: {
+                'data-question': t('employment-status:workTypes.label', employerName),
+                'data-answer': t('employment-status:workTypes.employee')
+            }
+        }, {
+            checked: true if formData.workTypes and 'selfEmployed' in formData.workTypes,
+            value: 'selfEmployed',
+            text: t('employment-status:workTypes.selfEmployed'),
+            attributes: {
+                'data-question': t('employment-status:workTypes.label', employerName),
+                'data-answer': t('employment-status:workTypes.selfEmployed')
+            }
+        }, {
+            checked: true if formData.workTypes and 'subContractor' in formData.workTypes,
+            value: 'subContractor',
+            text: t('employment-status:workTypes.subContractor'),
+            attributes: {
+                'data-question': t('employment-status:workTypes.label', employerName),
+                'data-answer': t('employment-status:workTypes.subContractor')
+            }
+        }, {
+            checked: true if formData.workTypes and 'director' in formData.workTypes,
+            value: 'director',
+            text: t('employment-status:workTypes.director'),
+            attributes: {
+                'data-question': t('employment-status:workTypes.label', employerName),
+                'data-answer': t('employment-status:workTypes.director')
+            }
+        }]
+    }) }}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('state-pension-age:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    {{ casaGovukRadios({
+        name: 'statePensionAge',
+        fieldset: {
+            legend: {
+                text: t('state-pension-age:statePensionAge.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('state-pension-age:statePensionAge.hint') | safe,
+            classes: 'govuk-hint-black'
+        },
+        casaValue: formData.statePensionAge,
+        casaErrors: formErrors,
+        items: [{
+            text: t('app:yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('state-pension-age:statePensionAge.label'),
+                'data-answer': t('app:yes')
+            }
+        }, {
+            text: t('app:no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('state-pension-age:statePensionAge.label'),
+                'data-answer': t('app:no')
+            }
+        }]
+    }) }}
+{% endblock %}

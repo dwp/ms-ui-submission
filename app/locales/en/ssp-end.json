@@ -1,0 +1,22 @@
+{
+  "pageTitle": "Statutory Sick Pay end date",
+  "sspEndDate": {
+    "label": "When does your Statutory Sick Pay end?",
+    "hint": "<p class=\"govuk-body\" style=\"color:black\">You can find this on form SSP1 if your employer has given it to you. If not, check with your employer or accountant.</p><p>For example, <span class=\"nobr\">%s</span></p>",
+    "errors": {
+      "required": "Enter the date your Statutory Sick Pay ends",
+      "missingDay": "Date your Statutory Sick Pay ends must include a day",
+      "missingMonth": "Date your Statutory Sick Pay ends must include a month",
+      "missingYear": "Date your Statutory Sick Pay ends must include a year",
+      "missingDayAndMonth": "Date your Statutory Sick Pay ends must include a day and a month",
+      "missingDayAndYear": "Date your Statutory Sick Pay ends must include a day and a year",
+      "missingMonthAndYear": "Date your Statutory Sick Pay ends must include a month and a year",
+      "badFormatYear": "Enter the date your Statutory Sick Pay ends with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date your Statutory Sick Pay ends",
+      "notRealDigits": "Enter a real date your Statutory Sick Pay ends, using only digits",
+      "inPast": "Date your Statutory Sick Pay ends must be today or in the future"
+    }
+  }
+}
+
+

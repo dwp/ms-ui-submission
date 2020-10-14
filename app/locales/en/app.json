@@ -1,0 +1,35 @@
+{
+  "serviceName": "Apply for New Style Employment and Support Allowance",
+  "commonTitle": "Apply for New Style Employment and Support Allowance - GOV.UK",
+  "continue" : "Continue",
+  "saveChanges" : "Save changes",
+  "cancel" : "Cancel",
+  "yes" : "Yes",
+  "no" : "No",
+  "back" : "Back",
+  "notSure" : "I'm not sure",
+  "date" : {
+      "day": "Day",
+      "month": "Month",
+      "year": "Year"
+  },
+  "finish": "Finish",
+  "timeout": {
+    "title": "Your session will end in <span class=\"timeout-expires\">5 minutes</span>",
+    "line1": "You have not done anything on the service for a while.",
+    "line2": "Your session will end in <span class=\"timeout-expires\">5 minutes</span> if you do not do anything on the page. You'll need to start your application again if that happens.",
+    "minute" : "minute",
+    "minutes" : "minutes",
+    "button": "Resume your application"
+  },
+  "cookies": {
+    "canWeUseCookies": "Can we use cookies in our services?",
+    "useAnalytics": "We’d like to use analytics cookies to collect information about how you use our services. This helps us to make them better.",
+    "readMore": "You can <a href=\"${url}\" class=\"govuk-link\">read more about our cookies</a> before you decide.",
+    "yes": "Yes, I’m OK with analytics cookies",
+    "no": "No, do not use analytics cookies",
+    "youAccepted": "You’ve accepted analytics cookies. You can <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
+    "youRejected": "You’ve rejected analytics cookies. You can <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
+    "hide": "Hide"
+  }
+}

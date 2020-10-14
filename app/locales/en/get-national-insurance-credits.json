@@ -1,0 +1,15 @@
+{
+    "pageTitle": "You may not be eligible for New Style ESA payments",
+    "h1": "Based on your answers, you may not be eligible for New Style ESA payments",
+    "p1": "If you’ve not made enough National Insurance contributions over the last 2 to 3 years, you may not be eligible to claim New Style ESA payments. But you may be able to get <a class=\"govuk-link\" href=\"https://www.gov.uk/national-insurance-credits/\" target=\"_blank\">National Insurance credits (opens in new tab)</a>.",
+    "p2": "New Style ESA gives you Class 1 credits, which can help to fill gaps in your National Insurance record and may help you qualify for certain benefits, including New Style Jobseeker’s Allowance and the State Pension.",
+    "p3": "If you’re on a low income or out of work, you can check if you’re eligible for Universal Credit. This will give you a regular payment and Class 3 credits. They count towards your State Pension only.",
+    "whatDoYouWantToDo": {
+        "label": "What do you want to do?",
+        "uc": "Apply for Universal Credit",
+        "nsesa": "Continue to apply for New Style ESA",
+        "uchint": "I understand that if I’m eligible for Universal Credit, it will give me Class 3 National Insurance credits.",
+        "nsesahint": "I understand that I might not get a payment, but I may get Class 1 National Insurance credits."
+    },
+    "error": "Select if you want to apply for Universal Credit or continue to apply for New Style ESA"
+}

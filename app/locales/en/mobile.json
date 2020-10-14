@@ -1,0 +1,17 @@
+{
+  "pageTitle" : "Mobile phone number",
+  "mobile" : {
+    "label" : "Do you have a mobile number?",
+    "hint": "We'll send you text messages to update you on the progress of your claim.",
+    "errors" : {
+      "required": "Select yes if you have a mobile number"
+    }
+  },
+  "number" : {
+    "label" : "Mobile number",
+    "errors" : {
+      "required" : "Enter your mobile number",
+      "badFormat": "Enter a real mobile number"
+    }
+  }
+}

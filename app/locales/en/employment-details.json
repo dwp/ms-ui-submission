@@ -1,0 +1,27 @@
+{
+  "pageTitle": "Paid work details",
+  "heading": "Employment details",
+  "hint": "If you have more than one job, you will be asked about your other jobs later.",
+  "jobTitle": {
+    "label": "Job title",
+    "errors": {
+      "required": "Enter your job title"
+    }
+  },
+  "employerName": {
+    "label": "Employer name",
+    "errors": {
+      "required": "Enter your employer's name"
+    }
+  },
+  "employerTel": {
+    "label": "Telephone number",
+    "errors": {
+      "required": "Enter your employer's telephone number",
+      "badFormat": "Enter a real telephone number"
+    }
+  },
+  "employerAddress": {
+    "label": "Employer address"
+  }
+}

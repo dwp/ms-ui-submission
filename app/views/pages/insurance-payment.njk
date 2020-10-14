@@ -1,0 +1,112 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "../macros/optional-details-message.njk" import optionalDetailsMessage with context %}
+
+{% block casaPageTitle %}
+    {{ t('insurance-payment:pageTitle', insuranceProvider) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('insurance-payment:heading', insuranceProvider if (insuranceProvider|default('')).trim().length > 0 else t('insurance-payment:blank')) }}</h1>
+    {{ optionalDetailsMessage() }}
+    {{ casaGovukRadios({
+        name: 'frequency',
+        fieldset: {
+            legend: {
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.frequency,
+        casaErrors: formErrors,
+        items: [{
+            value: 'daily',
+            text: t('insurance-payment:frequency.daily'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.daily')
+            }
+        }, {
+            value: 'weekly',
+            text: t('insurance-payment:frequency.weekly'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.weekly')
+            }
+        }, {
+            value: 'every2Weeks',
+            text: t('insurance-payment:frequency.every2Weeks'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.every2Weeks')
+            }
+        }, {
+            value: 'every4Weeks',
+            text: t('insurance-payment:frequency.every4Weeks'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.every4Weeks')
+            }
+        }, {
+            value: 'monthly',
+            text: t('insurance-payment:frequency.monthly'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.monthly')
+            }
+        }, {
+            value: 'quarterly',
+            text: t('insurance-payment:frequency.quarterly'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.quarterly')
+            }
+        }, {
+            value: 'every6Months',
+            text: t('insurance-payment:frequency.every6Months'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.every6Months')
+            }
+        }, {
+            value: 'annually',
+            text: t('insurance-payment:frequency.annually'),
+            attributes: {
+                'data-question': t('insurance-payment:frequency.label', insuranceProvider),
+                'data-answer': t('insurance-payment:frequency.annually')
+            }
+        }]
+    }) }}
+
+    {{ casaGovukInput({
+        name: 'amount',
+        label: {
+            text: t('insurance-payment:amount.label', insuranceProvider if (insuranceProvider|default('')).trim().length > 0 else t('insurance-payment:blank')),
+            classes: "govuk-label--l"
+        },
+        hint: {
+            text: t('insurance-payment:amount.hint'),
+                attributes: {
+                style: 'color:black'
+            }
+        },
+        attributes: {
+            style: 'padding-left: 25px'
+        },
+        formGroup: {
+            classes: 'pound-sign'
+        },
+        value: formData.amount,
+        casaErrors: formErrors,
+        classes: 'govuk-input--width-10'
+    }) }}
+
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "../includes/pound-sign.njk" %}
+    {% include "partials/timeout-template.njk" %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

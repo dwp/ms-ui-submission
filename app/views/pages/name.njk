@@ -1,0 +1,33 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('name:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('name:header') }}</h1>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('name:firstName.label')
+        },
+        name: 'firstName',
+        classes: 'govuk-input--width-20',
+        value: formData.firstName,
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('name:lastName.label')
+        },
+        name: 'lastName',
+        classes: 'govuk-input--width-20',
+        value: formData.lastName,
+        casaErrors: formErrors
+    }) }}
+
+{%  endblock %} %}

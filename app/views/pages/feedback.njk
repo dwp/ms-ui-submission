@@ -1,0 +1,117 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "components/button/macro.njk"           import govukButton with context %}
+{% from "components/error-summary/macro.njk"    import govukErrorSummary with context %}
+{% from "components/input/macro.njk"            import govukInput with context %}
+{% from "components/radios/macro.njk"           import govukRadios with context %}
+{% from "components/textarea/macro.njk"         import govukTextarea with context %}
+{% from "components/inset-text/macro.njk"       import govukInsetText with context %}
+
+{% block header %}{% endblock %}
+
+{% block casaPageTitle %}
+    {{ t('feedback:pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}{% endblock %}
+
+{% block journey_form %}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <form action="#" method="post" class="form" autocomplete="off" novalidate>
+                {% if formErrors.length > 0 %}
+                    {{ govukErrorSummary({
+                        titleText: "There is a problem",
+                        errorList: formErrors
+                    }) }}
+                {% endif %}
+
+                <header>
+                    <h1 class="form-title govuk-heading-l">{{ t('feedback:h1') }}</h1>
+                </header>
+
+                <div class="govuk-form-group" {{ + "govuk-form-group--error" if formErrors }}>
+                    <div name="feedback-group" id="feedback-group">
+                        <div id="feedback-group-error" class="govuk-error-message">
+                            <input type="hidden" name="referringPage" value={{ referringPage }}>
+
+                            {{ govukRadios({
+                                idPrefix: "rating",
+                                name: "rating",
+                                fieldset: {
+                                    legend: {
+                                        text: t('feedback:rating.label'),
+                                        classes: 'govuk-fieldset__legend--m'
+                                    }
+                                },
+                                errorMessage: formErrors[0].field === 'feedback-group' and {
+                                    text: t('feedback:errors.required')
+                                },
+                                items: [
+                                    {
+                                        value: "Very satisfied",
+                                        text: t('feedback:rating.verySatisfied'),
+                                        checked: rating === t('feedback:rating.verySatisfied')
+                                    },
+                                    {
+                                        value: "Satisfied",
+                                        text: t('feedback:rating.satisfied'),
+                                        checked: rating === t('feedback:rating.satisfied')
+                                    },
+                                    {
+                                        value: "Neither satisfied nor dissatisfied",
+                                        text: t('feedback:rating.neither'),
+                                        checked: rating === t('feedback:rating.neither')
+                                    },
+                                    {
+                                        value: "Dissatisfied",
+                                        text: t('feedback:rating.dissatisfied'),
+                                        checked: rating === t('feedback:rating.dissatisfied')
+                                    },
+                                    {
+                                        value: "Very dissatisfied",
+                                        text: t('feedback:rating.veryDissatisfied'),
+                                        checked: rating === t('feedback:rating.veryDissatisfied')
+                                    }
+                                ]
+                            }) }}
+
+                            <p class="govuk-heading-m">{{ t('feedback:h2') }}</p>
+
+                            <p class="govuk-body">{{ t('feedback:comments.para1') }}</p>
+
+                            <p class="govuk-body">{{ t('feedback:comments.para2') }}</p>
+
+                            {{ govukInsetText({
+                                text: t('feedback:insetText')
+                            }) }}
+            
+                            {{ govukTextarea({
+                                name: "comments",
+                                id: "comments",
+                                value: comments,
+                                errorMessage: formErrors[0].field === 'feedback-group'
+                            }) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="govuk-form-group">
+                    {{ govukButton({
+                        attributes: {
+                            id: 'continue-button',
+                            'data-button-action': t('feedback:button')
+                        },
+                        text: t('feedback:button')
+                    }) }}
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,102 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingVoluntaryWork') }}</h2>
+
+{% if not journeyData['voluntary-work'].other %}
+
+    {{ govukSummaryList({
+        classes: "govuk-!-margin-bottom-9 check-your-answers",
+        rows: [{
+            key: { text: t('check-your-answers:doingVoluntaryWork') },
+            value: { text: t('app:' + journeyData['voluntary-work'].voluntaryWork ) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'voluntary-work' },
+                    href: "voluntary-work?edit",
+                    text: t('check-your-answers:change')
+                }]
+            }
+        }]
+    }) }}
+
+{% else %}
+
+    {% for vol in voluntaryGather %}
+
+        {{ cyaHeader(t('check-your-answers:yourRoleAt') + ' ' + vol.organisationName, 'voluntary', loop.index0, t('check-your-answers:removeVisuallyHiddenTextVoluntaryWork', vol.organisationName)) }}
+
+        {% set voluntaryWorkDetails %}
+            {{ vol.organisationName }}<br>
+            {{ vol.organisationAddress.address1 }}<br>
+            {% if vol.organisationAddress.address2 %}
+                {{ vol.organisationAddress.address2 }}<br>
+            {% endif %}
+            {% if vol.organisationAddress.address3 %}
+                {{ vol.organisationAddress.address3 }}<br>
+            {% endif %}
+            {{ vol.organisationAddress.postcode }}
+        {% endset %}
+
+        {% set voluntaryWorkHours %}
+            {% if vol.sameHours === 'yes' %}
+                {{ vol.hours + ' ' + (t('check-your-answers:hour') if vol.hours === '1' else t('check-your-answers:hours')) + ' ' + t('check-your-answers:eachWeek') }}
+            {% else %}
+                {{ t('check-your-answers:differentHours') }}
+            {% endif %}
+        {% endset %}
+
+        {{ govukSummaryList({
+            rows: [{
+                key: { text: t('check-your-answers:voluntaryWorkDetails') },
+                value: { html: voluntaryWorkDetails },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'voluntary-work-details-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=voluntary-work-details&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkDetails')
+                    }]
+                }
+            }, {
+                key: { text: t('check-your-answers:voluntaryWorkType') },
+                value: { text: vol.role },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'voluntary-work-type-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=voluntary-work-role&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkType', vol.organisationName)
+                    }]
+                }
+            }, {
+                key: { text: t('check-your-answers:voluntaryWorkHours') },
+                value: { text: voluntaryWorkHours },
+                actions: {
+                    items: [{
+                        attributes: { 'id': 'voluntary-work-hours-'+loop.index0 },
+                        href: 'check-your-answers?edit&page=voluntary-work-hours&index='+loop.index0,
+                        text: t('check-your-answers:change'),
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkHours', vol.organisationName)
+                    }]
+                }
+            }]
+        }) }}
+
+    {% endfor %}
+
+    <h3 class="govuk-heading-m">{{ t('check-your-answers:otherVoluntaryWorkHeading') }}</h3>
+
+    {{ govukSummaryList({
+        rows: [{
+            key: { text: t('check-your-answers:doingOtherVoluntaryWork') },
+            value: { text: t('app:' + journeyData['voluntary-work'].other ) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'other-voluntary' },
+                    href: "voluntary-work?edit",
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherVoluntaryWork')
+                }]
+            }
+        }]
+    }) }}
+
+{% endif %}

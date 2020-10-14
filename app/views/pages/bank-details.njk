@@ -1,0 +1,105 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+{% from "components/details/macro.njk" import govukDetails with context %}
+
+{% block casaPageTitle %}
+    {{ t('bank-details:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('bank-details:heading') }}</h1>
+    <p class="govuk-body">{{ t('bank-details:summary') }}</p>
+    <p class="govuk-body">{{ t('bank-details:details') }}</p>
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details:accountName.label')
+        },
+        hint: {
+            text: t('bank-details:accountName.hint')
+        },
+        name: 'accountName',
+        value: formData.accountName,
+        classes:'govuk-input--width-20',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details:bankName.label')
+        },
+        name: 'bankName',
+        value: formData.bankName,
+        classes:'govuk-input--width-20',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details:sortCode.label')
+        },
+        hint: {
+            text: t('bank-details:sortCode.hint')
+        },
+        name: "sortCode",
+        value: formData.sortCode,
+        classes: "govuk-input--width-5",
+        casaErrors: formErrors
+        }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details:accountNumber.label')
+        },
+        hint: {
+            text: t('bank-details:accountNumber.hint')
+        },
+        name: 'accountNumber',
+        value: formData.accountNumber,
+        classes:'govuk-input--width-10',
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('bank-details:rollNumber.label')
+        },
+        hint: {
+            text: t('bank-details:rollNumber.hint')
+        },
+        name: 'rollNumber',
+        value: formData.rollNumber,
+        classes:'govuk-input--width-20',
+        casaErrors: formErrors
+    }) }}
+
+<style>
+    #f-sortCode label {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+    #f-sortCode .govuk-date-input__item {
+        position: relative;
+    }
+    #f-sortCode .govuk-date-input__item:after {
+        content: '–';
+        position: absolute;
+        left: 48px;
+        top: 8px;
+        font-family: Arial, sans-serif;
+        font-size: 19px;
+        color: grey;
+    }
+    @media (min-width: 40.0625em) {
+        #f-sortCode .govuk-date-input__item:after {
+            left: 56px;
+        }
+    }
+    #f-sortCode .govuk-date-input__item:last-child:after {
+        color:white
+    }
+</style>
+{% endblock %}

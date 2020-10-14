@@ -1,0 +1,76 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/inset-text/macro.njk" import govukInsetText %}
+{% from "components/back-link/macro.njk" import govukBackLink %}
+{# journeyPreviousUrl is set to true stops casa adding the govuk-main-wrapper--l to the main block and messing up the top margin #}
+{%  set journeyPreviousUrl = true %}
+
+{% block casaPageTitle %}
+    {{ t('before-you-start:pageTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+    {{ govukBackLink({
+        text: t('app:back'),
+        href: '/welcome'
+    }) }}
+{% endblock %}
+
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ t('before-you-start:header') }}</h1>
+            {{ govukInsetText({
+                text: t('before-you-start:warning')
+            }) }}
+            <p class="govuk-body">{{ t('before-you-start:thingsYouNeed.listTitle') }}</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('before-you-start:thingsYouNeed.li1') }}</li>
+                <li>{{ t('before-you-start:thingsYouNeed.li2') }}</li>
+                <li>{{ t('before-you-start:thingsYouNeed.li3') }}</li>
+            </ul>
+            <p class="govuk-body">{{ t('before-you-start:thingsYouNeed.alsoNeed.listTitle') }}</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('before-you-start:thingsYouNeed.alsoNeed.li1') }}</li>
+                <li>{{ t('before-you-start:thingsYouNeed.alsoNeed.li2') }}</li>
+            </ul>
+            <p class="govuk-body">{{ t('before-you-start:getBankAccount') | safe }}</p>
+
+            <p class="govuk-body">
+                {{ govukButton({
+                    text: t('before-you-start:continue'),
+                    href: "/eligibility-start",
+                    classes: 'govuk-button govuk-!-margin-bottom-8'
+                }) }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "https://www.gov.uk/help",
+        text: "Help"
+      },
+      {
+        href: "/accessibility-statement",
+        text: "Accessibility statement"
+      },
+      {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: "Privacy"
+      }
+    ]
+  }
+}) }}
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

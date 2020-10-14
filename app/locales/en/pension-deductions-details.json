@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Details of deductions from pension or annuity - %s",
+  "heading" : "Give details of all deductions from your last %s pension payment?",
+  "amount" : {
+    "label": "Deduction amount",
+    "errors": {
+      "required": "Enter the amount that is deducted from your pension",
+      "badFormat": "Enter the amount in the right format, like 15 or 15.50",
+      "notNum": "Amount must only include numbers"
+    }
+  },
+  "detail" : {
+    "label": "What's it for?",
+    "errors": {
+      "required": "Enter details of what the deduction is for"
+    }
+  },
+  "remove": "Remove",
+  "addAnother": "Add another deduction"
+}

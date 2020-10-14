@@ -1,0 +1,119 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:personalHeading') }}</h2>
+
+{% set address %}
+    {{ journeyData.address.address.address1 }}<br>
+    {% if journeyData.address.address.address2 %}
+        {{ journeyData.address.address.address2 }}<br>
+    {% endif %}
+    {% if journeyData.address.address.address3 %}
+        {{ journeyData.address.address.address3 }}<br>
+    {% endif %}
+    {{ journeyData.address.address.postcode }}<br>
+{% endset %}
+
+{% set contactAddress %}
+    {{ journeyData.address.correspondenceAddress.address1 }}<br>
+    {% if journeyData.address.correspondenceAddress.address2 %}
+        {{ journeyData.address.correspondenceAddress.address2 }}<br>
+    {% endif %}
+    {% if journeyData.address.correspondenceAddress.address3 %}
+        {{ journeyData.address.correspondenceAddress.address3 }}<br>
+    {% endif %}
+    {{ journeyData.address.correspondenceAddress.postcode }}<br>
+{% endset %}
+
+{% set personalRows = [{
+    key: { text: t('check-your-answers:name') },
+    value: { text: journeyData.name.firstName + ' ' + journeyData.name.lastName},
+    actions: {
+        items: [{
+            attributes: { 'id': 'name' },
+            href: "name?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextName')
+        }]
+    }
+}, {
+    key: { text: t('check-your-answers:dob') },
+    value: { text: journeyData['date-of-birth'].dateOfBirth | date },
+    actions: {
+        items: [{
+            attributes: { 'id': 'date-of-birth' },
+            href: "date-of-birth?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextDoB')
+        }]
+    }
+}, {
+    key: { text: t('check-your-answers:nino') },
+    value: { text: journeyData.nino.nino },
+    actions: {
+        items: [{
+            attributes: { 'id': 'nino' },
+            href: "nino?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:nino')
+        }]
+    }
+}, {
+    key: { text: t('check-your-answers:address') },
+    value: { html: address },
+    actions: {
+        items: [{
+            attributes: { 'id': 'home-address' },
+            href: "address?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextHomeAddress')
+        }]
+    }
+}] %}
+
+{% if journeyData.address.correspondence === 'no' %}
+{% set contactAddressRow = {
+    key: { text: t('check-your-answers:contactAddress') },
+    value: { html: contactAddress },
+    actions: {
+        items: [{
+            attributes: { 'id': 'contact-address' },
+            href: "address?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextContactAddress')
+        }]
+    }
+} %}
+{{ (personalRows.push(contactAddressRow), null) }}
+{% endif %}
+
+{% set mobileRow = {
+    key: { text: t('check-your-answers:mobile') },
+    value: { text: journeyData.mobile.number if journeyData.mobile.mobile === 'yes' else t('app:no') },
+    actions: {
+        items: [{
+            attributes: { 'id': 'mobile' },
+            href: "mobile?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextMobile')
+        }]
+    }
+} %}
+{{ (personalRows.push(mobileRow), null) }}
+
+{% if journeyData.mobile.mobile === 'no' %}
+{% set otherNumberRow = {
+    key: { text: t('check-your-answers:otherNumber') },
+    value: { text: journeyData['other-number'].number if journeyData['other-number'].other === 'yes' else t('app:no') },
+    actions: {
+        items: [{
+            attributes: { 'id': 'other-number' },
+            href: "other-number?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherNumber')
+        }]
+    }
+} %}
+{{ (personalRows.push(otherNumberRow), null) }}
+{% endif %}
+
+{{ govukSummaryList({
+    rows: personalRows
+}) }}

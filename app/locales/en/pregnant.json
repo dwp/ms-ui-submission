@@ -1,0 +1,27 @@
+{
+  "pageTitle": "Pregnant",
+  "pregnant": {
+    "label": "Are you pregnant?",
+    "errors": {
+      "required": "Select yes if you are pregnant"
+    }
+  },
+  "dueDate": {
+    "label": "Your due date",
+    "hint": "For example, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Enter your due date",
+      "missingDay": "Due date must include a day",
+      "missingMonth": "Due date must include a month",
+      "missingYear": "Due date must include a year",
+      "missingDayAndMonth": "Due date must include a day and a month",
+      "missingDayAndYear": "Due date must include a day and a year",
+      "missingMonthAndYear": "Due date must include a month and a year",
+      "badFormatYear": "Enter your due date with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real due date",
+      "notRealDigits": "Enter a real due date using only digits",
+      "inPast": "Due date must be today or in the future",
+      "outOfRange": "Due date is too far in the future"
+    }
+  }
+}

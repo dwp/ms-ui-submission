@@ -1,0 +1,60 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('get-national-insurance-credits:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">
+        {{ t('get-national-insurance-credits:h1') }}
+    </h1>
+
+    <p class="govuk-body">
+        {{ t('get-national-insurance-credits:p1') | safe }}
+    </p>
+
+     <p class="govuk-body">
+        {{ t('get-national-insurance-credits:p2') }}
+    </p>
+
+    <p class="govuk-body">
+        {{ t('get-national-insurance-credits:p3') }}
+    </p>
+
+    {{ casaGovukRadios({
+        name: 'whatDoYouWantToDo',
+        fieldset: {
+            legend: {
+                text: t('get-national-insurance-credits:whatDoYouWantToDo.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--m'
+            }
+        },
+        casaValue: formData.whatDoYouWantToDo,
+        casaErrors: formErrors,
+        items: [{
+            text: t('get-national-insurance-credits:whatDoYouWantToDo.nsesa'),
+            value: 'nsesa',
+            hint: {
+                text: t('get-national-insurance-credits:whatDoYouWantToDo.nsesahint')
+            },
+            attributes: {
+                'data-question': t('get-national-insurance-credits:whatDoYouWantToDo.label'),
+                'data-answer': t('get-national-insurance-credits:whatDoYouWantToDo.nsesa')
+            }
+        }, {
+            text: t('get-national-insurance-credits:whatDoYouWantToDo.uc'),
+            value: 'uc',
+            hint: {
+                text: t('get-national-insurance-credits:whatDoYouWantToDo.uchint')
+            },
+            attributes: {
+                'data-question': t('get-national-insurance-credits:whatDoYouWantToDo.label'),
+                'data-answer': t('get-national-insurance-credits:whatDoYouWantToDo.uc')
+            }
+        }]
+    }) }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{
+  "pageTitle": "Doctor's details",
+  "heading": "Which doctor's surgery or medical centre do you use?",
+  "hint": "The Department for Work and Pensions might need to contact your doctor for more information about your condition.",
+  "name": {
+    "label": "Name of surgery or medical centre",
+    "errors": {
+      "required": "Enter the name of your doctor's surgery or medical centre"
+    }
+  },
+  "phoneNumber": {
+    "label": "Surgery phone number",
+    "errors": {
+      "required": "Enter a telephone number for the doctor's surgery or medical centre",
+      "badFormat": "Enter the phone number in the right format"
+    }
+  },
+  "doctor": {
+    "label": "Name of your doctor (optional)",
+    "hint": "This helps identify the right person to speak to."
+  },
+  "address": {
+    "label": "GP surgery address",
+    "address1": {
+      "errors": {
+        "required": "Enter line 1 of the address for the doctor's surgery or medical centre"
+      }
+    }
+  },
+  "postcode": {
+    "errors": {
+      "badFormat": "Enter a real postcode in the right format"
+    }
+  }
+}

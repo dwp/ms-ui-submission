@@ -1,0 +1,10 @@
+{
+  "request_type": "SMS",
+  "metadata" :{
+    "to" : "$mobile_no$",
+    "template_id": "NSESA Application recd COVID19"
+  },
+  "payload": {
+    "values": []
+  }
+}

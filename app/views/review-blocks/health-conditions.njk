@@ -1,0 +1,249 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingHealth') }}</h2>
+
+{% set healthRows = [] %}
+{% if journeyData['coronavirus'].coronavirusReasonForClaim === 'yes' %}
+    {% set coronavirusClaimRow = {
+        key: { text: t('check-your-answers:coronavirusReasonForClaim') },
+        value: { text: t('check-your-answers:coronavirus-reason-' + journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'coronavirus-reason-for-claim' },
+                href: "coronavirus-reason-for-claim?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenCoronavirusReasonForClaim')
+            }]
+        }
+    } %}
+    {{ (healthRows.push(coronavirusClaimRow), null) }}
+{% endif %}
+{% if journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'other' %}
+{% set coronavirusOtherReasonRow = {
+    key: { text: t('check-your-answers:coronavirusOtherReason') },
+    value: { text: journeyData['coronavirus-reason-for-claim'].otherReasonDetail },
+    actions: {
+        items: [{
+            attributes: { 'id': 'coronavirus-reason-for-claim' },
+            href: "coronavirus-reason-for-claim?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenCoronavirusOtherReason')
+        }]
+    }
+} %}
+{{ (healthRows.push(coronavirusOtherReasonRow), null) }}
+{% endif %}
+
+{% if journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'high-risk' %}
+{% set coronavirusShielding = {
+    key: { text: t('check-your-answers:coronavirusShielding') },
+    value: { text: t('app:' + journeyData['coronavirus-shielding'].coronavirusShielding) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'coronavirus-shielding' },
+            href: "coronavirus-shielding?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenCoronavirusShielding')
+        }]
+    }
+} %}
+{{ (healthRows.push(coronavirusShielding), null) }}
+{% endif %}
+
+{% if journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim %}
+{% set coronavirusDateRow = {
+    key: { text: t('check-your-answers:coronavirusDate') },
+    value: { text: journeyData['coronavirus-date'].coronavirusDate | date },
+    actions: {
+        items: [{
+            attributes: { 'id': 'coronavirus-date' },
+            href: "coronavirus-date?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenCoronavirusDate')
+        }]
+    }
+} %}
+{{ (healthRows.push(coronavirusDateRow), null) }}
+    {% if journeyData['coronavirus-other-condition'].coronavirusOtherCondition %}
+    {% set coronavirusOtherConditionRow = {
+        key: { text: t('check-your-answers:coronavirusOtherCondition') },
+        value: { text: t('app:' + journeyData['coronavirus-other-condition'].coronavirusOtherCondition) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'coronavirus-other-condition' },
+                href: "coronavirus-other-condition?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenCoronavirusOtherCondition')
+            }]
+        }
+    } %}
+    {{ (healthRows.push(coronavirusOtherConditionRow), null) }}
+    {% endif %}
+{% endif %}
+
+
+{% if  journeyData.conditions.conditions | length > 0 %}
+{% set conditions %}
+    {% for condition in journeyData.conditions.conditions %}
+        {{ condition.name }}<br>
+        {{ t('check-your-answers:started') }} {{ condition.conditionStartDate | date }}
+        {%if loop.index !== loop.length %}<br><br>{% endif %}
+    {% endfor %}
+{% endset %}
+{% set conditionsRow = {
+    key: { text: t('check-your-answers:conditions') },
+    value: { html: conditions },
+    actions: {
+        items: [{
+            attributes: { 'id': 'conditions' },
+            href: "conditions?edit",
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond'),
+            text: t('check-your-answers:change')
+        }]
+    }
+} %}
+{{ (healthRows.push(conditionsRow), null) }}
+{% endif %}
+
+{% if journeyData['medical-centre'].name %}
+{% set medical %}
+    {% if journeyData['medical-centre'].doctor %}
+        {{ journeyData['medical-centre'].doctor }}<br>
+    {% endif %}
+    {{ journeyData['medical-centre'].name }}<br>
+    {{ journeyData['medical-centre'].address.address1 }}<br>
+    {% if journeyData['medical-centre'].address.address2 %}
+        {{ journeyData['medical-centre'].address.address2 }}<br>
+    {% endif %}
+    {% if journeyData['medical-centre'].address.address3 %}
+        {{ journeyData['medical-centre'].address.address3 }}<br>
+    {% endif %}
+    {{ journeyData['medical-centre'].address.postcode }}<br>
+    {% if journeyData['medical-centre'].phoneNumber %}
+        {{ journeyData['medical-centre'].phoneNumber }}<br>
+    {% endif %}
+{% endset %}
+{% set medicalRow = {
+    key: { text: t('check-your-answers:doctorsDetails') },
+    value: { html: medical },
+    actions: {
+        items: [{
+            attributes: { 'id': 'medical-centre' },
+            href: "medical-centre?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextDocDetail')
+        }]
+    }
+} %}
+{{ (healthRows.push(medicalRow), null) }}
+{% endif %}
+
+{% if (journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'no') or (journeyData['coronavirus-other-condition'].coronavirusOtherCondition === 'yes') %}
+{% set terminalRow = {
+    key: { text: t('check-your-answers:lifeExpectancy') },
+    value: { text: t('check-your-answers:lifeExpectancy-' + journeyData['severe-condition'].severeCondition) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'severe-condition' },
+            href: "severe-condition?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLifeExp')
+        }]
+    }
+} %}
+{{ (healthRows.push(terminalRow), null) }}
+{% endif %}
+
+{% if journeyData['severe-condition'].severeCondition === 'yes' %}
+{% set ds1500 %}
+    {% if journeyData['ds1500-report'].ds1500Report === 'dontKnow' %}
+        {{ t('ds1500-report:ds1500Report.dontKnow') | safe }}
+    {% else %}
+        {{ t('app:' + journeyData['ds1500-report'].ds1500Report) }}
+    {% endif %}
+{% endset %}
+{% set ds1500Row = {
+    key: { text: t('check-your-answers:ds1500Sent') },
+    value: { text: ds1500 },
+    actions: {
+        items: [{
+            attributes: { 'id': 'ds1500-report' },
+            href: "ds1500-report?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextDS1500')
+        }]
+    }
+} %}
+{{ (healthRows.push(ds1500Row), null) }}
+{% endif %}
+
+{% set inpatientRow = {
+    key: { text: t('check-your-answers:inHospital') },
+    value: { text: t('app:' + journeyData['hospital-inpatient'].hospitalInpatient) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'hospital-inpatient' },
+            href: "hospital-inpatient?edit",
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInHosp'),
+            text: t('check-your-answers:change')
+        }]
+    }
+} %}
+{{ (healthRows.push(inpatientRow), null) }}
+
+{% if journeyData['hospital-inpatient'].hospitalInpatient === 'yes' %}
+{% set hospital %}
+    {{ journeyData['hospital-inpatient'].hospitalName }}<br>
+    {{ journeyData['hospital-inpatient'].hospitalWard }}<br><br>
+    {{ t('check-your-answers:admittedOn') }} {{ journeyData['hospital-inpatient'].admissionDate | date }}
+{% endset %}
+{% set hospitalRow = {
+    key: { text: t('check-your-answers:hospitalDetails') },
+    value: { html: hospital },
+    actions: {
+        items: [{
+            attributes: { 'id': 'hospital-details' },
+            href: "hospital-inpatient?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextHospDetail')
+        }]
+    }
+} %}
+{{ (healthRows.push(hospitalRow), null) }}
+{% endif %}
+
+{% set pregnant %}
+    {{ t('app:'+journeyData.pregnant.pregnant) }}<br>
+    {% if journeyData.pregnant.pregnant === 'yes' %}
+        {{ t('check-your-answers:due') }} {{ journeyData.pregnant.dueDate | date }}
+    {% endif %}
+{% endset %}
+{% set pregnantRow = {
+    key: { text: t('check-your-answers:pregnant') },
+    value: { html: pregnant },
+    actions: {
+        items: [{
+            attributes: { 'id': 'pregnant' },
+            href: "pregnant?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPregnant')
+        }]
+    }
+} %}
+{{ (healthRows.push(pregnantRow), null) }}
+
+{% set doctorDeclarationRow = {
+    key: { text: t('check-your-answers:doctorDeclaration') },
+    value: { text: t('doctor-declaration:' + journeyData['doctor-declaration'].docShareWithDWP) },
+    actions: {
+        items: [{
+            attributes: { 'id': 'doctor-declaration' },
+            href: "doctor-declaration?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextDocConsent')
+        }]
+    }
+} %}
+{{ (healthRows.push(doctorDeclarationRow), null) }}
+
+{{ govukSummaryList({
+    rows: healthRows
+}) }}

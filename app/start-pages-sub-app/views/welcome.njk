@@ -1,0 +1,81 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/inset-text/macro.njk" import govukInsetText %}
+{% from "components/warning-text/macro.njk" import govukWarningText %}
+
+{% block pageTitle %}
+    {{ t('app:commonTitle') }}
+{% endblock %}
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+        {{ govukBackLink({
+        text: t('app:back'),
+        href: '/'
+    }) }}
+{% endblock %}
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">{{ t('welcome:header') }}</h1>
+            <p class="govuk-body">{{ t('welcome:p1') }}</p>
+            <h2 class="govuk-heading-m">{{ t('welcome:eligibility.header') }}</h2>
+            <p class="govuk-body">{{ t('welcome:eligibility.listTitle') }}</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('welcome:eligibility.li1') }}</li>
+                <li>{{ t('welcome:eligibility.li2') }}</li>
+                <li>{{ t('welcome:eligibility.li3') | safe }}</li>
+            </ul>
+            <p class="govuk-body">{{ t('welcome:eligibility.nationalInsurance') | safe }}</p>
+
+            <h2 class="govuk-heading-m">{{ t('welcome:whatToExpect.title') }}</h2>
+            <p class="govuk-body">{{ t('welcome:whatToExpect.stageText') }}</p>
+            <p class="govuk-body">{{ t('welcome:whatToExpect.listHeader') }}</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>{{ t('welcome:whatToExpect.li1') }}</li>
+                <li>{{ t('welcome:whatToExpect.li2') }}</li>
+                <li>{{ t('welcome:whatToExpect.li3') }}</li>
+                <li>{{ t('welcome:whatToExpect.li4') }}</li>
+            </ul>
+
+
+
+            {{ govukInsetText({
+                text: t('welcome:whatToExpect.insetText') | safe
+            }) }}
+
+            <p class="govuk-body">
+                {{ govukButton({
+                    text: t('welcome:startButtonText'),
+                    href: "/before-you-start",
+                    classes: 'govuk-button govuk-button--start govuk-!-margin-top-6 govuk-!-margin-bottom-8'
+                }) }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "https://www.gov.uk/help",
+        text: "Help"
+      },
+      {
+        href: "/accessibility-statement",
+        text: "Accessibility statement"
+      },
+      {
+        href: "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter",
+        text: "Privacy"
+      }
+    ]
+  }
+}) }}
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

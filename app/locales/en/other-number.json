@@ -1,0 +1,16 @@
+{
+  "pageTitle" : "Other contact number",
+  "other" : {
+    "label" : "Is there another number you can be contacted on?",
+    "errors" : {
+      "required": "Select yes if you have another number"
+    }
+  },
+  "number" : {
+    "label" : "Telephone number",
+    "errors" : {
+      "required" : "Enter your telephone number",
+      "badFormat" : "Enter a real telephone number"
+    }
+  }
+}

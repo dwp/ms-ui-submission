@@ -1,0 +1,46 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('pension-deductions:pageTitle', pensionProvider) }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'deductions',
+        fieldset: {
+            legend: {
+                text: t('pension-deductions:deductions.label', pensionProvider),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.deductions,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('pension-deductions:deductions.yes'),
+            attributes: {
+                'data-question': t('pension-deductions:deductions.label', pensionProvider),
+                'data-answer': t('pension-deductions:deductions.yes')
+            }
+        }, {
+            value: 'no',
+            text: t('pension-deductions:deductions.no'),
+            attributes: {
+                'data-question': t('pension-deductions:deductions.label', pensionProvider),
+                'data-answer': t('pension-deductions:deductions.no')
+            }
+        }, {
+            value: 'notsure',
+            text: t('pension-deductions:deductions.notsure'),
+            attributes: {
+                'data-question': t('pension-deductions:deductions.label', pensionProvider),
+                'data-answer': t('pension-deductions:deductions.notsure')
+            }
+        }]
+    }) }}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('consent-outcome:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('consent-outcome:heading') }}</h1>
+    <p class="govuk-body">{{ t('consent-outcome:p1' ) | safe }}</p>
+    <p class="govuk-body">{{ t('consent-outcome:p2' ) | safe }}</p>
+    <p class="govuk-body">{{ t('consent-outcome:p3' ) | safe }}</p>
+    <p class="govuk-body">{{ t('consent-outcome:p4' ) | safe }}</p>
+
+    <div>
+        <h3 class="govuk-heading-m">{{ t('consent-outcome:subHead') }}</h3>
+    </div>
+    {{ casaGovukRadios({
+        name: 'dwpShareWithDoc',
+        casaValue: formData.dwpShareWithDoc,
+        casaErrors: formErrors,
+        items: [{
+            checked : formData.dwpShareWithDoc === 'yes',
+            value: 'yes',
+            text: t('consent-outcome:yes'),
+            attributes: {
+                'data-question': t('consent-outcome:heading'),
+                'data-answer': t('consent-outcome:yes')
+            }
+        }, {
+            checked : formData.dwpShareWithDoc === 'no',
+            value: 'no',
+            text: t('consent-outcome:no'),
+            attributes: {
+                'data-question': t('consent-outcome:heading'),
+                'data-answer': t('consent-outcome:no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

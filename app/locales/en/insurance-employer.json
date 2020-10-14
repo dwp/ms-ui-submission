@@ -1,0 +1,26 @@
+{
+  "pageTitle": "Still working for employer who set up insurance - %s",
+  "stillWork": {
+    "label": "Do you still work for the employer who set up this policy?",
+    "errors": {
+      "required": "Select yes if you still work for the employer who set up this policy"
+    }
+  },
+  "endDate" : {
+    "label": "Date this employment ended",
+    "hint": "<p>For example, <span class=\"nobr\">31 3 2012</span></p>",
+    "errors": {
+      "required": "Enter the date this employment ended",
+      "missingDay": "Date employment ended must include a day",
+      "missingMonth": "Date employment ended must include a month",
+      "missingYear": "Date employment ended must include a year",
+      "missingDayAndMonth": "Date employment ended must include a day and a month",
+      "missingDayAndYear": "Date employment ended must include a day and a year",
+      "missingMonthAndYear": "Date employment ended must include a month and a year",
+      "badFormatYear": "Enter the date this employment ended with a year in the right format, for example 2001 not 01",
+      "notReal": "Enter a real date this employment ended",
+      "notRealDigits": "Enter a real date this employment ended using only digits",
+      "inPast": "Date employment ended must not be in the future"
+    }
+  }
+}
