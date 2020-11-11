@@ -6,7 +6,7 @@
     "title": "What happens next"
   },
   "coronavirus" : {
-    "text1": "There may be a delay in processing your application because of the coronavirus outbreak. We aim to get back to you by %s.",
+    "text1": "<p class=\"govuk-body-l\">There may be a delay in processing your application because of the coronavirus outbreak. We aim to get back to you by <span class=\"nobr\">%s</span>.</p>",
     "text2": "Please do not contact the Department for Work and Pensions (DWP) for an update before then."
   },
   "medicalEvidence" : {

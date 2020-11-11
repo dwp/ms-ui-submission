@@ -2,6 +2,8 @@
   "pageTitle" : "Professional support worker - %s",
   "support" : {
     "label" : "Do you get help from a professional support worker at %s?",
+    "yes": "Yes",
+    "no": "No",
     "hint" : "A professional support worker is someone from a public body or voluntary organisation whose job it is to give you ongoing support and supervision to help you stay in work.",
     "notSure": "I'm not sure",
     "errors" : {

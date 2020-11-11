@@ -2,6 +2,8 @@
   "pageTitle" : "Expenses - %s",
   "expenses" : {
     "label" : "Does %s pay you any expenses?",
+    "yes": "Yes",
+    "no": "No",
     "errors" : {
       "required": "Select yes if your employer pays you any expenses"
     }

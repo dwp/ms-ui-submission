@@ -1,4 +1,12 @@
-# 2.3.0 (2020-10-13)
+# 2.3.0 (2020-11-11)
+* ESAO-1062	Add client_id in SMS template
+* ESAO-1037	BUG: make radio buttons align on /claim-end-date
+* ESAO-1021	Don't allow dates to break over 2 lines
+* ESAO-975	consider extending the claim made within SSP ending to 13 weeks
+* ESAO-938	Limit the number of characters in text area fields
+* ESAO-925	Refactor JSON messages files to include responses
+
+## <small>2.3.0 (2020-10-07)</small>
 
 * ESAO-1016	Improve journey for backdating claims further than 3 month
 * ESAO-1038	Employment status getting lost when change off-sick

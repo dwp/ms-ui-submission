@@ -168,7 +168,7 @@
 
             {{ (employmentRows.push({
                 key: { text: t('check-your-answers:employmentExpenses') },
-                value: { text: t('app:yes') if emp.expenses === 'yes' else t('check-your-answers:none') },
+                value: { text: t('employed:other.yes') if emp.expenses === 'yes' else t('check-your-answers:none') },
                 actions: {
                     items: [{
                         attributes: { 'id': 'employment-expenses-'+loop.index0 },

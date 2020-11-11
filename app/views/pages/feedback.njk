@@ -4,7 +4,7 @@
 {% from "components/error-summary/macro.njk"    import govukErrorSummary with context %}
 {% from "components/input/macro.njk"            import govukInput with context %}
 {% from "components/radios/macro.njk"           import govukRadios with context %}
-{% from "components/textarea/macro.njk"         import govukTextarea with context %}
+{% from "components/character-count/macro.njk"  import govukCharacterCount %}
 {% from "components/inset-text/macro.njk"       import govukInsetText with context %}
 
 {% block header %}{% endblock %}
@@ -86,13 +86,17 @@
                             {{ govukInsetText({
                                 text: t('feedback:insetText')
                             }) }}
-            
-                            {{ govukTextarea({
-                                name: "comments",
-                                id: "comments",
+
+                            {{ govukCharacterCount({
+                                id: 'comments',
+                                maxlength: 1200,
+                                name: 'comments',
                                 value: comments,
-                                errorMessage: formErrors[0].field === 'feedback-group'
+                                errorMessage: (formErrors[0].field === 'feedback-comment' or formErrors[1].field === 'feedback-comment') and {
+                                    text: t('feedback:errors.maxLength')
+                                }
                             }) }}
+
                         </div>
                     </div>
                 </div>

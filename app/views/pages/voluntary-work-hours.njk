@@ -35,20 +35,20 @@
         casaErrors: formErrors,
         items: [{
             value: 'yes',
-            text: t('app:yes'),
+            text: t('voluntary-work-hours:sameHours.yes'),
             attributes: {
                 'data-question': t('voluntary-work-hours:sameHours.label', organisationName),
-                'data-answer': t('app:yes')
+                'data-answer': t('voluntary-work-hours:sameHours.yes')
             },
             conditional: {
                 html: hours
             }
         }, {
             value: 'no',
-            text: t('app:no'),
+            text: t('voluntary-work-hours:sameHours.no'),
             attributes: {
                 'data-question': t('voluntary-work-hours:sameHours.label', organisationName),
-                'data-answer': t('app:no')
+                'data-answer': t('voluntary-work-hours:sameHours.no')
             }
         }]
     }) }}

@@ -39,5 +39,4 @@ If we _can_ accept your contribution we'll raise a task on our backlog to implem
 
 If we accept your code and it makes it to a release then we'll acknowledge your valuable contribution in the change log, as well as letting you know directly.
 
-
 _`document reference : ContributionGuide.docx (1.1)`_

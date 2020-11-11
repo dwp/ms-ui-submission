@@ -19,6 +19,7 @@ describe('EnvValidator', () => {
       SESSIONS_TTL: '3600',
       REDIS_PORT: '',
       REDIS_HOST: '',
+      REDIS_ENCRYPTION_TRANSIT: '',
       ESA_CONTROLLER_URL: 'http://test:8000/v1/',
       NOTIFICATION_API_URL: 'http://test:8000/v1/',
       NOTIFY_EMAILTO: 'test@test.co.uk',
@@ -37,6 +38,7 @@ describe('EnvValidator', () => {
     testEnv.REDIS_HOST = 'test';
     testEnv.REDIS_KMS_ID = 'alias/key_ref';
     testEnv.REDIS_AWS_REGION = 'eu-west-2';
+    testEnv.REDIS_ENCRYPTION_TRANSIT = 'true';
     expect(() => validator(testEnv)).not.to.throw();
   });
 

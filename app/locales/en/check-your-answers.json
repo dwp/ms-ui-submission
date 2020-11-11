@@ -56,7 +56,7 @@
   "statPayHeading": "Statutory pay",
   "ssp": "Getting Statutory Sick Pay",
   "sspEnd": "Statutory Sick Pay ends",
-  "sspRecent": "Statutory Sick Pay in the last 12 weeks",
+  "sspRecent": "Statutory Sick Pay in the 13 weeks before the date you want to claim from",
   "sspRecentEnd": "Statutory Sick Pay ended",
   "otherStatPay": "Other statutory payments",
 
@@ -132,7 +132,7 @@
   "visuallyHiddenTextEmploymentExpenses": "expenses paid for by %s",
   "visuallyHiddenTextOtherEmployment": "whether you have another job",
   "visuallyHiddenTextSsp": "whether you get Statutory Sick Pay or not",
-  "visuallyHiddenTextSspRecent": "whether you got Statutory Sick Pay in the last 12 weeks",
+  "visuallyHiddenTextSspRecent": "whether you got Statutory Sick Pay in the 13 weeks before the date you want to claim from",
   "visuallyHiddenTextSspRecentEnd": "end date for your Statutory Sick Pay",
   "visuallyHiddenTextSspEnd": "end date for your Statutory Sick Pay",
   "visuallyHiddenTextOtherStatPay": "other statutory payments",

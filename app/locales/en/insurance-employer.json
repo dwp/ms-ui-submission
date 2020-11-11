@@ -2,6 +2,8 @@
   "pageTitle": "Still working for employer who set up insurance - %s",
   "stillWork": {
     "label": "Do you still work for the employer who set up this policy?",
+    "yes": "Yes",
+    "no": "No",
     "errors": {
       "required": "Select yes if you still work for the employer who set up this policy"
     }

@@ -31,5 +31,9 @@
     "youAccepted": "You’ve accepted analytics cookies. You can <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
     "youRejected": "You’ve rejected analytics cookies. You can <a href=\"${url}\" class=\"govuk-link\">change your cookie settings</a> at any time.",
     "hide": "Hide"
+  },
+  "phaseBanner": {
+    "phase": "beta",
+    "text": "This is a new service – your <a href=\"/feedback\" class=\"govuk-link\" target=\"_blank\">feedback (opens in new tab)</a> will help us to improve it."
   }
 }

@@ -2,6 +2,8 @@
   "pageTitle" : "DS1500 report",
   "ds1500Report" : {
     "label" : "Has your doctor, consultant or specialist nurse completed a DS1500 report?",
+    "yes": "Yes",
+    "no": "No",
     "hint" : "A DS1500 is a report that gives the Department for Work and Pensions evidence about your illness.",
     "dontKnow": "I'm not sure",
     "errors" : {

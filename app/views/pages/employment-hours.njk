@@ -35,20 +35,20 @@
         casaErrors: formErrors,
         items: [{
             value: 'yes',
-            text: t('app:yes'),
+            text: t('employment-hours:sameHours.yes'),
             attributes: {
                 'data-question': t('employment-hours:sameHours.label', employerName),
-                'data-answer': t('app:yes')
+                'data-answer': t('employment-hours:sameHours.yes')
             },
             conditional: {
                 html: hours
             }
         }, {
             value: 'no',
-            text: t('app:no'),
+            text: t('employment-hours:sameHours.no'),
             attributes: {
                 'data-question': t('employment-hours:sameHours.label', employerName),
-                'data-answer': t('app:no')
+                'data-answer': t('employment-hours:sameHours.no')
             }
         }]
     }) }}
