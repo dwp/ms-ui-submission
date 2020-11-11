@@ -2,6 +2,8 @@
   "pageTitle" : "Remove",
   "heading" : "Check your answers before sending your application",
   "remove": {
+    "yes": "Yes",
+    "no": "No",
     "voluntary": "Are you sure you want to remove your role at %s?",
     "employment": "Are you sure you want to remove your job at %s?",
     "pension": "Are you sure you want to remove your pension with %s?",

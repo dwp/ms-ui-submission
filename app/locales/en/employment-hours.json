@@ -2,6 +2,8 @@
   "pageTitle" : "Hours worked - %s",
   "sameHours" : {
     "label" : "Do you work the same number of hours each week at %s?",
+    "yes": "Yes",
+    "no":  "No",
     "errors" : {
       "required": "Select yes if you work the same number of hours each week"
     }

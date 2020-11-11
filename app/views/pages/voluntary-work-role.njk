@@ -1,6 +1,6 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "casa/components/textarea/macro.njk" import casaGovukTextarea with context %}
+{% from "components/character-count/macro.njk" import govukCharacterCount %}
 
 {% block casaPageTitle %}
     {{ t('voluntary-work-role:pageTitle', organisationName) }}
@@ -8,7 +8,9 @@
 
 {% block journey_form %}
 
-    {{ casaGovukTextarea({
+    {{ govukCharacterCount({
+        id: 'voluntary-work-role',
+        maxlength: 500,
         label: {
             text: t('voluntary-work-role:role.label', organisationName),
             isPageHeading: true,
@@ -16,7 +18,7 @@
         },
         name: 'role',
         value: formData.role,
-        casaErrors: formErrors
+        errorMessage: formErrors
     }) }}
-    
+
 {% endblock %}

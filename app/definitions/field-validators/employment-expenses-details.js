@@ -14,7 +14,7 @@ module.exports = {
       errorMsg: 'employment-expenses-details:expensesDetails.errors.required',
     }),
     rules.strlen.bind({
-      max: 10000,
+      max: 500,
       errorMsgMax: 'employment-expenses-details:expensesDetails.errors.maxLength',
     }),
   ]),

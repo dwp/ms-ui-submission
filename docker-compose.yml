@@ -82,6 +82,7 @@ services:
       LOCALSTACK_HOSTNAME: ${LOCALSTACK_HOSTNAME}
       REDIS_PORT: ${REDIS_PORT}
       REDIS_HOST: ${REDIS_HOST}
+      REDIS_ENCRYPTION_TRANSIT: ${REDIS_ENCRYPTION_TRANSIT}
       KMS_ENDPOINT_URL: ${KMS_ENDPOINT_URL}
       REDIS_MAX_RETRY: ${REDIS_MAX_RETRY}
       NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
@@ -119,14 +120,16 @@ services:
 #To use develop image prior to merge (when working in CI)
   smoke_test:
     container_name: maven_smoke_test
-    image: 'gitlab.nonprod.dwpcloud.uk:8443/wa-transformation/esa-online/ns-esa-journey-tests/${TEST_IMAGE}'
+    image: '${TEST_IMAGE_CONTAINER}'
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
+      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
       - TEST_RUNNER=SmokeTests
     volumes:
       - '.:/usr/src/mymaven/.'
       - './smoke-reports:/target/smoke-reports/'
+      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
     networks:
       - test
     depends_on:
@@ -136,14 +139,16 @@ services:
 #To use develop image prior to merge (when working in CI)
   journey_test:
     container_name: maven_journey_test
-    image: 'gitlab.nonprod.dwpcloud.uk:8443/wa-transformation/esa-online/ns-esa-journey-tests/${TEST_IMAGE}'
+    image: '${TEST_IMAGE_CONTAINER}'
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
+      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
       - TEST_RUNNER=FeatureTests
     volumes:
       - '.:/usr/src/mymaven/.'
       - './journey-reports:/target/feature-reports/'
+      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
     networks:
       - test
     depends_on:
@@ -152,13 +157,15 @@ services:
 #To use develop image prior to merge (when working in CI)
   axe_test:
     container_name: maven_axe_test
-    image: 'gitlab.nonprod.dwpcloud.uk:8443/wa-transformation/esa-online/ns-esa-journey-tests/${TEST_IMAGE}'
+    image: '${TEST_IMAGE_CONTAINER}'
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
+      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
       - TEST_RUNNER=AxeTests
     volumes:
       - './aXe-reports:/target/aXe-text-reports/'
+      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
     networks:
       - test
     depends_on:

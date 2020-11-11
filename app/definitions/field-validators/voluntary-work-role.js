@@ -14,7 +14,7 @@ module.exports = {
       errorMsg: 'voluntary-work-role:role.errors.required',
     }),
     rules.strlen.bind({
-      max: 10000,
+      max: 500,
       errorMsgMax: 'voluntary-work-role:role.errors.maxLength',
     }),
   ]),

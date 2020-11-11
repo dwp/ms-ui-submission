@@ -100,14 +100,20 @@ if (appConfig.REDIS_PORT && appConfig.REDIS_HOST) {
     appConfig.REDIS_HOST,
     appConfig.REDIS_PORT,
   );
+  let clusterOptions = {
+    redisOptions: { db: 0 },
+  };
+  // Check whether redis is using transit encryption and amend clusterOptions if so
+  if (appConfig.REDIS_ENCRYPTION_TRANSIT) {
+    clusterOptions = {
+      dnsLookup: (address, callback) => callback(null, address),
+      redisOptions: { db: 0, tls: {} },
+    };
+  }
   redisClient = new Redis.Cluster([{
     host: appConfig.REDIS_HOST,
     port: appConfig.REDIS_PORT,
-  }], {
-    redisOptions: {
-      db: 0,
-    },
-  });
+  }], clusterOptions);
 
   let retryCount = 0;
   const REDIS_MAX_RETRY = 20;

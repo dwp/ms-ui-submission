@@ -25,6 +25,9 @@ module.exports = (router, csrfMiddleware, notifyEmailTo, notifyApiKey, notifyPro
     if (!rating && !comments) {
       formErrors.push({ field: 'feedback-group', href: '#feedback-group', text: req.i18nTranslator.t('feedback:errors.required') });
     }
+    if (comments.length > 1200) {
+      formErrors.push({ field: 'feedback-comment', href: '#feedback-comment', text: req.i18nTranslator.t('feedback:errors.maxLength') });
+    }
     if (formErrors.length === 0) {
       appLogger.info('No errors found in data; sending feedback via notify service');
       notifyEmail(notifyTemplateData, notifyEmailTo, notifyApiKey, notifyProxy, notifyUrl)

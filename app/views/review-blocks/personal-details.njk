@@ -86,7 +86,7 @@
 
 {% set mobileRow = {
     key: { text: t('check-your-answers:mobile') },
-    value: { text: journeyData.mobile.number if journeyData.mobile.mobile === 'yes' else t('app:no') },
+    value: { text: journeyData.mobile.number if journeyData.mobile.mobile === 'yes' else t('mobile:mobile.no') },
     actions: {
         items: [{
             attributes: { 'id': 'mobile' },
@@ -101,7 +101,7 @@
 {% if journeyData.mobile.mobile === 'no' %}
 {% set otherNumberRow = {
     key: { text: t('check-your-answers:otherNumber') },
-    value: { text: journeyData['other-number'].number if journeyData['other-number'].other === 'yes' else t('app:no') },
+    value: { text: journeyData['other-number'].number if journeyData['other-number'].other === 'yes' else t('mobile:mobile.no') },
     actions: {
         items: [{
             attributes: { 'id': 'other-number' },

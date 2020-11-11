@@ -2,7 +2,8 @@
   "pageTitle" : "Claim end date",
   "claimEnd": {
     "label": "Do you know the date you want to claim until?",
-    "hint": "<p class=\"govuk-body\">This could be:</p><ul class=\"govuk-list govuk-list--bullet\"><li>when you think you'll go back to work, if you're currently off sick</li><li>when you returned to work, if you're claiming for a time in the past</li></p>",
+    "hint": "<p class=\"govuk-body\">This could be:</p><ul class=\"govuk-list govuk-list--bullet\"><li>when you think you'll go back to work, if you're currently off sick</li><li>when you returned to work, if you're claiming for a time in the past</li></ul>",
+    "yes": "Yes",
     "no": "No, I do not know",
     "errors": {
       "required": "Select yes if you know the date you want to claim until"

@@ -26,6 +26,7 @@ describe('NotificationService', () => {
 	describe('sendNotification', () => {
 		const smsData = {
 			"request_type": "SMS",
+			"client_id": "nsesa",
 			"metadata" :{
 				"to" : "076786767867",
 				"template_id": "NSESA Application recd COVID19"

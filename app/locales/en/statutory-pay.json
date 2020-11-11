@@ -2,6 +2,8 @@
   "pageTitle" : "Statutory payments",
   "statutoryPay" : {
     "label" : "Are you getting Statutory Sick Pay?",
+    "yes": "Yes",
+    "no": "No",
     "hint": "You can apply for New Style ESA if you do not get Statutory Sick Pay or it ends in the next 3 months.",
     "errors" : {
       "required": "Select yes if you get Statutory Sick Pay"

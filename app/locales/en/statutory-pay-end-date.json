@@ -1,5 +1,7 @@
 {
     "pageTitle": "Statutory payment end date",
     "label": "Does your Statutory Sick Pay end in the next 3 months?",
+    "yes": "Yes",
+    "no": "No",
     "error": "Select yes if your Statutory Sick Pay ends in the next 3 months"
 }

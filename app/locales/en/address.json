@@ -1,7 +1,9 @@
 {
   "pageTitle": "Home address",
   "address": {
-    "label": "What is your address?"
+    "label": "What is your address?",
+    "yes": "Yes",
+    "no": "No"
   },
   "correspondence": {
     "label": "Can we send letters about your claim to this address?",

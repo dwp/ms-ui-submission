@@ -2,6 +2,8 @@
   "pageTitle" : "Voluntary work",
   "voluntaryWork" : {
     "label" : "Are you currently doing any voluntary work?",
+    "yes": "Yes",
+    "no": "No",
     "errors" : {
       "required": "Select yes if you are doing some voluntary work"
     }

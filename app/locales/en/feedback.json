@@ -14,7 +14,8 @@
     "para2": "The feedback you provide is anonymous and not part of your application."
   },
   "errors": {
-    "required": "Select how satisfied you are before sending"
+    "required": "Select how satisfied you are before sending",
+    "maxLength": "Enter how we could improve this service in 1,200 characters or fewer (including spaces)"
   },
   "h2": "How could we improve this service?",
   "insetText": "We will not respond to your feedback or use it when we process your claim.",

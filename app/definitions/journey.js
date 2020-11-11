@@ -207,44 +207,12 @@ module.exports = (() => {
   pensionPath.addWaypoints([
     'pension',
   ]);
-  /*  pensionPath.fork(
-      [pensionDetailsPath, insurancePath],
-      (choices, context) => (typeof context.pension !== 'undefined'
-        && (context.pension.pension === 'yes' || context.pension.other === 'yes')
-        ? choices[0] : choices[1]),
-    );
 
-    pensionDetailsPath.addWaypoints([
-      'pension-details',
-      'pension-start',
-      'pension-frequency',
-      'pension-deductions',
-      'pension-payment',
-      ['pension-deductions-details', (sessionData) =>
-          sessionData['pension-deductions'].deductions === 'yes'],
-      'pension-inherited',
-    ]);
-    pensionDetailsPath.mergeWith(pensionPath);  */
   pensionPath.mergeWith(insurancePath);
 
   insurancePath.addWaypoints([
     'insurance',
   ]);
-  /*  insurancePath.fork(
-      [insuranceDetailsPath, restOfJourney],
-      (choices, context) => (typeof context.insurance !== 'undefined'
-        && (context.insurance.insurance === 'yes' || context.insurance.other === 'yes')
-        ? choices[0] : choices[1]),
-    );
-
-    insuranceDetailsPath.addWaypoints([
-      'insurance-details',
-      'insurance-premiums',
-      ['insurance-employer', (sessionData) => sessionData['insurance-premiums'].premiums !== 'yes'],
-      'insurance-payment',
-    ]);
-    insuranceDetailsPath.mergeWith(insurancePath);  */
-
   insurancePath.mergeWith(restOfJourney);
 
   restOfJourney.addWaypoints([

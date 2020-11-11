@@ -82,6 +82,7 @@ module.exports = (envParam) => {
     validateRequiredString('REDIS_HOST');
     validateRequiredString('REDIS_KMS_ID');
     validateRequiredString('REDIS_AWS_REGION');
+    validateBool('REDIS_ENCRYPTION_TRANSIT');
   } else {
     validateRequiredString('SESSIONS_DIR');
   }

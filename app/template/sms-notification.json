@@ -1,5 +1,6 @@
 {
   "request_type": "SMS",
+  "client_id": "nsesa",
   "metadata" :{
     "to" : "$mobile_no$",
     "template_id": "NSESA Application recd COVID19"
