@@ -1,4 +1,4 @@
-# 2.3.0 (2020-11-11)
+# 2.4.0 (2020-11-11)
 * ESAO-1062	Add client_id in SMS template
 * ESAO-1037	BUG: make radio buttons align on /claim-end-date
 * ESAO-1021	Don't allow dates to break over 2 lines
