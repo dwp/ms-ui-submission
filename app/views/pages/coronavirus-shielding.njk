@@ -14,7 +14,7 @@
             legend: {
                 text: t('coronavirus-shielding:coronavirusShielding.label'),
                 isPageHeading: true,
-                classes: 'govuk-fieldset__legend--l'
+                classes: 'govuk-fieldset__legend--xl'
             }
         },
         hint: {
@@ -25,17 +25,17 @@
         casaErrors: formErrors,
         items: [{
             value: 'yes',
-            text: t('coronavirus-shielding:coronavirusShielding.yes'),
+            text: t('app:yes'),
             attributes: {
                 'data-question': t('coronavirus-shielding:coronavirusShielding.label'),
-                'data-answer': t('coronavirus-shielding:coronavirusShielding.yes')
+                'data-answer': t('app:yes')
             }
         }, {
             value: 'no',
-            text: t('coronavirus-shielding:coronavirusShielding.no'),
+            text: t('app:no'),
             attributes: {
                 'data-question': t('coronavirus-shielding:coronavirusShielding.label'),
-                'data-answer': t('coronavirus-shielding:coronavirusShielding.no')
+                'data-answer': t('app:no')
             }
         }]
     }) }}
