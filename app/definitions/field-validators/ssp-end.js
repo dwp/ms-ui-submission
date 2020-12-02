@@ -3,7 +3,6 @@ const dateExists = require('../../lib/validation-rules/date-exists.js');
 const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
 const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
 const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
-const dateNotBefore = require('../../lib/validation-rules/date-not-before.js');
 
 const Logger = require('../../lib/Logger');
 
@@ -30,9 +29,6 @@ module.exports = {
     dateIsReal.bind({
       errorMsg: 'ssp-end:sspEndDate.errors.notReal',
       errorMsgDigits: 'ssp-end:sspEndDate.errors.notRealDigits',
-    }),
-    dateNotBefore.bind({
-      errorMsg: 'ssp-end:sspEndDate.errors.inPast',
     }),
   ]),
 };

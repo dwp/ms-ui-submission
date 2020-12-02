@@ -140,13 +140,6 @@ describe('DataMapper', () => {
     'statutory-sick-pay-recent': {
       sspRecent: 'yes',
     },
-    'statutory-sick-pay-recent-end': {
-      sspRecentEndDate: {
-        dd: '01',
-        mm: '01',
-        yyyy: '0101',
-      },
-    },
     'statutory-pay-other': {
       statutoryPayOther: 'none',
     },

@@ -190,7 +190,7 @@ module.exports = (() => {
 
   sspRecentPath.addWaypoints([
     'statutory-sick-pay-recent',
-    ['statutory-sick-pay-recent-end', (sessionData) => sessionData['statutory-sick-pay-recent'].sspRecent === 'yes'],
+    ['statutory-sick-pay-end', (sessionData) => sessionData['statutory-sick-pay-recent'].sspRecent === 'yes'],
   ]);
   sspRecentPath.mergeWith(statutoryPayOtherPath);
 

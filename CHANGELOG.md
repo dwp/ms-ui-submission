@@ -1,4 +1,8 @@
-# 2.4.0 (2020-11-11)
+# 2.5.0 (2020-12-01)
+
+* ESAO-1056 Combine both statutory sick pay end date pages ([4c07a27](https://gitlab.nonprod.dwpcloud.uk/health/ns-esa/ms-ui-submission/commit/4c07a2718677a30b473fb32cb2c2cfae39dd4f2a))
+
+## <small>2.4.0 (2020-11-11)</small>
 * ESAO-1062	Add client_id in SMS template
 * ESAO-1037	BUG: make radio buttons align on /claim-end-date
 * ESAO-1021	Don't allow dates to break over 2 lines
