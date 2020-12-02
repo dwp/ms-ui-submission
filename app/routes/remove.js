@@ -40,7 +40,6 @@ module.exports = (router, csrf) => {
             req.journeyData.setDataForPage('statutory-sick-pay', undefined);
             req.journeyData.setDataForPage('statutory-sick-pay-end', undefined);
             req.journeyData.setDataForPage('statutory-sick-pay-recent', undefined);
-            req.journeyData.setDataForPage('statutory-sick-pay-recent-end', undefined);
             req.session.editing = true;
           }
         }

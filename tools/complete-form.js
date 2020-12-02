@@ -24,7 +24,9 @@ const args = process.argv.slice(2)
 
 (async function example() {
   // if the var has a value, use that, otherwise check for all
-  const localenv = args.localenv !== undefined ? args.localenv : args.all !== undefined ? args.all : true;
+  const dev = args.dev !== undefined ? args.dev : args.all !== undefined ? args.all : false;
+  const qa = args.qa !== undefined ? args.qa : args.all !== undefined ? args.all : false;
+  const uat = args.uat !== undefined ? args.uat : args.all !== undefined ? args.all : false;
   const coronavirus = args.coronavirus !== undefined ? args.coronavirus : args.all !== undefined ? args.all : false;
   const highrisk = args.highrisk !== undefined ? args.highrisk : args.all !== undefined ? args.all : false;
   const pregnant = args.pregnant !== undefined ? args.pregnant : args.all !== undefined ? args.all : false;
@@ -33,7 +35,7 @@ const args = process.argv.slice(2)
   const doctorDeclaration = args.doctorDeclaration !== undefined ? args.doctorDeclaration : args.all !== undefined ? args.all : true;
   const consentOutcome = args.consentOutcome !== undefined ? args.consentOutcome : args.all !== undefined ? args.all : true;
   const voluntary = args.voluntary !== undefined ? args.voluntary : args.all !== undefined ? args.all : true;
-  const voluntaryJobs = 3;
+  const voluntaryJobs = 1;
   const employed = args.employed !== undefined ? args.employed : args.all !== undefined ? args.all : true;
   const offSick = args.offSick !== undefined ? args.offSick : args.all !== undefined ? args.all : false;
   const sameHours = args.sameHours !== undefined ? args.sameHours : args.all !== undefined ? args.all : true;
@@ -49,23 +51,24 @@ const args = process.argv.slice(2)
   const insurance = args.insurance !== undefined ? args.insurance : args.all !== undefined ? args.all : true;
   const mobile = args.mobile !== undefined ? args.mobile : args.all !== undefined ? args.all : true;
   const otherNumber = args.otherNumber !== undefined ? args.otherNumber : args.all !== undefined ? args.all : true;
-  const conditions = 3;
-  const pensionDeductionsDetails = 3;
-
-  const blankPension = args.blankPension !== undefined ? args.blankPension : false;
-  const blankInsurance = args.blankInsurance !== undefined ? args.blankInsurance : false;
+  const conditions = 1;
 
   let chrome = require('selenium-webdriver/chrome');
   let driver = await new Builder().forBrowser('chrome').build();
 
   var baseUrl = 'http://localhost:3000/'; //local
-  if (!localenv) {
+
+  if (dev) {
     baseUrl = 'https://esao-dev-blue.sdx.health-dev.dwpcloud.uk/'; //dev
+  } else if (qa) {
+    baseUrl = 'https://esao-qa-blue.sdx.health-dev.dwpcloud.uk/'; //qa
+  } else if (uat) {
+    baseUrl = 'https://esao-uat-blue.sdx.health-dev.dwpcloud.uk/'; //uat
   }
 
   try {
     await driver.get(baseUrl.concat('coronavirus'));
-
+    await driver.findElement(By.className('govuk-button govuk-!-margin-bottom-4 govuk-!-margin-right-4')).click();
     if (coronavirus) {
       await driver.findElement(By.id('f-coronavirusReasonForClaim')).click();
       await driver.findElement(By.id('continue-button')).click();
@@ -92,8 +95,6 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('f-statutoryPay-2')).click();
       await driver.findElement(By.id('continue-button')).click();
     }
-
-
 
     await driver.findElement(By.id('f-severeDisabilityPremium-2')).click();
     await driver.findElement(By.id('continue-button')).click();
@@ -323,10 +324,10 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('f-sspRecent')).click();
         await driver.findElement(By.id('continue-button')).click();
 
-        const sspRecentEndDate = moment().subtract(1, 'weeks');
-        await driver.findElement(By.name('sspRecentEndDate[dd]')).sendKeys(sspRecentEndDate.date().toString());
-        await driver.findElement(By.name('sspRecentEndDate[mm]')).sendKeys((sspRecentEndDate.month() + 1).toString());
-        await driver.findElement(By.name('sspRecentEndDate[yyyy]')).sendKeys(sspRecentEndDate.year());
+        const sspEndDate = moment().add(3, 'weeks');
+        await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
+        await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
+        await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
         await driver.findElement(By.id('continue-button')).click();
       }
 
@@ -397,7 +398,7 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('f-pension-2')).click();
       await driver.findElement(By.id('continue-button')).click();
     }
-    
+
     if (insurance) {
       await driver.findElement(By.id('f-insurance')).click();
       await driver.findElement(By.id('continue-button')).click();

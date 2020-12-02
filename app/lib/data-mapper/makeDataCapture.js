@@ -41,7 +41,6 @@ module.exports = (translator, journeyData, session) => {
   const ssp = journeyData.getDataForPage('statutory-pay');
   const sspEnd = journeyData.getDataForPage('statutory-sick-pay-end');
   const sspRecent = journeyData.getDataForPage('statutory-sick-pay-recent');
-  const sspRecentEnd = journeyData.getDataForPage('statutory-sick-pay-recent-end');
   const statutoryPayOther = journeyData.getDataForPage('statutory-pay-other');
   const universalCredit = journeyData.getDataForPage('universal-credit');
   const voluntaryWork = journeyData.getDataForPage('voluntary-work');
@@ -159,7 +158,7 @@ module.exports = (translator, journeyData, session) => {
   }
   capture.ssp_recent = sspRecent && sspRecent.sspRecent;
   if (sspRecent && sspRecent.sspRecent === 'yes') {
-    capture.ssp_recent_end = `${sspRecentEnd.sspRecentEndDate.yyyy}-${formatDigit(sspRecentEnd.sspRecentEndDate.mm)}-${formatDigit(sspRecentEnd.sspRecentEndDate.dd)}`;
+    capture.ssp_recent_end = `${sspEnd.sspEndDate.yyyy}-${formatDigit(sspEnd.sspEndDate.mm)}-${formatDigit(sspEnd.sspEndDate.dd)}`;
   }
   capture.universal_credit = universalCredit.universalCredit;
   capture.work_overseas = workOverseas.workOverseas;

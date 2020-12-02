@@ -2,7 +2,7 @@
 
 {% set statRows = [] %}
 
-{% if journeyData.employed.other === 'no' %}
+{% if journeyData.employed.other === 'no' or journeyData.employed.employed === 'no' %}
     {% set sspRow = {
         key: { text: t('check-your-answers:ssp') },
         value: { text: t('app:' + journeyData['statutory-pay'].statutoryPay) },
@@ -17,7 +17,7 @@
     } %}
     {{ (statRows.push(sspRow), null) }}
 
-    {% if journeyData['statutory-pay'].statutoryPay === 'yes' %}
+    {% if (journeyData['statutory-pay'].statutoryPay === 'yes' or (journeyData['statutory-pay'].statutoryPay === 'no' and journeyData['statutory-sick-pay-recent'].sspRecent === 'yes')) %}
     {% set sspEndRow = {
         key: { text: t('check-your-answers:sspEnd') },
         value: { text: journeyData['statutory-sick-pay-end'].sspEndDate | date },
@@ -34,7 +34,7 @@
     {% endif %}
 {% endif %}
 
-{% if journeyData.employed.employed === 'no' or journeyData['statutory-pay'].statutoryPay === 'no' %}
+{% if journeyData['statutory-pay'].statutoryPay === 'no' %}
     {% set sspRecentRow = {
         key: { text: t('check-your-answers:sspRecent') },
         value: { text: t('app:' + journeyData['statutory-sick-pay-recent'].sspRecent) },
@@ -48,22 +48,6 @@
         }
     } %}
     {{ (statRows.push(sspRecentRow), null) }}
-
-    {% if journeyData['statutory-sick-pay-recent'].sspRecent === 'yes' %}
-    {% set sspRecentEndRow = {
-        key: { text: t('check-your-answers:sspRecentEnd') },
-        value: { text: journeyData['statutory-sick-pay-recent-end'].sspRecentEndDate | date },
-        actions: {
-            items: [{
-                attributes: { 'id': 'statutory-sick-pay-recent-end' },
-                href: "statutory-sick-pay-recent-end?edit",
-                text: t('check-your-answers:change'),
-                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSspRecentEnd')
-            }]
-        }
-    } %}
-    {{ (statRows.push(sspRecentEndRow), null) }}
-    {% endif %}
 {% endif %}
 
 {% set otherStatRow = {

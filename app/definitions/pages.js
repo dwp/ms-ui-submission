@@ -43,7 +43,6 @@ const pregnantValidators = require('./field-validators/pregnant.js');
 const severeConditionValidators = require('./field-validators/severe-condition.js');
 const sspEndValidators = require('./field-validators/ssp-end.js');
 const sspRecentValidators = require('./field-validators/ssp-recent.js');
-const sspRecentEndValidators = require('./field-validators/ssp-recent-end.js');
 const statutoryPayOtherValidators = require('./field-validators/statutory-pay-other.js');
 const voluntaryWorkValidators = require('./field-validators/voluntary-work.js');
 const voluntaryWorkDetailsValidators = require('./field-validators/voluntary-work-details.js');
@@ -878,21 +877,6 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.errorsFlag = checkForErrors(req, 'statutory-sick-pay-recent');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'statutory-sick-pay-recent-end': {
-    view: 'pages/ssp-recent-end.njk',
-    fieldValidators: sspRecentEndValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.sspRecentEndDateHint = moment()
-          .subtract(2, 'weeks')
-          .format('D M YYYY');
-        res.locals.errorsFlag = checkForErrors(req, 'statutory-sick-pay-recent-end');
         next();
       },
       preredirect: navigateToNextPage,
