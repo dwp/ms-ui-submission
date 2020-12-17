@@ -1,3 +1,9 @@
+# 2.6.0 (2020-12-14)
+
+* ESAO-1058 Terminal illness not appearing on check your answers
+* ESAO-1060 Shielding - National Lockdown - content updates
+* ESAO-996 consider requesting new Information/evidence to support COVID claims
+
 # 2.5.0 (2020-12-01)
 
 * ESAO-1056 Combine both statutory sick pay end date pages ([4c07a27](https://gitlab.nonprod.dwpcloud.uk/health/ns-esa/ms-ui-submission/commit/4c07a2718677a30b473fb32cb2c2cfae39dd4f2a))

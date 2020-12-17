@@ -47,6 +47,8 @@ module.exports = (casaApp, mountUrl, router) => {
       }
       appLogger.info(`pensions indicator set to ${pensionsIndicator}`);
       const universalCredit = req.journeyData.getDataForPage('universal-credit').universalCredit === 'yes';
+      const coronavirus = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
+      const isShielding = coronavirus ? req.journeyData.getDataForPage('coronavirus-reason-for-claim').coronavirusReasonForClaim === 'high-risk' : false;
       const dataForCompletePage = {
         employerData: employerInfo,
         p45Indicator,
@@ -54,6 +56,7 @@ module.exports = (casaApp, mountUrl, router) => {
         pensionsIndicator,
         fourteenDaysLater: moment().add(14, 'days').format('D MMMM YYYY'),
         universalCredit,
+        isShielding,
       };
       // Empty session of all citizen data.
       casaApp.endSession(req).then(() => {
@@ -68,7 +71,11 @@ module.exports = (casaApp, mountUrl, router) => {
               err_stack: saveErr.stack,
             });
           }
-          res.render('pages/complete.njk', dataForCompletePage);
+          if (coronavirus) {
+            res.render('pages/complete-coronavirus.njk', dataForCompletePage);
+          } else {
+            res.render('pages/complete.njk', dataForCompletePage);
+          }
         });
       }).catch((err) => {
         appLogger.error('Error ending session', {
@@ -85,7 +92,11 @@ module.exports = (casaApp, mountUrl, router) => {
             });
           }
           appLogger.info('Render end screen page if session saved and ended successfully');
-          res.render('pages/complete.njk', dataForCompletePage);
+          if (coronavirus) {
+            res.render('pages/complete-coronavirus.njk', dataForCompletePage);
+          } else {
+            res.render('pages/complete.njk', dataForCompletePage);
+          }
         });
       });
     }

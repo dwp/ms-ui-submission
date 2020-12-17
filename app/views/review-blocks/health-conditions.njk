@@ -136,7 +136,6 @@
 {{ (healthRows.push(medicalRow), null) }}
 {% endif %}
 
-{% if (journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'no') or (journeyData['coronavirus-other-condition'].coronavirusOtherCondition === 'yes') %}
 {% set terminalRow = {
     key: { text: t('check-your-answers:lifeExpectancy') },
     value: { text: t('check-your-answers:lifeExpectancy-' + journeyData['severe-condition'].severeCondition) },
@@ -150,7 +149,6 @@
     }
 } %}
 {{ (healthRows.push(terminalRow), null) }}
-{% endif %}
 
 {% if journeyData['severe-condition'].severeCondition === 'yes' %}
 {% set ds1500 %}
