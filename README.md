@@ -176,4 +176,4 @@ This gulpfile finds the required scss files, compiles them, and produces a stati
 
 It puts these .html files into the `./dist` folder.
 
-DevOps have a process within the build pipeline which runs the errorpages script using `npm run errorpages` . It then takes the resulting .html files and puts them into a central repository of external error pages.
+DevOps have a process within the build pipeline which runs the errorpages script using `npm run errorpages` . It then takes the resulting .html files and puts them into a central repository of external error pages. 
