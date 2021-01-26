@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Dyddiad geni",
+  "dateOfBirth" : {
+    "label": "Beth yw eich dyddiad geni?",
+    "hint": "Er enghraifft, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Rhowch eich dyddiad geni",
+      "missingDay": "Mae’n rhaid i’r dyddiad geni gynnwys diwrnod",
+      "missingMonth": "Mae’n rhaid i’r dyddiad geni gynnwys mis",
+      "missingYear": "Mae’n rhaid i’r dyddiad geni gynnwys blwyddyn",
+      "missingDayAndMonth": "Mae’n rhaid i’r dyddiad geni gynnwys diwrnod a mis",
+      "missingDayAndYear": "Mae’n rhaid i’r dyddiad geni gynnwys diwrnod a blwyddyn",
+      "missingMonthAndYear": "Mae’n rhaid i’r dyddiad geni gynnwys mis a blwyddyn",
+      "badFormatYear": "Rhowch eich dyddiad geni gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
+      "notReal": "Rhowch ddyddiad geni gwirioneddol",
+      "notRealDigits": "Rhowch ddyddiad geni gwirioneddol drwy ddefnyddio rhifau yn unig",
+      "outOfRange": "Mae’n rhaid i’r dyddiad geni fod yn y gorffennol"
+    }
+  }
+}

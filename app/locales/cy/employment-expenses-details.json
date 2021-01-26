@@ -1,0 +1,11 @@
+{
+  "pageTitle": "Manylion treuliau - %s",
+  "expensesDetails" : {
+    "label": "Ar gyfer beth mae’r treuliau a faint rydych yn eu cael?",
+    "hint": "Rhowch gyn gymaint o wybodaeth ag y gallwch.",
+    "errors": {
+      "required": "Rhowch fanylion unrhyw dreuliau a faint rydych yn eu cael",
+      "maxLength": "Rhowch fanylion unrhyw dreuliau a faint rydych yn eu cael mewn 500 nod neu lai (yn cynnwys gofodau)"
+    }
+  }
+}

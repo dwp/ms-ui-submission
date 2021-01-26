@@ -1,0 +1,10 @@
+{
+    "pageTitle": "Oedran Pensiwn y Wladwriaeth",
+    "statePensionAge": {
+        "label": "Ydych chi o dan oedran Pensiwn y Wladwriaeth?",
+        "yes": "Ydw",
+        "no": "Na",
+        "hint": "Os nad ydych yn siwr, gallwch <a class=\"govuk-link\" href=\"https://www.gov.uk/state-pension-age\" target=\"_blank\">wirio eich oedran Pensiwn y Wladwriaeth (agor mewn tab newydd)</a>."
+    },
+    "error": "Dewiswch ydw os ydych o dan oedran Pensiwn y Wladwriaeth"
+}

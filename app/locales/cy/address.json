@@ -1,0 +1,17 @@
+{
+  "pageTitle": "Cyfeiriad cartref",
+  "address": {
+    "label": "Beth yw eich cyfeiriad?",
+    "yes": "Gallwch",
+    "no": "Na"
+  },
+  "correspondence": {
+    "label": "Allwn ni anfon llythyrau am eich cais i’r cyfeiriad yma?",
+    "errors": {
+      "required": "Dewiswch gallwch os ydych eisiau i’ch llythyrau gael eu hanfon i’r cyfeiriad yma"
+    }
+  },
+  "correspondenceAddress": {
+    "label": "Rhowch y cyfeiriad rydych eisiau i’ch llythyrau gael eu hanfon iddo"
+  }
+}

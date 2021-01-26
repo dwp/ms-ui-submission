@@ -1,0 +1,16 @@
+{
+  "pageTitle" : "Taliadau statudol eraill",
+  "statutoryPayOther" : {
+    "label" : "Ydych chi’n cael unrhyw un o’r taliadau canlynol?",
+    "hint": "Dim ond un opsiwn sydd angen i chi ei ddewis.",
+    "maternity": "Tâl Mamolaeth Statudol",
+    "paternity": "Tâl Tadolaeth Statudol",
+    "adoption": "Tâl Mabwysiadu Statudol",
+    "sharedParental": "Tâl Rhieni Statudol a Rennir",
+    "or": "neu",
+    "none": "Dim o’r rhain",
+    "errors" : {
+      "required": "Dewiswch ba daliad statudol rydych yn ei gael neu dewiswch ’dim o’r rhain’"
+    }
+  }
+}

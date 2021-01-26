@@ -1,0 +1,19 @@
+{
+  "pageTitle" : "Rhif ffôn symudol",
+  "mobile" : {
+    "label" : "Oes gennych chi rif ffôn symudol?",
+    "yes": "Oes",
+    "no": "Na",
+    "hint": "Byddwn yn anfon negeseuon testun atoch i’ch diweddaru am eich cais.",
+    "errors" : {
+      "required": "Dewiswch oes os oes gennych rif ffôn symudol"
+    }
+  },
+  "number" : {
+    "label" : "Rhif ffôn symudol",
+    "errors" : {
+      "required" : "Rhowch eich rhif ffôn symudol",
+      "badFormat": "Rhowch rif ffôn symudol gwirioneddol"
+    }
+  }
+}

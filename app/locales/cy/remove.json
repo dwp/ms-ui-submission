@@ -1,0 +1,30 @@
+{
+  "pageTitle" : "Dileu",
+  "heading" : "Edrychwch dros eich atebion cyn anfon eich cais",
+  "remove": {
+    "yes": "Ydw",
+    "no": "Na",
+    "voluntary": "Ydych chi’n siwr eich bod eisiau dileu eich rôl yn %s?",
+    "employment": "Ydych chi’n siwr eich bod eisiau dileu eich swydd yn %s?",
+    "pension": "Ydych chi’n siwr eich bod eisiau dileu eich pensiwn gyda %s?",
+    "insurance": "Ydych chi’n siwr eich bod eisiau dileu eich polisi gyda %s?",
+    "errors": {
+      "required": "Dewiswch ydw os hoffech ddileu’r manylion rydych wedi’u rhoi ar gyfer yr adran hon"
+    }
+  },
+  "removed": {
+    "list": "Rydych wedi dileu manylion ar gyfer:",
+    "voluntary": "Ydych chi’n gwneud unrhyw waith gwirfoddol arall?",
+    "employment": "Oes gennych swydd arall?",
+    "pension": "Ydych chi’n cael pensiynau neu flwydd-daliadau eraill?",
+    "insurance": "Ydych chi’n cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall?",
+    "errors": {
+      "required": {
+        "voluntary": "Dewiswch ydw os ydych yn gwneud unrhyw waith gwirfoddol arall",
+        "employment": "Dewiswch ydw os oes gennych swydd arall",
+        "pension": "Dewiswch ydw os ydych yn cael pensiynau neu flwydd-daliadau eraill",
+        "insurance": "Dewiswch ydw os ydych yn cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall"
+      }
+    }
+  }
+}

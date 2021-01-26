@@ -1,0 +1,18 @@
+{
+  "pageTitle" : "Cyn i chi ddechrau",
+  "header" : "Cyn i chi ddechrau",
+  "warning": "Ni fyddwch yn gallu arbed eich atebion a dod yn ôl at y ffurflen yn nes ymlaen. Ond fe gewch gyfle i edrych dros a diweddaru’ch atebion cyn i chi ei hanfon.",
+  "thingsYouNeed": {
+    "listTitle": "Gwnewch yn siwr bod gennych eich:",
+    "li1": "rhif Yswiriant Gwladol",
+    "li2": "manylion cyfrif banc neu gymdeithas adeiladu",
+    "li3": "enw a chyfeiriad meddygfa’r doctor",
+    "alsoNeed": {
+      "listTitle": "Byddwch hefyd angen manylion y canlynol, os ydynt yn berthnasol i chi:",
+      "li1": "gwaith presennol neu ddiweddar",
+      "li2": "y dyddiad y daeth unrhyw Dâl Salwch Statudol i ben neu a fydd yn dod i ben"
+    }
+  },
+  "getBankAccount": "Os nad oes gennych gyfrif banc, gallwch ddefnyddio cyfrif aelod o’r teulu neu ffrind dibynadwy. Darganfyddwch <a class=\"govuk-link\" href=\"https://www.citizensadvice.org.uk/debt-and-money/banking/getting-a-bank-account/\">sut i gael cyfrif banc</a> os ydych eisiau sefydlu un.",
+  "continue" : "Parhau"
+}

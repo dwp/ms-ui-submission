@@ -14,6 +14,7 @@
       "year": "Year"
   },
   "finish": "Finish",
+  "finishLink": "https://www.gov.uk/employment-support-allowance/your-esa-claim",
   "timeout": {
     "title": "Your session will end in <span class=\"timeout-expires\">5 minutes</span>",
     "line1": "You have not done anything on the service for a while.",
@@ -35,5 +36,12 @@
   "phaseBanner": {
     "phase": "beta",
     "text": "This is a new service – your <a href=\"/feedback\" class=\"govuk-link\" target=\"_blank\">feedback (opens in new tab)</a> will help us to improve it."
+  },
+  "footerLink": {
+    "help": "Help",
+    "accessibility": "Accessibility statement",
+    "cookies": "Cookies",
+    "privacy": "Privacy",
+    "privacyLink": "https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter"
   }
 }

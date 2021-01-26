@@ -1,0 +1,9 @@
+{
+    "pageTitle": "Cyflogaeth ac Yswiriant Gwladol",
+    "label": "Ydych chi wedi cael eich cyflogi ac wedi talu Yswiriant Gwladol dros y 2 i 3 blynedd diwethaf?",
+    "yes": "Ydw",
+    "no": "Na",
+    "notSure": "Nid wyf yn siwr",
+    "hint": "Efallai y byddwch yn gymwys os ydych wedi talu digon o gyfraniadau Yswiriant Gwladol, fel arfer dros y 2 i 3 blynedd diwethaf. Gall credydau Yswiriant Gwladol hefyd gyfrif.<p>Os nad ydych yn siwr, gallwch ddal i wneud cais am ESA Dull Newydd.</p>",
+    "error": "Dewiswch ydw os ydych wedi cael eich cyflogi a thalu Yswiriant Gwladol dros y 2 i 3 blynedd diwethaf"
+}

@@ -61,9 +61,6 @@ module.exports = (() => {
   eligibilityStatutoryPayPath.mergeWith(eligibilityEndPath);
 
   eligibilityEndPath.addWaypoints([
-    'severe-disability-premium',
-    ['not-eligible-severe-disability-premium', (sessionData) => sessionData['severe-disability-premium'].severeDisabilityPremium === 'yes'],
-    ['check-if-you-get-severe-disability-premium', (sessionData) => sessionData['severe-disability-premium'].severeDisabilityPremium === 'notSure'],
     {
       id: 'may-be-eligible',
       // Always consider this waypoint passable as it's static content

@@ -1,0 +1,11 @@
+{
+  "pageTitle" : "I ffwrdd yn sâl o’r gwaith - %s",
+  "offSick" : {
+    "label" : "Ydych chi i ffwrdd yn sâl o’ch gwaith yn %s?",
+    "yes": "Ydw",
+    "no": "Na",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych chi i ffwrdd yn sâl o’ch gwaith"
+    }
+  }
+}

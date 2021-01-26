@@ -1,0 +1,16 @@
+{
+  "pageTitle" : "Enw",
+  "header" : "Beth yw eich enw?",
+  "firstName" : {
+    "label" : "Enw cyntaf",
+    "errors" : {
+      "required": "Rhowch eich enw cyntaf"
+    }
+  },
+  "lastName" : {
+    "label" : "Enw olaf",
+    "errors" : {
+      "required": "Rhowch eich enw olaf"
+    }
+  }
+}

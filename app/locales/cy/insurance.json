@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Yswiriant iechyd parhaol",
+  "insurance": {
+    "label": "Ydych chi’n cael unrhyw yswiriant iechyd parhaol wedi sefydlu gan gyflogwr?",
+    "hint": "Mae yswiriant iechyd parhaol yn diogelu eich incwm os ydych yn stopio gweithio oherwydd salwch, anaf neu anabledd.",
+    "yes": "Ydw",
+    "no": "Na",
+    "notsure": "Nid wyf yn siwr",
+    "errors": {
+      "required": "Dewiswch ydw os ydych yn cael arian o yswiriant iechyd parhaol"
+    }
+  },
+
+  "list": "Rydych wedi ychwanegu manylion ar gyfer:",
+  "pageTitleOther": "Yswiriant iechyd parhaol arall",
+  "blank": "darparwr yswiriant",
+  "other" : {
+    "label" : "Ydych chi’n cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall?",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall"
+    }
+  }
+}

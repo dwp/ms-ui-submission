@@ -11,11 +11,11 @@
     },
     "address1": {
       "required": "Enter a building or street ",
-      "badFormat": "Enter a valid building or street"
+      "badFormat": "The building or street must contain only letters, numbers, commas or full stops"
     },
     "address2": {
       "required": "Enter a building or street",
-      "badFormat": "Enter a valid building or street"
+      "badFormat": "The building or street must contain only letters, numbers, commas or full stops"
     },
     "address3": {
       "required": "Enter a town or city",

@@ -1,0 +1,14 @@
+{
+  "pageTitle" : "Caniatâd i rannu’r canlyniad gyda’ch doctor",
+  "heading" : "Rhannu canlyniad asesiad gyda’ch doctor",
+  "p1" : "Hoffai’r Adran Gwaith a Phensiynau (DWP) rannu’r penderfyniad a wnaed yn seiliedig ar ganlyniad eich cais gyda’ch doctor, neu unrhyw ddoctor sy’n eich trin. Bydd hyn yn helpu’ch doctor, gan y bydd yn dweud wrthynt pan na fydd angen iddynt ddarparu Datganiadau Ffitrwydd i Weithio i chi mwyach (a elwir hefyd yn nodiadau ffitrwydd neu dystysgrifau meddygol) at ddibenion y cais hwn.",
+  "p2" : "Mae’r DWP angen eich cytundeb i wneud hyn.",
+  "p3" : "Nid oes yn rhaid i chi roi eich cytundeb. Ni fydd hyn yn effeithio eich cais am ESA Dull Newydd. Bydd DWP yn cadw cofnod o’r penderfyniad a wnewch.",
+  "p4" : "<p class=\"govuk-body\">Gallwch dynnu’ch cytundeb yn ôl ar unrhyw adeg cyn i’r DWP gysylltu â’ch doctor drwy eu ffonio ar <span class=\"nobr\">0800 328 1744</span>. Os ydych yn tynnu’ch cytundeb yn ôl, ni fydd DWP yn rhannu’r penderfyniad a wnaed yn seiliedig ar ganlyniad eich cais gyda’ch doctor. Fodd bynnag, ni fydd hyn yn effeithio’r ffordd mae DWP yn defnyddio eich gwybodaeth.</p>",
+  "subHead" : "Rwyf yn cytuno i’m doctor, neu unrhyw ddoctor arall sy’n fy nhrin, i gael eu hysbysu am ganlyniad fy nghais.",
+  "yes" : "Ydw",
+  "no" : "Na",
+  "errors": {
+    "required": "Dewiswch os ydych yn cytuno i ni rannu canlyniad eich asesiad gyda’ch doctor"
+  }
+}

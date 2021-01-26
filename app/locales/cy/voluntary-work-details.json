@@ -1,0 +1,24 @@
+{
+  "pageTitle" : "Manylion gwaith gwirfoddol",
+  "heading" : "Manylion gwaith gwirfoddol",
+  "hint": "Os ydych yn gwirfoddoli i fwy nag un sefydliad, gofynnir i chi am y rhai eraill yn nes ymlaen.",
+  "organisationName" : {
+    "label" : "Enw’r sefydliad",
+    "errors" : {
+      "required" : "Rhowch enw’r sefydliad"
+    }
+  },
+  "organisationAddress": {
+    "label" : "Cyfeiriad y sefydliad",
+    "address1": {
+      "errors": {
+        "required": "Rhowch linell 1 o gyfeiriad y sefydliad"
+      }
+    },
+    "postcode" : {
+      "errors" : {
+        "required" : "Rhowch god post, fel AA1 1AA"
+      }
+    }
+  }
+}

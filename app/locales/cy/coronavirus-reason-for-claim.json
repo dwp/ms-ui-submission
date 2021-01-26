@@ -1,0 +1,21 @@
+{
+  "pageTitle": "Sut mae coronafeirws wedi effeithio arnoch chi?",
+  "coronavirusReasonForClaim" : {
+    "label": "Sut mae coronafeirws wedi effeithio arnoch chi?",
+    "hint": "<p class=\"govuk-body\">Mae hyn yn cynnwys chi a’ch plentyn, nawr neu ryw amser yn y gorffennol.</p>",
+    "reason-high-risk": "Rwyf wedi cael fy nghyngori i ‘gysgodi’ (cymryd camau ychwanegol i leihau cysylltiad ag eraill) oherwydd rwyf mewn risg uchel o salwch difrifol o goronafeirws",
+    "reason-self-isolation-symptoms": "Rwyf yn hunan-ynysu oherwydd mae gennyf symptomau coronafeirws",
+    "reason-self-isolation-contact": "Rwy’n hunan-ynysu oherwydd rwyf wedi bod mewn cysylltiad â rhywun sydd â symptomau coronafeirws. Neu dywedwyd wrthyf am hunan-ynysu gan wasanaeth profi ac olrhain",
+    "reason-other": "Rheswm arall",
+    "reason-other-label": "Ym mha ffordd arall mae coronafeirws wedi effeithio arnoch?",
+    "otherReason": {
+      "errors": {
+        "required": "Rhowch y rheswm arall mae coronafeirws wedi effeithio arnoch chi",
+        "length": "Rhowch y rheswm arall mae coronafeirws wedi effeithio arnoch chi mewn 500 nod neu lai (yn cynnwys gofodau)"
+      }
+    },
+    "errors": {
+      "required": "Dewiswch yr opsiwn sy’n disgrifio orau sut mae coronafeirws wedi effeithio arnoch chi"
+    }
+  }
+}
