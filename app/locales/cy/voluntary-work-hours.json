@@ -1,0 +1,18 @@
+{
+  "pageTitle" : "Oriau rydych yn gwirfoddoli - %s",
+  "sameHours" : {
+    "label" : "Ydych chi’n gwirfoddoli am yr un nifer o oriau bob wythnos yn %s?",
+    "yes": "Ydw",
+    "no": "Na",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn gwirfoddoli am yr un nifer o oriau bob wythnos"
+    }
+  },
+  "hours" : {
+    "label" : "Oriau rydych yn gwirfoddoli yr wythnos",
+    "errors" : {
+      "required" : "Rhowch y nifer o oriau rydych yn gwirfoddoli yr wythnos",
+      "badFormat" : "Rhowch y nifer o oriau rydych yn gwirfoddoli yn y ffurf gywir, er enghraifft 10.5"
+    }
+  }
+}

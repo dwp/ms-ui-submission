@@ -7,8 +7,6 @@
 {% from "components/character-count/macro.njk"  import govukCharacterCount %}
 {% from "components/inset-text/macro.njk"       import govukInsetText with context %}
 
-{% block header %}{% endblock %}
-
 {% block casaPageTitle %}
     {{ t('feedback:pageTitle') }}
 {% endblock %}
@@ -117,5 +115,3 @@
 {% block bodyEnd %}
     {% include "casa/partials/scripts.njk" %}
 {% endblock %}
-
-{% block footer %}{% endblock %}

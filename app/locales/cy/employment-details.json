@@ -1,0 +1,27 @@
+{
+  "pageTitle": "Manylion gwaith â thâl",
+  "heading": "Manylion cyflogaeth",
+  "hint": "Os oes gennych fwy nag un swydd, gofynnir i chi am eich swyddi eraill yn nes ymlaen.",
+  "jobTitle": {
+    "label": "Teitl swydd",
+    "errors": {
+      "required": "Rhowch deitl eich swydd"
+    }
+  },
+  "employerName": {
+    "label": "Enw cyflogwr",
+    "errors": {
+      "required": "Rhowch enw eich cyflogwr"
+    }
+  },
+  "employerTel": {
+    "label": "Rhif ffôn",
+    "errors": {
+      "required": "Rhowch rif ffôn eich cyflogwr",
+      "badFormat": "Rhowch rif ffôn gwirioneddol"
+    }
+  },
+  "employerAddress": {
+    "label": "Cyfeiriad cyflogwr"
+  }
+}

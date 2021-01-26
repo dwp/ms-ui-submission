@@ -1,0 +1,11 @@
+{
+  "pageTitle" : "Credyd Cynhwysol",
+  "universalCredit" : {
+    "label" : "Ydych chi’n cael neu wedi gwneud cais am Gredyd Cynhwysol?",
+    "yes": "Ydw",
+    "no": "Na",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol"
+    }
+  }
+}

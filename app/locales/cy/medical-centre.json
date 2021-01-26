@@ -1,0 +1,35 @@
+{
+  "pageTitle": "Manylion doctor",
+  "heading": "Pa feddygfa neu ganolfan feddygol ydych chi’n ei defnyddio?",
+  "hint": "Efallai y bydd angen i’r Adran Gwaith a Phensiynau gysylltu â’ch doctor i gael mwy o wybodaeth am eich cyflwr.",
+  "name": {
+    "label": "Enw’r feddygfa neu ganolfan feddygol",
+    "errors": {
+      "required": "Rhowch enw eich meddygfa neu ganolfan feddygol"
+    }
+  },
+  "phoneNumber": {
+    "label": "Rhif ffôn y feddygfa",
+    "errors": {
+      "required": "Rhowch rif ffôn ar gyfer y y feddygfa neu ganolfan feddygol",
+      "badFormat": "Rhowch y rhif ffôn yn y ffurf gywir"
+    }
+  },
+  "doctor": {
+    "label": "Enw eich doctor (dewisol)",
+    "hint": "Mae hyn yn helpu i nodi’r person cywir i siarad â hwy."
+  },
+  "address": {
+    "label": "Cyfeiriad meddygfa eich doctor",
+    "address1": {
+      "errors": {
+        "required": "Rhowch linell 1 o’r cyfeiriad ar gyfer y feddygfa neu ganolfan feddygol"
+      }
+    }
+  },
+  "postcode": {
+    "errors": {
+      "badFormat": "Rhowch god post gwirioneddol yn y ffurf gywir"
+    }
+  }
+}

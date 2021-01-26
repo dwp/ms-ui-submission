@@ -1,0 +1,58 @@
+{
+    "pageTitle": "Datganiad hygyrchedd",
+    "h1": "Datganiad hygyrchedd ar gyfer Gwneud Cais am ESA Dull Newydd",
+    "p1": "Mae’r gwasanaeth hwn yn rhan o wefan ehangach GOV.UK. Mae <a class=\"govuk-link\" href=\"https://www.gov.uk/help/accessibility-statement/\">datganiad hygyrchedd ar wahân ar gyfer prif wefan GOV.UK.</a>",
+    "p2": "Dim ond gwybodaeth am y gwasanaeth Gwneud Cais am Lwfans Cyflogaeth a Chymorth Dull Newydd (ESA) sy’n cael ei gynnwys ar y dudalen hon, ar gael yn <a class=\"govuk-link\" href=\"https://www.apply-new-style-employment-support-allowance.dwp.gov.uk/?lang=cy\">https://www.apply-new-style-employment-support-allowance.dwp.gov.uk</a>",
+    "usingThisService": {
+        "h2": "Defnyddio’r gwasanaeth hwn",
+        "p1": "Mae’r gwasanaeth hwn yn cael ei redeg gan yr Adran Gwaith a Phensiynau. Rydym eisiau cyn gymaint o bobl â phosibl i allu defnyddio’r gwasanaeth. Er enghraifft, mae hyn yn golygu y dylech allu:",
+        "li1": "newid lliwiau, lefelau cyferbyniad a ffontiau",
+        "li2": "chwyddo hyd at 300% heb i’r testun fynd oddi ar y sgrin",
+        "li3": "mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio bysellfwrdd yn unig",
+        "li4": "mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio meddalwedd adnabod lleferydd",
+        "li5": "gwrando ar y gwasanaeth gan ddefnyddio darllenydd sgrin",
+        "p2": "Rydym hefyd wedi gwneud y cynnwys yn y gwasanaeth mor syml â phosibl i’w ddeall.",
+        "p3": "Mae gan <a class=\"govuk-link\" href=\"https://mcmw.abilitynet.org.uk/\">AbilityNet</a> gyngor ar wneud eich dyfais yn haws i’w defnyddio os oes gennych anabledd."
+    },
+    "howAccessibleThisServiceIs": {
+        "h2": "Pa mor hygyrch yw’r gwasanaeth hwn",
+        "p1": "Mae’r gwasanaeth yn defnyddio arddulliau, patrymau a chydrannau cyffredin o System Ddylunio GOV.UK sy’n cael eu hystyried yn eang i fod yn hygyrch.",
+        "p2": "Efallai y bydd rhai pobl yn ei chael hi’n anodd defnyddio rhannau o’r gwasanaeth hwn:",
+        "li1": "ar un pwynt gofynnwn i chi restru’ch cyflyrau gan ddefnyddio datrysiad JavaScript sy’n eich galluogi i barhau i ychwanegu meysydd ychwanegol. Gall hyn fod yn anodd. Fodd bynnag, gyda JavaScript wedi’i ddiffodd, bydd y gwasanaeth yn cyflwyno llawer iawn o feysydd gwag y gall rhai pobl ei gael yn haws i’w llenwi.",
+        "li2": "os ydych yn dweud “new tab” wrth rhai meddalwedd rheoli llais, mae’n agor yn y ddolen adborth yn lle agor tab newydd",
+        "li3": "ar y dudalen manylion banc, nid yw’r meysydd yn caniatau gofod gwyn. Mae hyn yn achosi gwall os ydych yn defnyddio meddalwedd rheoli llais ac yn oedi wrth darllen rhif eich cyfrif",
+        "li4": "weithiau ni fydd negeseuon gwall yn cael eu darllen allan yn JAWS fersiynau 18 a 19",
+        "li5": "weithiau ni fydd penawdau yn cael eu darllen allan yn JAWS fersiynau18 and 19 a ZoomText. Mae hyn yn broblem hysbys gyda meddalwedd Freedom Scientific . Darllenwch <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">fwy am y materion am benawdau ar GitHub</a>",
+        "li6": "weithiau bydd testun yn cael ei ailadrodd gan declynnau ZoomText’s DocReader a SpeakIt",
+        "li7": "weithiau bydd adrannau darllen yn symud o gwmpas y dudalen pan yn sgrolio gyda ZoomText. Efallai bydd hyn yn achosi problem gyda’r tudalennau cwestiynau caniatâd, yn ogystal â’r tudalennau ‘edrych dros eich atebion’ a ‘beth sy’n digwydd nesaf’, ble mae llawer o gynnwys"
+    },
+    "difficultyUsingService": {
+        "h2": "Beth i’w wneud os ydych yn cael anhawster defnyddio’r gwasanaeth hwn",
+        "p1": "Os ydych yn cael anhawster defnyddio’r gwasanaeth hwn, cysylltwch â ni drwy e-bost: <a class=\"govuk-link\" href=\"mailto:applyfornewstyleesa.accessibility@dwp.gsi.gov.uk\">applyfornewstyleesa.accessibility@dwp.gsi.gov.uk</a>",
+        "p2": "Fel rhan o ddarparu’r gwasanaeth hwn, efallai y bydd angen i ni anfon negeseuon neu ddogfennau atoch. Byddwn yn gofyn i chi sut rydych chi am i ni anfon negeseuon neu ddogfennau atoch, ond cysylltwch â ni os byddwch eu hangen mewn ffurf gwahanol. Er enghraifft print bras, recordiad sain neu braille."
+    },
+    "reportingAccessibilityProblems": {
+        "h2": "Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn",
+        "p1": "Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblemau nad ydynt wedi’u rhestru ar y dudalen hon neu’n credu nad ydym yn cwrdd â gofynion hygyrchedd, cysylltwch â ni trwy e-bost: <a class=\"govuk-link\" href=\"mailto:applyfornewstyleesa.accessibility@dwp.gsi.gov.uk\">applyfornewstyleesa.accessibility@dwp.gsi.gov.uk</a>"
+    },
+    "enforcementProcedure": {
+        "h2": "Y drefn gorfodaeth",
+        "p1": "Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi’r ’Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018’ y ’rheolaethau hygyrchedd’). Os nad ydych yn hapus â sut rydym yn ymateb i’ch cwyn, <a class=\"govuk-link\" href=\"https://www.equalityadvisoryservice.com/\">cysylltwch â’r Gwasanaeth Cynghori a Chefnogaeth Cydraddoldeb (EASS).</a>"
+    },
+    "technicalInformationAboutServiceAccessibility": {
+        "h2": "Gwybodaeth dechnegol am hygyrchedd y gwasanaeth hwn",
+        "p1": "Mae’r Adran Gwaith a Phensiynau wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â ’Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018’.",
+        "p2": "Mae’r gwasanaeth hwn yn cydymffurfio’n llawn â fersiwn 2.1 Safon AA Canllawiau Hygyrchedd Cynnwys Gwe."
+    },
+    "howWeTested": {
+        "h2": "Sut gwnaethom brofi’r gwasanaeth",
+        "p1": "Profwyd y gwasanaeth ddiwethaf ar 28 Mai 2020 ac fe’i gwiriwyd i weld a yw’n cydymffurfio â WCAG 2.1 AA. Cynhaliwyd y profion gan yr Adran Gwaith a Phensiynau.",
+        "p2": "Profwyd y gwasanaeth gan ddefnyddio profion awtomataidd a phrofion â llaw."
+    },
+    "improveAccessibility": {
+        "h2": "Beth rydym yn ei wneud i wella hygyrchedd",
+        "p1": "Byddwn yn cynnal mwy o brofion â llaw o’r gwasanaeth gan ddefnyddio technolegau cynorthwyol fel JAWS a Dragon. Mae hyn wedi dod â materion i’r golwg sy’n cael eu nodi yn yr adran ’defnyddio’r gwasanaeth’ uchod, ac rydym yn gweithio i’w datrys.",
+        "p2": "Byddwn yn parhau i edrych ar ddyluniad y gwasanaeth, gan ddisodli’r datrysiad JavaScript ar gyfer ychwanegu cyflyrau i’w wneud yn fwy defnyddiadwy.",
+        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 3 Awst 2020."
+    }
+}

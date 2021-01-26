@@ -1,0 +1,18 @@
+{
+  "pageTitle" : "Rhif cyswllt arall",
+  "other" : {
+    "label" : "A oes rhif arall y gellir cysylltu â chi arno?",
+    "yes": "Oes",
+    "no": "Na",
+    "errors" : {
+      "required": "Dewiswch oes os oes gennych rif arall"
+    }
+  },
+  "number" : {
+    "label" : "Rhif ffôn",
+    "errors" : {
+      "required" : "Rhowch eich rhif ffôn",
+      "badFormat" : "Rhowch rif ffôn gwirioneddol"
+    }
+  }
+}

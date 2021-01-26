@@ -1,0 +1,20 @@
+{
+  "pageTitle" : "Gwaith gwirfoddol",
+  "voluntaryWork" : {
+    "label" : "Ydych chi’n gwneud unrhyw waith gwirfoddol ar hyn o bryd?",
+    "yes": "Ydw",
+    "no": "Na",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn gwneud rhywfaint o waith gwirfoddol"
+    }
+  },
+
+  "list": "Rydych wedi ychwanegu manylion ar gyfer:",
+  "pageTitleOther": "Gwaith gwirfoddol arall",
+  "other" : {
+    "label" : "Ydych chi’n gwneud unrhyw waith gwirfoddol arall?",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn gwneud unrhyw waith gwirfoddol arall"
+    }
+  }
+}

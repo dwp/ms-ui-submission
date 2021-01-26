@@ -1,0 +1,23 @@
+{
+  "header" : "Gwneud cais am Lwfans Cyflogaeth a Chymorth Dull Newydd (ESA Dull Newydd)",
+  "p1": "Defnyddiwch y gwasanaeth hwn os ydych angen cymorth ariannol oherwydd eich bod i ffwrdd o’r gwaith gyda chyflwr iechyd, anaf neu anabledd.",
+  "eligibility": {
+    "header": "Edrychwch i weld os ydych yn gymwys",
+    "listTitle": "Efallai eich bod yn gymwys os:",
+    "li1": "rydych wedi talu neu wedi cael eich credydu gydag Yswiriant Gwladol yn ystod y 2 neu 3 blynedd dreth ddiwethaf",
+    "li2": "nad ydych yn cael Tâl Salwch Statudol, neu mae i ddod i ben yn ystod y 3 mis nesaf",
+    "li3": "rydych o dan <a class=\"govuk-link\" href=\"https://www.gov.uk/check-state-pension\">oedran Pensiwn y Wladwriaeth</a>",
+    "nationalInsurance": "Os nad ydych yn siwr faint o Yswiriant Gwladol rydych wedi’i dalu, gallwch <a class=\"govuk-link\" href=\"https://www.gov.uk/check-national-insurance-record\">wirio eich cofnod Yswiriant Gwladol ar-lein</a>. Byddwch angen sefydlu neu fewngofnodi i gyfrif ar-lein i wirio."
+  },
+  "whatToExpect": {
+    "title": "Beth i’w ddisgwyl",
+    "stageText": "Y ffurflen gais ar-lein yw cam cyntaf eich cais.",
+    "listHeader": "Gofynnir cwestiynau i chi am:",
+    "li1": "eich iechyd",
+    "li2": "unrhyw waith â thâl",
+    "li3": "unrhyw waith gwirfoddol",
+    "li4": "unrhyw daliadau statudol",
+    "insetText": "<p>Efallai y bydd angen i chi anfon tystiolaeth feddygol atom i gefnogi’ch cais. Gallai hyn fod yn nodyn ffitrwydd (a elwir hefyd yn nodyn salwch) gan eich doctor.</p><p>Mae cyfarwyddiadau ar gyfer hyn ar ddiwedd y cais.</p>"
+  },
+  "startButtonText" : "Dechrau nawr"
+}

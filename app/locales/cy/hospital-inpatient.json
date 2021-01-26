@@ -1,0 +1,40 @@
+{
+  "pageTitle" : "Yn yr ysbyty ar hyn o bryd",
+  "hospitalInpatient" : {
+    "label" : "Ydych chi’n aros mewn ysbyty fel claf mewnol ar hyn o bryd?",
+    "yes": "Ydw",
+    "no": "Na",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn yr ysbyty fel claf mewnol ar hyn o bryd"
+    }
+  },
+  "hospitalName" : {
+    "label" : "Enw’r ysbyty",
+    "errors" : {
+      "required" : "Rhowch enw’r ysbyty"
+    }
+  },
+  "hospitalWard" : {
+    "label" : "Enw neu rif y ward",
+    "errors" : {
+      "required" : "Rhowch enw neu rif y ward"
+    }
+  },
+  "admissionDate" : {
+    "label" : "Dyddiad aethoch chi i’r ysbyty",
+    "hint": "Er enghraifft, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Rhowch y dyddiad aethoch chi i’r ysbyty",
+      "missingDay": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys diwrnod",
+      "missingMonth": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys mis",
+      "missingYear": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys blwyddyn",
+      "missingDayAndMonth": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys diwrnod a mis",
+      "missingDayAndYear": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys diwrnod a blwyddyn",
+      "missingMonthAndYear": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys mis a blwyddyn",
+      "badFormatYear": "Rhowch y dyddiad aethoch chi i’r ysbyty gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
+      "notReal": "Rhowch ddyddiad aethoch chi i’r ysbyty gwirioneddol",
+      "notRealDigits": "Rhowch ddyddiad aethoch chi i’r ysbyty gwirioneddol drwy ddefnyddio rhifau yn unig",
+      "inFuture": "Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty fod yn heddiw neu yn y gorffennol"
+    }
+  }
+}

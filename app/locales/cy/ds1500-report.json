@@ -1,0 +1,13 @@
+{
+  "pageTitle" : "Adroddiad DS1500",
+  "ds1500Report" : {
+    "label" : "Ydy eich doctor, ymgynghorydd neu nyrs arbenigol wedi cwblhau adroddiad DS1500?",
+    "yes": "Ydy",
+    "no": "Na",
+    "hint" : "Mae DS1500 yn adroddiad sy’n rhoi tystiolaeth am eich salwch i’r Adran Gwaith a Phensiynau.",
+    "dontKnow": "Nid wyf yn siwr",
+    "errors" : {
+      "required": "Dewiswch ydy os yw eich doctor neu ymgynghorydd wedi cwblhau adroddiad DS1500"
+    }
+  }
+}

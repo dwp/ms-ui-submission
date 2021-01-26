@@ -1,0 +1,20 @@
+{
+  "pageTitle": "Dyddiad dechrau’r cais",
+  "claimStartDate" : {
+    "label": "O ba ddyddiad ydych chi eisiau gwneud cais?",
+    "hint": "<p class=\"govuk-body\">Rydych angen tystiolaeth i gwmpasu’r cyfnod - er enghraifft, nodyn ffitrwydd (a elwir hefyd yn nodyn salwch) neu nodyn ynysu os ydych yn hunan-ynysu oherwydd coronafeirws.</p>",
+    "errors": {
+      "required": "Rhowch y dyddiad rydych eisiau gwneud cais o",
+      "missingDay": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod",
+      "missingMonth": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys mis",
+      "missingYear": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys blwyddyn",
+      "missingDayAndMonth": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod a mis",
+      "missingDayAndYear": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod a blwyddyn",
+      "missingMonthAndYear": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys mis a blwyddyn",
+      "badFormatYear": "Rhowch y dyddiad rydych eisiau gwneud cais o gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
+      "notReal": "Rhowch ddyddiad gwirioneddol rydych eisiau gwneud cais o",
+      "notRealDigits": "Rhowch ddyddiad gwirioneddol rydych eisiau gwneud cais o drwy ddefnyddio rhifau yn unig",
+      "outOfRange": "Ni all y dyddiad fod yn fwy na 3 mis yn y dyfodol"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "dateInput": {
+    "day": "Dydd",
+    "month": "Mis",
+    "year": "Blwyddyn"
+  },
+  "postalAddressObject": {
+    "address1": "Adeilad a stryd <span class=\"govuk-visually-hidden\">llinell 1 o 2</span>",
+    "address2": "<span class=\"govuk-visually-hidden\">Adeilad a stryd llinell 2 o 2</span>",
+    "address3": "Tref neu ddinas",
+    "postcode": "Cod post"
+  },
+  "errors": {
+    "address": {
+      "required": "Rhowch gyfeiriad"
+    },
+    "address1": {
+      "required": "Rhowch adeilad neu stryd ",
+      "badFormat": "Mae’n rhaid i’r adeilad neu’r stryd ond cynnwys llythrennau, rhifau, atalnodau neu atalnodau llawn"
+    },
+    "address2": {
+      "required": "Rhowch adeilad neu stryd",
+      "badFormat": "Mae’n rhaid i’r adeilad neu’r stryd ond cynnwys llythrennau, rhifau, atalnodau neu atalnodau llawn"
+    },
+    "address3": {
+      "required": "Rhowch dref neu ddinas",
+      "badFormat": "Ni ddylai tref neu ddinas gynnwys rhifau"
+    },
+    "address4": {
+      "required": "Rhowch sir",
+      "badFormat": "Rhowch sir dilys"
+    },
+    "postcode" : {
+      "required" : "Rhowch god post",
+      "badFormat" : "Rhowch god post gwirioneddol"
+    }
+  }
+}
+

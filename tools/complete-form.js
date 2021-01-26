@@ -96,9 +96,6 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('continue-button')).click();
     }
 
-    await driver.findElement(By.id('f-severeDisabilityPremium-2')).click();
-    await driver.findElement(By.id('continue-button')).click();
-
     await driver.get(baseUrl.concat('name'));
 
     await driver.findElement(By.name('firstName')).sendKeys(faker.name.firstName());

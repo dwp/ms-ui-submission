@@ -1,0 +1,12 @@
+{
+  "pageTitle" : "Taliadau statudol",
+  "statutoryPay" : {
+    "label" : "Ydych chi’n cael Tâl Salwch Statudol?",
+    "yes": "Ydw",
+    "no": "Na",
+    "hint": "Gallwch wneud cais am ESA Dull Newydd os nad ydych yn cael Tâl Salwch Statudol neu mae’n dod i ben yn y 3 mis nesaf.",
+    "errors" : {
+      "required": "Dewiswch ydw os ydych yn cael Tâl Salwch Statudol"
+    }
+  }
+}

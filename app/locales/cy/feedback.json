@@ -1,0 +1,23 @@
+{
+  "pageTitle": "Rhoi adborth",
+  "h1": "Rhoi adborth",
+  "rating": {
+    "label": "Ar y cyfan sut oeddech yn teimlo am y gwasanaeth a gawsoch heddiw?",
+    "verySatisfied": "Bodlon iawn",
+    "satisfied": "Bodlon",
+    "neither": "Ddim yn fodlon nac yn anfodlon",
+    "dissatisfied": "Anfodlon",
+    "veryDissatisfied": "Anfodlon iawn"
+  },
+  "comments": {
+    "para1": "Peidiwch â chynnwys unrhyw wybodaeth bersonol nac ariannol, er enghraifft eich rhifau Yswiriant Gwladol neu gerdyn credyd.",
+    "para2": "Mae’r adborth a roddwch yn anhysbys ac nid yw’n rhan o’ch cais."
+  },
+  "errors": {
+    "required": "Dewiswch pa mor fodlon ydych cyn anfon",
+    "maxLength": "Rhowch sut allwn ni wella’r gwasanaeth hwn mewn 1,200 nod neu lai (yn cynnwys gofodau)"
+  },
+  "h2": "Sut allwn ni wella’r gwasanaeth hwn?",
+  "insetText": "Ni fyddwn yn ymateb i’ch adborth nac yn ei ddefnyddio pan fyddwn yn prosesu’ch cais.",
+  "button": "Anfon adborth"
+}

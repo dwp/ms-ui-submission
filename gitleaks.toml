@@ -7,12 +7,12 @@ title = "gitleaks config"
 	description = "AWS Secret Key"
 	regex = '''(?i)aws(.{0,20})?(?-i)[0-9a-zA-Z\/+]{40}'''
 	tags = ["key", "AWS"]
-	[[rules.whitelist]]
-		regex = '''(?i)aws(.{0,20})?(?-i)[0-9a-zA-Z\/+]{41}'''
-		description = "41 characters is not an AWS secret key"
-	[[rules.whitelist]]
-		regex = '''.*/service-role/.*'''
-		description = "A service-role is not an AWS secret key"
+	[rules.allowlist]
+    description = "41 characters is not an AWS secret key, A service-role is not an AWS secret key"
+		regexes = [
+      '''(?i)aws(.{0,20})?(?-i)[0-9a-zA-Z\/+]{41}''',
+      '''.*/service-role/.*'''
+    ]
 [[rules]]
 	description = "AWS MWS key"
 	regex = '''amzn\.mws\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}'''
@@ -105,6 +105,7 @@ title = "gitleaks config"
 	description = "Twilio API key"
 	regex = '''(?i)twilio(.{0,20})?SK[0-9a-f]{32}'''
 	tags = ["key", "twilio"]
-[whitelist]
+# Global allowlist
+[allowlist]
 	description = "Whitelisted files"
 	files = [ '''(^\.?gitleaks.toml$|(.*?)(jpg|gif|doc|pdf|bin|svg)$)''', '''package-lock.json''', '''yarn.lock''', '''502.html''', '''503.html''' ]

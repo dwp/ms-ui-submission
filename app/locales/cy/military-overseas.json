@@ -1,0 +1,10 @@
+{
+  "pageTitle" : "Wedi byw dramor yn ddiweddar",
+  "heading" : "Yn y 12 wythnos diwethaf, ydych chi wedi byw dramor gydag aelod o’r teulu a gafodd eu hanfon yno gyda’r lluoedd arfog?",
+  "hint" : "Mae hyn yn ein helpu i ddeall pam mae unrhyw fylchau yn eich cofnod Yswiriant Gwladol.",
+  "yes": "Ydw",
+  "no": "Na",
+  "errors": {
+    "required": "Dewiswch ydw os ydych wedi byw dramor gydag aelod o’r teulu yn lluoedd arfog yn y 12 wythnos diwethaf"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "pageTitle" : "Beth sy’n digwydd nesaf",
+  "header" : "Cais wedi’i anfon",
+  "refReminder": "Eich rhif cyfeirnod yw eich rhif Yswiriant Gwladol",
+  "whatNow" : {
+    "title": "Beth sy’n digwydd nesaf"
+  },
+  "coronavirus" : {
+    "text1": "<p class=\"govuk-body-l\">Efallai y bydd oedi wrth brosesu’ch cais oherwydd yr achos o goronafeirws. Ein nod yw cysylltu â chi erbyn <span class=\"nobr\">%s</span>.</p>",
+    "text2": "Peidiwch â chysylltu â’r Adran Gwaith a Phensiynau (DWP) i gael diweddariad cyn hynny."
+  },
+  "shielding" : {
+    "h3": "Anfonwch dystiolaeth eich bod yn cysgodi atom i gefnogi’ch cais",
+    "body4": "Mae yna gyfarwyddiadau gwahanol yn dibynnu os oes gennych lythyr neu neges destun gan y llywodraeth neu’r GIG.",
+    "body5": "Anfonwch eich tystiolaeth atom cyn gynted ag y gallwch er mwyn i ni allu prosesu’ch cais.",
+    "h4-1": "Os ydych chi’n cysgodi oherwydd bod gennych lythyr neu neges destun gan y llywodraeth neu’r GIG",
+    "body6": "Fe ddylech gael llythyr gan eich meddyg neu awdurdod iechyd os yw’r ddau ganlynol yn berthnasol",
+    "li1": "rydych yn byw mewn ardal sydd â chyfyngiadau lleol sy’n cynnwys cyngor i ’gysgodi’",
+    "li2": "mae angen i chi neu’ch plentyn ’gysgodi’ (cymryd camau ychwanegol i leihau cyswllt ag eraill) oherwydd eich bod mewn risg uchel iawn o salwch difrifol o ganlyniad i goronafeirws",
+    "body7": "Bydd y llythyr yn cynnwys y cyfnod y dylech chi neu’ch plentyn gysgodi amdano. Mae’n brawf o’ch cymhwysedd i gael ESA am ddyddiau i ffwrdd o’r gwaith yn y cyfnod hwnnw.",
+    "body8": "Efallai y cewch fwy nag un llythyr yn cwmpasu mwy nag un cyfnod cysgodi.",
+    "body9": "Anfonwch gopi o’ch llythyr cysgodi atom.",
+    "body10": "Os nad oes gennych gopi wedi’i argraffu o’ch llythyr neu os na allwch adael eich cartref i’w bostio, efallai y bydd eich cyngor lleol yn gallu helpu. Ewch i <a class=\"govuk-link\" href=\"https://www.gov.uk/coronavirus-local-help\" target=\"_blank\">GOV.UK i ddod o hyd i help coronafeirws yn eich ardal leol (agor mewn tab newydd)</a>.",
+    "inset1h4": "Ble i anfon eich llythyr trwy’r post",
+    "inset1body": "Freepost DWP ESA 26",
+    "h4-2": "Os ydych yn gweithio, ond ddim yn byw mewn ardal sydd â chyfyngiadau lleol sy’n cynnwys cyngor i gysgodi",
+    "body11": "Gallwch <a class=\"govuk-link\" href=\"https://www.nhs.uk/conditions/coronavirus-covid-19/people-at-higher-risk/shielding-note/\" target=\"_blank\">wneud cais am ’nodyn cysgodi’ (agor mewn tab newydd)</a> os ydych yn gweithio mewn ardal sydd â chyfyngiadau lleol sy’n cynnwys cyngor i gysgodi, ond nad ydych yn byw yno. Rhaid i bob un o’r canlynol fod yn wir:",
+    "li3": "ni allwch weithio gartref nac unrhyw le arall y tu allan i’r ardal gyda chyfyngiadau lleol",
+    "li4": "fe’ch cynghorwyd o’r blaen i ’gysgodi’ (cymryd camau ychwanegol i leihau cyswllt ag eraill) oherwydd eich bod mewn risg uchel iawn o salwch difrifol o ganlyniad i goronafeirws",
+    "li5": "rydych yn byw yn Lloegr",
+    "body12": "Bydd eich nodyn cysgodi yn ddilys am 3 wythnos o’r dyddiad rydych yn gwneud cais. Os daw’r nodyn i ben a bod dal angen i chi gysgodi, bydd angen i chi wneud cais am nodyn arall. Ni fydd yn ddilys mwyach os yw’r cyfyngiadau lleol yn cael eu codi yn yr ardal rydych yn gweithio ynddi.",
+    "body13": "Bydd gan eich nodyn cysgodi rif cyfeirnod. Byddwn yn cysylltu â chi mewn 14 diwrnod ynghylch eich cais ac yn cymryd y cyfeirnod hwn gennych.",
+    "h4-3": "Os na chawsoch chi lythyr neu neges destun gan y llywodraeth neu’r GIG",
+    "body14": "Cysylltwch â’ch doctor os nad oes gennych lythyr cysgodi ond rydych yn credu y dylech gael un. Fe ddylech gael llythyr gan eich meddyg neu awdurdod iechyd os yw’r ddau ganlynol yn berthnasol",
+    "li6": "rydych yn byw mewn ardal sydd â chyfyngiadau lleol sy’n cynnwys cyngor i ’gysgodi’",
+    "li7": "mae angen i chi neu’ch plentyn ’gysgodi’ (cymryd camau ychwanegol i leihau cyswllt ag eraill) oherwydd eich bod mewn risg uchel iawn o salwch difrifol o ganlyniad i goronafeirws",
+    "body15": "Os nad oes gennych lythyr cysgodi neu os na allwch gael un, bydd angen i chi anfon tystiolaeth feddygol atom i gefnogi’ch cais.",
+    "body16": "Y math mwyaf cyffredin o dystysgrif feddygol yw nodyn ffitrwydd (a elwir hefyd yn ddatganiad ffitrwydd i weithio neu nodyn salwch), ond rydym hefyd yn derbyn mathau eraill o dystiolaeth feddygol.",
+    "detailssummarytext" : "Mathau eraill o dystiolaeth feddygol",
+    "bodydetails1": "Yn ogystal â nodiadau ffitrwydd, rydym hefyd yn derbyn y tystysgrifau meddygol hyn:",
+    "li8": "Med10 (tystysgrif ysbyty a roddir i gleifion mewnol os yw’ch triniaeth yn parhau mwy na 7 diwrnod)",
+    "li9": "MATB1 (os ydych yn feichiog ond na allwch gael Tâl Mamolaeth Statudol na Lwfans Mamolaeth)",
+    "li10": "CF73 (ffurflen a gyhoeddir gan ysbyty seiciatryddol)",
+    "li11": "DS1500 (ffurflen wedi’i llenwi a’i hanfon atom gan ddoctor, ymgynghorydd neu nyrs arbenigol os ydynt yn credu efallai na fyddwch yn byw yn fwy na 6 mis, oherwydd eich cyflwr)",
+    "bodydetails2": "Gallai mathau eraill o dystiolaeth gynnwys datganiad doctor, adroddiad ymgynghorydd neu hysbysiad Awdurdod Lleol.",
+    "body17": "Bydd angen i chi barhau i anfon tystiolaeth feddygol atom cyn belled â’ch bod ddim digon abl i weithio. Byddwn yn dweud wrthych pryd y gallwch roi’r gorau i’w hanfon. Er enghraifft, os yw’ch nodyn ffitrwydd am 14 diwrnod, bydd angen i chi i anfon un arall atom pan fydd yn rhedeg allan.",
+    "body18": "Os oes gennych nodyn ffitrwydd, gallwch ddefnyddio’r <a class=\"govuk-link\" href=\"https://www.gov.uk/anfon-eich-nodyn-ffitrwydd-ar-gyfer-eich-cais-esa\" target=\"_blank\">gwasanaeth Anfon eich nodyn ffitrwydd  (agor mewn tab newydd)</a> i’w anfon atom ar-lein.",
+    "body6para": "Os oes gennych fath arall o dystiolaeth feddygol, gallwch ei hanfon atom trwy’r post. Gallwch hefyd bostio’ch nodyn ffitrwydd.",
+    "inset2h4": "Ble i anfon eich tystiolaeth feddygol trwy’r post",
+    "inset2body": "Freepost DWP ESA 26"
+  },
+  "non-shielding" : {
+    "h3": "Anfonwch dystiolaeth atom eich bod yn hunan-ynysu i gefnogi’ch cais",
+    "body19": "Mae yna gyfarwyddiadau gwahanol yn dibynnu ar y rheswm rydych yn hunan-ynysu.",
+    "body20": "Anfonwch eich tystiolaeth atom cyn gynted ag y gallwch er mwyn i ni allu prosesu’ch cais.",
+    "h4-1": "Os ydych yn hunan-ynysu (ond ddim ar gyfer llawdriniaeth)",
+    "body21": "Gallwch gael <a class=\"govuk-link\" href=\"https://111.nhs.uk/isolation-note/\" target=\"_blank\">‘nodyn ynysu’ ar-lein gan y GIG 111 (agor mewn tab newydd)</a> os yw unrhyw un o’r canlynol yn berthnasol:",
+    "li12":     "rydych yn hunan-ynysu oherwydd bod gennych symptomau coronafeirws",
+    "li13":     "rydych yn hunan-ynysu oherwydd i chi ddod i gysylltiad â rhywun sydd â symptomau coronafeirws",
+    "li14":     "dywedwyd wrthych am hunan-ynysu gan wasanaeth profi ac olrhain",
+    "li15":     "rydych mewn cwarantîn oherwydd eich bod yn dychwelyd o daith dramor",
+    "body22": "Nid oes raid i chi fynd at eich doctor neu i ysbyty.",
+    "body23": "Bydd gan eich nodyn ynysu rif cyfeirnod 16 digid. Byddwn yn cysylltu â chi mewn 14 diwrnod ynghylch eich cais ac yn cymryd y cyfeirnod hwn gennych.",
+    "h4-2": "Os ydych yn hunan-ynysu oherwydd eich bod chi’n cael llawdriniaeth",
+    "body24": "Os ydych wedi cael eich cynghori gan eich doctor neu weithiwr gofal iechyd proffesiynol i hunan-ynysu cyn mynd i’r ysbyty i gael llawdriniaeth, mae eich llythyr sy’n cadarnhau dyddiad eich triniaeth yn brawf. Anfonwch gopi o’ch llythyr apwyntiad atom.",
+    "body25": "Os nad oes gennych gopi wedi’i argraffu o’ch llythyr neu os na allwch adael eich cartref i’w bostio, efallai y bydd eich cyngor lleol yn gallu helpu. Ewch i <a class=\"govuk-link\" href=\"https://www.gov.uk/coronavirus-local-help\" target=\"_blank\">GOV.UK i ddod o hyd i help coronafeirws yn eich ardal leol (agor mewn tab newydd)</a>.",
+    "inset3h4": "Ble i anfon eich llythyr trwy’r post",
+    "inset3body": "Freepost DWP ESA 26"
+  },
+  "universalCreditYes": {
+    "heading": "Dweud wrth Gredyd Cynhwysol",
+    "text1": "Os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol byddwch angen dweud wrthynt eich bod wedi gwneud cais am ESA Dull Newydd. Gallwch wneud hyn drwy <a class=\"govuk-link\" href=\"https://www.gov.uk/mewngofnodi-ich-cyfrif-credyd-cynhwysol\" target=\"_blank\">fewngofnodi i’ch cyfrif Credyd Cynhwysol (agor mewn tab newydd)</a> a defnyddio eich dyddlyfr i gysylltu â’ch rheolwr achos.",
+    "text2": "Rhaid i chi hefyd roi manylion eich tystiolaeth feddygol yn eich cyfrif Credyd Cynhwysol. Er enghraifft, os oes gennych nodyn ffitrwydd, nid oes angen i chi ei anfon at Gredyd Cynhwysol, ond rhaid i chi roi’r dyddiadau."
+  },
+  "universalCreditNo": {
+    "heading": "Ydych chi angen help gyda chostau tai neu gymorth dros bartner neu blentyn?",
+    "text1": "Os ydych ar incwm isel neu allan o waith, gallwch wneud cais am Gredyd Cynhwysol fel rhan o gais ddeuol gyda ESA Dull Newydd",
+    "text2": "Yn wahanol i ESA Dull Newydd, gallwch wneud cais gyda phartner a chael cymorth gyda chostau tai, plant a gofal plant.",
+    "text3": "Mae’n rhaid i chi a’ch partner gael llai na £16,000 mewn cynilion a buddsoddiadau i fod yn gymwys.",
+    "text4": "Darganfyddwch <a class=\"govuk-link\" href=\"https://www.gov.uk/how-to-claim-universal-credit\" target=\"_blank\">sut i wneud cais am Gredyd Cynhwysol ar GOV.UK (agor mewn tab newydd)</a>."
+  },
+  "feedback": {
+  "feedbackHeading": "Rhowch eich adborth i ni",
+  "feedbackQuestionLink" : "<a class=\"govuk-link\" href=\"/feedback\" target=\"_blank\">Beth oeddech chi’n ei feddwl am y gwasanaeth hwn? (agor mewn tab newydd)</a>. Mae’n cymryd 30 eiliad.",
+  "researchQuestion" : "Gwirfoddolwch i <a class=\"govuk-link\" href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f\" target=\"_blank\">gymryd rhan mewn ymchwil (agor mewn tab newydd)</a> i helpu i wella’r gwasanaeth. Ar hyn o bryd mae’r ffurflen a’r gweithgareddau ymchwil dilynnol ond ar gael drwy gyfrwng y Saesneg."
+  }
+}

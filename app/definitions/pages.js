@@ -63,7 +63,6 @@ const nationalInsuranceValidator = require('./field-validators/national-insuranc
 const getNationalInsuranceCreditsValidator = require('./field-validators/get-national-insurance-credits');
 const statutoryPayValidator = require('./field-validators/statutory-pay');
 const statutoryPayEndDateValidator = require('./field-validators/statutory-pay-end-date');
-const severeDisabilityPremiumValidator = require('./field-validators/severe-disability-premium');
 
 const { genericDataUtils } = require('../lib/data-utils');
 const navigateToNextPage = require('../lib/navigation-rules');
@@ -203,25 +202,6 @@ module.exports = {
         next();
       },
     },
-  },
-
-  'severe-disability-premium': {
-    view: 'pages/severe-disability-premium',
-    fieldValidators: severeDisabilityPremiumValidator,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'severe-disability-premium');
-        next();
-      },
-    },
-  },
-
-  'not-eligible-severe-disability-premium': {
-    view: 'pages/not-eligible-severe-disability-premium',
-  },
-
-  'check-if-you-get-severe-disability-premium': {
-    view: 'pages/check-if-you-get-severe-disability-premium',
   },
 
   'may-be-eligible': {

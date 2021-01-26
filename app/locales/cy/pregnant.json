@@ -1,0 +1,29 @@
+{
+  "pageTitle": "Beichiog",
+  "pregnant": {
+    "label": "Ydych chi’n feichiog?",
+    "yes": "Ydw",
+    "no": "Na", 
+    "errors": {
+      "required": "Dewiswch ydw os ydych chi’n feichiog"
+    }
+  },
+  "dueDate": {
+    "label": "Eich dyddiad disgwyliedig",
+    "hint": "Er enghraifft, <span class=\"nobr\">%s</span>",
+    "errors": {
+      "required": "Rhowch eich dyddiad disgwyliedig",
+      "missingDay": "Mae’n rhaid i ddyddiad disgwyliedig gynnwys diwrnod",
+      "missingMonth": "Mae’n rhaid i ddyddiad disgwyliedig gynnwys mis",
+      "missingYear": "Mae’n rhaid i ddyddiad disgwyliedig gynnwys blwyddyn",
+      "missingDayAndMonth": "Mae’n rhaid i ddyddiad disgwyliedig gynnwys diwrnod a mis",
+      "missingDayAndYear": "Mae’n rhaid i ddyddiad disgwyliedig gynnwys diwrnod a blwyddyn",
+      "missingMonthAndYear": "Mae’n rhaid i ddyddiad disgwyliedig gynnwys mis a blwyddyn",
+      "badFormatYear": "Rhowch eich dyddiad disgwyliedig gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
+      "notReal": "Rhowch ddyddiad disgwyliedig gwirioneddol",
+      "notRealDigits": "Rhowch ddyddiad disgwyliedig gwirioneddol drwy ddefnyddio rhifau yn unig",
+      "inPast": "Mae’n rhaid i ddyddiad disgwyliedig fod yn heddiw neu yn y dyfodol",
+      "outOfRange": "Mae’r dyddiad disgwyliedig rhy bell yn y dyfodol"
+    }
+  }
+}
