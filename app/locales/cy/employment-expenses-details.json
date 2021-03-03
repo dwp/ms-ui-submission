@@ -2,7 +2,7 @@
   "pageTitle": "Manylion treuliau - %s",
   "expensesDetails" : {
     "label": "Ar gyfer beth mae’r treuliau a faint rydych yn eu cael?",
-    "hint": "Rhowch gyn gymaint o wybodaeth ag y gallwch.",
+    "hint": "Rhowch gyn gymaint o wybodaeth ag y gallwch.</br>Gallwch roi hyd at 500 nod. Mae’r rhif o dan y blwch testun yn dangos sawl nod sydd gennych ar ôl, neu os ydych wedi mynd dros y terfyn.",
     "errors": {
       "required": "Rhowch fanylion unrhyw dreuliau a faint rydych yn eu cael",
       "maxLength": "Rhowch fanylion unrhyw dreuliau a faint rydych yn eu cael mewn 500 nod neu lai (yn cynnwys gofodau)"

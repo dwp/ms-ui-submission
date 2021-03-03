@@ -111,6 +111,15 @@ describe('DataMapper', () => {
         postcode: 'test',
       },
     },
+    postcode: {
+      welsh: true,
+    },
+    'language-preference-writing': {
+      langPrefWriting: 'yes',
+    },
+    'language-preference-speaking': {
+      langPrefSpeaking: 'yes',
+    },
     mobile: {
       mobile: 'yes',
     },
@@ -218,6 +227,9 @@ describe('DataMapper', () => {
     },
     'universal-credit': {
       universalCredit: 'yes',
+    },
+    'claim-start-date-after-statutory-sick-pay': {
+      claimStartDateAfterSsp: 'yes',
     },
     'claim-start-date': {
       claimStartDate: {

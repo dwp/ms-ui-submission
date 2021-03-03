@@ -1,14 +1,18 @@
+const moment = require('moment');
 const { SimpleField } = require('@dwp/govuk-casa/lib/Validation');
 const dateExists = require('../../lib/validation-rules/date-exists.js');
 const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
 const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
 const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
+const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
 
 const Logger = require('../../lib/Logger');
 
 const appLogger = Logger();
 
 appLogger.info('Statutory sick pay end date validator');
+
+const threeMonthsFuture = () => moment().startOf('day').add(3, 'months');
 
 module.exports = {
   sspEndDate: SimpleField([
@@ -29,6 +33,10 @@ module.exports = {
     dateIsReal.bind({
       errorMsg: 'ssp-end:sspEndDate.errors.notReal',
       errorMsgDigits: 'ssp-end:sspEndDate.errors.notRealDigits',
+    }),
+    dateNotAfter.bind({
+      errorMsg: 'ssp-end:sspEndDate.errors.outOfRange',
+      dateToCheckAgainst: threeMonthsFuture,
     }),
   ]),
 };

@@ -13,7 +13,8 @@
       "missingMonthAndYear": "Mae’n rhaid i’ch dyddiad gorffen Tâl Salwch Statudol gynnwys mis a blwyddyn",
       "badFormatYear": "Rhowch eich dyddiad gorffen Tâl Salwch Statudol gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
       "notReal": "Rhowch ddyddiad gorffen Tâl Salwch Statudol gwirioneddol",
-      "notRealDigits": "Rhowch ddyddiad gorffen Tâl Salwch Statudol gwirioneddol gan ddefnyddio rhifau yn unig"
+      "notRealDigits": "Rhowch ddyddiad gorffen Tâl Salwch Statudol gwirioneddol gan ddefnyddio rhifau yn unig",
+      "outOfRange": "Ni all eich dyddiad gorffen Tâl Salwch Statudol fod mwy na 3 mis yn y dyfodol"
     }
   }
 }

@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Claim start date after Statutory Sick Pay",
+  "claimStartDateAfterSsp" : {
+    "label": "Do you want to claim from <span class=\"nobr\">%s</span>?",
+    "hint": "<p class=\"govuk-body\">This is the day after your Statutory Sick Pay end date. You can choose a later date, but you cannot get New Style ESA and Statutory Sick Pay at the same time.</p>",
+    "yes": "Yes",
+    "no": "No",
+    "errors": {
+      "required": "Select yes if you want to claim from the day after your Statutory Sick Pay end date"
+    }
+  }
+}

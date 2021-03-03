@@ -1,6 +1,7 @@
 {
   "pageTitle": "Give feedback",
   "h1": "Give feedback",
+  "hint": "",
   "rating": {
     "label": "Overall, how did you feel about the service you received today?",
     "verySatisfied": "Very satisfied",

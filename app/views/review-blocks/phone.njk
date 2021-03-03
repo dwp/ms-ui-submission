@@ -1,0 +1,37 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingPhone') }}</h2>
+
+{% set phoneRows = [] %}
+
+{% set mobileRow = {
+    key: { text: t('check-your-answers:mobile') },
+    value: { text: journeyData.mobile.number if journeyData.mobile.mobile === 'yes' else t('mobile:mobile.no') },
+    actions: {
+        items: [{
+            attributes: { 'id': 'mobile' },
+            href: "mobile?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextMobile')
+        }]
+    }
+} %}
+{{ (phoneRows.push(mobileRow), null) }}
+
+{% if journeyData.mobile.mobile === 'no' %}
+    {% set otherNumberRow = {
+        key: { text: t('check-your-answers:otherNumber') },
+        value: { text: journeyData['other-number'].number if journeyData['other-number'].other === 'yes' else t('mobile:mobile.no') },
+        actions: {
+            items: [{
+                attributes: { 'id': 'other-number' },
+                href: "other-number?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherNumber')
+            }]
+        }
+    } %}
+    {{ (phoneRows.push(otherNumberRow), null) }}
+{% endif %}
+
+{{ govukSummaryList({
+    rows: phoneRows
+}) }}

@@ -21,7 +21,7 @@ See [Readme General Info (CI)](https://confluence.service.dwpcloud.uk/pages/view
 
 node.js application using the @dwp/govuk-casa internally-created node module used for inputting form data.
 
-Uses css, html, node, and nunjucks.
+Uses css, html, node, and nunjucks. 
 
 ### Application Files
 
@@ -53,15 +53,33 @@ Uses mocha and chai to run tests in the `test` folder'. Run `npm test`
 
 ### Component Test
 
-Smoke, journey and Axe Core tests can be run using Docker via `npm`:
+Smoke, journey and Axe Core tests can be run using Docker via `npm`
+
+To specify the set of tests to run, set the image in the `smoke_test`, `journey_test` or `axe_test` jobs by exporting the following variable in your shell:   
+
+`TEST_IMAGE_CONTAINER`  
+
+This should point to the image to pull.
+
+By default for NS ESA, running the following command will set it to the latest `develop` test artifact (you must ensure you have the correct permissions/IAM to execute `aws ssm get-parameter` and have `jq` and the `aws cli` installed):
+
+`export TEST_IMAGE_CONTAINER=$(aws ssm get-parameter --name "/artifact/ns-esa/qa-citizen-component/develop" --with-decryption --output json | jq --raw-output '.Parameter.Value')`
+
+In order for `docker compose` to pull the test images from AWS ECR you will need to login - to login locally you will need the following IAM:
+
+`ecr:GetAuthorizationToken` on resource `*`
+
+Then run:
+
+`eval $(aws ecr get-login --no-include-email --region eu-west-2 | sed 's|https://||')`
+
+Then execute the required tests via npm:
 
 `npm run test:smoke`  
 `npm run test:journey`  
 `npm run test:axe`  
 
 These scripts will use the `docker-compose.yml` to spin up local versions of Redis, KMS, a stub server, selenium and the ui application as well as the relevant test image.
-
-To specify a specific set of tests to run, update the image in the `smoke_test`, `journey_test` or `axe_test` job in the `docker-compose.yml` as necessary.
 
 ## Linting
 
@@ -90,18 +108,16 @@ include:
 
 The relevant stages must also be defined in the main `.gitlab-ci.yml` e.g.
 
-```
+```yaml
 stages:
   - update-version
   - code-quality
   - code-test
   - code-analysis
-  - tactical-package
   - image-build
   - container-image-test
   - component-test
   - image-push
-  - tactical-push-publish
   - update-project-metadata
   - pages
   - create-schedules

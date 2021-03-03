@@ -1,4 +1,5 @@
 /* eslint max-len: 0 */
+const moment = require('moment');
 const Logger = require('../Logger');
 const formatDigit = require('../../utils/formatDigit');
 const makeConditions = require('./makeConditions');
@@ -46,6 +47,10 @@ module.exports = (translator, journeyData, session) => {
   const voluntaryWork = journeyData.getDataForPage('voluntary-work');
   const workOverseas = journeyData.getDataForPage('work-overseas');
   const coronavirus = journeyData.getDataForPage('coronavirus');
+  const claimStartDateAfterSsp = journeyData.getDataForPage('claim-start-date-after-statutory-sick-pay');
+  const postcode = journeyData.getDataForPage('postcode');
+  const langPrefWriting = journeyData.getDataForPage('language-preference-writing');
+  const langPrefSpeaking = journeyData.getDataForPage('language-preference-speaking');
 
   const {
     voluntaryGather, employmentGather, pensionGather, insuranceGather,
@@ -110,7 +115,6 @@ module.exports = (translator, journeyData, session) => {
   capture.bank_name = bankDetails.bankName;
   capture.bank_sort_code = bankDetails.sortCode;
   capture.bank_account_number = bankDetails.accountNumber.replace(/\s/g, '');
-  capture.claim_start_date = `${claimStartDate.claimStartDate.yyyy}-${formatDigit(claimStartDate.claimStartDate.mm)}-${formatDigit(claimStartDate.claimStartDate.dd)}`;
 
   appLogger.info('DataMapper: collecting alternative address data from journey, if needed');
   if (address.correspondence === 'no') {
@@ -125,6 +129,13 @@ module.exports = (translator, journeyData, session) => {
     };
   } else {
     capture.correspondence_address = null;
+  }
+  if (postcode.welsh) {
+    capture.welsh_postcode = 'yes';
+    capture.lang_pref_writing = langPrefWriting.langPrefWriting;
+    capture.lang_pref_speaking = langPrefSpeaking.langPrefSpeaking;
+  } else {
+    capture.welsh_postcode = 'no';
   }
   capture.claim_end = claimEndDate.claimEnd;
   if (claimEndDate.claimEnd === 'yes') {
@@ -157,8 +168,15 @@ module.exports = (translator, journeyData, session) => {
     capture.ssp_end = `${sspEnd.sspEndDate.yyyy}-${formatDigit(sspEnd.sspEndDate.mm)}-${formatDigit(sspEnd.sspEndDate.dd)}`;
   }
   capture.ssp_recent = sspRecent && sspRecent.sspRecent;
-  if (sspRecent && sspRecent.sspRecent === 'yes') {
+  if ((ssp && ssp.statutoryPay === 'yes') || (sspRecent && sspRecent.sspRecent === 'yes')) {
     capture.ssp_recent_end = `${sspEnd.sspEndDate.yyyy}-${formatDigit(sspEnd.sspEndDate.mm)}-${formatDigit(sspEnd.sspEndDate.dd)}`;
+    capture.day_after_ssp_recent_end = moment(`${sspEnd.sspEndDate.yyyy}-${sspEnd.sspEndDate.mm}-${sspEnd.sspEndDate.dd}`, 'YYYY-MM-DD').add(1, 'day').format('YYYY-MM-DD');
+    capture.claim_start_date_after_ssp = claimStartDateAfterSsp.claimStartDateAfterSsp;
+  }
+  if (typeof claimStartDate !== 'undefined' && typeof claimStartDate.claimStartDate !== 'undefined') {
+    capture.claim_start_date = `${claimStartDate.claimStartDate.yyyy}-${formatDigit(claimStartDate.claimStartDate.mm)}-${formatDigit(claimStartDate.claimStartDate.dd)}`;
+  } else {
+    capture.claim_start_date = capture.day_after_ssp_recent_end;
   }
   capture.universal_credit = universalCredit.universalCredit;
   capture.work_overseas = workOverseas.workOverseas;

@@ -1,20 +1,39 @@
 <h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingClaimDate') }}</h2>
 
 {% set claimDateRows = [] %}
+{% if journeyData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp | length %}
 
-{% set claimStartDateRow = {
-    key: { text: t('check-your-answers:claimDate') },
-    value: { text: journeyData['claim-start-date'].claimStartDate | date },
-    actions: {
-        items: [{
-            attributes: { 'id': 'claim-start-date' },
-            href: "claim-start-date?edit",
-            text: t('check-your-answers:change'),
-            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimStartDate')
-        }]
-    }
-} %}
-{{ (claimDateRows.push(claimStartDateRow), null) }}
+    {% set claimStartDateAfterSspRow = {
+        key: { text: t('check-your-answers:claimStartDateAfterSsp', journeyData['statutory-sick-pay-end'].sspEndDate | dayAfterDate) | safe},
+        value: { text: t('app:' + journeyData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'claim-start-date-after-statutory-sick-pay' },
+                href: "claim-start-date-after-statutory-sick-pay?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimStartDateAfterSsp')
+            }]
+        }
+    } %}
+    {{ (claimDateRows.push(claimStartDateAfterSspRow), null) }}
+
+{% endif %}
+
+{% if journeyData['claim-start-date'].claimStartDate and journeyData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp !== 'yes' %}
+    {% set claimStartDateRow = {
+        key: { text: t('check-your-answers:claimDate') },
+        value: { text: journeyData['claim-start-date'].claimStartDate | date },
+        actions: {
+            items: [{
+                attributes: { 'id': 'claim-start-date' },
+                href: "claim-start-date?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimStartDate')
+            }]
+        }
+    } %}
+    {{ (claimDateRows.push(claimStartDateRow), null) }}
+{% endif %}
 
 {% set claimEndDateRow = {
     key: { text: t('check-your-answers:claimEndDate') },

@@ -1,7 +1,7 @@
 {
   "pageTitle": "Y dyddiad yr effeithiodd coronafeirws arnoch",
   "default-text": "Gallai hyn fod pan ddechreuoch chi neu eich plentyn hunan-ynysu.",
-  "coronavirus-high-risk-shielding-text": "Gallai hyn fod pan gawsoch lythyr neu neges testun gan y GIG.",
+  "coronavirus-high-risk-shielding-text": "Gallai hyn fod y dyddiad y cawsoch eich cynghori i gysgodi gan y llywodraeth neu'r GIG.",
   "coronavirusDate" : {
     "label": "Pa ddyddiad yr effeithwyd arnoch gan goronafeirws?",
     "hint": "Er enghraifft, 28 2 2020",

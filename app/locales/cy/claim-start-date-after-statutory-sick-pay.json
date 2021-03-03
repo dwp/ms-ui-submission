@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Dyddiad dechrau cais ar ôl Tâl Salwch Statudol",
+  "claimStartDateAfterSsp" : {
+    "label": "Ydych chi eisiau gwneud cais o <span class=\"nobr\">%s</span>?",
+    "hint": "<p class=\"govuk-body\">Dyma'r diwrnod ar ôl eich dyddiad gorffen Tâl Salwch Statudol. Gallwch ddewis dyddiad diweddarach, ond ni allwch gael ESA Dull Newydd a Thâl Salwch Statudol ar yr un pryd.</p>",
+    "yes": "Ydw",
+    "no": "Na",
+    "errors": {
+      "required": "Dewiswch ydw os ydych eisiau gwneud cais o’r dyddiad ar ôl eich dyddiad gorffen Tâl Salwch Statudol"
+    }
+  }
+}

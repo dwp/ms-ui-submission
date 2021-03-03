@@ -55,7 +55,7 @@
 
   "statPayHeading": "Tâl statudol",
   "ssp": "Cael Tâl Salwch Statudol",
-  "sspEnd": "Tâl Salwch Statudol yn dod i ben",
+  "sspEnd": "Dyddiad gorffen Tâl Salwch Statudol",
   "sspRecent": "Tâl Salwch Statudol yn yr 13 wythnos cyn y dyddiad rydych eisiau gwneud cais o",
   "sspRecentEnd": "Tâl Salwch Statudol wedi dod i ben",
   "otherStatPay": "Taliadau statudol eraill",
@@ -174,5 +174,12 @@
   "coronavirusOtherReason": "Sut yr effeithwyd gan goronafeirws os arall",
 
   "universalCredit": "Credyd Cynhwysol",
-  "visuallyHiddenTextUniversalCredit": "os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol"
+  "visuallyHiddenTextUniversalCredit": "os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol",
+
+  "headingLanguage": "Dewis iaith",
+  "langPrefWriting": "Ysgrifennu",
+  "visuallyHiddenTextLangPrefWriting": "Ym mha iaith ydych chi am i ni ysgrifennu atoch?",
+  "langPrefSpeaking": "Siarad",
+  "visuallyHiddenTextLangPrefSpeaking": "Ym mha iaith ydych chi am i ni siarad â chi?",
+  "headingPhone": "Rhif ffôn"
 }

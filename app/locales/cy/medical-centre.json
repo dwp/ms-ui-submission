@@ -11,7 +11,7 @@
   "phoneNumber": {
     "label": "Rhif ffôn y feddygfa",
     "errors": {
-      "required": "Rhowch rif ffôn ar gyfer y y feddygfa neu ganolfan feddygol",
+      "required": "Rhowch rif ffôn ar gyfer y feddygfa neu ganolfan feddygol",
       "badFormat": "Rhowch y rhif ffôn yn y ffurf gywir"
     }
   },

@@ -35,7 +35,7 @@
 {% if journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'high-risk' %}
 {% set coronavirusShielding = {
     key: { text: t('check-your-answers:coronavirusShielding') },
-    value: { text: t('app:' + journeyData['coronavirus-shielding'].coronavirusShielding) },
+    value: { text: t('coronavirus-shielding:coronavirusShielding.' + journeyData['coronavirus-shielding'].coronavirusShielding) },
     actions: {
         items: [{
             attributes: { 'id': 'coronavirus-shielding' },
@@ -65,7 +65,7 @@
     {% if journeyData['coronavirus-other-condition'].coronavirusOtherCondition %}
     {% set coronavirusOtherConditionRow = {
         key: { text: t('check-your-answers:coronavirusOtherCondition') },
-        value: { text: t('app:' + journeyData['coronavirus-other-condition'].coronavirusOtherCondition) },
+        value: { text: t('coronavirus-other-condition:coronavirusOtherCondition.' + journeyData['coronavirus-other-condition'].coronavirusOtherCondition) },
         actions: {
             items: [{
                 attributes: { 'id': 'coronavirus-other-condition' },
@@ -155,7 +155,7 @@
     {% if journeyData['ds1500-report'].ds1500Report === 'dontKnow' %}
         {{ t('ds1500-report:ds1500Report.dontKnow') | safe }}
     {% else %}
-        {{ t('app:' + journeyData['ds1500-report'].ds1500Report) }}
+        {{ t('ds1500-report:ds1500Report.' + journeyData['ds1500-report'].ds1500Report) }}
     {% endif %}
 {% endset %}
 {% set ds1500Row = {
@@ -175,7 +175,7 @@
 
 {% set inpatientRow = {
     key: { text: t('check-your-answers:inHospital') },
-    value: { text: t('app:' + journeyData['hospital-inpatient'].hospitalInpatient) },
+    value: { text: t('hospital-inpatient:hospitalInpatient.' + journeyData['hospital-inpatient'].hospitalInpatient) },
     actions: {
         items: [{
             attributes: { 'id': 'hospital-inpatient' },
@@ -209,7 +209,7 @@
 {% endif %}
 
 {% set pregnant %}
-    {{ t('app:'+journeyData.pregnant.pregnant) }}<br>
+    {{ t('pregnant:pregnant.' + journeyData.pregnant.pregnant) }}<br>
     {% if journeyData.pregnant.pregnant === 'yes' %}
         {{ t('check-your-answers:due') }} {{ journeyData.pregnant.dueDate | date }}
     {% endif %}

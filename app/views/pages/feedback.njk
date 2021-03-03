@@ -90,6 +90,9 @@
                                 maxlength: 1200,
                                 name: 'comments',
                                 value: comments,
+                                hint: {
+                                    text: t('feedback:hint')
+                                },
                                 errorMessage: (formErrors[0].field === 'feedback-comment' or formErrors[1].field === 'feedback-comment') and {
                                     text: t('feedback:errors.maxLength')
                                 }

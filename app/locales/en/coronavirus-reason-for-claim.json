@@ -16,6 +16,9 @@
     },
     "errors": {
       "required": "Select the option that best describes how coronavirus has affected you"
+    },
+    "fieldCount": {
+      "hint": ""
     }
   }
 }
