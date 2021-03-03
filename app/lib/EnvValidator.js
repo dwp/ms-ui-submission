@@ -95,5 +95,9 @@ module.exports = (envParam) => {
   validateRequiredString('NOTIFY_EMAILTO');
   validateRequiredString('NOTIFY_APIKEY');
   validateRequiredString('NOTIFY_PROXY');
+
+  /* -------------------------------------------------------------------- Google Analytics */
+  validateRequiredString('GOOGLE_TAG_MANAGER_ID');
+
   return env;
 };

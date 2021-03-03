@@ -49,7 +49,6 @@ try {
   }
   process.exit(1);
 }
-
 // Hide the app pages from search engine indexes.
 // Either remove this code or set the ROBOT_INDEX env var to true
 // to remove the Robots Tag header.
@@ -234,7 +233,7 @@ const cookiePolicyPost = require('./routes/cookie-policy.post');
 require('./routes/check-your-answers')(casaApp.router, casaApp.csrfMiddleware, casaApp.config.mountUrl, journey);
 require('./routes/cancel')(casaApp.router, casaApp.csrfMiddleware);
 require('./routes/remove')(casaApp.router, casaApp.csrfMiddleware);
-require('./routes/declaration')(casaApp.config.mountUrl, casaApp.router, casaApp.csrfMiddleware, submissionService, notificationService);
+require('./routes/declaration')(casaApp, casaApp.config.mountUrl, casaApp.router, casaApp.csrfMiddleware, submissionService, notificationService);
 require('./routes/complete')(casaApp, casaApp.config.mountUrl, casaApp.router);
 require('./routes/feedback')(casaApp.router, casaApp.csrfMiddleware, appConfig.NOTIFY_EMAILTO, appConfig.NOTIFY_APIKEY, appConfig.NOTIFY_PROXY, appConfig.NOTIFY_URL ? appConfig.NOTIFY_URL : null);
 require('./routes/thankyou')(casaApp.router);

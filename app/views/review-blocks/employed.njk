@@ -56,7 +56,7 @@
             }
         }, {
             key: { text: t('check-your-answers:offSick') },
-            value: { text: t('app:' + emp.offSick) },
+            value: { text: t('employment-off-sick:offSick.' + emp.offSick) },
             actions: {
                 items: [{
                     attributes: { 'id': 'off-sick-'+loop.index0 },
@@ -155,7 +155,7 @@
 
             {{ (employmentRows.push({
                 key: { text: t('check-your-answers:supportWorker') },
-                value: { text: t('employment-support:support.notSure') if emp.support === 'notSure' else t('app:' + emp.support) },
+                value: { text: t('employment-support:support.notSure') if emp.support === 'notSure' else t('employment-support:support.' + emp.support) },
                 actions: {
                     items: [{
                         attributes: { 'id': 'employment-support-'+loop.index0 },

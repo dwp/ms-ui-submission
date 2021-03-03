@@ -13,7 +13,8 @@
       "missingMonthAndYear": "Your Statutory Sick Pay end date must include a month and a year",
       "badFormatYear": "Enter your Statutory Sick Pay end date with a year in the right format, for example 2001 not 01",
       "notReal": "Enter a real Statutory Sick Pay end date",
-      "notRealDigits": "Enter a real Statutory Sick Pay end date using only digits"
+      "notRealDigits": "Enter a real Statutory Sick Pay end date using only digits",
+      "outOfRange": "Your Statutory Sick Pay end date cannot be more than 3 months in the future"
     }
   }
 }

@@ -41,6 +41,7 @@ const args = process.argv.slice(2)
   const sameHours = args.sameHours !== undefined ? args.sameHours : args.all !== undefined ? args.all : true;
   const empExpenses = args.empExpenses !== undefined ? args.empExpenses : args.all !== undefined ? args.all : true;
   const sspRecent = args.sspRecent !== undefined ? args.sspRecent : args.all !== undefined ? args.all : false;
+  const claimStartDateAfterSsp = args.claimStartDateAfterSsp !== undefined ? args.claimStartDateAfterSsp : args.all !== undefined ? args.all : false;
   const statutoryPayments = args.statutoryPayments !== undefined ? args.statutoryPayments : args.all !== undefined ? args.all : false;
   const claimEndDate = args.claimEndDate !== undefined ? args.claimEndDate : args.all !== undefined ? args.all : true;
   const ssp = args.ssp !== undefined ? args.ssp : args.all !== undefined ? args.all : true;
@@ -111,8 +112,14 @@ const args = process.argv.slice(2)
     await driver.findElement(By.id('continue-button')).click();
 
     await driver.findElement(By.name('address[address1]')).sendKeys(faker.address.streetAddress());
-    await driver.findElement(By.name('address[postcode]')).sendKeys('LS1 1DJ');
+    await driver.findElement(By.name('address[postcode]')).sendKeys('CF1 1AT');
     await driver.findElement(By.id('f-correspondence')).click();
+    await driver.findElement(By.id('continue-button')).click();
+
+    await driver.findElement(By.id('f-langPrefWriting')).click();
+    await driver.findElement(By.id('continue-button')).click();
+
+    await driver.findElement(By.id('f-langPrefSpeaking')).click();
     await driver.findElement(By.id('continue-button')).click();
 
     if (mobile) {
@@ -317,15 +324,18 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('continue-button')).click();
 
       } else {
-
-        await driver.findElement(By.id('f-sspRecent')).click();
-        await driver.findElement(By.id('continue-button')).click();
-
-        const sspEndDate = moment().add(3, 'weeks');
-        await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
-        await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
-        await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
-        await driver.findElement(By.id('continue-button')).click();
+        if (sspRecent) {
+          await driver.findElement(By.id('f-sspRecent')).click();
+          await driver.findElement(By.id('continue-button')).click();
+          const sspEndDate = moment().add(3, 'weeks');
+          await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
+          await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
+          await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
+          await driver.findElement(By.id('continue-button')).click();
+        } else {
+          await driver.findElement(By.id('f-sspRecent-2')).click();
+          await driver.findElement(By.id('continue-button')).click();
+        }
       }
 
     } else {
@@ -353,15 +363,30 @@ const args = process.argv.slice(2)
     }
 
     await driver.findElement(By.id('continue-button')).click();
-
     await driver.findElement(By.id('f-universalCredit')).click();
     await driver.findElement(By.id('continue-button')).click();
 
-    const claimDate = moment().subtract(3, 'week');
-    await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.date().toString());
-    await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month() + 1).toString());
-    await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year().toString());
-    await driver.findElement(By.id('continue-button')).click();
+    if (ssp || sspRecent) {
+      if (claimStartDateAfterSsp) {
+        await driver.findElement(By.id('f-claimStartDateAfterSsp')).click();
+        await driver.findElement(By.id('continue-button')).click();
+      } else {
+        await driver.findElement(By.id('f-claimStartDateAfterSsp-2')).click();
+        await driver.findElement(By.id('continue-button')).click();
+
+        const claimDate = moment().subtract(3, 'week');
+        await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.date().toString());
+        await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month() + 1).toString());
+        await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year().toString());
+        await driver.findElement(By.id('continue-button')).click();
+      }
+    } else {
+      const claimDate = moment().subtract(3, 'week');
+      await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.date().toString());
+      await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month() + 1).toString());
+      await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year().toString());
+      await driver.findElement(By.id('continue-button')).click();
+    }
 
     if (claimEndDate) {
       await driver.findElement(By.id('f-claimEnd')).click();

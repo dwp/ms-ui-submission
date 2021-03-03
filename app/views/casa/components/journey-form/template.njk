@@ -16,7 +16,7 @@
             },
             text: t('app:saveChanges') if params.inEditMode else (t('doctor-declaration:understoodButton') if params.page_path === '/doctor-declaration' else t('app:continue'))
           }) }}
-
+          
           {% if params.inEditMode and not params.cancelForm and not params.errorsFlag %}
             <a href="{{ params.casa.mountUrl }}check-your-answers" class="casa-cancel-review-link govuk-link--no-visited-state">{{ t('app:cancel') }}</a>
           {% endif %}

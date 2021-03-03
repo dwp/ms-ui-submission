@@ -2,6 +2,7 @@
   "pageTitle": "What voluntary work you do - %s",
   "role" : {
     "label": "What do you do at %s?",
+    "hint": "",
     "errors": {
       "required": "Enter what do you do at this organisation",
       "maxLength": "Enter what you do at this organisation in 500 characters or fewer (including spaces)"

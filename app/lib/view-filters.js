@@ -27,4 +27,7 @@ module.exports = (app) => {
   app.get('nunjucksEnv').addFilter(
     'date', (date) => moment(`${date.yyyy}-${date.mm}-${date.dd}`, 'YYYY-MM-DD').format('D MMMM YYYY'),
   );
+  app.get('nunjucksEnv').addFilter(
+    'dayAfterDate', (date) => moment(`${date.yyyy}-${date.mm}-${date.dd}`, 'YYYY-MM-DD').add(1, 'day').format('D MMMM YYYY'),
+  );
 };

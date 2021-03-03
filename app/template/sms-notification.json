@@ -3,7 +3,7 @@
   "client_id": "nsesa",
   "metadata" :{
     "to" : "$mobile_no$",
-    "template_id": "NSESA Application recd COVID19"
+    "template_id": "$template_id$"
   },
   "payload": {
     "values": []

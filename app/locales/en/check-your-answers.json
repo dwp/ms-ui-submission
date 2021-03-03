@@ -55,7 +55,7 @@
 
   "statPayHeading": "Statutory pay",
   "ssp": "Getting Statutory Sick Pay",
-  "sspEnd": "Statutory Sick Pay ends",
+  "sspEnd": "Statutory Sick Pay end date",
   "sspRecent": "Statutory Sick Pay in the 13 weeks before the date you want to claim from",
   "sspRecentEnd": "Statutory Sick Pay ended",
   "otherStatPay": "Other statutory payments",
@@ -174,5 +174,14 @@
   "coronavirusOtherReason": "How affected by coronavirus if other",
 
   "universalCredit": "Universal Credit",
-  "visuallyHiddenTextUniversalCredit": "whether you get or have applied for Universal Credit"
+  "visuallyHiddenTextUniversalCredit": "whether you get or have applied for Universal Credit",
+  "claimStartDateAfterSsp": "Claim from <span class=\"nobr\">%s</span>",
+  "visuallyHiddenTextClaimStartDateAfterSsp": "Whether you want to claim from %s",
+
+  "headingLanguage": "Language preference",
+  "langPrefWriting": "Writing",
+  "visuallyHiddenTextLangPrefWriting": "What language do you want us to write to you in?",
+  "langPrefSpeaking": "Speaking",
+  "visuallyHiddenTextLangPrefSpeaking": "What language do you want us to speak to you in?",
+  "headingPhone": "Phone number"
 }

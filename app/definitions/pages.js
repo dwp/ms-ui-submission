@@ -1,5 +1,7 @@
 const moment = require('moment');
 const addressValidators = require('./field-validators/address.js');
+const langPrefWritingValidators = require('./field-validators/language-preference-writing.js');
+const langPrefSpeakingValidators = require('./field-validators/language-preference-speaking.js');
 const bankDetailsValidators = require('./field-validators/bank-details.js');
 const claimEndDateValidators = require('./field-validators/claim-end-date.js');
 const claimStartDateValidators = require('./field-validators/claim-start-date.js');
@@ -63,6 +65,7 @@ const nationalInsuranceValidator = require('./field-validators/national-insuranc
 const getNationalInsuranceCreditsValidator = require('./field-validators/get-national-insurance-credits');
 const statutoryPayValidator = require('./field-validators/statutory-pay');
 const statutoryPayEndDateValidator = require('./field-validators/statutory-pay-end-date');
+const claimStartDateAfterSsp = require('./field-validators/claim-start-date-after-statutory-sick-pay');
 
 const { genericDataUtils } = require('../lib/data-utils');
 const navigateToNextPage = require('../lib/navigation-rules');
@@ -221,6 +224,30 @@ module.exports = {
     },
   },
 
+  'language-preference-writing': {
+    view: 'pages/language-preference-writing.njk',
+    fieldValidators: langPrefWritingValidators,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'language-preference-writing');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'language-preference-speaking': {
+    view: 'pages/language-preference-speaking.njk',
+    fieldValidators: langPrefSpeakingValidators,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'language-preference-speaking');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
   'bank-details': {
     view: 'pages/bank-details.njk',
     fieldValidators: bankDetailsValidators,
@@ -240,7 +267,14 @@ module.exports = {
         res.locals.claimEndDateHint = moment()
           .subtract(2, 'months')
           .format('D M YYYY');
-        res.locals.hiddenClaimStartDate = JSON.stringify(req.journeyData.getDataForPage('claim-start-date').claimStartDate);
+        if (typeof req.journeyData.getDataForPage('claim-start-date-after-statutory-sick-pay')
+          !== 'undefined' && req.journeyData.getDataForPage('claim-start-date-after-statutory-sick-pay').claimStartDateAfterSsp === 'yes') {
+          const { sspEndDate } = req.journeyData.getDataForPage('statutory-sick-pay-end');
+          const dayAfterSspEndDate = moment(`${sspEndDate.yyyy}-${sspEndDate.mm}-${sspEndDate.dd}`, 'YYYY-MM-DD').add(1, 'days').add(1, 'months');
+          res.locals.hiddenClaimStartDate = `{"dd":"${dayAfterSspEndDate.date()}","mm":"${dayAfterSspEndDate.month()}","yyyy":"${dayAfterSspEndDate.year()}"}`;
+        } else {
+          res.locals.hiddenClaimStartDate = JSON.stringify(req.journeyData.getDataForPage('claim-start-date').claimStartDate);
+        }
         next();
       },
       preredirect: navigateToNextPage,
@@ -940,6 +974,19 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.errorsFlag = checkForErrors(req, 'universal-credit');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'claim-start-date-after-statutory-sick-pay': {
+    view: 'pages/claim-start-date-after-statutory-sick-pay.njk',
+    fieldValidators: claimStartDateAfterSsp,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.sspEndDate = req.journeyData.getDataForPage('statutory-sick-pay-end').sspEndDate;
+        res.locals.errorsFlag = checkForErrors(req, 'claim-start-date-after-statutory-sick-pay');
         next();
       },
       preredirect: navigateToNextPage,

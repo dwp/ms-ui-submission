@@ -1,0 +1,13 @@
+{
+  "pageTitle" : "Language preference for writing",
+  "langPref" : {
+    "p1": "If you live in Wales you can choose to communicate with us in Welsh.",
+    "h1" : "What language do you want us to write to you in?",
+    "English": "English",
+    "Welsh": "Welsh",
+    "hint": "This includes text messages, letters and other written communications.",
+    "errors" : {
+      "required": "Select the language you want us to write to you in"
+    }
+  }
+}

@@ -99,6 +99,15 @@ describe('DataMapper', () => {
         postcode: 'test',
       },
     },
+    postcode: {
+      welsh: true,
+    },
+    'language-preference-writing': {
+      langPrefWriting: 'yes',
+    },
+    'language-preference-speaking': {
+      langPrefSpeaking: 'yes',
+    },
     'hospital-inpatient': {
       hospitalInpatient: 'yes',
       admissionDate: {
@@ -210,6 +219,9 @@ describe('DataMapper', () => {
     },
     'universal-credit': {
       universalCredit: 'yes',
+    },
+    'claim-start-date-after-statutory-sick-pay': {
+      claimStartDateAfterSsp: 'yes',
     },
     'coronavirus-reason-for-claim': {
       coronavirusReasonForClaim: 'high-risk',

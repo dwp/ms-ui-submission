@@ -13,6 +13,8 @@ describe('View filters', () => {
       filters.push(str);
       if (str === 'date') {
         expect(func({ dd: '7', mm: '4', yyyy: '1981' })).to.equal('7 April 1981');
+      } else if (str === 'dayAfterDate') {
+          expect(func({ dd: '7', mm: '4', yyyy: '1981' })).to.equal('8 April 1981');
       } else {
         expect(func('daymonthyear')).to.equal(true);
       }
@@ -43,9 +45,9 @@ describe('View filters', () => {
 
     viewFilters(app);
 
-    sinon.assert.callCount(app.get, 8);
+    sinon.assert.callCount(app.get, 9);
     sinon.assert.calledOnce(addGlobal);
-    sinon.assert.callCount(addFilter, 7);
+    sinon.assert.callCount(addFilter, 8);
 
     expect(addGlobal.getCall(0).args[0]).to.equal('mergeObjectsDeep');
     expect(addFilter.getCall(0).args[0]).to.equal('matchDay');
@@ -55,5 +57,6 @@ describe('View filters', () => {
     expect(addFilter.getCall(4).args[0]).to.equal('includesMonth');
     expect(addFilter.getCall(5).args[0]).to.equal('includesYear');
     expect(addFilter.getCall(6).args[0]).to.equal('date');
+    expect(addFilter.getCall(7).args[0]).to.equal('dayAfterDate');
   });
 });

@@ -25,6 +25,7 @@ describe('EnvValidator', () => {
       NOTIFY_EMAILTO: 'test@test.co.uk',
       NOTIFY_APIKEY: 'apikey',
       NOTIFY_PROXY: 'test',
+      GOOGLE_TAG_MANAGER_ID: `GTM-AB1TEST`
     };
   });
 

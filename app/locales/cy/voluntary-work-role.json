@@ -2,9 +2,10 @@
   "pageTitle": "Pa waith gwirfoddol ydych chi’n ei wneud - %s",
   "role" : {
     "label": "Beth rydych yn ei wneud yn %s?",
+    "hint": "Gallwch roi hyd at 500 nod. Mae’r rhif o dan y blwch testun yn dangos sawl nod sydd gennych ar ôl, neu os ydych wedi mynd dros y terfyn.",
     "errors": {
       "required": "Rhowch beth rydych yn ei wneud yn y sefydliad hwn",
-      "maxLength": "Ni ddylai manylion o’r math o waith gwirfoddol rydych yn ei wneud gynnwys mwy na 10,000 nod gan gynnwys gofodau"
+      "maxLength": "Rhowch beth rydych yn ei wneud yn y sefydliad hwn mewn 500 nod neu lai (yn cynnwys gofodau)"
     }
   }
 }

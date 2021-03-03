@@ -7,7 +7,7 @@
     "hint" : "Gweithiwr cymorth proffesiynol yw rhywun o gorff cyhoeddus neu sefydliad gwirfoddol a’i swydd yw rhoi cefnogaeth a goruchwyliaeth barhaus i chi i’ch helpu i aros yn y gwaith.",
     "notSure": "Nid wyf yn siwr",
     "errors" : {
-      "required": "Dewiswch ydw os ydych yn cael help gan weithiwr cymorth proffesiynol neu beidio, neu dewiswch ’Nid wyf yn siwr’"
+      "required": "Dewiswch ydw os ydych yn cael help gan weithiwr cymorth proffesiynol"
     }
   }
 }

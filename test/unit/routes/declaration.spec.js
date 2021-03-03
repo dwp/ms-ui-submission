@@ -2,6 +2,7 @@ const { assert, expect } = require('chai');
 const declarationRoute = require('../../../app/routes/declaration.js');
 
 describe('Declaration routes', () => {
+  const casaApp = {};
   const mountUrl = '/';
   const req = {
     csrfToken: () => '',
@@ -102,7 +103,7 @@ describe('Declaration routes', () => {
       callback(req, res);
     };
     router.post = () => {};
-    declarationRoute(mountUrl, router, csrf);
+    declarationRoute(casaApp, mountUrl, router, csrf);
   });
 
   it('should redirect to check-your-answers page when declaration page called without visiting cya page', () => {
@@ -117,7 +118,7 @@ describe('Declaration routes', () => {
       callback(req, res);
     };
     router.post = () => {};
-    declarationRoute(mountUrl, router, csrf);
+    declarationRoute(casaApp, mountUrl, router, csrf);
   });
 
   it('should set up a POST route, and redirect to the complete page when submission service successful', (done) => {
@@ -137,7 +138,7 @@ describe('Declaration routes', () => {
       assert.equal(path, '/declaration');
       callback(req, res);
     };
-    declarationRoute(mountUrl, router, csrf, submissionService, notificationService);
+    declarationRoute(casaApp, mountUrl, router, csrf, submissionService, notificationService);
   });
 
   it('should display an error page if submission handler doesn\'t accept the app', (done) => {
@@ -162,7 +163,7 @@ describe('Declaration routes', () => {
         statusCode: 400,
       }),
     };
-    declarationRoute(mountUrl, router, csrf, badSubmissionService, notificationService);
+    declarationRoute(casaApp, mountUrl, router, csrf, badSubmissionService, notificationService);
   });
 
   it('should route to the complete page if submission handler doesn\'t accept application because it\'s a duplicate submission', (done) => {
@@ -188,7 +189,7 @@ describe('Declaration routes', () => {
         statusCode: 409,
       }),
     };
-    declarationRoute(mountUrl, router, csrf, badSubmissionService, notificationService);
+    declarationRoute(casaApp, mountUrl, router, csrf, badSubmissionService, notificationService);
   });
   it('should display an error page if submission handler isn\'t working', (done) => {
     res.status = (statusCode) => ({
@@ -210,6 +211,32 @@ describe('Declaration routes', () => {
     const badSubmissionService = {
       sendApplication: () => Promise.reject(new Error('something bad happened')),
     };
-    declarationRoute(mountUrl, router, csrf, badSubmissionService, notificationService);
+    declarationRoute(casaApp, mountUrl, router, csrf, badSubmissionService, notificationService);
+  });
+  it('should display an error page if submission handler gives bad request and end the session', (done) => {
+    casaApp.endSession = () => Promise.resolve();
+    res.status = (statusCode) => ({
+      render: (path) => {
+        try {
+          assert.equal(path, 'casa/errors/400-submission-error.njk');
+          assert.equal(statusCode, 400);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      },
+    });
+    router.get = () => {};
+    router.post = (path, csrfMiddleware, callback) => {
+      assert.equal(path, '/declaration');
+      callback(req, res);
+    };
+    const badSubmissionService = {
+      // eslint-disable-next-line prefer-promise-reject-errors
+      sendApplication: () => Promise.reject({
+        statusCode: 400,
+      }),
+    };
+    declarationRoute(casaApp, mountUrl, router, csrf, badSubmissionService, notificationService);
   });
 });

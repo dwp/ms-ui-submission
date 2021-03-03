@@ -75,6 +75,8 @@ module.exports = (() => {
     'date-of-birth',
     'nino',
     'address',
+    ['language-preference-writing', (sessionData) => sessionData.postcode.welsh === true],
+    ['language-preference-speaking', (sessionData) => sessionData.postcode.welsh === true],
     'mobile',
     ['other-number', (sessionData) => sessionData.mobile.mobile === 'no'],
   ]);
@@ -194,7 +196,8 @@ module.exports = (() => {
   statutoryPayOtherPath.addWaypoints([
     'statutory-pay-other',
     'universal-credit',
-    'claim-start-date',
+    ['claim-start-date-after-statutory-sick-pay', (sessionData) => (typeof sessionData['statutory-sick-pay-end'] !== 'undefined' && typeof sessionData['statutory-sick-pay-end'].sspEndDate !== 'undefined')],
+    ['claim-start-date', (sessionData) => (typeof sessionData['claim-start-date-after-statutory-sick-pay'] === 'undefined' || sessionData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp === 'no')],
     'claim-end-date',
     'work-overseas',
     'military-overseas',
