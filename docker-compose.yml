@@ -133,7 +133,7 @@ services:
       NOTIFY_URL: ${NOTIFY_URL}
       NOTIFICATION_API_URL: ${NOTIFICATION_API_URL}
       GOOGLE_TAG_MANAGER_ID: ${GOOGLE_TAG_MANAGER_ID}
-      
+
     networks:
       - test
     build:
