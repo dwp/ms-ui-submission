@@ -27,11 +27,13 @@ describe('statutory sick pay recent navigation rules', () => {
       },
     };
   });
-  it('should call deleteIfPresent if sspRecent is \'no\'', () => {
+  it('should call deleteIfPresent thrice if sspRecent is \'no\' and url is /statutory-sick-pay-recent', () => {
+    req.url = '/statutory-sick-pay-recent';
     statutorySickPay(req);
-    assert(deleteIfPresent.called);
+    assert(deleteIfPresent.calledThrice);
   });
-  it('should not call deleteIfPresent if sspRecent is not no', () => {
+  it('should call deleteIfPresent once if sspRecent is not no', () => {
+    req.url = '/statutory-sick-pay-recent';
     req.journeyData.getDataForPage = (page) => {
       if (page === 'statutory-sick-pay-recent') {
         return {
@@ -41,6 +43,11 @@ describe('statutory sick pay recent navigation rules', () => {
       return undefined;
     };
     statutorySickPay(req);
-    assert(deleteIfPresent.notCalled);
+    assert(deleteIfPresent.calledOnce);
+  });
+  it('should call deleteIfPresent if url is \'/statutory-sick-pay-recent\'', () => {
+    req.url = '/statutory-sick-pay-recent';
+    statutorySickPay(req);
+    assert(deleteIfPresent.called);
   });
 });
