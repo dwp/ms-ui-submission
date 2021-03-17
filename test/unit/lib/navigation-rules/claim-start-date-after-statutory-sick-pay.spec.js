@@ -8,33 +8,36 @@ const claimStartDateAfterSsp = require('../../../../app/lib/navigation-rules/cla
 describe('claim start date after ssp navigation rules', () => {
   let req;
   let deleteIfPresent;
-  const page = 'claim-start-date';
-  const fieldNames = ['claimStartDate'];
 
+  afterEach(() => {
+    deleteIfPresent.restore();
+  });
   beforeEach(() => {
     deleteIfPresent = sinon.stub(genericDataUtils, 'deleteIfPresent');
-    req = {};
+    req = {
+      journeyData: {
+        getDataForPage: (page) => {
+          if (page === 'claim-start-date-after-statutory-sick-pay') {
+            return {
+              claimStartDateAfterSsp: 'no',
+            };
+          }
+          return undefined;
+        },
+      },
+    };
   });
 
   afterEach(() => {
     deleteIfPresent.restore();
   });
-  it('should empty claimStartDate if claimStartDateAfterSsp is changed to yes', () => {
-    req.journeyData = {
-      getDataForPage: () => ({
-        claimStartDateAfterSsp: 'yes',
-      }),
-    };
+  it('should call deleteIfPresent twice if url is /claim-start-date-after-statutory-sick-pay', () => {
+    req.url = '/claim-start-date-after-statutory-sick-pay';
     claimStartDateAfterSsp(req);
-    assert(deleteIfPresent.calledOnce);
-    assert(deleteIfPresent.calledWith(req, page, fieldNames));
+    assert(deleteIfPresent.calledTwice);
   });
-  it('should not empty claimStartDate if claimEnd is changed to no', () => {
-    req.journeyData = {
-      getDataForPage: () => ({
-        claimStartDateAfterSsp: 'no',
-      }),
-    };
+  it('should not call deleteIfPresent if url is not \'/claim-start-date-after-statutory-sick-pay\'', () => {
+    req.url = '/not-claim-start-date-after-statutory-sick-pay';
     claimStartDateAfterSsp(req);
     assert(deleteIfPresent.notCalled);
   });
