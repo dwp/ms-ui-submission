@@ -1,14 +1,46 @@
-# 2.6.0 (2020-12-14)
+# 3.1.0 (2021-03-18)
 
+* ESAO-1299 Change 'Check your answers' user journey relating to SSP & validate
+* ESAO-1296 Upgrade GOVUK Casa 4.0.11
+
+## <small>3.0.0 (2021-03-03)</small>
+
+* Migration to Version 3 Infrastructure
+* Implementation of welsh version of the service
+* ESAO-1280	Welsh error message is incorrect for phoneNumber required validation on Doctors Details screen
+* ESAO-1279	Welsh translation update required for error message on /employment-support page
+* ESAO-1278	Welsh translation update required for error message on /voluntary-work-role page
+* ESAO-1273	Welsh translation required for /coronavirus-date page
+* ESAO-1276	Check your answers displaying English content for contact preferences
+* ESAO-1274	Check your answers (Welsh Version) showing 'yes' answers in English
+* ESAO-1189	Welsh hint text for character count component
+* ESAO-1186	Amend SSP end date text in 'check your answers'
+* ESAO-1174	Claim end date must be after claim start date
+* ESAO-1150	Check your answers questions need to be in the same order as journey
+* ESAO-958	Investigate why users are entering the wrong claim date when they have SSP
+
+## <small>2.7.1 (2021-01-26)</small>
+
+* ESAO-1226 Point links to Welsh pages in the service
+* ESAO-1222	Improve address format validation error
+* ESAO-1094	give users the option to take part in user research
+* ESAO-1066	Review Severe Disability question in eligibility checker 
+
+## <small>2.7.0 (2021-01-12)</small>
 * ESAO-1058 Terminal illness not appearing on check your answers
 * ESAO-1060 Shielding - National Lockdown - content updates
 * ESAO-996 consider requesting new Information/evidence to support COVID claims
 
-# 2.5.0 (2020-12-01)
+## <small>2.6.0 (2020-12-14)</small>
+
+* ESAO-1056	Combine both statutory sick pay end date pages
+
+## <small>2.5.0 (2020-12-01)</small>
 
 * ESAO-1056 Combine both statutory sick pay end date pages ([4c07a27](https://gitlab.nonprod.dwpcloud.uk/health/ns-esa/ms-ui-submission/commit/4c07a2718677a30b473fb32cb2c2cfae39dd4f2a))
 
 ## <small>2.4.0 (2020-11-11)</small>
+
 * ESAO-1062	Add client_id in SMS template
 * ESAO-1037	BUG: make radio buttons align on /claim-end-date
 * ESAO-1021	Don't allow dates to break over 2 lines
