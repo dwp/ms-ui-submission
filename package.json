@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -70,7 +70,7 @@
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.6.0",
-    "chromedriver": "^87.0.5",
+    "chromedriver": "^89.0.0",
     "eslint": "7.11.0",
     "faker": "5.1.0",
     "mocha": "^8.1.3",

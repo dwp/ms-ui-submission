@@ -38,7 +38,7 @@
     {% if (journeyData['statutory-pay'].statutoryPay === 'yes' or (journeyData['statutory-pay'].statutoryPay === 'no' and journeyData['statutory-sick-pay-recent'].sspRecent === 'yes')) %}
         {% set sspEndRow = {
             key: { text: t('check-your-answers:sspEnd') },
-            value: { text: journeyData['statutory-sick-pay-end'].sspEndDate | date },
+            value: { text: journeyData['statutory-sick-pay-end'].sspEndDate | date(htmlLang) },
             actions: {
                 items: [{
                     attributes: { 'id': 'statutory-sick-pay-end' },

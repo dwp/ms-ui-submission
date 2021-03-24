@@ -84,7 +84,7 @@ module.exports = (casaApp, mountUrl, router, csrf, submissionService, notificati
               response_body: err.body,
             });
           } else if (err.statusCode === 409) {
-            appLogger.info('Duplicate application submitted to Submission Handler');
+            appLogger.info('Duplicate application submitted to Submission Handler with application-ref: %s', req.session.applicationRef);
             gotoThankYou();
           } else {
             gotoError('Error submitting application to Submission Handler', {

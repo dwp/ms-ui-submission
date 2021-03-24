@@ -175,6 +175,8 @@
 
   "universalCredit": "Credyd Cynhwysol",
   "visuallyHiddenTextUniversalCredit": "os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol",
+  "claimStartDateAfterSsp": "Cais o <span class=\"nobr\">%s</span>",
+  "visuallyHiddenTextClaimStartDateAfterSsp": "Os ydych eisiau gwneud cais o %s",
 
   "headingLanguage": "Dewis iaith",
   "langPrefWriting": "Ysgrifennu",

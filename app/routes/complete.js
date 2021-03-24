@@ -54,7 +54,7 @@ module.exports = (casaApp, mountUrl, router) => {
         p45Indicator,
         sspIndicator,
         pensionsIndicator,
-        fourteenDaysLater: moment().add(14, 'days').format('D MMMM YYYY'),
+        fourteenDaysLater: moment().add(14, 'days').locale(req.language).format('D MMMM YYYY'),
         universalCredit,
         isShielding,
       };

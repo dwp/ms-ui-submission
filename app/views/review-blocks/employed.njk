@@ -70,7 +70,7 @@
         {% if emp.offSick === 'yes' %}
         {% set lastWorkRow = {
             key: { text: t('check-your-answers:lastWork') },
-            value: { text: (emp.lastWorkedDate | date) },
+            value: { text: (emp.lastWorkedDate | date(htmlLang)) },
             actions: {
                 items: [{
                     attributes: { 'id': 'last-work-'+loop.index0 },
