@@ -48,7 +48,7 @@
             }
         }, {
             key: { text: t('check-your-answers:pensionStarted') },
-            value: { text: pension.pensionStartDate | date if (pension.pensionStartDate.dd|default('')).trim().length > 0 },
+            value: { text: pension.pensionStartDate | date(htmlLang) if (pension.pensionStartDate.dd|default('')).trim().length > 0 },
             actions: {
                 items: [{
                     attributes: { 'id': 'pension-start-'+loop.index0 },

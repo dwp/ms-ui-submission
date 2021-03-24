@@ -16,9 +16,9 @@
   "finish": "Finish",
   "finishLink": "https://www.gov.uk/employment-support-allowance/your-esa-claim",
   "timeout": {
-    "title": "Your session will end in <span class=\"timeout-expires\">5 minutes</span>",
+    "title": "Your session will end in <span class=\"timeout-expires\">5</span>",
     "line1": "You have not done anything on the service for a while.",
-    "line2": "Your session will end in <span class=\"timeout-expires\">5 minutes</span> if you do not do anything on the page. You'll need to start your application again if that happens.",
+    "line2": "Your session will end in <span class=\"timeout-expires\">5</span> if you do not do anything on the page. You'll need to start your application again if that happens.",
     "minute" : "minute",
     "minutes" : "minutes",
     "button": "Resume your application"

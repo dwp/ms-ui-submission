@@ -28,7 +28,12 @@ module.exports = (router, redis, startPage) => {
     let ref;
     if (typeof redis !== 'undefined') {
       redis.incr('esa:ref').then((int) => {
-        ref = hashids.encode(int);
+        const sessionRef = req.session.id
+            .replace(/[^a-z0-9]/ig, '')
+            .substring(0, 4)
+            .toUpperCase();
+        const randomStr = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 4).toUpperCase();
+        ref = hashids.encode(int) + sessionRef + randomStr;
         setAppRef(ref);
       }).catch((e) => {
         appLogger.error('Error incrementing esa:ref key in Redis', {

@@ -5,6 +5,7 @@ describe('Complete route', () => {
   const casaApp = {};
   const mountUrl = '/';
   const req = {
+    language: 'en',
     csrfToken: () => '',
     i18nTranslator: ({
       t: () => this,
@@ -94,6 +95,7 @@ describe('Complete route', () => {
   };
 
   const covidReq = {
+    language: 'en',
     csrfToken: () => '',
     i18nTranslator: ({
       t: () => this,

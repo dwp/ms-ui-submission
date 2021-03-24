@@ -1,4 +1,10 @@
-# 3.1.0 (2021-03-18)
+# 3.2.0 (2021-03-25)
+
+* ESAO-1283	Welsh is displaying incorrectly on timeout page
+* ESAO-1277	Month displaying in English for /check-your-answers and /complete pages
+* ESAO-1269 Iterate claimant's Ref Id if we receive duplicate ref error (409) from submission-handler
+
+## <small>3.1.0 (2021-03-18)</small>
 
 * ESAO-1299 Change 'Check your answers' user journey relating to SSP & validate
 * ESAO-1296 Upgrade GOVUK Casa 4.0.11

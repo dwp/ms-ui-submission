@@ -35,7 +35,7 @@
     }
 }, {
     key: { text: t('check-your-answers:dob') },
-    value: { text: journeyData['date-of-birth'].dateOfBirth | date },
+    value: { text: journeyData['date-of-birth'].dateOfBirth | date(htmlLang) },
     actions: {
         items: [{
             attributes: { 'id': 'date-of-birth' },

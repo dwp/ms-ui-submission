@@ -63,7 +63,7 @@
             {% set insuranceEmployer %}
                 {{ t('app:' + insurer.stillWork if insurer.stillWork and (insurer.stillWork|default('')).trim().length > 0) }}<br><br>
                 {% if insurer.stillWork === 'no' %}
-                {{ t('check-your-answers:insuranceEmployerEnd') }} {{ insurer.endDate | date }}
+                {{ t('check-your-answers:insuranceEmployerEnd') }} {{ insurer.endDate | date(htmlLang) }}
                 {% endif %}
             {% endset %}
             {% set insuranceEmployerRow = {
