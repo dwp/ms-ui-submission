@@ -14,9 +14,7 @@ module.exports = (() => {
   const sspRecentPath = new UserJourney.Road();
   const statutoryPayOtherPath = new UserJourney.Road();
   const pensionPath = new UserJourney.Road();
-  // const pensionDetailsPath = new UserJourney.Road();
   const insurancePath = new UserJourney.Road();
-  // const insuranceDetailsPath = new UserJourney.Road();
   const restOfJourney = new UserJourney.Road();
   // coronavirus
   const coronaReasonPath = new UserJourney.Road();

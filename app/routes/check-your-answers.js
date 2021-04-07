@@ -1,7 +1,7 @@
 const mwJourneyRails = require('@dwp/govuk-casa/middleware/page/journey-rails.js');
 const Logger = require('../lib/Logger');
 const {
-  employmentDataUtils, insuranceDataUtils, pensionDataUtils, voluntaryDataUtils,
+  employmentDataUtils, voluntaryDataUtils,
 } = require('../lib/data-utils');
 const pages = require('../lib/section-pages');
 
@@ -46,14 +46,6 @@ module.exports = (router, csrf, mountUrl, userJourney) => {
       case 'voluntary':
         voluntaryDataUtils.populateVoluntaryJourneyData(req.journeyData,
           req.session.voluntaryGather[index]);
-        break;
-      case 'insurance':
-        insuranceDataUtils.populateInsuranceJourneyData(req.journeyData,
-          req.session.insuranceGather[index], page === 'insurance-payment');
-        break;
-      case 'pension':
-        pensionDataUtils.populatePensionJourneyData(req.journeyData,
-          req.session.pensionGather[index]);
         break;
       case 'employment':
         employmentDataUtils.populateEmploymentJourneyData(req.journeyData,

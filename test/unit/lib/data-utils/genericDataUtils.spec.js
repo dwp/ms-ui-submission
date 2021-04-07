@@ -109,19 +109,6 @@ describe('genericDataUtils.deleteIfPresent', () => {
     };
     expect(genericDataUtils.deleteIfPresent(req, page, dataItems)).to.equal(false);
   });
-
-  it('should delete the data items and return true if there is data for the page', () => {
-    const page = 'pensions-payment';
-    const dataItems = ['amount'];
-    const req = {
-      journeyData: {
-        getDataForPage: () => ({ deductions: 'no' }),
-        setDataForPage: sinon.stub(),
-      },
-    };
-    expect(genericDataUtils.deleteIfPresent(req, page, dataItems)).to.equal(true);
-    expect(req.journeyData.getDataForPage('pensions-payment').amount).to.equal(undefined);
-  });
 });
 
 describe('genericDataUtils.cancelEdit', () => {
@@ -206,70 +193,6 @@ describe('genericDataUtils.cancelEdit', () => {
     genericDataUtils.cancelEdit(req);
     assert(getEmploymentFromJourneyData.calledOnce);
     assert(clearEmploymentJourneyData.notCalled);
-    assert(req.journeyData.setDataForPage.notCalled);
-  });
-  it('should set values for pension if editSection is pension', () => {
-    req.session.editSection = 'pension';
-    req.session.pensionGather[0] = 'pensionData';
-    const getPensionFromJourneyData = sinon.stub()
-      .returns('pensionData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getPensionFromJourneyData', getPensionFromJourneyData);
-    const clearPensionJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearPensionJourneyData', clearPensionJourneyData);
-    genericDataUtils.cancelEdit(req);
-    assert(getPensionFromJourneyData.calledOnce);
-    assert(clearPensionJourneyData.calledOnce);
-    assert(req.journeyData.setDataForPage.calledOnce);
-  });
-  it('should not set values for pension if editSection is pension', () => {
-    req.session.editSection = 'pension';
-    req.session.pensionGather[0] = 'notPensionData';
-    const getPensionFromJourneyData = sinon.stub()
-      .returns('pensionData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getPensionFromJourneyData', getPensionFromJourneyData);
-    const clearPensionJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearPensionJourneyData', clearPensionJourneyData);
-    genericDataUtils.cancelEdit(req);
-    assert(getPensionFromJourneyData.calledOnce);
-    assert(clearPensionJourneyData.notCalled);
-    assert(req.journeyData.setDataForPage.notCalled);
-  });
-  it('should set values for insurance if editSection is insurance', () => {
-    req.session.editSection = 'insurance';
-    req.session.insuranceGather[0] = 'insuranceData';
-    const getInsuranceFromJourneyData = sinon.stub()
-      .returns('insuranceData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getInsuranceFromJourneyData', getInsuranceFromJourneyData);
-    const clearInsuranceJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearInsuranceJourneyData', clearInsuranceJourneyData);
-    genericDataUtils.cancelEdit(req);
-    assert(getInsuranceFromJourneyData.calledOnce);
-    assert(clearInsuranceJourneyData.calledOnce);
-    assert(req.journeyData.setDataForPage.calledOnce);
-  });
-  it('should not set values for insurance if editSection is insurance', () => {
-    req.session.editSection = 'insurance';
-    req.session.insuranceGather[0] = 'notInsuranceData';
-    const getInsuranceFromJourneyData = sinon.stub()
-      .returns('insuranceData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getInsuranceFromJourneyData', getInsuranceFromJourneyData);
-    const clearInsuranceJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearInsuranceJourneyData', clearInsuranceJourneyData);
-    genericDataUtils.cancelEdit(req);
-    assert(getInsuranceFromJourneyData.calledOnce);
-    assert(clearInsuranceJourneyData.notCalled);
     assert(req.journeyData.setDataForPage.notCalled);
   });
 });

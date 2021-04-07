@@ -2,8 +2,6 @@ const isEqual = require('lodash.isequal');
 const Logger = require('../Logger');
 
 const { getEmploymentFromJourneyData, clearEmploymentJourneyData } = require('./employmentDataUtils');
-const { getInsuranceFromJourneyData, clearInsuranceJourneyData } = require('./insuranceDataUtils');
-const { getPensionFromJourneyData, clearPensionJourneyData } = require('./pensionDataUtils');
 const { getVoluntaryFromJourneyData, clearVoluntaryJourneyData } = require('./voluntaryDataUtils');
 
 const appLogger = Logger();
@@ -160,22 +158,6 @@ const cancelEdit = (req) => {
     if (isEqual(getEmploymentFromJourneyData(req.journeyData.getData()), req.session.employmentGather[req.session.editIndex])) {
       clearEmploymentJourneyData(req);
       req.journeyData.setDataForPage('employed', { other: 'no', screen: 'employed-other' });
-    }
-    break;
-  case 'pension':
-    appLogger.info('Cancel from edit pension');
-    // eslint-disable-next-line max-len
-    if (isEqual(getPensionFromJourneyData(req.journeyData.getData()), req.session.pensionGather[req.session.editIndex])) {
-      clearPensionJourneyData(req);
-      req.journeyData.setDataForPage('pension', { other: 'no', screen: 'pension-other' });
-    }
-    break;
-  case 'insurance':
-    appLogger.info('Cancel from edit insurance ');
-    // eslint-disable-next-line max-len
-    if (isEqual(getInsuranceFromJourneyData(req.journeyData.getData()), req.session.insuranceGather[req.session.editIndex])) {
-      clearInsuranceJourneyData(req);
-      req.journeyData.setDataForPage('insurance', { other: 'no', screen: 'insurance-other' });
     }
     break;
   default:

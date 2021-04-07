@@ -25,8 +25,6 @@ const args = process.argv.slice(2)
 (async function example() {
   // if the var has a value, use that, otherwise check for all
   const dev = args.dev !== undefined ? args.dev : args.all !== undefined ? args.all : false;
-  const qa = args.qa !== undefined ? args.qa : args.all !== undefined ? args.all : false;
-  const uat = args.uat !== undefined ? args.uat : args.all !== undefined ? args.all : false;
   const coronavirus = args.coronavirus !== undefined ? args.coronavirus : args.all !== undefined ? args.all : false;
   const highrisk = args.highrisk !== undefined ? args.highrisk : args.all !== undefined ? args.all : false;
   const pregnant = args.pregnant !== undefined ? args.pregnant : args.all !== undefined ? args.all : false;
@@ -60,11 +58,7 @@ const args = process.argv.slice(2)
   var baseUrl = 'http://localhost:3000/'; //local
 
   if (dev) {
-    baseUrl = 'https://esao-dev-blue.sdx.health-dev.dwpcloud.uk/'; //dev
-  } else if (qa) {
-    baseUrl = 'https://esao-qa-blue.sdx.health-dev.dwpcloud.uk/'; //qa
-  } else if (uat) {
-    baseUrl = 'https://esao-uat-blue.sdx.health-dev.dwpcloud.uk/'; //uat
+    baseUrl = 'https://ns-esa-f-dev.pub.health-dev.dwpcloud.uk/'; //dev
   }
 
   try {

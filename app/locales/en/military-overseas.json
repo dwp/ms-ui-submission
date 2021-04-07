@@ -1,7 +1,7 @@
 {
   "pageTitle" : "Recently lived abroad",
   "heading" : "In the last 12 weeks, have you lived abroad with a family member who was posted there with the armed forces?",
-  "hint" : "This helps us to understand why there are any gaps in your National Insurance record.",
+  "hint" : "This helps us to understand any gaps in your UK National Insurance record.",
   "yes": "Yes",
   "no": "No",
   "errors": {
