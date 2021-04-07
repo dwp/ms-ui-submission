@@ -3,7 +3,7 @@ const sinon = require('sinon');
 
 const { assert, expect } = chai;
 const {
-  employmentDataUtils, genericDataUtils, insuranceDataUtils, pensionDataUtils, voluntaryDataUtils,
+  employmentDataUtils, genericDataUtils, pensionDataUtils, voluntaryDataUtils,
 } = require('../../../../app/lib/data-utils');
 const navigationOverride = require('../../../../app/middleware/navigation-override/navigation-override.js');
 const sectionPages = require('../../../../app/lib/section-pages');
@@ -105,42 +105,6 @@ describe('Navigation override', () => {
       assert(clearEmploymentJourneyData.calledOnce);
       assert(next.calledOnce);
       clearEmploymentJourneyData.restore();
-    });
-    it('should remove the last gather from the pension gather array and put it in the journey', () => {
-      const populatePensionJourneyData = sinon.stub(pensionDataUtils, 'populatePensionJourneyData');
-      req.session.pensionGather = ['pension test'];
-      req.path = '/pension-inherited';
-      navigationOverride(req, null, next);
-      assert(populatePensionJourneyData.calledOnce);
-      assert(next.calledOnce);
-      populatePensionJourneyData.restore();
-    });
-    it('should remove the entry from the pension journey data if the pension gather array is empty', () => {
-      const clearPensionJourneyData = sinon.stub(pensionDataUtils, 'clearPensionJourneyData');
-      req.session.pensionGather = [];
-      req.path = '/pension-inherited';
-      navigationOverride(req, null, next);
-      assert(clearPensionJourneyData.calledOnce);
-      assert(next.calledOnce);
-      clearPensionJourneyData.restore();
-    });
-    it('should remove the last gather from the insurance gather array and put it in the journey', () => {
-      const populateInsuranceJourneyData = sinon.stub(insuranceDataUtils, 'populateInsuranceJourneyData');
-      req.session.insuranceGather = ['insurance test'];
-      req.path = '/insurance-payment';
-      navigationOverride(req, null, next);
-      assert(populateInsuranceJourneyData.calledOnce);
-      assert(next.calledOnce);
-      populateInsuranceJourneyData.restore();
-    });
-    it('should remove the entry from the insurance journey data if the insurance gather array is empty', () => {
-      const clearInsuranceJourneyData = sinon.stub(insuranceDataUtils, 'clearInsuranceJourneyData');
-      req.session.insuranceGather = [];
-      req.path = '/insurance-payment';
-      navigationOverride(req, null, next);
-      assert(clearInsuranceJourneyData.calledOnce);
-      assert(next.calledOnce);
-      clearInsuranceJourneyData.restore();
     });
   });
   describe('normal flag setting behaviour', () => {

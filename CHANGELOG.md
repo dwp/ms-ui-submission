@@ -1,4 +1,11 @@
-# 3.2.0 (2021-03-25)
+# 3.3.0 (2021-04-07)
+
+* ESAO-1287	Welsh translation for Consent (doctor-declaration) and Consent (outcome) screens need Welsh language phone number as well as English
+* ESAO-1286	English and Welsh hint text missing 'UK' from "National Insurance on Military Overseas screen
+* ESAO-1285	Work overseas screen missing 'UK' in welsh translation of 'UK National Insurance'
+* ESAO-1218	Fix content errors in cookie pattern 
+
+## <small>3.2.0 (2021-03-25)</small>
 
 * ESAO-1283	Welsh is displaying incorrectly on timeout page
 * ESAO-1277	Month displaying in English for /check-your-answers and /complete pages

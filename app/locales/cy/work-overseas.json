@@ -3,7 +3,7 @@
   "heading" : "Ydych chi wedi gweithio dramor yn y 5 mlynedd diwethaf?",
   "yes": "Ydw",
   "no": "Na",
-  "hint" : "Mae hyn yn ein helpu i ddeall unrhyw fylchau yn eich cofnod Yswiriant Gwladol. Efallai eich bod wedi gwneud taliadau nawdd cymdeithasol dramor sy’n cyfrif tuag at y budd-dal hwn.",
+  "hint" : "Mae hyn yn ein helpu i ddeall unrhyw fylchau yn eich cofnod Yswiriant Gwladol y DU. Efallai eich bod wedi gwneud taliadau nawdd cymdeithasol dramor sy’n cyfrif tuag at y budd-dal hwn.",
   "errors": {
     "required": "Dewiswch ydw os ydych wedi gweithio dramor yn y 5 mlynedd diwethaf"
   }

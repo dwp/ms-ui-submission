@@ -23,10 +23,6 @@ const employmentStatusValidators = require('./field-validators/employment-status
 const employmentSupportValidators = require('./field-validators/employment-support.js');
 const hospitalInpatientValidators = require('./field-validators/hospital-inpatient.js');
 const insuranceValidators = require('./field-validators/insurance.js');
-const insuranceDetailsValidators = require('./field-validators/insurance-details.js');
-const insuranceEmployerValidators = require('./field-validators/insurance-employer.js');
-const insurancePaymentValidators = require('./field-validators/insurance-payment.js');
-const insurancePremiumsValidators = require('./field-validators/insurance-premiums.js');
 const medicalCentreValidators = require('./field-validators/medical-centre.js');
 const militaryOverseasValidators = require('./field-validators/military-overseas.js');
 const mobileValidators = require('./field-validators/mobile.js');
@@ -34,13 +30,6 @@ const nameValidators = require('./field-validators/name.js');
 const ninoValidators = require('./field-validators/nino.js');
 const otherNumberValidators = require('./field-validators/other-number.js');
 const pensionValidators = require('./field-validators/pension.js');
-const pensionDeductionsValidators = require('./field-validators/pension-deductions.js');
-const pensionDeductionsDetailsValidators = require('./field-validators/pension-deductions-details.js');
-const pensionDetailsValidators = require('./field-validators/pension-details.js');
-const pensionFrequencyValidators = require('./field-validators/pension-frequency.js');
-const pensionInheritedValidators = require('./field-validators/pension-inherited.js');
-const pensionPaymentValidators = require('./field-validators/pension-payment.js');
-const pensionStartValidators = require('./field-validators/pension-start.js');
 const pregnantValidators = require('./field-validators/pregnant.js');
 const severeConditionValidators = require('./field-validators/severe-condition.js');
 const sspEndValidators = require('./field-validators/ssp-end.js');
@@ -581,61 +570,6 @@ module.exports = {
     },
   },
 
-  'insurance-details': {
-    view: 'pages/insurance-details.njk',
-    fieldValidators: insuranceDetailsValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'insurance-details');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'insurance-employer': {
-    view: 'pages/insurance-employer.njk',
-    fieldValidators: insuranceEmployerValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.insuranceProvider = req.journeyData.getDataForPage('insurance-details').insuranceProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'insurance-employer');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'insurance-payment': {
-    view: 'pages/insurance-payment.njk',
-    fieldValidators: insurancePaymentValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.insuranceProvider = req.journeyData.getDataForPage('insurance-details').insuranceProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'insurance-payment');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'insurance-premiums': {
-    view: 'pages/insurance-premiums.njk',
-    fieldValidators: insurancePremiumsValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.insuranceProvider = req.journeyData.getDataForPage('insurance-details').insuranceProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'insurance-premiums');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
   'medical-centre': {
     view: 'pages/medical-centre.njk',
     fieldValidators: medicalCentreValidators,
@@ -720,111 +654,6 @@ module.exports = {
         }
         res.locals.pensionGather = req.session.pensionGather || [];
         res.locals.errorsFlag = checkForErrors(req, 'pension');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-deductions': {
-    view: 'pages/pension-deductions.njk',
-    fieldValidators: pensionDeductionsValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.pensionProvider = req.journeyData.getDataForPage('pension-details').pensionProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-deductions');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-deductions-details': {
-    view: 'pages/pension-deductions-details.njk',
-    fieldValidators: pensionDeductionsDetailsValidators,
-    hooks: {
-      pregather: (req, res, next) => {
-        if (typeof req.body.deductionsDetails === 'object') {
-          req.body.deductionsDetails = genericDataUtils
-            .convertToArrayAndFilterBlanks(req.body.deductionsDetails);
-        }
-        next();
-      },
-      prerender: (req, res, next) => {
-        res.locals.pensionProvider = req.journeyData.getDataForPage('pension-details').pensionProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-deductions-details');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-details': {
-    view: 'pages/pension-details.njk',
-    fieldValidators: pensionDetailsValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-details');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-frequency': {
-    view: 'pages/pension-frequency.njk',
-    fieldValidators: pensionFrequencyValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.pensionProvider = req.journeyData.getDataForPage('pension-details').pensionProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-frequency');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-inherited': {
-    view: 'pages/pension-inherited.njk',
-    fieldValidators: pensionInheritedValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.pensionProvider = req.journeyData.getDataForPage('pension-details').pensionProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-inherited');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-payment': {
-    view: 'pages/pension-payment.njk',
-    fieldValidators: pensionPaymentValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.deductions = req.journeyData.getDataForPage('pension-deductions').deductions === 'yes';
-        res.locals.pensionProvider = req.journeyData.getDataForPage('pension-details').pensionProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-payment');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'pension-start': {
-    view: 'pages/pension-start.njk',
-    fieldValidators: pensionStartValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.pensionProvider = req.journeyData.getDataForPage('pension-details').pensionProvider;
-        res.locals.cancelForm = true;
-        res.locals.errorsFlag = checkForErrors(req, 'pension-start');
         next();
       },
       preredirect: navigateToNextPage,

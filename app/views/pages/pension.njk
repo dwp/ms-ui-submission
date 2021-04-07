@@ -1,7 +1,6 @@
 {% extends "layouts/custom-journey.njk" %}
 
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
-{% from "components/details/macro.njk" import govukDetails %}
 
 {% block casaPageTitle %}
     {% if (pensionGather | length !== 0) %}
@@ -66,13 +65,6 @@
         <p class="govuk-body">{{ t('pension:pension.annuity') | safe }}</p>
     {% endset -%}
 
-    {% set summaryDetails %}
-        {{ govukDetails({
-            summaryText: t('pension:pension.summary'),
-            html: details
-        }) }}
-    {% endset -%}
-
     {{ casaGovukRadios({
         name: 'pension',
         fieldset: {
@@ -85,7 +77,8 @@
         casaValue: formData.pension,
         casaErrors: formErrors,
         hint: {
-            html: summaryDetails
+            html: details,
+            classes: 'govuk-!-margin-top-1'
         },
         items: [{
             text: t('pension:pension.yes'),

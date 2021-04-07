@@ -18,8 +18,6 @@ const pagesBeforeGatewayPage = {
   'employment-expenses-details': 'employment',
   'employment-expenses': 'employment',
   'employment-status': 'employment',
-  'pension-inherited': 'pension',
-  'insurance-payment': 'insurance',
 };
 
 const gatewayPages = ['voluntary-work', 'employed', 'pension', 'insurance'];
