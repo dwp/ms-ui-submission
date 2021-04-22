@@ -43,12 +43,16 @@
 
             <h2 class="govuk-heading-l">{{ t('complete:whatNow.title') }}</h2>
 
-            <p class="govuk-body-l">
+            <p class="govuk-body">
                 {{ t('complete:coronavirus.text1', fourteenDaysLater) | safe }}
             </p>
 
             <p class="govuk-body">
-                {{ t('complete:coronavirus.text2') }}
+                {{ t('complete:coronavirus.text2') | safe }}
+            </p>
+
+            <p class="govuk-body">
+                {{ t('complete:coronavirus.text3') }}
             </p>
 
             <h3 class="govuk-heading-m">

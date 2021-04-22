@@ -1,4 +1,8 @@
-# 3.3.0 (2021-04-07)
+# 3.4.0 (2021-04-22)
+
+* ESAO-1320 - Content for claimant commitment
+
+## <small>3.3.0 (2021-04-07)</small>
 
 * ESAO-1287	Welsh translation for Consent (doctor-declaration) and Consent (outcome) screens need Welsh language phone number as well as English
 * ESAO-1286	English and Welsh hint text missing 'UK' from "National Insurance on Military Overseas screen
