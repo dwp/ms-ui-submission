@@ -74,4 +74,84 @@ describe('Date not before validator', () => {
     dateNotBefore = dateNotBefore.bind({ dateToCheckAgainst });
     return assert.isFulfilled(dateNotBefore(value));
   });
+  it('should not return an error if claim-end-date is after claim-start-date', () => {
+    const date = moment().startOf('day');
+    const claimStartDate = JSON.stringify({
+      dd: date.date(),
+      mm: date.month(),
+      yyyy: date.year(),
+    });
+    const dataContext = {
+      fieldName: 'claimEndDate',
+      pageData: {
+        hiddenClaimStartDate: claimStartDate,
+      },
+    };
+    const value = {
+      dd: date.date(),
+      mm: date.month() + 1,
+      yyyy: date.year(),
+    };
+    return assert.isFulfilled(dateNotBefore(value, dataContext));
+  });
+  it('should return an error if claim-end-date is before claim-start-date', () => {
+    const date = moment().startOf('day');
+    const claimStartDate = JSON.stringify({
+      dd: date.date(),
+      mm: date.month(),
+      yyyy: date.year(),
+    });
+    const dataContext = {
+      fieldName: 'claimEndDate',
+      pageData: {
+        hiddenClaimStartDate: claimStartDate,
+      },
+    };
+    const value = {
+      dd: date.date(),
+      mm: date.month() - 1,
+      yyyy: date.year(),
+    };
+    return assert.isRejected(dateNotBefore(value, dataContext));
+  });
+  it('should not return an error if claim-start-date is after ssp-end-date', () => {
+    const date = moment().startOf('day');
+    const sspEndDate = JSON.stringify({
+      dd: date.date(),
+      mm: date.month(),
+      yyyy: date.year(),
+    });
+    const dataContext = {
+      fieldName: 'claimStartDate',
+      pageData: {
+        hiddenSspEndDate: sspEndDate,
+      },
+    };
+    const value = {
+      dd: date.date(),
+      mm: date.month() + 1,
+      yyyy: date.year(),
+    };
+    return assert.isFulfilled(dateNotBefore(value, dataContext));
+  });
+  it('should return an error if claim-start-date is before ssp-end-date', () => {
+    const date = moment().startOf('day');
+    const sspEndDate = JSON.stringify({
+      dd: date.date(),
+      mm: date.month(),
+      yyyy: date.year(),
+    });
+    const dataContext = {
+      fieldName: 'claimStartDate',
+      pageData: {
+        hiddenSspEndDate: sspEndDate,
+      },
+    };
+    const value = {
+      dd: date.date(),
+      mm: date.month() - 1,
+      yyyy: date.year(),
+    };
+    return assert.isRejected(dateNotBefore(value, dataContext));
+  });
 });

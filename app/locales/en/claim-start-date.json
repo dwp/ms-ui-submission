@@ -14,7 +14,8 @@
       "badFormatYear": "Enter the date you want to claim from with a year in the right format, for example 2001 not 01",
       "notReal": "Enter a real date you want to claim from",
       "notRealDigits": "Enter a real date you want to claim from using only digits",
-      "outOfRange": "Claim date cannot be more than 3 months in the future"
+      "outOfRange": "Claim date cannot be more than 3 months in the future",
+      "beforeSsp": "Date you want to claim from must be after your Statutory Sick Pay end date"
     }
   }
 }

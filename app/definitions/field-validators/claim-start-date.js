@@ -1,10 +1,11 @@
 const moment = require('moment');
-const { SimpleField } = require('@dwp/govuk-casa/lib/Validation');
+const { rules, SimpleField } = require('@dwp/govuk-casa/lib/Validation');
 const dateExists = require('../../lib/validation-rules/date-exists.js');
 const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
 const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
 const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
 const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
+const dateNotBefore = require('../../lib/validation-rules/date-not-before.js');
 
 const Logger = require('../../lib/Logger');
 
@@ -15,6 +16,9 @@ appLogger.info('Claim start date validator');
 const threeMonthsFuture = () => moment().startOf('day').add(3, 'months');
 
 module.exports = {
+  hiddenSspEndDate: SimpleField([
+    rules.optional,
+  ]),
   claimStartDate: SimpleField([
     dateExists.bind({
       errorMsg: 'claim-start-date:claimStartDate.errors.required',
@@ -37,6 +41,9 @@ module.exports = {
     dateNotAfter.bind({
       errorMsg: 'claim-start-date:claimStartDate.errors.outOfRange',
       dateToCheckAgainst: threeMonthsFuture,
+    }),
+    dateNotBefore.bind({
+      errorMsg: 'claim-start-date:claimStartDate.errors.beforeSsp',
     }),
   ]),
 };

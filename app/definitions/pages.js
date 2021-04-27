@@ -279,6 +279,9 @@ module.exports = {
           .subtract(3, 'months')
           .format('D M YYYY');
         res.locals.errorsFlag = checkForErrors(req, 'claim-start-date');
+        res.locals.hiddenSspEndDate = (typeof req.journeyData.getDataForPage('statutory-sick-pay-end') !== 'undefined'
+          && typeof req.journeyData.getDataForPage('statutory-sick-pay-end').sspEndDate !== 'undefined')
+          ? JSON.stringify(req.journeyData.getDataForPage('statutory-sick-pay-end').sspEndDate) : 'not-entered';
         next();
       },
       preredirect: navigateToNextPage,
