@@ -311,7 +311,7 @@ const args = process.argv.slice(2)
 
       if (ssp) {
 
-        const sspEndDate = moment().add(3, 'weeks');
+        const sspEndDate = moment().subtract(4, 'weeks');
         await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
         await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
         await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
@@ -321,7 +321,7 @@ const args = process.argv.slice(2)
         if (sspRecent) {
           await driver.findElement(By.id('f-sspRecent')).click();
           await driver.findElement(By.id('continue-button')).click();
-          const sspEndDate = moment().add(3, 'weeks');
+          const sspEndDate = moment().subtract(4, 'weeks');
           await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
           await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
           await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
@@ -340,7 +340,7 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('f-sspRecent')).click();
         await driver.findElement(By.id('continue-button')).click();
 
-        const sspRecentEndDate = moment().subtract(1, 'weeks');
+        const sspRecentEndDate = moment().subtract(4, 'weeks');
         await driver.findElement(By.name('sspRecentEndDate[dd]')).sendKeys(sspRecentEndDate.date().toString());
         await driver.findElement(By.name('sspRecentEndDate[mm]')).sendKeys((sspRecentEndDate.month() + 1).toString());
         await driver.findElement(By.name('sspRecentEndDate[yyyy]')).sendKeys(sspRecentEndDate.year());

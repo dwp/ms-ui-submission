@@ -9,7 +9,7 @@ describe('statutory sick pay end navigation rules', () => {
   let req;
   let deleteIfPresent;
   const page = 'claim-start-date';
-  const fieldNames = ['claimStartDate'];
+  const fieldNames = ['claimStartDate', 'hiddenSspEndDate'];
 
   beforeEach(() => {
     deleteIfPresent = sinon.stub(genericDataUtils, 'deleteIfPresent');

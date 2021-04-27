@@ -14,7 +14,8 @@
       "badFormatYear": "Rhowch y dyddiad rydych eisiau gwneud cais o gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
       "notReal": "Rhowch ddyddiad gwirioneddol rydych eisiau gwneud cais o",
       "notRealDigits": "Rhowch ddyddiad gwirioneddol rydych eisiau gwneud cais o drwy ddefnyddio rhifau yn unig",
-      "outOfRange": "Ni all y dyddiad fod yn fwy na 3 mis yn y dyfodol"
+      "outOfRange": "Ni all y dyddiad fod yn fwy na 3 mis yn y dyfodol",
+      "beforeSsp": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o fod ar ôl dyddiad gorffen eich Tâl Salwch Statudol"
     }
   }
 }

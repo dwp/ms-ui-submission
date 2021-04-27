@@ -41,5 +41,6 @@
      {% endif %}
 
      {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+     <input type="hidden" name="hiddenSspEndDate" value={{ hiddenSspEndDate }} />
 
 {% endblock %}

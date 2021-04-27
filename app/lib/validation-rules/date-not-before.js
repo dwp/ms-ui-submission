@@ -22,6 +22,17 @@ function dateNotBefore(value, dataContext = {}) {
     const claimStartDateMonth = hiddenClaimStartDate.mm;
     const claimStartDateYear = hiddenClaimStartDate.yyyy;
     dateToCheck = () => moment(`${claimStartDateYear}-${claimStartDateMonth}-${claimStartDateDay}`, 'YYYY-MM-DD').endOf('day');
+  } else if (dataContext.fieldName === 'claimStartDate') {
+    if (dataContext.pageData.hiddenSspEndDate === 'not-entered') {
+      return new Promise((resolve) => {
+        resolve();
+      });
+    }
+    const hiddenSspEndDate = JSON.parse(dataContext.pageData.hiddenSspEndDate);
+    const sspEndDateDay = hiddenSspEndDate.dd;
+    const sspEndDateMonth = hiddenSspEndDate.mm;
+    const sspEndDateYear = hiddenSspEndDate.yyyy;
+    dateToCheck = () => moment(`${sspEndDateYear}-${sspEndDateMonth}-${sspEndDateDay}`, 'YYYY-MM-DD').endOf('day');
   }
   const { dd, mm, yyyy } = value;
   const valueDate = moment(`${yyyy}-${mm}-${dd}`, 'YYYY-MM-DD').startOf('day');
