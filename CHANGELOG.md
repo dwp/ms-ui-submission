@@ -1,4 +1,8 @@
-# 3.4.0 (2021-04-22)
+# 3.5.0 (2021-04-29)
+
+* ESAO-1303	Validate claimant entered claim start date against SSP end date
+
+## <small>3.4.0 (2021-04-22)</small>
 
 * ESAO-1320 - Content for claimant commitment
 
