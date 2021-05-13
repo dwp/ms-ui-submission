@@ -1,8 +1,8 @@
 {
-  "pageTitle": "Employment status - %s",
+  "pageTitle": "Employment status",
   "workTypes": {
-    "label": "What is your employment status at %s?",
-    "hint": "Select all that apply.",
+    "label": "What is your employment status?",
+    "hint": "If you have more than one job, you will be asked about your other jobs later in this form.<br/><br/>Select all that apply.",
     "employee": "Employee",
     "selfEmployed": "Self-employed",
     "subContractor": "Sub-contractor",

@@ -20,11 +20,10 @@
         "p2": "Some people may find parts of this service difficult to use:",
         "li1": "at one point we ask you to list your conditions using a JavaScript solution that allows you to keep adding additional fields. This can be tricky. However, with JavaScript turned off the service will default to a large amount of blank fields which some people might find easier to fill out",
         "li2": "if you say “new tab” to some voice control software, it opens the feedback link instead of opening a new tab",
-        "li3": "on the bank details page, the fields do not allow white space. This causes an error if you use voice control software and pause when reading out your account number",
-        "li4": "error messages are sometimes not read out in JAWS versions 18 and 19",
-        "li5": "headings are sometimes not read out in JAWS versions 18 and 19 and ZoomText. This is a known issue with Freedom Scientific software. Read <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">more about the issue with headings on GitHub</a>",
-        "li6": "text is sometimes repeated by ZoomText‘s DocReader and SpeakIt tools",
-        "li7": "reading zones sometimes move around the page when scrolling with ZoomText. This might cause a problem with the consent question pages, as well as the ‘check your answers’ and ‘what happens next’ pages, where there is lots of text"
+        "li3": "error messages are sometimes not read out in JAWS versions 18 and 19",
+        "li4": "headings are sometimes not read out in JAWS versions 18 and 19 and ZoomText. This is a known issue with Freedom Scientific software. Read <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">more about the issue with headings on GitHub</a>",
+        "li5": "text is sometimes repeated by ZoomText‘s DocReader and SpeakIt tools",
+        "li6": "reading zones sometimes move around the page when scrolling with ZoomText. This might cause a problem with the consent question pages, as well as the ‘check your answers’ and ‘what happens next’ pages, where there is lots of text"
     },
     "difficultyUsingService": {
         "h2": "What to do if you have difficulty using this service",
@@ -53,6 +52,6 @@
         "h2": "What we're doing to improve accessibility",
         "p1": "We conducted manual testing of the service using assistive technologies such as JAWS and Dragon. This has identified issues, mentioned in the ‘using this service’ section above, that we’re working to fix.",
         "p2": "We will continue to iterate the design of the service, replacing the JavaScript solution for adding conditions to make it more usable.",
-        "p3": "This page was prepared on 14 April 2020 and last updated on 3 August 2020."
+        "p3": "This page was prepared on 14 April 2020 and last updated on 13 May 2021."
     }
 }

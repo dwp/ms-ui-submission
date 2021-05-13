@@ -4,7 +4,23 @@ const appLogger = Logger();
 
 const getEmploymentFromJourneyData = (journeyData) => {
   appLogger.info('employmentDataUtils: getEmploymentFromJourneyData called');
-  const employmentData = {
+  const isSelfEmployed = journeyData['employment-status'].workTypes.includes('selfEmployed');
+  const employmentData = isSelfEmployed ? {
+    selfEmployed: true,
+    jobTitle: journeyData['self-employment-details'] ? journeyData['self-employment-details'].jobTitle : '',
+    employerName: journeyData['self-employment-details'] ? journeyData['self-employment-details'].employerName : '',
+    employerTel: journeyData['self-employment-details'] ? journeyData['self-employment-details'].employerTel : '',
+    employerAddress: {
+      address1: journeyData['self-employment-details'] ? journeyData['self-employment-details'].employerAddress.address1 : '',
+      address2: journeyData['self-employment-details'] ? journeyData['self-employment-details'].employerAddress.address2 : '',
+      address3: journeyData['self-employment-details'] ? journeyData['self-employment-details'].employerAddress.address3 : '',
+      postcode: journeyData['self-employment-details'] ? journeyData['self-employment-details'].employerAddress.postcode : '',
+    },
+    offSick: journeyData['employment-off-sick'] ? journeyData['employment-off-sick'].offSick : '',
+    workTypes: journeyData['employment-status'] && Array.isArray(journeyData['employment-status'].workTypes)
+      ? journeyData['employment-status'].workTypes : [journeyData['employment-status'].workTypes],
+  } : {
+    selfEmployed: false,
     jobTitle: journeyData['employment-details'] ? journeyData['employment-details'].jobTitle : '',
     employerName: journeyData['employment-details'] ? journeyData['employment-details'].employerName : '',
     employerTel: journeyData['employment-details'] ? journeyData['employment-details'].employerTel : '',
@@ -45,12 +61,22 @@ const getEmploymentFromJourneyData = (journeyData) => {
 
 const populateEmploymentJourneyData = (journeyData, data) => {
   appLogger.info('employmentDataUtils: populateEmploymentJourneyData called');
-  journeyData.setDataForPage('employment-details', {
-    jobTitle: data.jobTitle,
-    employerName: data.employerName,
-    employerTel: data.employerTel,
-    employerAddress: data.employerAddress,
-  });
+  const isSelfEmployed = data.workTypes.includes('selfEmployed');
+  if (isSelfEmployed) {
+    journeyData.setDataForPage('self-employment-details', {
+      jobTitle: data.jobTitle,
+      employerName: data.employerName,
+      employerTel: data.employerTel,
+      employerAddress: data.employerAddress,
+    });
+  } else {
+    journeyData.setDataForPage('employment-details', {
+      jobTitle: data.jobTitle,
+      employerName: data.employerName,
+      employerTel: data.employerTel,
+      employerAddress: data.employerAddress,
+    });
+  }
   journeyData.setDataForPage('employment-off-sick', {
     offSick: data.offSick,
   });
@@ -102,6 +128,7 @@ const clearEmploymentJourneyData = (req) => {
   appLogger.info('employmentDataUtils: clearEmploymentJourneyData called');
   req.journeyData.setDataForPage('employed', undefined);
   req.journeyData.setDataForPage('employment-details', undefined);
+  req.journeyData.setDataForPage('self-employment-details', undefined);
   req.journeyData.setDataForPage('employment-off-sick', undefined);
   req.journeyData.setDataForPage('employment-last-work', undefined);
   req.journeyData.setDataForPage('employment-status', undefined);
@@ -135,10 +162,15 @@ const addEmploymentToGather = (req) => {
   clearEmploymentJourneyData(req);
 };
 
+const getEmployerName = (req) => (req.journeyData.getDataForPage('employment-status').workTypes.includes('selfEmployed')
+  ? req.journeyData.getDataForPage('self-employment-details')
+    .employerName : req.journeyData.getDataForPage('employment-details').employerName);
+
 module.exports = {
   getEmploymentFromJourneyData,
   populateEmploymentJourneyData,
   clearEmploymentJourneyData,
   updateSpecificEmployment,
   addEmploymentToGather,
+  getEmployerName,
 };

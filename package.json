@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "3.5.0",
+  "version": "3.6.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -35,7 +35,7 @@
   "author": "DWP Digital Health PDU",
   "license": "ISC",
   "dependencies": {
-    "@dwp/govuk-casa": "4.0.11",
+    "@dwp/govuk-casa": "4.1.0",
     "body-parser": "1.19.0",
     "connect-redis": "5.1.0",
     "cookie-parser": "^1.4.5",

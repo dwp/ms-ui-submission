@@ -63,7 +63,6 @@ app.use((req, res, next) => {
 
 require('./routes/ping')(app);
 require('./routes/index')(app);
-require('./routes/before-you-start')(app);
 require('./routes/welcome')(app);
 
 module.exports = app;

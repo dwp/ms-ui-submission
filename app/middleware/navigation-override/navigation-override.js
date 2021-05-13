@@ -17,7 +17,7 @@ const pagesBeforeGatewayPage = {
   'voluntary-work': 'employment',
   'employment-expenses-details': 'employment',
   'employment-expenses': 'employment',
-  'employment-status': 'employment',
+  'employment-last-work': 'employment',
 };
 
 const gatewayPages = ['voluntary-work', 'employed', 'pension', 'insurance'];

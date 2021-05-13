@@ -1,7 +1,6 @@
 {
   "pageTitle": "Manylion gwaith â thâl",
   "heading": "Manylion cyflogaeth",
-  "hint": "Os oes gennych fwy nag un swydd, gofynnir i chi am eich swyddi eraill yn nes ymlaen.",
   "jobTitle": {
     "label": "Teitl swydd",
     "errors": {

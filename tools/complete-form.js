@@ -252,7 +252,9 @@ const args = process.argv.slice(2)
     if (employed) {
       await driver.findElement(By.id('f-employed')).click();
       await driver.findElement(By.id('continue-button')).click();
-
+      await driver.findElement(By.id('f-workTypes')).click();
+      await driver.findElement(By.id('f-workTypes-3')).click();
+      await driver.findElement(By.id('continue-button')).click();
       await driver.findElement(By.name('jobTitle')).sendKeys(faker.name.jobTitle());
       await driver.findElement(By.name('employerName')).sendKeys(faker.company.companyName());
       await driver.findElement(By.name('employerTel')).sendKeys(faker.phone.phoneNumberFormat(1));
@@ -274,9 +276,6 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('continue-button')).click();
       }
 
-      await driver.findElement(By.id('f-workTypes')).click();
-      await driver.findElement(By.id('f-workTypes-3')).click();
-      await driver.findElement(By.id('continue-button')).click();
       if(!offSick) {
         if (sameHours) {
           await driver.findElement(By.id('f-sameHours')).click();
@@ -305,7 +304,27 @@ const args = process.argv.slice(2)
           await driver.findElement(By.id('continue-button')).click();
         }
       }
+      // 2nd employment
+      await driver.findElement(By.id('f-other')).click();
+      await driver.findElement(By.id('continue-button')).click();
 
+      await driver.findElement(By.id('f-workTypes-2')).click();
+      await driver.findElement(By.id('f-workTypes-4')).click();
+      await driver.findElement(By.id('continue-button')).click();
+      await driver.findElement(By.name('jobTitle')).sendKeys(faker.name.jobTitle());
+      await driver.findElement(By.name('employerName')).sendKeys(faker.company.companyName());
+      await driver.findElement(By.name('employerTel')).sendKeys(faker.phone.phoneNumberFormat(1));
+      await driver.findElement(By.name('employerAddress[address1]')).sendKeys(faker.address.streetAddress());
+      await driver.findElement(By.name('employerAddress[address3]')).sendKeys(faker.address.city());
+      await driver.findElement(By.name('employerAddress[postcode]')).sendKeys('LS1 1DJ');
+      await driver.findElement(By.id('continue-button')).click();
+      await driver.findElement(By.id('f-offSick')).click();
+      await driver.findElement(By.id('continue-button')).click();
+      const lastWorkedDate = moment().subtract(3, 'weeks');
+      await driver.findElement(By.name('lastWorkedDate[dd]')).sendKeys(lastWorkedDate.date().toString());
+      await driver.findElement(By.name('lastWorkedDate[mm]')).sendKeys((lastWorkedDate.month() + 1).toString());
+      await driver.findElement(By.name('lastWorkedDate[yyyy]')).sendKeys(lastWorkedDate.year());
+      await driver.findElement(By.id('continue-button')).click();
       await driver.findElement(By.id('f-other-2')).click();
       await driver.findElement(By.id('continue-button')).click();
 
