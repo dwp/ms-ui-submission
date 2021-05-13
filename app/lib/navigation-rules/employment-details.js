@@ -5,7 +5,7 @@ const appLogger = Logger();
 
 const employmentDetails = (req) => {
   appLogger.info('Navigation rules: employment-details');
-  if (req.session.editSection === 'employment') {
+  if (req.session.editSection === 'employment' && req.url === '/employment-details?edit') {
     employmentDataUtils.updateSpecificEmployment(req);
   }
 };

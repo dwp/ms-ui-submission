@@ -145,10 +145,11 @@ module.exports = (() => {
     },
   );
   employmentDetailsPath.addWaypoints([
-    'employment-details',
+    'employment-status',
+    ['employment-details', (sessionData) => sessionData['employment-status'].workTypes.includes('selfEmployed') === false],
+    ['self-employment-details', (sessionData) => sessionData['employment-status'].workTypes.includes('selfEmployed') === true],
     'employment-off-sick',
     ['employment-last-work', (sessionData) => sessionData['employment-off-sick'].offSick === 'yes'],
-    'employment-status',
   ]);
   employmentDetailsPath.fork(
     [employmentHoursPath, employedPath],

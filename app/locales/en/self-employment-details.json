@@ -1,6 +1,6 @@
 {
-  "pageTitle": "Paid work details",
-  "heading": "Employment details",
+  "pageTitle": "Self-employed details",
+  "heading": "Self-employment details",
   "jobTitle": {
     "label": "Job title",
     "errors": {
@@ -8,19 +8,19 @@
     }
   },
   "employerName": {
-    "label": "Employer name",
+    "label": "Business name",
     "errors": {
-      "required": "Enter your employer's name"
+      "required": "Enter the business name"
     }
   },
   "employerTel": {
     "label": "Telephone number",
     "errors": {
-      "required": "Enter your employer's telephone number",
+      "required": "Enter the business telephone number",
       "badFormat": "Enter a real telephone number"
     }
   },
   "employerAddress": {
-    "label": "Employer address"
+    "label": "Business address"
   }
 }

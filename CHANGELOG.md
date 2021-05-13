@@ -1,4 +1,10 @@
-# 3.5.0 (2021-04-29)
+# 3.6.0 (2021-05-13)
+
+* ESAO-1317	Remove content from accessibility statement about spaces in bank details
+* ESAO-1113	As a self employed person, I need questions to make sense to me, so that I complete the application
+* ESAO-800	Remove start and before you start page from service
+
+## <small>3.5.0 (2021-04-29)</small>
 
 * ESAO-1303	Validate claimant entered claim start date against SSP end date
 

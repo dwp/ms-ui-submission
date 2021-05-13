@@ -1,4 +1,5 @@
 const moment = require('moment');
+const { getEmployerName } = require('../lib/data-utils/employmentDataUtils');
 const addressValidators = require('./field-validators/address.js');
 const langPrefWritingValidators = require('./field-validators/language-preference-writing.js');
 const langPrefSpeakingValidators = require('./field-validators/language-preference-speaking.js');
@@ -12,6 +13,7 @@ const consentOutcomeValidators = require('./field-validators/consent-outcome.js'
 const ds1500ReportValidators = require('./field-validators/ds1500-report.js');
 const employedValidators = require('./field-validators/employed.js');
 const employmentDetailsValidators = require('./field-validators/employment-details.js');
+const selfEmploymentDetailsValidators = require('./field-validators/self-employment-details.js');
 const employmentExpensesValidators = require('./field-validators/employment-expenses.js');
 const employmentExpensesDetailsValidators = require('./field-validators/employment-expenses-details.js');
 const employmentHoursValidators = require('./field-validators/employment-hours.js');
@@ -395,6 +397,19 @@ module.exports = {
     },
   },
 
+  'self-employment-details': {
+    view: 'pages/self-employment-details.njk',
+    fieldValidators: selfEmploymentDetailsValidators,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.cancelForm = true;
+        res.locals.errorsFlag = checkForErrors(req, 'self-employment-details');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
   'employment-details': {
     view: 'pages/employment-details.njk',
     fieldValidators: employmentDetailsValidators,
@@ -414,7 +429,7 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.cancelForm = true;
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.errorsFlag = checkForErrors(req, 'employment-expenses');
         next();
       },
@@ -428,7 +443,7 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.cancelForm = true;
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.errorsFlag = checkForErrors(req, 'employment-expenses-details');
         next();
       },
@@ -441,7 +456,7 @@ module.exports = {
     fieldValidators: employmentHoursValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.cancelForm = true;
         res.locals.errorsFlag = checkForErrors(req, 'employment-hours');
         next();
@@ -455,7 +470,7 @@ module.exports = {
     fieldValidators: employmentLastWorkValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.lastWorkedDateHint = moment()
           .subtract(2, 'weeks')
           .format('D M YYYY');
@@ -472,7 +487,7 @@ module.exports = {
     fieldValidators: employmentOffSickValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.cancelForm = true;
         res.locals.errorsFlag = checkForErrors(req, 'employment-off-sick');
         next();
@@ -488,7 +503,7 @@ module.exports = {
       prerender: (req, res, next) => {
         const { hours } = req.journeyData.getDataForPage('employment-hours');
         res.locals.sameHours = hours && hours !== '0';
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.cancelForm = true;
         res.locals.errorsFlag = checkForErrors(req, 'employment-pay-frequency-samehours');
         next();
@@ -504,7 +519,7 @@ module.exports = {
       prerender: (req, res, next) => {
         const { hours } = req.journeyData.getDataForPage('employment-hours');
         res.locals.sameHours = hours && hours !== '0';
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.cancelForm = true;
         res.locals.errorsFlag = checkForErrors(req, 'employment-pay-frequency-other');
         next();
@@ -517,7 +532,6 @@ module.exports = {
     fieldValidators: employmentStatusValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
         res.locals.cancelForm = true;
         res.locals.errorsFlag = checkForErrors(req, 'employment-status');
         next();
@@ -531,7 +545,7 @@ module.exports = {
     fieldValidators: employmentSupportValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.employerName = req.journeyData.getDataForPage('employment-details').employerName;
+        res.locals.employerName = getEmployerName(req);
         res.locals.cancelForm = true;
         res.locals.errorsFlag = checkForErrors(req, 'employment-support');
         next();

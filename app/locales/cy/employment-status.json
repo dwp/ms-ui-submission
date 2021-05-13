@@ -1,8 +1,8 @@
 {
-  "pageTitle": "Statws cyflogaeth - %s",
+  "pageTitle": "Statws cyflogaeth",
   "workTypes": {
-    "label": "Beth yw eich statws cyflogaeth gyda %s?",
-    "hint": "Dewiswch bob un sy’n berthnasol.",
+    "label": "Beth yw eich statws cyflogaeth gyda?",
+    "hint": "Os oes gennych fwy nag un swydd, gofynnir i chi am eich swyddi eraill yn nes ymlaen.<br/><br/>Dewiswch bob un sy’n berthnasol.",
     "employee": "Gweithiwr cyflogedig",
     "selfEmployed": "Hunangyflogedig",
     "subContractor": "Is-gontractiwr",

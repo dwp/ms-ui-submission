@@ -151,7 +151,7 @@ describe('Check your answer routes', () => {
         index: '0',
       },
       session: {
-        employmentGather: [{}],
+        employmentGather: [{ workTypes: ['employed'] }],
         save: (cb) => {
           cb();
         },

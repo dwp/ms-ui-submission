@@ -3,7 +3,7 @@
 {% from "casa/components/checkboxes/macro.njk" import casaGovukCheckboxes with context %}
 
 {% block casaPageTitle %}
-    {{ t('employment-status:pageTitle', employerName) }}
+    {{ t('employment-status:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,13 +12,13 @@
         name: 'workTypes',
         fieldset: {
             legend: {
-                text: t('employment-status:workTypes.label', employerName),
+                text: t('employment-status:workTypes.label'),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
         },
         hint: {
-            text: t('employment-status:workTypes.hint')
+            text: t('employment-status:workTypes.hint') | safe
         },
         casaValue: formData.workTypes,
         casaErrors: formErrors,

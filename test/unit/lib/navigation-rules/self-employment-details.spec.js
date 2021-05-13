@@ -3,9 +3,9 @@ const sinon = require('sinon');
 
 const { assert } = chai;
 const { employmentDataUtils } = require('../../../../app/lib/data-utils');
-const employmentDetails = require('../../../../app/lib/navigation-rules/employment-details');
+const selfEmploymentDetails = require('../../../../app/lib/navigation-rules/self-employment-details');
 
-describe('employment details navigation rules', () => {
+describe('self employment details navigation rules', () => {
   let req;
   let updateSpecificEmployment;
 
@@ -21,14 +21,14 @@ describe('employment details navigation rules', () => {
   });
   it('should update the employment entry if in employment edit section', () => {
     req.session.editSection = 'employment';
-    req.url = '/employment-details?edit';
-    employmentDetails(req);
+    req.url = '/self-employment-details?edit';
+    selfEmploymentDetails(req);
     assert(updateSpecificEmployment.calledOnce);
   });
   it('should not update the employment entry if not in employment edit section', () => {
     req.session.editSection = '';
     req.url = '';
-    employmentDetails(req);
+    selfEmploymentDetails(req);
     assert(updateSpecificEmployment.notCalled);
   });
 });

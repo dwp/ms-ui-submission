@@ -20,11 +20,10 @@
         "p2": "Efallai y bydd rhai pobl yn ei chael hi’n anodd defnyddio rhannau o’r gwasanaeth hwn:",
         "li1": "ar un pwynt gofynnwn i chi restru’ch cyflyrau gan ddefnyddio datrysiad JavaScript sy’n eich galluogi i barhau i ychwanegu meysydd ychwanegol. Gall hyn fod yn anodd. Fodd bynnag, gyda JavaScript wedi’i ddiffodd, bydd y gwasanaeth yn cyflwyno llawer iawn o feysydd gwag y gall rhai pobl ei gael yn haws i’w llenwi.",
         "li2": "os ydych yn dweud “new tab” wrth rhai meddalwedd rheoli llais, mae’n agor yn y ddolen adborth yn lle agor tab newydd",
-        "li3": "ar y dudalen manylion banc, nid yw’r meysydd yn caniatau gofod gwyn. Mae hyn yn achosi gwall os ydych yn defnyddio meddalwedd rheoli llais ac yn oedi wrth darllen rhif eich cyfrif",
-        "li4": "weithiau ni fydd negeseuon gwall yn cael eu darllen allan yn JAWS fersiynau 18 a 19",
-        "li5": "weithiau ni fydd penawdau yn cael eu darllen allan yn JAWS fersiynau18 and 19 a ZoomText. Mae hyn yn broblem hysbys gyda meddalwedd Freedom Scientific . Darllenwch <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">fwy am y materion am benawdau ar GitHub</a>",
-        "li6": "weithiau bydd testun yn cael ei ailadrodd gan declynnau ZoomText’s DocReader a SpeakIt",
-        "li7": "weithiau bydd adrannau darllen yn symud o gwmpas y dudalen pan yn sgrolio gyda ZoomText. Efallai bydd hyn yn achosi problem gyda’r tudalennau cwestiynau caniatâd, yn ogystal â’r tudalennau ‘edrych dros eich atebion’ a ‘beth sy’n digwydd nesaf’, ble mae llawer o gynnwys"
+        "li3": "weithiau ni fydd negeseuon gwall yn cael eu darllen allan yn JAWS fersiynau 18 a 19",
+        "li4": "weithiau ni fydd penawdau yn cael eu darllen allan yn JAWS fersiynau18 and 19 a ZoomText. Mae hyn yn broblem hysbys gyda meddalwedd Freedom Scientific . Darllenwch <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">fwy am y materion am benawdau ar GitHub</a>",
+        "li5": "weithiau bydd testun yn cael ei ailadrodd gan declynnau ZoomText’s DocReader a SpeakIt",
+        "li6": "weithiau bydd adrannau darllen yn symud o gwmpas y dudalen pan yn sgrolio gyda ZoomText. Efallai bydd hyn yn achosi problem gyda’r tudalennau cwestiynau caniatâd, yn ogystal â’r tudalennau ‘edrych dros eich atebion’ a ‘beth sy’n digwydd nesaf’, ble mae llawer o gynnwys"
     },
     "difficultyUsingService": {
         "h2": "Beth i’w wneud os ydych yn cael anhawster defnyddio’r gwasanaeth hwn",
@@ -53,6 +52,6 @@
         "h2": "Beth rydym yn ei wneud i wella hygyrchedd",
         "p1": "Byddwn yn cynnal mwy o brofion â llaw o’r gwasanaeth gan ddefnyddio technolegau cynorthwyol fel JAWS a Dragon. Mae hyn wedi dod â materion i’r golwg sy’n cael eu nodi yn yr adran ’defnyddio’r gwasanaeth’ uchod, ac rydym yn gweithio i’w datrys.",
         "p2": "Byddwn yn parhau i edrych ar ddyluniad y gwasanaeth, gan ddisodli’r datrysiad JavaScript ar gyfer ychwanegu cyflyrau i’w wneud yn fwy defnyddiadwy.",
-        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 3 Awst 2020."
+        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 13 Mai 2021."
     }
 }

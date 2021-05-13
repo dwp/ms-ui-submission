@@ -91,7 +91,7 @@ describe('Navigation override', () => {
     it('should remove the last gather from the employment gather array and put it in the journey', () => {
       const populateEmploymentJourneyData = sinon.stub(employmentDataUtils, 'populateEmploymentJourneyData');
       req.session.employmentGather = ['employment test'];
-      req.path = '/employment-status';
+      req.path = '/employment-last-work';
       navigationOverride(req, null, next);
       assert(populateEmploymentJourneyData.calledOnce);
       assert(next.calledOnce);
@@ -100,7 +100,7 @@ describe('Navigation override', () => {
     it('should remove the entry from the employment journey data if the employment gather array is empty', () => {
       const clearEmploymentJourneyData = sinon.stub(employmentDataUtils, 'clearEmploymentJourneyData');
       req.session.employmentGather = [];
-      req.path = '/employment-status';
+      req.path = '/employment-last-work';
       navigationOverride(req, null, next);
       assert(clearEmploymentJourneyData.calledOnce);
       assert(next.calledOnce);

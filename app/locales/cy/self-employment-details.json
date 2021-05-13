@@ -1,0 +1,26 @@
+{
+  "pageTitle": "Manylion hunangyflogaeth",
+  "heading": "Manylion hunangyflogaeth",
+  "jobTitle": {
+    "label": "Teitl swydd",
+    "errors": {
+      "required": "Rhowch deitl eich swydd"
+    }
+  },
+  "employerName": {
+    "label": "Enw’r busnes",
+    "errors": {
+      "required": "Rhowch enw’r busnes"
+    }
+  },
+  "employerTel": {
+    "label": "Rhif ffôn",
+    "errors": {
+      "required": "Rhowch rif ffôn eich cyflogwr",
+      "badFormat": "Rhowch rif ffôn gwirioneddol"
+    }
+  },
+  "employerAddress": {
+    "label": "Cyfeiriad y busnes"
+  }
+}

@@ -4,16 +4,16 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('employment-details:pageTitle') }}
+    {{ t('self-employment-details:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('employment-details:heading') }}</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('self-employment-details:heading') }}</h1>
 
     {{ casaGovukInput({
         label: {
-            text: t('employment-details:jobTitle.label')
+            text: t('self-employment-details:jobTitle.label')
         },
         name: 'jobTitle',
         value: formData.jobTitle,
@@ -23,7 +23,7 @@
 
     {{ casaGovukInput({
         label: {
-            text: t('employment-details:employerName.label')
+            text: t('self-employment-details:employerName.label')
         },
         name: 'employerName',
         value: formData.employerName,
@@ -33,7 +33,7 @@
 
     {{ casaGovukInput({
         label: {
-            text: t('employment-details:employerTel.label')
+            text: t('self-employment-details:employerTel.label')
         },
         name: 'employerTel',
         value: formData.employerTel,
@@ -44,7 +44,7 @@
     {{ casaPostalAddressObject({
         fieldset: {
             legend: {
-                text: t('employment-details:employerAddress.label'),
+                text: t('self-employment-details:employerAddress.label'),
                 classes: 'govuk-!-font-weight-bold'
             }
         },

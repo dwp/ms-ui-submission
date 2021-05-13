@@ -57,6 +57,7 @@ describe('employmentDataUtils.getEmploymentFromJourneyData', () => {
       offSick: 'no',
       workTypes: [],
       sameHours: 'yes',
+      selfEmployed: false,
       hours: 'test',
       frequency: 'test',
       netPay: 'test',
@@ -168,6 +169,7 @@ describe('employmentDataUtils.clearEmploymentJourneyData', () => {
       'employment-hours': undefined,
       'employment-pay-frequency-samehours': undefined,
       'employment-support': undefined,
+      'self-employment-details': undefined,
       'employment-expenses': undefined,
       'employment-expenses-details': undefined,
       'employment-pay-frequency-other': undefined,
@@ -223,5 +225,34 @@ describe('employmentDataUtils.addEmploymentToGather', () => {
     assert(clearEmploymentJourneyData.calledOnce);
     assert(req.journeyData.getData.calledOnce);
     expect(req.session.employmentGather[0]).to.equal('data');
+  });
+});
+
+describe('employmentDataUtils.getEmployerName', () => {
+  it('should return Employer name from employed page when status is not self-employed', () => {
+    const journeyDataValues = {
+      'employment-details': { employerName: 'Employer' },
+      'self-employment-details': { employerName: 'Self Employer' },
+      'employment-status': { workTypes: ['employed'] },
+    };
+    const req = {
+      journeyData: {
+        getDataForPage: (page) => journeyDataValues[page],
+      },
+    };
+    assert.equal(employmentDataUtils.getEmployerName(req), 'Employer');
+  });
+  it('should return Self Employer name from self-employed page when status is self-employed', () => {
+    const journeyDataValues = {
+      'employment-details': { employerName: 'Employer' },
+      'self-employment-details': { employerName: 'Self Employer' },
+      'employment-status': { workTypes: ['selfEmployed'] },
+    };
+    const req = {
+      journeyData: {
+        getDataForPage: (page) => journeyDataValues[page],
+      },
+    };
+    assert.equal(employmentDataUtils.getEmployerName(req), 'Self Employer');
   });
 });

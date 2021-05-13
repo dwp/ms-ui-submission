@@ -50,6 +50,9 @@ module.exports = (router, csrf, mountUrl, userJourney) => {
       case 'employment':
         employmentDataUtils.populateEmploymentJourneyData(req.journeyData,
           req.session.employmentGather[index]);
+        if (page === 'employment-status') {
+          req.session.isSelfEmployed = req.session.employmentGather[index].selfEmployed;
+        }
         break;
       default:
         break;
