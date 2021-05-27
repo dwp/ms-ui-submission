@@ -4,6 +4,7 @@ const dateComponentsExist = require('../../lib/validation-rules/date-components-
 const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
 const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
 const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
+const validateSpecialChar = require('../../lib/validation-rules/special-char-validator.js');
 
 const Logger = require('../../lib/Logger');
 
@@ -22,11 +23,18 @@ module.exports = {
     rules.required.bind({
       errorMsg: 'hospital-inpatient:hospitalName.errors.required',
     }),
+    validateSpecialChar.bind({
+      errorMsg: 'hospital-inpatient:hospitalName.errors.badFormat',
+    }),
   ], (pageData) => pageData.hospitalInpatient === 'yes'),
 
   hospitalWard: SimpleField([
     rules.required.bind({
       errorMsg: 'hospital-inpatient:hospitalWard.errors.required',
+    }),
+    validateSpecialChar.bind({
+      errorMsg: 'hospital-inpatient:hospitalWard.errors.badFormat',
+      specialChars: ['<', '>'],
     }),
   ], (pageData) => pageData.hospitalInpatient === 'yes'),
 

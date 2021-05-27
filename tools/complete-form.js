@@ -359,7 +359,7 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('f-sspRecent')).click();
         await driver.findElement(By.id('continue-button')).click();
 
-        const sspRecentEndDate = moment().subtract(4, 'weeks');
+        const sspRecentEndDate = moment().subtract(4, 'months');
         await driver.findElement(By.name('sspRecentEndDate[dd]')).sendKeys(sspRecentEndDate.date().toString());
         await driver.findElement(By.name('sspRecentEndDate[mm]')).sendKeys((sspRecentEndDate.month() + 1).toString());
         await driver.findElement(By.name('sspRecentEndDate[yyyy]')).sendKeys(sspRecentEndDate.year());

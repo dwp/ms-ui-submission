@@ -13,13 +13,15 @@
       "consecOther": "The name of the account holder must not contain consecutive characters other than letters or numbers",
       "startAndEndFormat": "The name of the account holder must start and end with a letter or number",
       "startFormat": "The name of the account holder must start with a letter or a number",
-      "endFormat": "The name of the account holder must end with a letter or a number"
+      "endFormat": "The name of the account holder must end with a letter or a number",
+      "noSpecialChar": "The name of the account holder must not include <, > or /"
     }
   },
   "bankName": {
     "label": "Bank or building society name",
     "errors": {
-      "required": "Enter the bank or building society name"
+      "required": "Enter the bank or building society name",
+      "noSpecialChar": "Bank or building society name must not include <, > or /"
     }
   },
   "sortCode": {

@@ -113,7 +113,7 @@ module.exports = (translator, journeyData, session) => {
   capture.nino = nino.nino.replace(/\s/g, '').toUpperCase();
   capture.bank_account_name = bankDetails.accountName;
   capture.bank_name = bankDetails.bankName;
-  capture.bank_sort_code = bankDetails.sortCode;
+  capture.bank_sort_code = bankDetails.sortCode.replace(/\s/g, '');
   capture.bank_account_number = bankDetails.accountNumber.replace(/\s/g, '');
 
   appLogger.info('DataMapper: collecting alternative address data from journey, if needed');
