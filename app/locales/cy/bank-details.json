@@ -13,13 +13,15 @@
       "consecOther": "Ni ddylai enw deiliad y cyfrif gynnwys nodau olynol ac eithrio llythrennau a rhifau",
       "startAndEndFormat": "Mae’n rhaid i enw deiliad y cyfrif ddechrau a gorffen gyda llythyren neu rif",
       "startFormat": "Mae’n rhaid i enw deiliad y cyfrif ddechrau gyda llythyren neu rif",
-      "endFormat": "Mae’n rhaid i enw deiliad y cyfrif orffen gyda llythyren neu rif"
+      "endFormat": "Mae’n rhaid i enw deiliad y cyfrif orffen gyda llythyren neu rif",
+      "noSpecialChar": "Mae’n rhaid i enw deilydd y cyfrif beidio â chynnwys <, > neu /"
     }
   },
   "bankName": {
     "label": "Enw’r banc neu gymdeithas adeiladu",
     "errors": {
-      "required": "Rhowch enw’r banc neu gymdeithas adeiladu"
+      "required": "Rhowch enw’r banc neu gymdeithas adeiladu",
+      "noSpecialChar": "Mae’n rhaid i enw’r banc neu gymdeithas adeiladu beidio â chynnwys <, > neu /"
     }
   },
   "sortCode": {

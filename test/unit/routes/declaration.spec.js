@@ -19,9 +19,7 @@ describe('Declaration routes', () => {
         getDataForPage: () => ({
           conditions: [],
           nino: 'test',
-          sortCode: {
-            sortCode: '010101',
-          },
+          sortCode: '010101',
           accountNumber: '01 01 01 01',
           claimStartDate: {
             dd: '1',
@@ -51,9 +49,7 @@ describe('Declaration routes', () => {
       getDataForPage: () => ({
         conditions: [],
         nino: 'test',
-        sortCode: {
-          sortCode: '010101',
-        },
+        sortCode: '010101',
         accountNumber: '01 01 01 01',
         claimStartDate: {
           dd: '1',

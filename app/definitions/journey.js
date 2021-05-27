@@ -197,6 +197,8 @@ module.exports = (() => {
     'universal-credit',
     ['claim-start-date-after-statutory-sick-pay', (sessionData) => (typeof sessionData['statutory-sick-pay-end'] !== 'undefined' && typeof sessionData['statutory-sick-pay-end'].sspEndDate !== 'undefined')],
     ['claim-start-date', (sessionData) => (typeof sessionData['claim-start-date-after-statutory-sick-pay'] === 'undefined' || sessionData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp !== 'yes')],
+    ['late-claim', (sessionData) => (typeof sessionData['late-claim-check'] !== 'undefined' && sessionData['late-claim-check'].lateClaim === true)],
+    ['claim-start-date', (sessionData) => (typeof sessionData['late-claim'] !== 'undefined' && sessionData['late-claim'].lateClaim === 'no')],
     'claim-end-date',
     'work-overseas',
     'military-overseas',

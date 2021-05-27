@@ -1,6 +1,8 @@
 const { SimpleField, rules } = require('@dwp/govuk-casa/lib/Validation');
 const validateAccountName = require('../../lib/validation-rules/account-name-validator.js');
+const validateSpecialChar = require('../../lib/validation-rules/special-char-validator.js');
 const validateAccountNumber = require('../../lib/validation-rules/account-number-validator.js');
+const validateSortCode = require('../../lib/validation-rules/sort-code-validator.js');
 const Logger = require('../../lib/Logger');
 
 const appLogger = Logger();
@@ -19,32 +21,34 @@ module.exports = {
       errorMsgStartFormat: 'bank-details:accountName.errors.startFormat',
       errorMsgEndFormat: 'bank-details:accountName.errors.endFormat',
     }),
+    validateSpecialChar.bind({
+      errorMsg: 'bank-details:accountName.errors.noSpecialChar',
+    }),
   ]),
   bankName: SimpleField([
     rules.required.bind({
       errorMsg: 'bank-details:bankName.errors.required',
+    }),
+    validateSpecialChar.bind({
+      errorMsg: 'bank-details:bankName.errors.noSpecialChar',
     }),
   ]),
   sortCode: SimpleField([
     rules.required.bind({
       errorMsg: 'bank-details:sortCode.errors.required',
     }),
-    rules.regex.bind({
-      errorMsg: 'bank-details:sortCode.errors.notNum',
-      pattern: /^[0-9]*$/,
-    }),
-    rules.strlen.bind({
-      max: 6,
-      min: 6,
-      errorMsgMax: 'bank-details:sortCode.errors.badLength',
-      errorMsgMin: 'bank-details:sortCode.errors.badLength',
+    validateSortCode.bind({
+      errorMsgNotNum: 'bank-details:sortCode.errors.notNum',
+      errorBadLength: 'bank-details:sortCode.errors.badLength',
     }),
   ]),
   accountNumber: SimpleField([
     rules.required.bind({
       errorMsg: 'bank-details:accountNumber.errors.required',
     }),
-    validateAccountNumber.bind(),
+    validateAccountNumber.bind({
+      errorMsgNoSpecialChar: 'bank-details:bankName.errors.noSpecialChar',
+    }),
   ]),
   rollNumber: SimpleField([
     rules.regex.bind({

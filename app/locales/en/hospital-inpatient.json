@@ -11,13 +11,15 @@
   "hospitalName" : {
     "label" : "Hospital name",
     "errors" : {
-      "required" : "Enter the name of the hospital"
+      "required" : "Enter the name of the hospital",
+      "badFormat": "Hospital name must not include <, > or /"
     }
   },
   "hospitalWard" : {
     "label" : "Ward name or number",
     "errors" : {
-      "required" : "Enter the ward name or number"
+      "required" : "Enter the ward name or number",
+      "badFormat": "Ward name or number must not include < or >"
     }
   },
   "admissionDate" : {

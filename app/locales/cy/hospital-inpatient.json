@@ -11,13 +11,15 @@
   "hospitalName" : {
     "label" : "Enw’r ysbyty",
     "errors" : {
-      "required" : "Rhowch enw’r ysbyty"
+      "required" : "Rhowch enw’r ysbyty",
+      "badFormat": "Mae’n rhaid i enw’r ysbyty beidio â chynnwys <, > neu /"
     }
   },
   "hospitalWard" : {
     "label" : "Enw neu rif y ward",
     "errors" : {
-      "required" : "Rhowch enw neu rif y ward"
+      "required" : "Rhowch enw neu rif y ward",
+      "badFormat": "Mae’n rhaid i enw neu rif y ward beidio â chynnwys < neu >"
     }
   },
   "admissionDate" : {

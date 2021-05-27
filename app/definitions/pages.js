@@ -3,6 +3,7 @@ const { getEmployerName } = require('../lib/data-utils/employmentDataUtils');
 const addressValidators = require('./field-validators/address.js');
 const langPrefWritingValidators = require('./field-validators/language-preference-writing.js');
 const langPrefSpeakingValidators = require('./field-validators/language-preference-speaking.js');
+const lateClaimValidators = require('./field-validators/late-claim.js');
 const bankDetailsValidators = require('./field-validators/bank-details.js');
 const claimEndDateValidators = require('./field-validators/claim-end-date.js');
 const claimStartDateValidators = require('./field-validators/claim-start-date.js');
@@ -284,6 +285,19 @@ module.exports = {
         res.locals.hiddenSspEndDate = (typeof req.journeyData.getDataForPage('statutory-sick-pay-end') !== 'undefined'
           && typeof req.journeyData.getDataForPage('statutory-sick-pay-end').sspEndDate !== 'undefined')
           ? JSON.stringify(req.journeyData.getDataForPage('statutory-sick-pay-end').sspEndDate) : 'not-entered';
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'late-claim': {
+    view: 'pages/late-claim.njk',
+    fieldValidators: lateClaimValidators,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'late-claim');
+        res.locals.claimStartDate = req.journeyData.getDataForPage('claim-start-date').claimStartDate;
         next();
       },
       preredirect: navigateToNextPage,

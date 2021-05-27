@@ -1,4 +1,10 @@
-# 3.6.0 (2021-05-13)
+# 3.7.0 (2021-05-27)
+
+* ESAO-1336	Enhance user journey for late claims = claim start date more than 3 months ago.
+* ESAO-1313	Improve Various text fields validation to ignore spaces and restrict input of special characters
+* ESAO-1311	Improve bank details entry & validation to ignore spaces and restrict input of special characters
+
+## <small>3.6.0 (2021-05-13)</small>
 
 * ESAO-1317	Remove content from accessibility statement about spaces in bank details
 * ESAO-1113	As a self employed person, I need questions to make sense to me, so that I complete the application

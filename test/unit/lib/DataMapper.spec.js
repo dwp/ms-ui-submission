@@ -208,9 +208,7 @@ describe('DataMapper', () => {
     },
     'bank-details': {
       accountName: 'test',
-      sortCode: {
-        sortCode: '010101',
-      },
+      sortCode: '010101',
       accountNumber: 'test',
       rollNumber: 'test',
     },

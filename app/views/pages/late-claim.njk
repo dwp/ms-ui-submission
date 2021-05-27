@@ -1,0 +1,47 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('late-claim:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    <h1 class="govuk-heading-l">
+        {{ t('late-claim:lateClaim.h1') }}
+    </h1>
+    <p class="govuk-body">
+        {{ t('late-claim:lateClaim.p1') | safe }}
+    </p>
+    <p class="govuk-body">
+         {{ t('late-claim:lateClaim.p2') }}
+    </p>
+    {{ casaGovukRadios({
+        name: 'lateClaim',
+        fieldset: {
+            legend: {
+                text: t('late-claim:lateClaim.label', claimStartDate | date(htmlLang)) | safe,
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--m'
+            }
+        },
+        casaValue: formData.lateClaim,
+        casaErrors: formErrors,
+        items: [{
+            text: t('late-claim:lateClaim.yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('late-claim:lateClaim.label'),
+                'data-answer': t('late-claim:lateClaim.yes')
+            }
+        }, {
+            text: t('late-claim:lateClaim.no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('late-claim:lateClaim.label'),
+                'data-answer': t('late-claim:lateClaim.no')
+            }
+        }]
+    }) }}
+{% endblock %}
