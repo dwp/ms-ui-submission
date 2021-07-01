@@ -21,6 +21,12 @@
 
     {% set dateParams = {
         name: 'coronavirusDate',
+        fieldset: {
+            legend: {
+                text: t('coronavirus-date:coronavirusDate.label'),
+                classes: 'govuk-visually-hidden'
+            }
+        },
         hint: {
             html: t('coronavirus-date:coronavirusDate.hint')
         },

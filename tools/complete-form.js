@@ -425,9 +425,11 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('f-militaryOverseas-2')).click();
     }
     await driver.findElement(By.id('continue-button')).click();
-
+return;
     if (pension) {
       await driver.findElement(By.id('f-pension')).click();
+      await driver.findElement(By.id('continue-button')).click();
+      await driver.findElement(By.id('f-pensionInherit')).click();
       await driver.findElement(By.id('continue-button')).click();
     } else {
       await driver.findElement(By.id('f-pension-2')).click();

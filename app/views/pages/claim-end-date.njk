@@ -15,7 +15,6 @@
     {% set monthError = formErrors['claimEndDate'][0].inline | matchMonth or formErrors['claimEndDate'][0].errorType | includesMonth %}
     {% set yearError = formErrors['claimEndDate'][0].inline | matchYear or formErrors['claimEndDate'][0].errorType | includesYear %}
 
-
         {% set dateParams = {
             name: 'claimEndDate',
             fieldset: {
@@ -46,17 +45,16 @@
 
     {% endset %}
 
+    <h1 class="govuk-heading-l govuk-fieldset__legend--l">{{ t('claim-end-date:claimEnd.label') }}</h1>
+    <p class="govuk-body">{{ t('claim-end-date:claimEnd.hint') | safe }}</p>
+
     {{ casaGovukRadios({
         name: 'claimEnd',
         fieldset: {
             legend: {
                 text: t('claim-end-date:claimEnd.label'),
-                isPageHeading: true,
-                classes: 'govuk-fieldset__legend--l'
+                classes: 'govuk-visually-hidden'
             }
-        },
-        hint: {
-            html: t('claim-end-date:claimEnd.hint')
         },
         casaValue: formData.claimEnd,
         casaErrors: formErrors,

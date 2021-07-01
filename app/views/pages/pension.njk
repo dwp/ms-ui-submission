@@ -51,8 +51,7 @@
     <input type="hidden" name="screen" value="pension-other" />
 
     {% else %}
-
-    {% set details %}
+        <h1 class="govuk-heading-l govuk-fieldset__legend--l">{{ t('pension:pension.label') }}</h1>
         <p class="govuk-body">{{ t('pension:pension.p') }}</p>
         <p class="govuk-body">{{ t('pension:pension.pensions') | safe }}</p>
         <ul class="govuk-list govuk-list--bullet">
@@ -63,23 +62,17 @@
             <li>{{ t('pension:pension.li5') }}</li>
         </ul>
         <p class="govuk-body">{{ t('pension:pension.annuity') | safe }}</p>
-    {% endset -%}
 
     {{ casaGovukRadios({
         name: 'pension',
         fieldset: {
             legend: {
                 text: t('pension:pension.label'),
-                isPageHeading: true,
-                classes: 'govuk-fieldset__legend--l'
+                classes: 'govuk-visually-hidden'
             }
         },
         casaValue: formData.pension,
         casaErrors: formErrors,
-        hint: {
-            html: details,
-            classes: 'govuk-!-margin-top-1'
-        },
         items: [{
             text: t('pension:pension.yes'),
             value: 'yes',
