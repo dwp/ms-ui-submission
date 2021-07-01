@@ -3,21 +3,19 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('coronavirus:pageTitle') }} 
+    {{ t('coronavirus:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
+<h1 class="govuk-heading-l govuk-fieldset__legend--l">{{ t('coronavirus:coronavirusReasonForClaim.label') }}</h1>
+<p class="govuk-body">{{ t('coronavirus:coronavirusReasonForClaim.hint') | safe}}</p>
     {{ casaGovukRadios({
         name: 'coronavirusReasonForClaim',
         fieldset: {
             legend: {
                 text: t('coronavirus:coronavirusReasonForClaim.label'),
-                isPageHeading: true,
-                classes: 'govuk-fieldset__legend--l'
+                classes: 'govuk-visually-hidden'
             }
-        },
-        hint: {
-            html: t('coronavirus:coronavirusReasonForClaim.hint')
         },
         casaValue: formData.coronavirusReasonForClaim,
         casaErrors: formErrors,

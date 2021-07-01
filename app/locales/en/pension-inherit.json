@@ -1,0 +1,12 @@
+{
+  "pageTitle": "Inherited pension or annuity payments",
+  "pensionInherit": {
+    "label": "Do you get pension or annuity payments that you’ve inherited from someone who died?",
+    "yes": "Yes",
+    "no": "No",
+    "notsure": "I'm not sure",
+    "errors": {
+      "required": "Select yes if you get pension or annuity payments that you’ve inherited from someone else"
+    }
+  }
+}

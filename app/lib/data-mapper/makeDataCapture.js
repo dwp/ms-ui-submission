@@ -37,6 +37,7 @@ module.exports = (translator, journeyData, session) => {
   const nino = journeyData.getDataForPage('nino');
   const otherNumber = journeyData.getDataForPage('other-number');
   const pension = journeyData.getDataForPage('pension');
+  const pensionInherit = journeyData.getDataForPage('pension-inherit');
   const pregnant = journeyData.getDataForPage('pregnant');
   const severeCondition = journeyData.getDataForPage('severe-condition');
   const ssp = journeyData.getDataForPage('statutory-pay');
@@ -208,6 +209,9 @@ module.exports = (translator, journeyData, session) => {
     capture.pensions = makePensions(pensionGather);
   } else {
     capture.pension_question = pension.pension;
+  }
+  if (pension.pension === 'yes') {
+    capture.pension_inherit = pensionInherit.pensionInherit;
   }
   appLogger.info('DataMapper: collecting health insurance data from journey');
   if (insurance.screen === 'insurance-other') {

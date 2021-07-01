@@ -1,0 +1,45 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('pension-inherit:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+    {{ casaGovukRadios({
+        name: 'pensionInherit',
+        fieldset: {
+            legend: {
+                text: t('pension-inherit:pensionInherit.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.pensionInherit,
+        casaErrors: formErrors,
+        items: [{
+            text: t('pension-inherit:pensionInherit.yes'),
+            value: 'yes',
+            attributes: {
+                'data-question': t('pension-inherit:pensionInherit.label'),
+                'data-answer': t('pension-inherit:pensionInherit.yes')
+            }
+        }, {
+            text: t('pension-inherit:pensionInherit.no'),
+            value: 'no',
+            attributes: {
+                'data-question': t('pension-inherit:pensionInherit.label'),
+                'data-answer': t('pension-inherit:pensionInherit.no')
+            }
+        }, {
+            text: t('pension-inherit:pensionInherit.notsure'),
+            value: 'notsure',
+            attributes: {
+                'data-question': t('pension-inherit:pensionInherit.label'),
+                'data-answer': t('pension-inherit:pensionInherit.notsure')
+            }
+        }]
+    }) }}
+
+{% endblock %}

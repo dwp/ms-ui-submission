@@ -33,6 +33,7 @@ const nameValidators = require('./field-validators/name.js');
 const ninoValidators = require('./field-validators/nino.js');
 const otherNumberValidators = require('./field-validators/other-number.js');
 const pensionValidators = require('./field-validators/pension.js');
+const pensionInheritValidators = require('./field-validators/pension-inherit.js');
 const pregnantValidators = require('./field-validators/pregnant.js');
 const severeConditionValidators = require('./field-validators/severe-condition.js');
 const sspEndValidators = require('./field-validators/ssp-end.js');
@@ -685,6 +686,18 @@ module.exports = {
         }
         res.locals.pensionGather = req.session.pensionGather || [];
         res.locals.errorsFlag = checkForErrors(req, 'pension');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'pension-inherit': {
+    view: 'pages/pension-inherit.njk',
+    fieldValidators: pensionInheritValidators,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'pension-inherit');
         next();
       },
       preredirect: navigateToNextPage,

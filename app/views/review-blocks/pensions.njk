@@ -1,9 +1,8 @@
 <h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:pensionHeading') }}</h2>
 
 {% if not journeyData['pension'].other %}
-
-{{ govukSummaryList({
-    rows: [{
+{% set pensionRows = [] %}
+      {% set pensionAnswerRow = {
         key: { text: t('check-your-answers:pensions') },
         value: { text: t('pension:pension.' + journeyData['pension'].pension ) },
         actions: {
@@ -14,7 +13,26 @@
                 visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensions')
             }]
         }
-    }]
+      } %}
+      {{ (pensionRows.push(pensionAnswerRow), null) }}
+    {% if journeyData['pension'].pension === 'yes' %}
+        {% set pensionInheritRow = {
+            key: { text: t('check-your-answers:pensionInherit') },
+            value: { text: t('pension-inherit:pensionInherit.' + journeyData['pension-inherit'].pensionInherit) },
+            actions: {
+                items: [{
+                    attributes: { 'id': 'pension-inherit' },
+                    href: "pension-inherit?edit",
+                    text: t('check-your-answers:change'),
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenPensionInherit')
+                }]
+            }
+        } %}
+        {{ (pensionRows.push(pensionInheritRow), null) }}
+    {% endif %}
+
+{{ govukSummaryList({
+    rows: pensionRows
 }) }}
 
 {% else %}

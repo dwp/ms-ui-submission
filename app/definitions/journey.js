@@ -207,6 +207,7 @@ module.exports = (() => {
 
   pensionPath.addWaypoints([
     'pension',
+    ['pension-inherit', (sessionData) => (sessionData.pension.pension === 'yes')],
   ]);
 
   pensionPath.mergeWith(insurancePath);

@@ -93,7 +93,7 @@ The pipeline build stages and process are documented here --> https://confluence
 
 ### Pipeline Fragments
 
-The CI uses the concept of 'pipeline fragments' to build up a pipeline of modular components. These can be configured by 'including' the relevant fragments in the `gitlab-ci/includes.yml`. Pipeline fragments are stored here https://gitlab.nonprod.dwpcloud.uk/wa-transformation/pipeline-fragments and each comes with a `README` detailing the specific instructions on use.  
+The CI uses the concept of 'pipeline fragments' to build up a pipeline of modular components. These can be configured by 'including' the relevant fragments in the `gitlab-ci/includes.yml`. Pipeline fragments are stored here https://gitlab.com/dwp/engineering/pipeline-fragments and each comes with a `README` detailing the specific instructions on use.  
 
 ***The CI pipeline contains a stage to check that up-to-date versions of each fragment are being used - the pipeline will FAIL if the fragments are too outdated.***
 
