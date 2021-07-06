@@ -19,7 +19,7 @@
     },
     "address3": {
       "required": "Enter a town or city",
-      "badFormat": "Town or city must not contain numbers"
+      "badFormat": "Town or city must contain only letters, commas or full stops"
     },
     "address4": {
       "required": "Enter a county",

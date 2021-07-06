@@ -26,6 +26,9 @@
  */
 function postalAddressObject(value) {
   const trimmedValue = value;
+  trimmedValue.address1 = value.address1.trim();
+  trimmedValue.address2 = value.address2.trim();
+  trimmedValue.address3 = value.address3.trim();
   trimmedValue.postcode = value.postcode.replace(/\s/g, '');
   const cfg = {
     requiredFields: ['address1', 'address3', 'postcode'],
@@ -143,6 +146,18 @@ function postalAddressObject(value) {
           fieldKeySuffix: `[${k}]`,
         });
       } else if (hasContent && (attRegexMismatch || condExceedStrlen)) {
+        valid = false;
+        errorMsgs.push({
+          ...objectifyError(attr[4]),
+          fieldKeySuffix: `[${k}]`,
+        });
+      } else if ((k === 'address1' || k === 'address2') && ['<', '>', '/'].some((char) => value[k].includes(char))) {
+        valid = false;
+        errorMsgs.push({
+          ...objectifyError(attr[4]),
+          fieldKeySuffix: `[${k}]`,
+        });
+      } else if (k === 'address3' && ['<', '>', '/'].some((char) => value[k].includes(char))) {
         valid = false;
         errorMsgs.push({
           ...objectifyError(attr[4]),

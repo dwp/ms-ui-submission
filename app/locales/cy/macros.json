@@ -24,7 +24,7 @@
     },
     "address3": {
       "required": "Rhowch dref neu ddinas",
-      "badFormat": "Ni ddylai tref neu ddinas gynnwys rhifau"
+      "badFormat": "Mae’n rhaid i tref neu ddinas ond cynnwys llythrennau, atalnodau neu atalnodau llawn"
     },
     "address4": {
       "required": "Rhowch sir",

@@ -1,4 +1,17 @@
-# 3.7.0 (2021-05-27)
+# 3.9.0 (2021-07-06)
+
+* ESAO-1358	Allow users of the service to express an interest in taking part in research
+* ESAO-1295	Improve Address field validation to ignore spaces and restrict input of special characters
+* ESAO-957	Ask claimant where they are in receipt of a pension/annuity if it is inherited.
+
+## <small>3.8.0 (2021-07-01)</small>
+
+* ESAO-1345	Remove hint class where it's not being used for style
+* ESAO-1342	Make H1 a fieldset for /coronavirus-date
+* ESAO-1217	Change DS1500 content on check your answers
+* ESAO-957 Ask claimant where they are in receipt of a pension/annuity if it is inherited.
+
+## <small>3.7.0 (2021-05-27)</small>
 
 * ESAO-1336	Enhance user journey for late claims = claim start date more than 3 months ago.
 * ESAO-1313	Improve Various text fields validation to ignore spaces and restrict input of special characters
