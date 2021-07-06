@@ -18,6 +18,7 @@
     "required": "Select how satisfied you are before sending",
     "maxLength": "Enter how we could improve this service in 1,200 characters or fewer (including spaces)"
   },
+  "research": "Volunteer to <a href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f/\" class=\"govuk-link\">take part in research (opens in new tab)</a> to help improve this service.",
   "h2": "How could we improve this service?",
   "insetText": "We will not respond to your feedback or use it when we process your claim.",
   "button": "Send feedback"

@@ -18,6 +18,7 @@
     "required": "Dewiswch pa mor fodlon ydych cyn anfon",
     "maxLength": "Rhowch sut allwn ni wella’r gwasanaeth hwn mewn 1,200 nod neu lai (yn cynnwys gofodau)"
   },
+  "research": "Gwirfoddolwch i <a href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f/\" class=\"govuk-link\">gymryd rhan mewn ymchwil (agor mewn tab newydd)</a> i helpu i wella’r gwasanaeth. Ar hyn o bryd mae’r ffurflen a’r gweithgareddau ymchwil dilynnol ond ar gael drwy gyfrwng y Saesneg.",
   "h2": "Sut allwn ni wella’r gwasanaeth hwn?",
   "insetText": "Ni fyddwn yn ymateb i’ch adborth nac yn ei ddefnyddio pan fyddwn yn prosesu’ch cais.",
   "button": "Anfon adborth"
