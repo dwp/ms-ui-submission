@@ -96,7 +96,7 @@ const args = process.argv.slice(2)
     await driver.findElement(By.name('firstName')).sendKeys(faker.name.firstName());
     await driver.findElement(By.name('lastName')).sendKeys(faker.name.lastName());
     await driver.findElement(By.id('continue-button')).click();
-
+return;
     await driver.findElement(By.name('dateOfBirth[dd]')).sendKeys('7');
     await driver.findElement(By.name('dateOfBirth[mm]')).sendKeys('4');
     await driver.findElement(By.name('dateOfBirth[yyyy]')).sendKeys('1981');

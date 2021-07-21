@@ -14,7 +14,12 @@ function dateExists(value) {
     errorMsg: 'validation:rule.dateObject.inline',
     ...this,
   };
-  const { dd, mm, yyyy } = value;
+  const trimmedValue = value;
+  trimmedValue.dd = value.dd.replace(/\s/g, '');
+  trimmedValue.mm = value.mm.replace(/\s/g, '');
+  trimmedValue.yyyy = value.yyyy.replace(/\s/g, '');
+  const { dd, mm, yyyy } = trimmedValue;
+
   return new Promise((resolve, reject) => {
     if (!dd && !mm && !yyyy) {
       /* eslint-disable-next-line prefer-promise-reject-errors */

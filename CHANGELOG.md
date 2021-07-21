@@ -1,3 +1,12 @@
+# 3.10.0 (2021-07-21)
+
+* ESAO-1310 Date fields: Ignore spaces
+* ESAO:1355 Update Content on mobile number pages
+* ESAO-1341 Make the H1 for /name a fieldset
+* ESAO-1219 Make content on error pages (eg. 500 and 502) consistent
+* ESAO-1338 Spelling mistake is appearing on Cookies Details page
+* ESAO-1121 Make the title consistent with the header for coronavirus date
+
 # 3.9.0 (2021-07-06)
 
 * ESAO-1358	Allow users of the service to express an interest in taking part in research
