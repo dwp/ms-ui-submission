@@ -4,6 +4,7 @@
     "label" : "Is there another number you can be contacted on?",
     "yes": "Yes",
     "no": "No",
+    "hint": "We'll use this number to contact you about your claim.",
     "errors" : {
       "required": "Select yes if you have another number"
     }

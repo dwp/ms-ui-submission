@@ -4,7 +4,7 @@
     "label" : "Do you have a mobile number?",
     "yes": "Yes",
     "no": "No",
-    "hint": "We'll send you text messages to update you on the progress of your claim.",
+    "hint": "We'll use this number to contact you about your claim.",
     "errors" : {
       "required": "Select yes if you have a mobile number"
     }
