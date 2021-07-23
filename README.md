@@ -1,6 +1,6 @@
 # New Style ESA Online UI Node Server
 
-This is the front end Node server and client facing code, (HTML, CSS, JS and [Nunjucks](https://mozilla.github.io/nunjucks/getting-started.html)) to run the ESA Online data submission app.
+This is the front end Node server and client facing code (HTML, CSS, JS and [Nunjucks](https://mozilla.github.io/nunjucks/getting-started.html)) to run the ESA Online data submission app.
 
 ## Table of Contents
 
