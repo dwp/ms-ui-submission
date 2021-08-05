@@ -18,12 +18,6 @@ module.exports = {
     rules.required.bind({
       errorMsg: 'medical-centre:phoneNumber.errors.required',
     }),
-    rules.strlen.bind({
-      min: 11,
-      errorMsgMin: 'medical-centre:phoneNumber.errors.badFormat',
-      max: 20,
-      errorMsgMax: 'medical-centre:phoneNumber.errors.badFormat',
-    }),
     validatePhoneNumber.bind({
       errorMsg: 'medical-centre:phoneNumber.errors.badFormat',
     }),

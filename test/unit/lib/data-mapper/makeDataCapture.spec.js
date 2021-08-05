@@ -224,9 +224,6 @@ describe('DataMapper', () => {
     'coronavirus-reason-for-claim': {
       coronavirusReasonForClaim: 'high-risk',
     },
-    'coronavirus-shielding': {
-      coronavirusShielding: 'yes',
-    },
     'coronavirus-date': {
       coronavirusDate: {
         dd: '01',

@@ -23,11 +23,5 @@ module.exports = {
     validatePhoneNumber.bind({
       errorMsg: 'other-number:number.errors.badFormat',
     }),
-    rules.strlen.bind({
-      min: 11,
-      errorMsgMin: 'other-number:number.errors.badFormat',
-      max: 20,
-      errorMsgMax: 'other-number:number.errors.badFormat',
-    }),
   ], (pageData) => pageData.other === 'yes'),
 };

@@ -23,11 +23,6 @@ module.exports = {
       errorMsgMax: 'coronavirus-reason-for-claim:coronavirusReasonForClaim.otherReason.errors.length',
     }),
   ], (pageData) => pageData.coronavirusReasonForClaim === 'other'),
-  highRiskDesc: SimpleField([
-    rules.required.bind({
-      errorMsg: 'coronavirus-reason-for-claim:coronavirusReasonForClaim.errors.required',
-    }),
-  ]),
   selfIsolationSymptomsDesc: SimpleField([
     rules.required.bind({
       errorMsg: 'coronavirus-reason-for-claim:coronavirusReasonForClaim.errors.required',

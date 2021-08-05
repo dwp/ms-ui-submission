@@ -15,7 +15,7 @@ module.exports = (employmentGather) => {
     const employment = {
       job_title: emp.jobTitle,
       employer_name: emp.employerName,
-      employer_tel: emp.employerTel,
+      employer_tel: emp.employerTel && emp.employerTel.replace(/\s/g, ''),
       employer_address: {
         lines: [
           emp.employerAddress.address1,

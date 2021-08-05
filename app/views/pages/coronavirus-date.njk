@@ -11,13 +11,7 @@
     {% set dayError = formErrors['coronavirusDate'][0].inline | matchDay or formErrors['coronavirusDate'][0].errorType | includesDay %}
     {% set monthError = formErrors['coronavirusDate'][0].inline | matchMonth or formErrors['coronavirusDate'][0].errorType | includesMonth %}
     {% set yearError = formErrors['coronavirusDate'][0].inline | matchYear or formErrors['coronavirusDate'][0].errorType | includesYear %}
-    {% set hintText = 'coronavirus-date:coronavirusDate.default-hint' %}
-    {% set highRiskShielding = coronavirusReason === 'high-risk' and isShielding === 'yes' %}
     {% set hintText = 'coronavirus-date:default-text' %}
-
-    {% if highRiskShielding  %}
-        {% set hintText = 'coronavirus-date:coronavirus-high-risk-shielding-text' %}
-    {% endif %}
 
     {% set dateParams = {
         name: 'coronavirusDate',

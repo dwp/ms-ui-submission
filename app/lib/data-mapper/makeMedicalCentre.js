@@ -12,7 +12,7 @@ module.exports = (medicalCentre) => {
   appLogger.info('makeMedicalCentre');
   const medCentre = {
     name: medicalCentre.name,
-    tel: medicalCentre.phoneNumber,
+    tel: medicalCentre.phoneNumber && medicalCentre.phoneNumber.replace(/\s/g, ''),
     address: {
       lines: [
         medicalCentre.address.address1,

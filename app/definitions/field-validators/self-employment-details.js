@@ -1,6 +1,6 @@
 const { SimpleField, rules } = require('@dwp/govuk-casa/lib/Validation');
 const validatePostalAddress = require('../../lib/validation-rules/postalAddress-validator.js');
-const phoneNumberRule = require('../../lib/validation-rules/phone-number-validator.js');
+const validatePhoneNumber = require('../../lib/validation-rules/phone-number-validator.js');
 
 const Logger = require('../../lib/Logger');
 
@@ -23,14 +23,8 @@ module.exports = {
     rules.required.bind({
       errorMsg: 'self-employment-details:employerTel.errors.required',
     }),
-    phoneNumberRule.bind({
+    validatePhoneNumber.bind({
       errorMsg: 'self-employment-details:employerTel.errors.badFormat',
-    }),
-    rules.strlen.bind({
-      min: 11,
-      errorMsgMin: 'self-employment-details:employerTel.errors.badFormat',
-      max: 20,
-      errorMsgMax: 'self-employment-details:employerTel.errors.badFormat',
     }),
   ]),
   employerAddress: SimpleField([

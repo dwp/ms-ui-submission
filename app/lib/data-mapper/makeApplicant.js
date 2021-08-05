@@ -36,7 +36,7 @@ module.exports = (journeyData) => {
   if (mobile.mobile === 'yes') {
     applicant.contact_options.push({
       method: 'telmobile',
-      data: mobile.number,
+      data: mobile.number && mobile.number.replace(/\s/g, ''),
       preferred: true,
     });
   }
@@ -44,7 +44,7 @@ module.exports = (journeyData) => {
   if (mobile.mobile === 'no' && otherNumber.other === 'yes') {
     applicant.contact_options.push({
       method: 'tel',
-      data: otherNumber.number,
+      data: otherNumber.number && otherNumber.number.replace(/\s/g, ''),
       preferred: true,
     });
   }
