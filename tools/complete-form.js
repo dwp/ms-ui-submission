@@ -26,7 +26,6 @@ const args = process.argv.slice(2)
   // if the var has a value, use that, otherwise check for all
   const dev = args.dev !== undefined ? args.dev : args.all !== undefined ? args.all : false;
   const coronavirus = args.coronavirus !== undefined ? args.coronavirus : args.all !== undefined ? args.all : false;
-  const highrisk = args.highrisk !== undefined ? args.highrisk : args.all !== undefined ? args.all : false;
   const pregnant = args.pregnant !== undefined ? args.pregnant : args.all !== undefined ? args.all : false;
   const terminal = args.terminal !== undefined ? args.terminal : args.all !== undefined ? args.all : false;
   const inPatient = args.inPatient !== undefined ? args.inPatient : args.all !== undefined ? args.all : true;
@@ -96,7 +95,7 @@ const args = process.argv.slice(2)
     await driver.findElement(By.name('firstName')).sendKeys(faker.name.firstName());
     await driver.findElement(By.name('lastName')).sendKeys(faker.name.lastName());
     await driver.findElement(By.id('continue-button')).click();
-return;
+
     await driver.findElement(By.name('dateOfBirth[dd]')).sendKeys('7');
     await driver.findElement(By.name('dateOfBirth[mm]')).sendKeys('4');
     await driver.findElement(By.name('dateOfBirth[yyyy]')).sendKeys('1981');
@@ -132,19 +131,8 @@ return;
         await driver.findElement(By.id('continue-button')).click();
       }
     }
-
     if(coronavirus) {
-      if(highrisk) {
         await driver.findElement(By.id('f-coronavirusReasonForClaim')).click();
-        await driver.findElement(By.id('continue-button')).click();
-        await driver.findElement(By.id('f-coronavirusShielding')).click();
-        await driver.findElement(By.id('continue-button')).click();
-        await driver.findElement(By.name('coronavirusDate[dd]')).sendKeys('4');
-        await driver.findElement(By.name('coronavirusDate[mm]')).sendKeys('4');
-        await driver.findElement(By.name('coronavirusDate[yyyy]')).sendKeys('2020');
-        await driver.findElement(By.id('continue-button')).click();
-      } else {
-        await driver.findElement(By.id('f-coronavirusReasonForClaim-2')).click();
         await driver.findElement(By.id('continue-button')).click();
         await driver.findElement(By.name('coronavirusDate[dd]')).sendKeys('4');
         await driver.findElement(By.name('coronavirusDate[mm]')).sendKeys('4');
@@ -152,7 +140,6 @@ return;
         await driver.findElement(By.id('continue-button')).click();
         await driver.findElement(By.id('f-coronavirusOtherCondition')).click();
         await driver.findElement(By.id('continue-button')).click();
-      }
     }
 
     for(let i = 0; i < conditions; i++){
@@ -175,7 +162,6 @@ return;
     if (terminal) {
       await driver.wait(until.elementLocated(By.id('f-severeCondition'))).click();
       await driver.findElement(By.id('continue-button')).click();
-
       await driver.findElement(By.id('f-ds1500Report')).click();
       await driver.findElement(By.id('continue-button')).click();
     } else {
@@ -425,7 +411,7 @@ return;
       await driver.findElement(By.id('f-militaryOverseas-2')).click();
     }
     await driver.findElement(By.id('continue-button')).click();
-return;
+
     if (pension) {
       await driver.findElement(By.id('f-pension')).click();
       await driver.findElement(By.id('continue-button')).click();

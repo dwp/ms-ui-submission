@@ -66,18 +66,12 @@ module.exports = (translator, journeyData, session) => {
       {
         coronavirusReasonForClaim,
         otherReasonDetail,
-        highRiskDesc,
         selfIsolationSymptomsDesc,
         selfIsolationContactDesc,
       } = journeyData.getDataForPage('coronavirus-reason-for-claim');
     appLogger.info('DataMapper: collecting coronavirus data');
     capture.coronavirus_reason = coronavirusReasonForClaim;
-    const coronavirusShielding = journeyData.getDataForPage('coronavirus-shielding');
     switch (coronavirusReasonForClaim) {
-    case 'high-risk':
-      capture.coronavirus_reason_desc = highRiskDesc;
-      capture.coronavirus_shielding = coronavirusShielding.coronavirusShielding;
-      break;
     case 'self-isolation-symptoms':
       capture.coronavirus_reason_desc = selfIsolationSymptomsDesc;
       break;
@@ -155,7 +149,7 @@ module.exports = (translator, journeyData, session) => {
   }
   capture.military_overseas = militaryOverseas.militaryOverseas;
   capture.mobile = mobile && mobile.mobile;
-  capture.other_number = otherNumber && otherNumber.other;
+  capture.other_number = otherNumber && otherNumber.other && otherNumber.other.replace(/\s/g, '');
   capture.pregnant = pregnant.pregnant;
   if (pregnant.pregnant === 'yes') {
     capture.due_date = `${pregnant.dueDate.yyyy}-${formatDigit(pregnant.dueDate.mm)}-${formatDigit(pregnant.dueDate.dd)}`;

@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "3.10.0",
+  "version": "3.11.0",
   "engines": {
     "node": "12.13.0"
   },

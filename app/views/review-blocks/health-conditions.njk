@@ -32,22 +32,6 @@
 {{ (healthRows.push(coronavirusOtherReasonRow), null) }}
 {% endif %}
 
-{% if journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'high-risk' %}
-{% set coronavirusShielding = {
-    key: { text: t('check-your-answers:coronavirusShielding') },
-    value: { text: t('coronavirus-shielding:coronavirusShielding.' + journeyData['coronavirus-shielding'].coronavirusShielding) },
-    actions: {
-        items: [{
-            attributes: { 'id': 'coronavirus-shielding' },
-            href: "coronavirus-shielding?edit",
-            text: t('check-your-answers:change'),
-            visuallyHiddenText: t('check-your-answers:visuallyHiddenCoronavirusShielding')
-        }]
-    }
-} %}
-{{ (healthRows.push(coronavirusShielding), null) }}
-{% endif %}
-
 {% if journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim %}
 {% set coronavirusDateRow = {
     key: { text: t('check-your-answers:coronavirusDate') },

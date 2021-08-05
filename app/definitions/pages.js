@@ -49,7 +49,6 @@ const universalCreditValidators = require('./field-validators/universal-credit.j
 const coronavirusReasonForClaimValidators = require('./field-validators/coronavirus-reason-for-claim.js');
 const coronavirusDateValidators = require('./field-validators/coronavirus-date.js');
 const coronavirusOtherConditionValidators = require('./field-validators/coronavirus-other-condition.js');
-const coronavirusShieldingValidators = require('./field-validators/coronavirus-shielding.js');
 const coronaValidator = require('./field-validators/coronavirus');
 const disabilityOrHealthConditionValidator = require('./field-validators/disability-or-health-condition');
 const notEligibleDisablityHealthConditionValidator = require('./field-validators/not-eligible-disability-or-health-condition');
@@ -879,18 +878,6 @@ module.exports = {
     },
   },
 
-  'coronavirus-shielding': {
-    view: 'pages/coronavirus-shielding.njk',
-    fieldValidators: coronavirusShieldingValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'coronavirus-shielding');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
   'coronavirus-date': {
     view: 'pages/coronavirus-date.njk',
     fieldValidators: coronavirusDateValidators,
@@ -898,9 +885,6 @@ module.exports = {
       prerender: (req, res, next) => {
         res.locals.errorsFlag = checkForErrors(req, 'coronavirus-date');
         res.locals.coronavirusReason = req.session.journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim;
-        if (req.session.journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'high-risk') {
-          res.locals.isShielding = req.session.journeyData['coronavirus-shielding'].coronavirusShielding;
-        }
         next();
       },
       preredirect: navigateToNextPage,

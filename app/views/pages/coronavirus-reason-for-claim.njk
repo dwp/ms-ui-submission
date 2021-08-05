@@ -10,7 +10,6 @@
 
 {% block journey_form %}
 
-    {% set highRiskDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-high-risk') %}
     {% set selfIsolationSymptomsDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-symptoms') %}
     {% set selfIsolationContactDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-contact') %}
     {{ desc }}
@@ -46,13 +45,6 @@
         casaValue: formData.coronavirusReasonForClaim,
         casaErrors: formErrors,
         items: [{
-            text: highRiskDesc,
-            value: 'high-risk',
-            attributes: {
-                'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
-                'data-answer': highRiskDesc
-            }
-        }, {
             text: selfIsolationSymptomsDesc,
             value: 'self-isolation-symptoms',
             attributes: {
@@ -78,7 +70,6 @@
             }
         }]
     }) }}
-    <input type="hidden" name="highRiskDesc" value= "{{ highRiskDesc }}" />
     <input type="hidden" name="selfIsolationSymptomsDesc" value= "{{ selfIsolationSymptomsDesc }}" />
     <input type="hidden" name="selfIsolationContactDesc" value= "{{ selfIsolationContactDesc }}" />
 {% endblock %}

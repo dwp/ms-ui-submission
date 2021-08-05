@@ -94,116 +94,6 @@
                 {{ t('complete:coronavirus.text3') }}
             </p>
 
-            {% if isShielding %}
-                <h3 class="govuk-heading-m">
-                    {{ t('complete-coronavirus:shielding.h3') }}
-                </h3>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body4') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body5') }}
-                </p>
-
-                <h4 class="govuk-heading-s">
-                    {{ t('complete-coronavirus:shielding.h4-1')}}
-                </h4>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body6') }}
-                </p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>{{ t('complete-coronavirus:shielding.li1') }}</li>
-                    <li>{{ t('complete-coronavirus:shielding.li2') }}</li>
-                </ul>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body7') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body8') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body9') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body10') | safe }}
-                </p>
-
-                {{ govukInsetText({
-                    html: shieldingInset1
-                }) }}
-
-                <h4 class="govuk-heading-s">
-                    {{ t('complete-coronavirus:shielding.h4-2')}}
-                </h4>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body11') | safe }}
-                </p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>{{ t('complete-coronavirus:shielding.li3') }}</li>
-                    <li>{{ t('complete-coronavirus:shielding.li4') }}</li>
-                    <li>{{ t('complete-coronavirus:shielding.li5') }}</li>
-                </ul>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body12') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body13') }}
-                </p>
-
-                <h4 class="govuk-heading-s">
-                    {{ t('complete-coronavirus:shielding.h4-3')}}
-                </h4>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body14') }}
-                </p>
-
-                <ul class="govuk-list govuk-list--bullet">
-                    <li>{{ t('complete-coronavirus:shielding.li6') }}</li>
-                    <li>{{ t('complete-coronavirus:shielding.li7') }}</li>
-                </ul>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body15') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body16') }}
-                </p>
-
-                {{ govukDetails({
-                    summaryText: t('complete-coronavirus:shielding.detailssummarytext'),
-                    html: shieldingSummaryDetails
-                }) }}
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body17') }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body18') | safe }}
-                </p>
-
-                <p class="govuk-body">
-                    {{ t('complete-coronavirus:shielding.body6para') }}
-                </p>
-
-                {{ govukInsetText({
-                    html: shieldingInset2
-                }) }}
-            {% else %}
                 <h3 class="govuk-heading-m">
                     {{ t('complete-coronavirus:non-shielding.h3') }}
                 </h3>
@@ -254,7 +144,6 @@
                 {{ govukInsetText({
                     html: nonShieldingInset
                 }) }}
-            {% endif %}
 
             {% if universalCredit %}
                 <h3 class="govuk-heading-m">

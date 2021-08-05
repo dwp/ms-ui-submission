@@ -120,6 +120,7 @@
   "visuallyHiddenTextPregnant": "os ydych yn feichiog",
   "visuallyHiddenTextDocConsent": "caniatâd i ddoctoriaid rannu manylion gyda DWP",
   "visuallyHiddenTextDwpConsent": "caniatâd i DWP i rannu penderfyniad gyda’ch doctor",
+  "visuallyHiddenTextVoluntaryWork": "os ydych yn gwneud gwaith gwirfoddol",
   "visuallyHiddenTextVoluntaryWorkDetails": "manylion gwaith gwirfoddol",
   "visuallyHiddenTextVoluntaryWorkType": "math o waith gwirfoddol yn %s",
   "visuallyHiddenTextVoluntaryWorkHours": "nifer o oriau rydych yn gwirfoddoli yn %s",
@@ -167,14 +168,12 @@
   "visuallyHiddenCoronavirusReasonForClaim": "pam mae coronafeirws yw’r prif reswm dros eich cais",
   "visuallyHiddenCoronavirusDate": "dyddiad y cawsoch eich effeithio gan goronafeirws",
   "visuallyHiddenCoronavirusOtherCondition": "cyflyrau iechyd oni bai am goronafeirws",
-  "visuallyHiddenCoronavirusShielding": "os ydych yn cysgodi oherwydd eich bod wedi derbyn llythyr neu neges testun gan y llywodraeth neu’r GIG",
   "visuallyHiddenCoronavirusOtherReason": "sut oeddech chi wedi cael eich effeithio gan goronafeirws, os ydych wedi dewis \"rheswm arall\" ac ysgrifennu pam",
 
   "coronavirus-reason-high-risk": "Rwyf wedi cael fy nghyngori i ‘gysgodi’ (cymryd camau ychwanegol i leihau cysylltiad ag eraill) oherwydd rwyf mewn risg uchel o salwch difrifol o goronafeirws",
   "coronavirus-reason-self-isolation-symptoms": "Rwyf yn hunan-ynysu oherwydd mae gennyf symptomau o goronafeirws",
   "coronavirus-reason-self-isolation-contact": "Rwyf yn hunan-ynysu oherwydd fy mod wedi dod i gyswllt gyda rhwyun sydd â symptomau coronafeirws. Neu dywedwyd wrthyf am hunan-ynysu gan y gwasanaeth profi ac olrhain",
   "coronavirus-reason-other": "Rheswm arall",
-  "coronavirusShielding": "Wedi derbyn llythyr neu neges testun gan y llywodraeth neu’r GIG os yn cysgodi",
   "coronavirusOtherReason": "Sut yr effeithwyd gan goronafeirws os arall",
 
   "universalCredit": "Credyd Cynhwysol",

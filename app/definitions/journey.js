@@ -83,7 +83,6 @@ module.exports = (() => {
 
   coronaReasonPath.addWaypoints([
     'coronavirus-reason-for-claim',
-    ['coronavirus-shielding', (sessionData) => sessionData['coronavirus-reason-for-claim'].coronavirusReasonForClaim === 'high-risk'],
   ]);
 
   coronaReasonPath.mergeWith(coronaPath);

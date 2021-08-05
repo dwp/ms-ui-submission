@@ -1,4 +1,11 @@
-# 3.10.0 (2021-07-21)
+# 3.11.0 (2021-08-04)
+
+* ESAO-1373 Repair hidden text for Change links on check your answers page
+* ESAO-1384 Remove aria-labelledby attributes from hospital inpatient radio buttons
+* ESAO-1312 Improve Phone Number field: Ignore spaces
+* ESAO-1365 Remove Shielding as a valid reason for COVID related claims
+
+## <small>3.10.0 (2021-07-21)</small>
 
 * ESAO-1310 Date fields: Ignore spaces
 * ESAO:1355 Update Content on mobile number pages
@@ -7,7 +14,7 @@
 * ESAO-1338 Spelling mistake is appearing on Cookies Details page
 * ESAO-1121 Make the title consistent with the header for coronavirus date
 
-# 3.9.0 (2021-07-06)
+## <small>3.9.0 (2021-07-06)</small>
 
 * ESAO-1358	Allow users of the service to express an interest in taking part in research
 * ESAO-1295	Improve Address field validation to ignore spaces and restrict input of special characters

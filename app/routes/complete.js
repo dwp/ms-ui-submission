@@ -48,7 +48,6 @@ module.exports = (casaApp, mountUrl, router) => {
       appLogger.info(`pensions indicator set to ${pensionsIndicator}`);
       const universalCredit = req.journeyData.getDataForPage('universal-credit').universalCredit === 'yes';
       const coronavirus = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
-      const isShielding = coronavirus ? req.journeyData.getDataForPage('coronavirus-reason-for-claim').coronavirusReasonForClaim === 'high-risk' : false;
       const dataForCompletePage = {
         employerData: employerInfo,
         p45Indicator,
@@ -56,7 +55,6 @@ module.exports = (casaApp, mountUrl, router) => {
         pensionsIndicator,
         fourteenDaysLater: moment().add(14, 'days').locale(req.language).format('D MMMM YYYY'),
         universalCredit,
-        isShielding,
       };
       // Empty session of all citizen data.
       casaApp.endSession(req).then(() => {
