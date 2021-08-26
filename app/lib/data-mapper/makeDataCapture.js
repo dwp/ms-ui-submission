@@ -34,12 +34,12 @@ module.exports = (translator, journeyData, session) => {
   const medicalCentre = journeyData.getDataForPage('medical-centre');
   const militaryOverseas = journeyData.getDataForPage('military-overseas');
   const mobile = journeyData.getDataForPage('mobile');
-  const nino = journeyData.getDataForPage('nino');
+  const nino = journeyData.getDataForPage('national-insurance-number');
   const otherNumber = journeyData.getDataForPage('other-number');
   const pension = journeyData.getDataForPage('pension');
   const pensionInherit = journeyData.getDataForPage('pension-inherit');
   const pregnant = journeyData.getDataForPage('pregnant');
-  const severeCondition = journeyData.getDataForPage('severe-condition');
+  const severeCondition = journeyData.getDataForPage('live-less-than-6-months');
   const ssp = journeyData.getDataForPage('statutory-pay');
   const sspEnd = journeyData.getDataForPage('statutory-sick-pay-end');
   const sspRecent = journeyData.getDataForPage('statutory-sick-pay-recent');
@@ -52,6 +52,7 @@ module.exports = (translator, journeyData, session) => {
   const postcode = journeyData.getDataForPage('postcode');
   const langPrefWriting = journeyData.getDataForPage('language-preference-writing');
   const langPrefSpeaking = journeyData.getDataForPage('language-preference-speaking');
+  const emailJourneyData = journeyData.getDataForPage('email');
 
   const {
     voluntaryGather, employmentGather, pensionGather, insuranceGather,
@@ -214,5 +215,10 @@ module.exports = (translator, journeyData, session) => {
   } else {
     capture.insurance_question = insurance.insurance;
   }
+
+  if (emailJourneyData.emailProvided === 'yes') {
+    capture.email = emailJourneyData.email;
+  }
+
   return capture;
 };

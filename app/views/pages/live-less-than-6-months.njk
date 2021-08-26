@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('severe-condition:pageTitle') }}
+    {{ t('live-less-than-6-months:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,30 +12,30 @@
         name: 'severeCondition',
         fieldset: {
             legend: {
-                text: t('severe-condition:severeCondition.label'),
+                text: t('live-less-than-6-months:severeCondition.label'),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
         },        
         hint: {
-            text: t('severe-condition:severeCondition.hint'),
+            html: t('live-less-than-6-months:severeCondition.hint'),
             classes: 'govuk-hint-black'
         },
         casaValue: formData.severeCondition,
         casaErrors: formErrors,
         items: [{
-            text: t('severe-condition:severeCondition.yes'),
+            text: t('live-less-than-6-months:severeCondition.yes'),
             value: 'yes',
             attributes: {
-                'data-question': t('severe-condition:severeCondition.label'),
-                'data-answer': t('severe-condition:severeCondition.yes')
+                'data-question': t('live-less-than-6-months:severeCondition.label'),
+                'data-answer': t('live-less-than-6-months:severeCondition.yes')
             }
         }, {
-            text: t('severe-condition:severeCondition.no'),
+            text: t('live-less-than-6-months:severeCondition.no'),
             value: 'no',
             attributes: {
-                'data-question': t('severe-condition:severeCondition.label'),
-                'data-answer': t('severe-condition:severeCondition.no')
+                'data-question': t('live-less-than-6-months:severeCondition.label'),
+                'data-answer': t('live-less-than-6-months:severeCondition.no')
             }
         }]
     }) }}

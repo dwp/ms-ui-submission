@@ -1,49 +1,52 @@
 {% extends "layouts/custom-journey.njk" %}
 
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "components/fieldset/macro.njk" import govukFieldset %}
 
 {% block casaPageTitle %}
     {{ t('national-insurance:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
-    {{ casaGovukRadios({
-        name: 'nationalInsurance',
-        fieldset: {
-            legend: {
-                text: t('national-insurance:label'),
-                isPageHeading: true,
-                classes: 'govuk-fieldset__legend--l'
-            }
-        },
-        hint: {
-            text: t('national-insurance:hint') | safe,
-            classes: 'govuk-hint-black'
-        },
-        casaValue: formData.statePensionAge,
-        casaErrors: formErrors,
-        items: [{
-            text: t('national-insurance:yes'),
-            value: 'yes',
-            attributes: {
-                'data-question': t('national-insurance:label'),
-                'data-answer': t('national-insurance:yes')
-            }
-        }, {
-            text: t('national-insurance:no'),
-            value: 'no',
-            attributes: {
-                'data-question': t('national-insurance:label'),
-                'data-answer': t('national-insurance:no')
-            }
-        },
-        {
-            text: t('national-insurance:notSure'),
-            value: 'notSure',
-            attributes: {
-                'data-question': t('national-insurance:label'),
-                'data-answer': t('national-insurance:notSure')
-            }
-        }]
-    }) }}
+    {% call govukFieldset({
+      legend: {
+        text: t('national-insurance:label'),
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    }) %}
+
+        {{ casaGovukRadios({
+            name: 'nationalInsurance',
+            hint: {
+                text: t('national-insurance:hint') | safe,
+                classes: 'govuk-hint-black'
+            },
+            casaValue: formData.statePensionAge,
+            casaErrors: formErrors,
+            items: [{
+                text: t('national-insurance:yes'),
+                value: 'yes',
+                attributes: {
+                    'data-question': t('national-insurance:label'),
+                    'data-answer': t('national-insurance:yes')
+                }
+            }, {
+                text: t('national-insurance:no'),
+                value: 'no',
+                attributes: {
+                    'data-question': t('national-insurance:label'),
+                    'data-answer': t('national-insurance:no')
+                }
+            },
+            {
+                text: t('national-insurance:notSure'),
+                value: 'notSure',
+                attributes: {
+                    'data-question': t('national-insurance:label'),
+                    'data-answer': t('national-insurance:notSure')
+                }
+            }]
+        }) }}
+    {% endcall %}
 {% endblock %}

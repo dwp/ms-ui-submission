@@ -1,0 +1,62 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "casa/components/input/macro.njk" import casaGovukInput with context %}
+
+{% block casaPageTitle %}
+    {{ t('email:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% set email %}
+        {{ casaGovukInput({
+            label: {
+                text: t('email:input.label')
+            },
+            name: 'email',
+            classes: 'govuk-!-width-one-half',
+            value: formData.email,
+            casaErrors: formErrors,
+            name: "email",
+            type: "email",
+            autocomplete: "email",
+            spellcheck: false
+        }) }}
+    {% endset -%}
+
+    {{ casaGovukRadios({
+        name: 'emailProvided',
+        fieldset: {
+            legend: {
+                text: t('email:radio.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('email:radio.hint')
+        },
+        casaValue: formData.emailProvided,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('email:radio.yes'),
+            attributes: {
+                'data-question': t('email:radio.label'),
+                'data-answer': t('email:radio.yes')
+            },
+            conditional: {
+                html: email
+            }
+        }, {
+            value: 'no',
+            text: t('email:radio.no'),
+            attributes: {
+                'data-question': t('email:radio.label'),
+                'data-answer': t('email:radio.no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

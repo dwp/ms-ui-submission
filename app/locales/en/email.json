@@ -1,0 +1,19 @@
+{
+  "pageTitle" : "Email address",
+  "radio" : {
+    "label" : "Do you have an email address?",
+    "yes": "Yes",
+    "no": "No",
+    "hint": "We’ll use this to send details of appointments.",
+    "errors" : {
+      "required": "Select yes if you have an email address"
+    }
+  },
+  "input" : {
+    "label" : "Email address",
+    "errors" : {
+      "required" : "Enter your email address",
+      "badFormat": "Enter an email address in the correct format, like name@example.com"
+    }
+  }
+}

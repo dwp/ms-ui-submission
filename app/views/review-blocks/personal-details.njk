@@ -1,27 +1,5 @@
 <h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:personalHeading') }}</h2>
 
-{% set address %}
-    {{ journeyData.address.address.address1 }}<br>
-    {% if journeyData.address.address.address2 %}
-        {{ journeyData.address.address.address2 }}<br>
-    {% endif %}
-    {% if journeyData.address.address.address3 %}
-        {{ journeyData.address.address.address3 }}<br>
-    {% endif %}
-    {{ journeyData.address.address.postcode }}<br>
-{% endset %}
-
-{% set contactAddress %}
-    {{ journeyData.address.correspondenceAddress.address1 }}<br>
-    {% if journeyData.address.correspondenceAddress.address2 %}
-        {{ journeyData.address.correspondenceAddress.address2 }}<br>
-    {% endif %}
-    {% if journeyData.address.correspondenceAddress.address3 %}
-        {{ journeyData.address.correspondenceAddress.address3 }}<br>
-    {% endif %}
-    {{ journeyData.address.correspondenceAddress.postcode }}<br>
-{% endset %}
-
 {% set personalRows = [{
     key: { text: t('check-your-answers:name') },
     value: { text: journeyData.name.firstName + ' ' + journeyData.name.lastName},
@@ -46,43 +24,16 @@
     }
 }, {
     key: { text: t('check-your-answers:nino') },
-    value: { text: journeyData.nino.nino },
+    value: { text: journeyData['national-insurance-number'].nino },
     actions: {
         items: [{
             attributes: { 'id': 'nino' },
-            href: "nino?edit",
+            href: "national-insurance-number?edit",
             text: t('check-your-answers:change'),
             visuallyHiddenText: t('check-your-answers:nino')
         }]
     }
-}, {
-    key: { text: t('check-your-answers:address') },
-    value: { html: address },
-    actions: {
-        items: [{
-            attributes: { 'id': 'home-address' },
-            href: "address?edit",
-            text: t('check-your-answers:change'),
-            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextHomeAddress')
-        }]
-    }
 }] %}
-
-{% if journeyData.address.correspondence === 'no' %}
-{% set contactAddressRow = {
-    key: { text: t('check-your-answers:contactAddress') },
-    value: { html: contactAddress },
-    actions: {
-        items: [{
-            attributes: { 'id': 'contact-address' },
-            href: "address?edit",
-            text: t('check-your-answers:change'),
-            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextContactAddress')
-        }]
-    }
-} %}
-{{ (personalRows.push(contactAddressRow), null) }}
-{% endif %}
 
 {{ govukSummaryList({
     rows: personalRows

@@ -1,0 +1,6 @@
+Policy: https://dwpdigital.blog.gov.uk/report-security-vuln
+ 
+Contact: https://hackerone.com/d6c9dac8-6bb4-4804-b41f-2ba2e37e5606/embedded_submissions/new
+Contact: health.security@dwp.gov.uk 
+ 
+Hiring: https://www.civilservicejobs.service.gov.uk/

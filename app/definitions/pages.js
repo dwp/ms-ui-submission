@@ -1,4 +1,5 @@
 const moment = require('moment');
+const { trimWhiteSpace } = require('@dwp/govuk-casa/lib/GatherModifier');
 const { getEmployerName } = require('../lib/data-utils/employmentDataUtils');
 const addressValidators = require('./field-validators/address.js');
 const langPrefWritingValidators = require('./field-validators/language-preference-writing.js');
@@ -12,6 +13,7 @@ const dateOfBirthValidators = require('./field-validators/date-of-birth.js');
 const doctorDeclarationValidators = require('./field-validators/doctor-declaration.js');
 const consentOutcomeValidators = require('./field-validators/consent-outcome.js');
 const ds1500ReportValidators = require('./field-validators/ds1500-report.js');
+const emailValidator = require('./field-validators/email');
 const employedValidators = require('./field-validators/employed.js');
 const employmentDetailsValidators = require('./field-validators/employment-details.js');
 const selfEmploymentDetailsValidators = require('./field-validators/self-employment-details.js');
@@ -30,12 +32,12 @@ const medicalCentreValidators = require('./field-validators/medical-centre.js');
 const militaryOverseasValidators = require('./field-validators/military-overseas.js');
 const mobileValidators = require('./field-validators/mobile.js');
 const nameValidators = require('./field-validators/name.js');
-const ninoValidators = require('./field-validators/nino.js');
+const ninoValidators = require('./field-validators/national-insurance-number.js');
 const otherNumberValidators = require('./field-validators/other-number.js');
 const pensionValidators = require('./field-validators/pension.js');
 const pensionInheritValidators = require('./field-validators/pension-inherit.js');
 const pregnantValidators = require('./field-validators/pregnant.js');
-const severeConditionValidators = require('./field-validators/severe-condition.js');
+const liveLessThanSixMonthsValidators = require('./field-validators/live-less-than-6-months.js');
 const sspEndValidators = require('./field-validators/ssp-end.js');
 const sspRecentValidators = require('./field-validators/ssp-recent.js');
 const statutoryPayOtherValidators = require('./field-validators/statutory-pay-other.js');
@@ -69,6 +71,7 @@ function checkForErrors(req, page) {
 
 module.exports = {
 
+  // accessibility
   'accessibility-statement': {
     view: 'pages/accessibility-statement',
   },
@@ -386,6 +389,19 @@ module.exports = {
     },
   },
 
+  email: {
+    view: 'pages/email.njk',
+    fieldValidators: emailValidator,
+    fieldGatherModifiers: trimWhiteSpace,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'email');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
   employed: {
     view: 'pages/employed.njk',
     fieldValidators: employedValidators,
@@ -649,12 +665,12 @@ module.exports = {
     },
   },
 
-  nino: {
-    view: 'pages/nino.njk',
+  'national-insurance-number': {
+    view: 'pages/national-insurance-number.njk',
     fieldValidators: ninoValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'nino');
+        res.locals.errorsFlag = checkForErrors(req, 'national-insurance-number');
         next();
       },
       preredirect: navigateToNextPage,
@@ -718,12 +734,12 @@ module.exports = {
     },
   },
 
-  'severe-condition': {
-    view: 'pages/severe-condition.njk',
-    fieldValidators: severeConditionValidators,
+  'live-less-than-6-months': {
+    view: 'pages/live-less-than-6-months.njk',
+    fieldValidators: liveLessThanSixMonthsValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'severe-condition');
+        res.locals.errorsFlag = checkForErrors(req, 'live-less-than-6-months');
         next();
       },
       preredirect: navigateToNextPage,

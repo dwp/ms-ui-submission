@@ -8,12 +8,18 @@
 
 {% block journey_form %}
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('military-overseas:heading') }}</h1>
-
-    <p class="govuk-hint">{{ t('military-overseas:hint') }}</p>
-
     {{ casaGovukRadios({
         name: 'militaryOverseas',
+        fieldset: {
+            legend: {
+                text: t ('military-overseas:heading'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            html: t('military-overseas:hint')
+        },
         casaValue: formData.militaryOverseas,
         casaErrors: formErrors,
         items: [{

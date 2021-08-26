@@ -71,12 +71,13 @@ module.exports = (() => {
   startApplication.addWaypoints([
     'name',
     'date-of-birth',
-    'nino',
+    'national-insurance-number',
     'address',
     ['language-preference-writing', (sessionData) => sessionData.postcode.welsh === true],
     ['language-preference-speaking', (sessionData) => sessionData.postcode.welsh === true],
     'mobile',
     ['other-number', (sessionData) => sessionData.mobile.mobile === 'no'],
+    'email',
   ]);
 
   startApplication.fork([coronaReasonPath, conditionsPath], (choices, sessionData) => (sessionData.coronavirus.coronavirusReasonForClaim === 'yes' ? choices[0] : choices[1]));
@@ -102,8 +103,8 @@ module.exports = (() => {
 
   healthPath.addWaypoints([
     'medical-centre',
-    'severe-condition',
-    ['ds1500-report', (sessionData) => sessionData['severe-condition'].severeCondition === 'yes'],
+    'live-less-than-6-months',
+    ['ds1500-report', (sessionData) => sessionData['live-less-than-6-months'].severeCondition === 'yes'],
     'hospital-inpatient',
     'pregnant',
     'doctor-declaration',

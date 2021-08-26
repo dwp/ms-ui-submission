@@ -7,6 +7,7 @@ ENV PORT=${PORT}
 COPY app/ /app/
 COPY package.json /
 COPY gulpfile.js /
+COPY security.txt /
 COPY .npmrc /
 RUN npm install --production
 
@@ -21,5 +22,6 @@ COPY --from=builder /app/ /app/
 COPY --from=builder /node_modules/ /node_modules/
 COPY --from=builder package.json /
 COPY --from=builder gulpfile.js /
+COPY --from=builder security.txt /
 EXPOSE ${PORT}
 CMD ["npm", "start"]

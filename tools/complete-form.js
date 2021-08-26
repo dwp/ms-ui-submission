@@ -6,6 +6,7 @@
  * call with `npm run script all=0` to set all the false
  * call with `npm run script all=1` to set all the true
  * call with `npm run script all=1 pregnant=0` to set all the true but set pregnant to false.
+ * call with `npm run script keepOpen=true` to hang script completion and keep browser open.
  */
 /* eslint-disable */
 const {Builder, By, Key, until} = require('selenium-webdriver');
@@ -49,7 +50,9 @@ const args = process.argv.slice(2)
   const insurance = args.insurance !== undefined ? args.insurance : args.all !== undefined ? args.all : true;
   const mobile = args.mobile !== undefined ? args.mobile : args.all !== undefined ? args.all : true;
   const otherNumber = args.otherNumber !== undefined ? args.otherNumber : args.all !== undefined ? args.all : true;
+  const email = args.mobile !== undefined? args.mobile : args.all !== undefined ? args.all : true;
   const conditions = 1;
+  const keepOpen = args.keepOpen;
 
   let chrome = require('selenium-webdriver/chrome');
   let driver = await new Builder().forBrowser('chrome').build();
@@ -131,6 +134,16 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('continue-button')).click();
       }
     }
+
+    if (email) {
+      await driver.findElement(By.id('f-emailProvided')).click();
+      await driver.findElement(By.name('email')).sendKeys(faker.internet.email());
+      await driver.findElement(By.id('continue-button')).click();
+    } else {
+      await driver.findElement(By.id('f-emailProvided-2')).click();
+      await driver.findElement(By.id('continue-button')).click();
+    }
+
     if(coronavirus) {
         await driver.findElement(By.id('f-coronavirusReasonForClaim')).click();
         await driver.findElement(By.id('continue-button')).click();
@@ -444,6 +457,13 @@ const args = process.argv.slice(2)
     }
     await driver.findElement(By.id('continue-button')).click();
   } finally {
-    // await driver.quit();
+
+    if (keepOpen) {
+      while (true) {
+        await new Promise(resolve => setTimeout(resolve, 2147483647));
+      }
+    } else {
+      await driver.quit();
+    }
   }
 })();

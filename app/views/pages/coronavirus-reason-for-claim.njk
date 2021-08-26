@@ -49,21 +49,21 @@
             value: 'self-isolation-symptoms',
             attributes: {
                 'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
-                'data-answer': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-symptoms')
+                'data-answer': selfIsolationSymptomsDesc
             }
         }, {
             text: selfIsolationContactDesc,
             value: 'self-isolation-contact',
             attributes: {
                 'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
-                'data-answer': selfIsolationSymptomsDesc
+                'data-answer': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-contact-data-answer')
             }
         }, {
             text: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-other'),
             value: 'other',
             attributes: {
                 'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
-                'data-answer': selfIsolationContactDesc
+                'data-answer': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-other-data-answer')
             },
             conditional: {
                 html: coronavirusReason

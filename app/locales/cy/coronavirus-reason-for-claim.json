@@ -5,7 +5,9 @@
     "hint": "<p class=\"govuk-body\">Mae hyn yn cynnwys chi a’ch plentyn, nawr neu ryw amser yn y gorffennol.</p>",
     "reason-self-isolation-symptoms": "Rwyf yn hunan-ynysu oherwydd mae gennyf symptomau coronafeirws",
     "reason-self-isolation-contact": "Rwy’n hunan-ynysu oherwydd rwyf wedi bod mewn cysylltiad â rhywun sydd â symptomau coronafeirws. Neu dywedwyd wrthyf am hunan-ynysu gan wasanaeth profi ac olrhain",
+    "reason-self-isolation-contact-data-answer": "I’m self-isolating because I came into contact with coronavirus",
     "reason-other": "Rheswm arall",
+    "reason-other-data-answer": "Coronavirus other reason",
     "reason-other-label": "Ym mha ffordd arall mae coronafeirws wedi effeithio arnoch?",
     "otherReason": {
       "errors": {

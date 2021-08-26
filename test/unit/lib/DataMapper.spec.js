@@ -126,6 +126,10 @@ describe('DataMapper', () => {
     'other-number': {
       other: 'yes',
     },
+    email: {
+      emailProvided: 'yes',
+      email: 'username@domain.com',
+    },
     'hospital-inpatient': {
       hospitalInpatient: 'yes',
       admissionDate: {
@@ -189,7 +193,7 @@ describe('DataMapper', () => {
     insurance: {
       screen: 'insurance-other',
     },
-    nino: {
+    'national-insurance-number': {
       nino: 'AA370773A',
     },
     pregnant: {
@@ -200,7 +204,7 @@ describe('DataMapper', () => {
         yyyy: '0101',
       },
     },
-    'severe-condition': {
+    'live-less-than-6-months': {
       severeCondition: 'yes',
     },
     'ds1500-report': {
@@ -275,6 +279,7 @@ describe('DataMapper', () => {
     const jd = { ...journeyData };
     jd.getDataForPage('statutory-sick-pay').ssp = 'no';
     jd.getDataForPage('mobile').mobile = 'no';
+    jd.getDataForPage('email').emailProvided = 'no';
     jd.getDataForPage('pension').inherited = '';
     const s = { ...session };
     s.voluntaryGather[0].sameHours = 'no';
@@ -296,11 +301,13 @@ describe('DataMapper', () => {
     expect(dm).to.have.property('ref', 'ref');
     expect(dm.data_capture.pensions[0]).to.have.property('start_date', '');
     expect(dm.data_capture.pensions[0]).to.have.property('inherited', '');
+    expect(dm.data_capture).to.not.have.property('email');
   });
   it('should build a data object with other alternate options', () => {
     const jd = { ...journeyData };
     jd.getDataForPage('statutory-sick-pay').ssp = 'no';
     jd.getDataForPage('mobile').mobile = 'no';
+    jd.getDataForPage('email').emailProvided = 'no';
     jd.getDataForPage('pension').inherited = '';
     const s = { ...session };
     s.voluntaryGather[0].sameHours = 'no';
@@ -324,5 +331,6 @@ describe('DataMapper', () => {
     expect(dm).to.have.property('ref', 'ref');
     expect(dm.data_capture.pensions[0]).to.have.property('start_date', '');
     expect(dm.data_capture.pensions[0]).to.have.property('inherited', '');
+    expect(dm.data_capture).to.not.have.property('email');
   });
 });

@@ -4,6 +4,6 @@
     "yes": "Ydw",
     "no": "Na",
     "notSure": "Nid wyf yn siwr",
-    "hint": "Efallai y byddwch yn gymwys os ydych wedi talu digon o gyfraniadau Yswiriant Gwladol, fel arfer dros y 2 i 3 blynedd diwethaf. Gall credydau Yswiriant Gwladol hefyd gyfrif.<p>Os nad ydych yn siwr, gallwch ddal i wneud cais am ESA Dull Newydd.</p>",
+    "hint": "Efallai y byddwch yn gymwys os ydych wedi talu digon o <a class=\"govuk-link\" href=\"https://www.gov.uk/yswiriant-gwladol\" target=\"_blank\">gyfraniadau Yswiriant Gwladol (agor mewn tab newydd)</a>, fel arfer dros y 2 i 3 blynedd diwethaf. Gall <a class=\"govuk-link\" href=\"https://www.gov.uk/credydau-yswiriant-gwladol\" target=\"_blank\">credydau Yswiriant Gwladol (agor mewn tab newydd)</a> hefyd gyfrif.<p>Os nad ydych yn siwr, gallwch ddal i wneud cais am ESA Dull Newydd.</p>",
     "error": "Dewiswch ydw os ydych wedi cael eich cyflogi a thalu Yswiriant Gwladol dros y 2 i 3 blynedd diwethaf"
 }

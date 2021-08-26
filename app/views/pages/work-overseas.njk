@@ -8,12 +8,18 @@
 
 {% block journey_form %}
 
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('work-overseas:heading') }}</h1>
-
-    <p class="govuk-hint">{{ t('work-overseas:hint') }}</p>
-
     {{ casaGovukRadios({
         name: 'workOverseas',
+        fieldset: {
+            legend: {
+                text: t ('work-overseas:heading'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            html: t('work-overseas:hint')
+        },
         casaValue: formData.workOverseas,
         casaErrors: formErrors,
         items: [{

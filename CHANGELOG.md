@@ -1,4 +1,17 @@
-# 3.11.0 (2021-08-04)
+# 3.12.0 (2021-08-25)
+
+* ESAO-1408	Fix visually hidden text on check your answers identified in spike 1374
+* ESAO-1388	Repair illogical heading structure on You May Not Be Eligible page
+* ESAO-1385	Remove aria-labelledby attributes from Are you pregnant radio buttons
+* ESAO-1382	Repair fieldset and legend issue on 5 pages
+* ESAO-1375	Improve wording for terminal illness question, inc Page title, path and check answers is incorrect
+* ESAO-1371	Repair broken error skip link on voluntary work role page
+* ESAO-1356	Capture email in online journey
+* ESAO-1339	National Insurance credits - Provide links to GOV.UK NI credit pages
+* ESAO-1224	Review code on coronavirus-reason-for-claim
+* ESAO-1220	Change page path for National Insurance number (NINO)
+
+## <small> 3.11.0 (2021-08-04)</small>
 
 * ESAO-1373 Repair hidden text for Change links on check your answers page
 * ESAO-1384 Remove aria-labelledby attributes from hospital inpatient radio buttons

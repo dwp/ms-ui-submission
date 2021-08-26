@@ -48,5 +48,6 @@ module.exports = (journeyData) => {
       preferred: true,
     });
   }
+
   return applicant;
 };

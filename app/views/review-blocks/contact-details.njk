@@ -1,0 +1,142 @@
+<h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:contactDetails') }}</h2>
+
+{% set contactDetailsRows = [] %}
+
+{# Address #}
+{% set address %}
+    {{ journeyData.address.address.address1 }}<br>
+    {% if journeyData.address.address.address2 %}
+        {{ journeyData.address.address.address2 }}<br>
+    {% endif %}
+    {% if journeyData.address.address.address3 %}
+        {{ journeyData.address.address.address3 }}<br>
+    {% endif %}
+    {{ journeyData.address.address.postcode }}<br>
+{% endset %}
+
+{% set addressRow = {
+    key: { text: t('check-your-answers:address') },
+    value: { html: address },
+    actions: {
+        items: [{
+            attributes: { 'id': 'home-address' },
+            href: "address?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextHomeAddress')
+        }]
+    }
+} %}
+{{ (contactDetailsRows.push(addressRow), null) }}
+
+{# Correspondence Address #}
+{% set correspondenceAddress %}
+    {{ journeyData.address.correspondenceAddress.address1 }}<br>
+    {% if journeyData.address.correspondenceAddress.address2 %}
+        {{ journeyData.address.correspondenceAddress.address2 }}<br>
+    {% endif %}
+    {% if journeyData.address.correspondenceAddress.address3 %}
+        {{ journeyData.address.correspondenceAddress.address3 }}<br>
+    {% endif %}
+    {{ journeyData.address.correspondenceAddress.postcode }}<br>
+{% endset %}
+
+{% if journeyData.address.correspondence === 'no' %}
+    {% set correspondenceAddressRow = {
+        key: { text: t('check-your-answers:contactAddress') },
+        value: { html: correspondenceAddress },
+        actions: {
+            items: [{
+                attributes: { 'id': 'contact-address' },
+                href: "address?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextContactAddress')
+            }]
+        }
+    } %}
+    {{ (contactDetailsRows.push(correspondenceAddressRow), null) }}
+{% endif %}
+
+{% if journeyData.postcode.welsh === true %}
+
+    {# Language Preference: Writing #}
+    {% set languagePreferfenceWritingRow = {
+        key: { text: t('check-your-answers:langPrefWriting') },
+        value: { text: t('language-preference-writing:langPref.' + journeyData['language-preference-writing'].langPrefWriting )},
+        actions: {
+            items: [{
+                attributes: { 'id': 'language-preference-writing' },
+                href: "language-preference-writing?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLangPrefWriting')
+            }]
+        }
+    } %}
+    {{ (contactDetailsRows.push(languagePreferfenceWritingRow), null) }}
+
+    {# Language Preference: Speaking #}
+    {% set languagePreferenceSpeakingRow = {
+        key: { text: t('check-your-answers:langPrefSpeaking') },
+        value: { text: t('language-preference-speaking:langPref.' + journeyData['language-preference-speaking'].langPrefSpeaking )},
+        actions: {
+            items: [{
+                attributes: { 'id': 'language-preference-speaking' },
+                href: "language-preference-speaking?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLangPrefSpeaking')
+            }]
+        }
+    } %}
+    {{ (contactDetailsRows.push(languagePreferenceSpeakingRow), null) }}
+
+{% endif %}
+
+{# Mobile #}
+{% set mobileRow = {
+    key: { text: t('check-your-answers:mobile') },
+    value: { text: journeyData.mobile.number if journeyData.mobile.mobile === 'yes' else t('mobile:mobile.no') },
+    actions: {
+        items: [{
+            attributes: { 'id': 'mobile' },
+            href: "mobile?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextMobile')
+        }]
+    }
+} %}
+{{ (contactDetailsRows.push(mobileRow), null) }}
+
+{# Other Number #}
+{% if journeyData.mobile.mobile === 'no' %}
+    {% set otherNumberRow = {
+        key: { text: t('check-your-answers:otherNumber') },
+        value: { text: journeyData['other-number'].number if journeyData['other-number'].other === 'yes' else t('mobile:mobile.no') },
+        actions: {
+            items: [{
+                attributes: { 'id': 'other-number' },
+                href: "other-number?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOtherNumber')
+            }]
+        }
+    } %}
+    {{ (contactDetailsRows.push(otherNumberRow), null) }}
+{% endif %}
+
+{# Email #}
+{% set emailRow = {
+    key: { text: t('check-your-answers:email') },
+    value: { text: journeyData.email.email if journeyData.email.emailProvided === 'yes' else t('email:radio.no')  },
+    actions: {
+        items: [{
+            attributes: { 'id': 'email' },
+            href: "email?edit",
+            text: t('check-your-answers:change'),
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmail')
+        }]
+    }
+} %}
+{{ (contactDetailsRows.push(emailRow), null) }}
+
+{{ govukSummaryList({
+    rows: contactDetailsRows
+}) }}

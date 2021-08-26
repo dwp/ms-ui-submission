@@ -11,7 +11,7 @@ module.exports = {
     rules.nino.bind({
       allowWhitespace: true,
       errorMsg: {
-        summary: 'nino:nino.errors.badFormat',
+        summary: 'national-insurance-number:nino.errors.badFormat',
       },
     }),
   ]),

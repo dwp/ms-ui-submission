@@ -3,7 +3,7 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('nino:pageTitle') }}
+    {{ t('national-insurance-number:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,12 +12,12 @@
         name: 'nino',
         value: formData.nino,
         label: {
-            text: t('nino:nino.label'),
+            text: t('national-insurance-number:nino.label'),
             classes: "govuk-label--l",
             isPageHeading: true
         },
         hint: {
-            html: t('nino:nino.hint')
+            html: t('national-insurance-number:nino.hint')
         },
         casaErrors: formErrors,
         classes: 'govuk-input--width-10' + (' govuk-input--error' if formErrors.nino ),

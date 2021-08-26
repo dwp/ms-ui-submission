@@ -84,7 +84,7 @@
                         attributes: { 'id': 'employment-details-'+loop.index0 },
                         href: 'check-your-answers?edit&page=employment-details&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentDetails')
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentDetails', emp.employerName)
                     }]
                 }
             } %}
@@ -114,7 +114,7 @@
                         attributes: { 'id': 'last-work-'+loop.index0 },
                         href: 'check-your-answers?edit&page=employment-last-work&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:lastWork')
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLastWork', emp.employerName)
                     }]
                 }
             } %}
@@ -207,7 +207,7 @@
                             attributes: { 'id': 'employment-expenses-details-'+loop.index0 },
                             href: 'check-your-answers?edit&page=employment-expenses-details&index='+loop.index0,
                             text: t('check-your-answers:change'),
-                            visuallyHiddenText: t('check-your-answers:employmentExpensesDetails')
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentExpensesDetails', emp.employerName)
                         }]
                     }
                 }), null) }}

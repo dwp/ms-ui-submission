@@ -64,7 +64,7 @@ describe('Feedback routes', () => {
     feedback.__set__('notifyEmail', notifyEmail);
     try {
       req.body = {
-        referringPage: 'severe-condition',
+        referringPage: 'live-less-than-6-months',
         rating: 'Satisfied',
         comments: 'Good service',
       };
@@ -88,7 +88,7 @@ describe('Feedback routes', () => {
     feedback.__set__('notifyEmail', notifyEmail);
     try {
       req.body = {
-        referringPage: 'severe-condition',
+        referringPage: 'live-less-than-6-months',
         rating: '',
         comments: 'Good service',
       };
@@ -112,7 +112,7 @@ describe('Feedback routes', () => {
     feedback.__set__('notifyEmail', notifyEmail);
     try {
       req.body = {
-        referringPage: 'severe-condition',
+        referringPage: 'live-less-than-6-months',
         rating: 'Dissatisfied',
         comments: '',
       };
@@ -137,7 +137,7 @@ describe('Feedback routes', () => {
     try {
       req.i18nTranslator = { t: () => {} };
       req.body = {
-        referringPage: 'severe-condition',
+        referringPage: 'live-less-than-6-months',
         rating: '',
         comments: '',
       };
@@ -163,7 +163,7 @@ describe('Feedback routes', () => {
     feedback.__set__('notifyEmail', notifyEmail);
     try {
       req.body = {
-        referringPage: 'severe-condition',
+        referringPage: 'live-less-than-6-months',
         rating: 'Satisfied',
         comments: 'Good service',
       };

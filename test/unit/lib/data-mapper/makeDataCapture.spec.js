@@ -171,7 +171,7 @@ describe('DataMapper', () => {
     insurance: {
       screen: 'insurance-other',
     },
-    nino: {
+    'national-insurance-number': {
       nino: 'AA370773A',
     },
     pregnant: {
@@ -182,7 +182,7 @@ describe('DataMapper', () => {
         yyyy: '0101',
       },
     },
-    'severe-condition': {
+    'live-less-than-6-months': {
       severeCondition: 'yes',
     },
     'ds1500-report': {
@@ -233,6 +233,10 @@ describe('DataMapper', () => {
     },
     'coronavirus-other-condition': {
       coronavirusOtherCondition: 'yes',
+    },
+    email: {
+      emailProvided: 'yes',
+      email: 'username@domain.com',
     },
   };
 

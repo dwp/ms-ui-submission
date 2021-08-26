@@ -30,6 +30,11 @@
       "name": "gulpfile.js exists",
       "path": "gulpfile.js",
       "shouldExist": true
+    },
+    {
+      "name": "security.txt exists",
+      "path": "security.txt",
+      "shouldExist": true
     }
   ]
 }
