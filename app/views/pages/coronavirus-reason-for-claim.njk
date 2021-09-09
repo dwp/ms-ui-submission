@@ -12,10 +12,11 @@
 
     {% set selfIsolationSymptomsDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-symptoms') %}
     {% set selfIsolationContactDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-contact') %}
+    {% set quarantiningDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-quarantining') %}
     {{ desc }}
     {% set coronavirusReason %}
         {{ govukCharacterCount({
-            id: 'other-reason-detail',
+            id: 'f-otherReasonDetail',
             maxlength: 500,
             label: {
                 text: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-other-label'),
@@ -59,6 +60,13 @@
                 'data-answer': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-contact-data-answer')
             }
         }, {
+            text: quarantiningDesc,
+            value: 'quarantining',
+            attributes: {
+                'data-question': t('coronavirus-reason-for-claim:coronavirusReasonForClaim.label'),
+                'data-answer': quarantiningDesc
+            }
+        }, {
             text: t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-other'),
             value: 'other',
             attributes: {
@@ -72,4 +80,5 @@
     }) }}
     <input type="hidden" name="selfIsolationSymptomsDesc" value= "{{ selfIsolationSymptomsDesc }}" />
     <input type="hidden" name="selfIsolationContactDesc" value= "{{ selfIsolationContactDesc }}" />
+    <input type="hidden" name="quarantiningDesc" value= "{{ quarantiningDesc }}" />
 {% endblock %}

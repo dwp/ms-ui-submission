@@ -2,6 +2,7 @@
 
 {% from "components/footer/macro.njk" import govukFooter with context %}
 {% from 'components/button/macro.njk' import govukButton %}
+{% from 'components/inset-text/macro.njk' import govukInsetText %}
 
 {% set mainClasses %}{{ mainClasses }} govuk-main-wrapper--l{% endset %}
 
@@ -30,6 +31,10 @@
 
   <p class="govuk-body">{{ t('session-timeout:message1', timeout.sessionTimeout) }}</p>
   <p class="govuk-body">{{ t('session-timeout:message2') }}</p>
+
+  {{ govukInsetText({
+    text: t('session-timeout:inset') | safe
+  }) }}
 
   {{ govukButton({
     text: t('session-timeout:buttonText'),

@@ -9,11 +9,11 @@
 
 {% block journey_form %}
     {% call govukFieldset({
-      legend: {
-        text: t('national-insurance:label'),
-        classes: "govuk-fieldset__legend--l",
-        isPageHeading: true
-      }
+        legend: {
+            text: t('national-insurance:label'),
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+        }
     }) %}
 
         {{ casaGovukRadios({
@@ -22,7 +22,7 @@
                 text: t('national-insurance:hint') | safe,
                 classes: 'govuk-hint-black'
             },
-            casaValue: formData.statePensionAge,
+            casaValue: formData.nationalInsurance,
             casaErrors: formErrors,
             items: [{
                 text: t('national-insurance:yes'),
@@ -38,8 +38,7 @@
                     'data-question': t('national-insurance:label'),
                     'data-answer': t('national-insurance:no')
                 }
-            },
-            {
+            }, {
                 text: t('national-insurance:notSure'),
                 value: 'notSure',
                 attributes: {

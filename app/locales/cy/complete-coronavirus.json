@@ -6,9 +6,8 @@
     "title": "Beth sy’n digwydd nesaf"
   },
   "coronavirus" : {
-    "text1": "Bydd rhywun o’ch canolfan gwaith leol yn cysylltu â chi erbyn <span class=\"nobr\">%s</span>.",
-    "text2": "Byddant yn trefnu apwyntiad ‘Ymrwymiad Hawlydd’ gydag anogwr gwaith, sydd fel arfer dros y ffôn. Bydd eich anogwr gwaith yn siarad â chi am beth rydych angen ei wneud i gael ESA Dull Newydd, yn cynnwys gofyn i chi:<ul class=\"govuk-list govuk-list--bullet\"><li>egluro sut mae eich salwch neu anabledd yn effeithio eich gallu i weithio</li><li>darparu tystiolaeth feddygol</li><li>cytuno i ddweud wrthym os bydd eich amgylchiadau’n newid</li></ul>",
-    "text3": "Mae’n rhaid i chi gytuno ar eich Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd."
+    "text1": "Byddwn yn cysylltu â chi am eich cais erbyn <span class=\"nobr\">%s</span>.",
+    "text2": "Gallwch wneud cais am hyd at 14 diwrnod am ynysu oherwydd coronafeirws. Ar gyfer ceisiadau sy'n fwy na 14 diwrnod byddwn yn cysylltu â chi i drefnu apwyntiad <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply\">‘Ymrwymiad Hawlydd (agor mewn tab newydd)'</a>, sydd fel arfer dros y ffôn."
   },
   "non-shielding" : {
     "h3": "Anfonwch dystiolaeth atom eich bod yn hunan-ynysu i gefnogi’ch cais",
@@ -21,7 +20,7 @@
     "li14":     "dywedwyd wrthych am hunan-ynysu gan wasanaeth profi ac olrhain",
     "li15":     "rydych mewn cwarantîn oherwydd eich bod yn dychwelyd o daith dramor",
     "body22": "Nid oes raid i chi fynd at eich doctor neu i ysbyty.",
-    "body23": "Bydd gan eich nodyn ynysu rif cyfeirnod 16 digid. Byddwn yn cysylltu â chi mewn 14 diwrnod ynghylch eich cais ac yn cymryd y cyfeirnod hwn gennych.",
+    "body23": "Bydd gan eich nodyn ynysu gyfeirnod 16 digid. Byddwn yn cysylltu â chi am eich cais ac yn cymryd y cyfeirnod hwn gennych.",
     "h4-2": "Os ydych yn hunan-ynysu oherwydd eich bod chi’n cael llawdriniaeth",
     "body24": "Os ydych wedi cael eich cynghori gan eich doctor neu weithiwr gofal iechyd proffesiynol i hunan-ynysu cyn mynd i’r ysbyty i gael llawdriniaeth, mae eich llythyr sy’n cadarnhau dyddiad eich triniaeth yn brawf. Anfonwch gopi o’ch llythyr apwyntiad atom.",
     "body25": "Os nad oes gennych gopi wedi’i argraffu o’ch llythyr neu os na allwch adael eich cartref i’w bostio, efallai y bydd eich cyngor lleol yn gallu helpu. Ewch i <a class=\"govuk-link\" href=\"https://www.gov.uk/coronavirus-local-help\" target=\"_blank\">GOV.UK i ddod o hyd i help coronafeirws yn eich ardal leol (agor mewn tab newydd)</a>.",

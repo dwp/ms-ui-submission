@@ -69,6 +69,7 @@ module.exports = (translator, journeyData, session) => {
         otherReasonDetail,
         selfIsolationSymptomsDesc,
         selfIsolationContactDesc,
+        quarantiningDesc,
       } = journeyData.getDataForPage('coronavirus-reason-for-claim');
     appLogger.info('DataMapper: collecting coronavirus data');
     capture.coronavirus_reason = coronavirusReasonForClaim;
@@ -78,6 +79,9 @@ module.exports = (translator, journeyData, session) => {
       break;
     case 'self-isolation-contact':
       capture.coronavirus_reason_desc = selfIsolationContactDesc;
+      break;
+    case 'quarantining':
+      capture.coronavirus_reason_desc = quarantiningDesc;
       break;
     case 'other':
       capture.coronavirus_reason_desc = otherReasonDetail;

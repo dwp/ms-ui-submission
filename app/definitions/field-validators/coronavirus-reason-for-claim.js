@@ -33,4 +33,9 @@ module.exports = {
       errorMsg: 'coronavirus-reason-for-claim:coronavirusReasonForClaim.errors.required',
     }),
   ]),
+  quarantiningDesc: SimpleField([
+    rules.required.bind({
+      errorMsg: 'coronavirus-reason-for-claim:coronavirusReasonForClaim.errors.required',
+    }),
+  ]),
 };

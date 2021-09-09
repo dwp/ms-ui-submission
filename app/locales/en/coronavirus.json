@@ -4,7 +4,7 @@
     "label" : "Is coronavirus (COVID-19) the main reason for your claim?",
     "yes": "Yes",
     "no": "No",
-    "hint": "<p class=\"govuk-body\">Select yes if one of the following applies to you or your child, now or some time in the past:</p><ul class=\"govuk-list govuk-list--bullet\"><li>you’re self-isolating because you have symptoms of coronavirus</li><li>you’re self-isolating because you came into contact with someone who has symptoms of coronavirus. Or you were told to self-isolate by a test and trace service</li></ul>",
+    "hint": "<p class=\"govuk-body\">Select yes if one of the following applies to you or your child, now or some time in the past:</p><ul class=\"govuk-list govuk-list--bullet\"><li>you’re self-isolating because you have symptoms of coronavirus</li><li>you’re self-isolating because you came into contact with someone who has symptoms of coronavirus. Or you were told to self-isolate by a test and trace service</li><li>you’ve been advised by your doctor or healthcare professional to self-isolate before going into hospital for surgery</li><li>you’re quarantining because you have returned from another country on the <a href=\"https://www.gov.uk/guidance/red-amber-and-green-list-rules-for-entering-england\" target=\"_blank\" class=\"govuk-link\">red or amber list (opens in new tab)</a></li></ul>",
     "errors" : {
       "required": "Select yes if coronavirus is the main reason for your claim"
     }

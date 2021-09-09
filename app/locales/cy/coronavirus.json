@@ -4,7 +4,7 @@
     "label" : "Ai coronafeirws (COVID-19) yw’r prif reswm dros eich cais?",
     "yes": "Ie",
     "no": "Na",
-    "hint": "<p class=\"govuk-body\">Dewiswch ie os yw un o’r canlynol yn berthnasol i chi neu’ch plentyn, nawr neu ryw amser yn y gorffennol:</p><ul class=\"govuk-list govuk-list--bullet\"><li>rydych yn hunan-ynysu oherwydd bod gennych symptomau coronafeirws</li><li>rydych yn hunan-ynysu oherwydd eich bod wedi dod i gyswllt gyda rhwyun sydd â symptomau coronafeirws. Neu dywedwyd wrthych am hunan-ynysu gan y gwasanaeth profi ac olrhain</li></ul>",
+    "hint": "<p class=\"govuk-body\">Dewiswch ie os yw un o’r canlynol yn berthnasol i chi neu’ch plentyn, nawr neu ryw amser yn y gorffennol:</p><ul class=\"govuk-list govuk-list--bullet\"><li>rydych yn hunan-ynysu oherwydd bod gennych symptomau coronafeirws</li><li>rydych yn hunan-ynysu oherwydd eich bod wedi dod i gyswllt gyda rhwyun sydd â symptomau coronafeirws. Neu dywedwyd wrthych am hunan-ynysu gan y gwasanaeth profi ac olrhain</li><li>fe’ch cynghorwyd gan eich meddyg neu weithiwr gofal iechyd proffesiynol i hunan-ynysu cyn mynd i’r ysbyty i gael llawdriniaeth</li><li>rydych mewn cwarantin oherwydd eich bod wedi dychwelyd o wlad arall ar y rhestr <a href=\"https://www.gov.uk/guidance/red-amber-and-green-list-rules-for-entering-england\" target=\"_blank\" class=\"govuk-link\">coch neu oren (agor mewn tab newydd)</a></li></ul>",
     "errors" : {
       "required": "Dewiswch ie os mai coronafeirws yw’r prif reswm dros eich cais"
     }

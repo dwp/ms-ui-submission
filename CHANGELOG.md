@@ -1,4 +1,15 @@
-# 3.12.0 (2021-08-25)
+# 3.13.0 (2021-08-25)
+
+* ESAO-1419	Repair broken error skip link on 2 pages
+* ESAO-1411	Claimant Commitment not required for COVID claims: Update /complete page
+* ESAO-1410	Include hospital in eligibility /coronavirus page to align with GOV.UK
+* ESAO-1409	Add autocomplete to name, date of birth, address and phone numbers
+* ESAO-1399	Show previously entered values when link back to National Insurance page
+* ESAO-1366	Add Quarantining as a valid reason for COVID related claims
+* ESAO-1348	Display the session time out page in English and Welsh
+* ESAO-1314	Provide Consent response = No (Share outcome of WCA) to the IAG Robot and Add CAMlite task note.
+
+## <small> 3.12.0 (2021-08-25)</small>
 
 * ESAO-1408	Fix visually hidden text on check your answers identified in spike 1374
 * ESAO-1388	Repair illogical heading structure on You May Not Be Eligible page

@@ -24,20 +24,23 @@
     name: params.name + '[dd]',
     id: 'f-' + params.name + '[dd]',
     value: params.casaValue.dd,
-    classes: 'govuk-input--width-2 ' + inputErrorClass
+    classes: 'govuk-input--width-2 ' + inputErrorClass,
+    autocomplete: 'bday-day'
   }, {
     label: t('macros:dateInput.month'),
     name: params.name + '[mm]',
     id: 'f-' + params.name+ '[mm]',
     value: params.casaValue.mm,
     classes: 'govuk-input--width-2 ' + inputErrorClass,
-    attributes: attributes_mm
+    attributes: attributes_mm,
+    autocomplete: 'bday-month'
   }, {
     label: t('macros:dateInput.year'),
     name: params.name + '[yyyy]',
     id: 'f-' + params.name + '[yyyy]',
     value: params.casaValue.yyyy,
-    classes: 'govuk-input--width-4 ' + inputErrorClass
+    classes: 'govuk-input--width-4 ' + inputErrorClass,
+    autocomplete: 'bday-year'
   }],
   errorMessage: {
     text: t(params.casaErrors[params.name][0].inline)

@@ -180,6 +180,7 @@
   "coronavirus-reason-high-risk": "Rwyf wedi cael fy nghyngori i ‘gysgodi’ (cymryd camau ychwanegol i leihau cysylltiad ag eraill) oherwydd rwyf mewn risg uchel o salwch difrifol o goronafeirws",
   "coronavirus-reason-self-isolation-symptoms": "Rwyf yn hunan-ynysu oherwydd mae gennyf symptomau o goronafeirws",
   "coronavirus-reason-self-isolation-contact": "Rwyf yn hunan-ynysu oherwydd fy mod wedi dod i gyswllt gyda rhwyun sydd â symptomau coronafeirws. Neu dywedwyd wrthyf am hunan-ynysu gan y gwasanaeth profi ac olrhain",
+  "coronavirus-reason-quarantining": "Rwyf mewn cwarantin oherwydd fy mod wedi dychwelyd o wlad arall ar y rhestr coch neu oren",
   "coronavirus-reason-other": "Rheswm arall",
   "coronavirusOtherReason": "Sut yr effeithwyd gan goronafeirws os arall",
 
