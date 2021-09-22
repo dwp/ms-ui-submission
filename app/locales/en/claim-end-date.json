@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Claim end date",
+  "pageTitle" : "Do you know the date you want to claim until?",
   "claimEnd": {
     "label": "Do you know the date you want to claim until?",
     "hint": "<p class=\"govuk-body\">This could be:</p><ul class=\"govuk-list govuk-list--bullet\"><li>when you think you'll go back to work, if you're currently off sick</li><li>when you returned to work, if you're claiming for a time in the past</li></ul>",

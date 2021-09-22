@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Claim start date",
+  "pageTitle": "What date do you want to claim from?",
   "claimStartDate" : {
     "label": "What date do you want to claim from?",
     "hint": "<p class=\"govuk-body\">You need evidence to cover the period – for example, a fit note (also known as a sick note) or an isolation note if you’re self-isolating because of coronavirus.</p>",

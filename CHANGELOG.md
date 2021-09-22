@@ -1,4 +1,4 @@
-# 3.13.0 (2021-08-25)
+# 3.13.0 (2021-09-21)
 
 * ESAO-1419	Repair broken error skip link on 2 pages
 * ESAO-1411	Claimant Commitment not required for COVID claims: Update /complete page

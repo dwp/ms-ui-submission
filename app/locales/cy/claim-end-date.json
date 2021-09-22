@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Dyddiad gorffen cais",
+  "pageTitle": "Ydych chi’n gwybod y dyddiad rydych eisiau gwneud cais tan?",
   "claimEnd": {
     "label": "Ydych chi’n gwybod y dyddiad rydych eisiau gwneud cais tan?",
     "hint": "<p class=\"govuk-body\">Gallai hyn fod:</p><ul class=\"govuk-list govuk-list--bullet\"><li>pan rydych yn credu y byddwch yn mynd yn ôl i weithio, os ydych i ffwrdd yn sâl ar hyn o bryd</li><li>pan wnaethoch ddychwelyd i’r gwaith, os ydych yn gwneud cais am gyfnod yn y gorffennol</li></ul>",

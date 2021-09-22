@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Late claim",
+  "pageTitle" : "Your claim start date is more than 3 months ago",
   "lateClaim" : {
     "h1" : "Your claim start date is more than 3 months ago",
     "yes": "Yes",

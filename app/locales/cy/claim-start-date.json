@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Dyddiad dechrau’r cais",
+  "pageTitle": "O ba ddyddiad ydych chi eisiau gwneud cais?",
   "claimStartDate" : {
     "label": "O ba ddyddiad ydych chi eisiau gwneud cais?",
     "hint": "<p class=\"govuk-body\">Rydych angen tystiolaeth i gwmpasu’r cyfnod - er enghraifft, nodyn ffitrwydd (a elwir hefyd yn nodyn salwch) neu nodyn ynysu os ydych yn hunan-ynysu oherwydd coronafeirws.</p>",
