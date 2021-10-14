@@ -1,0 +1,14 @@
+{
+  "pageTitle": "Oes gennych gyflwr iechyd, salwch, anabledd neu anaf arall?",
+  "list": "Rydych wedi ychwanegu manylion ar gyfer:",
+  "hint": "Gallwch ond ychwanegu hyd at 12 cyflwr. Gallwch ddweud wrthym am rai eraill yn y cam nesaf o’ch cais.",
+  "condition": {
+    "label": "Oes gennych gyflwr iechyd, salwch, anabledd neu anaf arall?",
+    "hint": "Gallwch ond ychwanegu hyd at 12 cyflwr. Gallwch ddweud wrthym am rai eraill yn y cam nesaf o’ch cais.",
+    "yes": "Oes",
+    "no": "Na",
+    "errors": {
+      "required": "Dewiswch oes os oes gennych unrhyw gyflwr iechyd, afiechyd, anabledd neu anaf arall"
+    }
+  }
+}

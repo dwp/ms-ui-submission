@@ -18,7 +18,6 @@
         "h2": "Pa mor hygyrch yw’r gwasanaeth hwn",
         "p1": "Mae’r gwasanaeth yn defnyddio arddulliau, patrymau a chydrannau cyffredin o System Ddylunio GOV.UK sy’n cael eu hystyried yn eang i fod yn hygyrch.",
         "p2": "Efallai y bydd rhai pobl yn ei chael hi’n anodd defnyddio rhannau o’r gwasanaeth hwn:",
-        "li1": "ar un pwynt gofynnwn i chi restru’ch cyflyrau gan ddefnyddio datrysiad JavaScript sy’n eich galluogi i barhau i ychwanegu meysydd ychwanegol. Gall hyn fod yn anodd. Fodd bynnag, gyda JavaScript wedi’i ddiffodd, bydd y gwasanaeth yn cyflwyno llawer iawn o feysydd gwag y gall rhai pobl ei gael yn haws i’w llenwi.",
         "li2": "os ydych yn dweud “new tab” wrth rhai meddalwedd rheoli llais, mae’n agor yn y ddolen adborth yn lle agor tab newydd",
         "li3": "weithiau ni fydd negeseuon gwall yn cael eu darllen allan yn JAWS fersiynau 18 a 19",
         "li4": "weithiau ni fydd penawdau yn cael eu darllen allan yn JAWS fersiynau18 and 19 a ZoomText. Mae hyn yn broblem hysbys gyda meddalwedd Freedom Scientific . Darllenwch <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">fwy am y materion am benawdau ar GitHub</a>",
@@ -52,6 +51,6 @@
         "h2": "Beth rydym yn ei wneud i wella hygyrchedd",
         "p1": "Byddwn yn cynnal mwy o brofion â llaw o’r gwasanaeth gan ddefnyddio technolegau cynorthwyol fel JAWS a Dragon. Mae hyn wedi dod â materion i’r golwg sy’n cael eu nodi yn yr adran ’defnyddio’r gwasanaeth’ uchod, ac rydym yn gweithio i’w datrys.",
         "p2": "Byddwn yn parhau i edrych ar ddyluniad y gwasanaeth, gan ddisodli’r datrysiad JavaScript ar gyfer ychwanegu cyflyrau i’w wneud yn fwy defnyddiadwy.",
-        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 13 Mai 2021."
+        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 14 Hydref 2021."
     }
 }

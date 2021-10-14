@@ -1,45 +1,29 @@
 {
-  "pageTitle": "Pa gyflyrau iechyd, salwch, anableddau neu anafiadau sydd gennych?",
-  "heading" : "Pa gyflyrau iechyd, salwch, anableddau neu anafiadau sydd gennych?",
-  "hint": "Gallwch ychwanegu hyd at 12 cyflwr os ydych angen. Gallwch eu hychwanegu mewn unrhyw drefn.",
-  "condition" : {
-    "heading": "Eich cyflwr rhif %s",
-    "label": "Enw cyflwr rhif %s",
+  "pageTitle": "Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?",
+  "label" : "Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?",
+  "body1": "Gallwch ychwanegu hyd at 12 cyflwr, mewn unrhyw drefn. Gallwch ddweud mwy wrthym am eich cyflyrau a sut maent yn effeithio arnoch, yn hwyrach yn y broses gwneud cais.",
+  "body2": "Os nad ydych yn gwybod yr union ddyddiad, gallwch roi amcangyfrif.",
+  "name": {
+    "label": "Enw cyflwr rhif",
     "errors": {
-      "required": "Rhowch enw cyflwr rhif %s"
+      "required": "Rhowch enw cyflwr rhif"
     }
   },
-  "conditionStartDate" : {
+  "conditionStartDate": {
     "label": "Pryd wnaeth o ddechrau gyntaf",
-    "hint": "<p class=\"govuk-body\">Os nad ydych yn gwybod yr union ddyddiad, gallwch roi amcangyfrif.</p><p>Er enghraifft, <span class=\"nobr\">30 3 1997</span></p>",
+    "hint": "Er enghraifft, 30 3 1997",
     "errors": {
-      "required": "Rhowch y dyddiad y dechreuodd eich cyflwr rhif %s",
-      "missingDay": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s gynnwys diwrnod",
-      "missingMonth": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s gynnwys mis",
-      "missingYear": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s gynnwys blwyddyn",
-      "missingDayAndMonth": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s gynnwys diwrnod a mis",
-      "missingDayAndYear": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s gynnwys diwrnod a blwyddyn",
-      "missingMonthAndYear": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s gynnwys mis a blwyddyn",
-      "badFormatYear": "Rhowch y dyddiad y dechreuodd eich cyflwr rhif %s gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
-      "notReal": "Rhowch ddyddiad gwirioneddol ar gyfer pryd y dechreuodd eich cyflwr rhif %s",
-      "notRealDigits": "Rhowch ddyddiad gwirioneddol ar gyfer pryd y dechreuodd eich cyflwr rhif %s, drwy ddefnyddio rhifau yn unig",
-      "inFuture": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr rhif %s fod yn y gorffennol"
+      "required": "Rhowch y dyddiad y dechreuodd eich cyflwr",
+      "missingDay": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod",
+      "missingMonth": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys mis",
+      "missingYear": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys blwyddyn",
+      "missingDayAndMonth": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod a mis",
+      "missingDayAndYear": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod a blwyddyn",
+      "missingMonthAndYear": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys mis a blwyddyn",
+      "badFormatYear": "Rhowch y dyddiad y dechreuodd eich cyflwr gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01",
+      "notReal": "Rhowch ddyddiad gwirioneddol ar gyfer pryd y dechreuodd eich cyflwr",
+      "notRealDigits": "Rhowch ddyddiad gwirioneddol ar gyfer pryd y dechreuodd eich cyflwr, drwy ddefnyddio rhifau yn unig",
+      "inFuture": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr fod yn y gorffennol"
     }
-  },
-  "remove": "Tynnu",
-  "addAnother": "Ychwanegu cyflwr arall",
-  "ordinals": {
-    "0": "un",
-    "1": "dau",
-    "2": "tri",
-    "3": "pedwar",
-    "4": "pump",
-    "5": "chwech",
-    "6": "saith",
-    "7": "wyth",
-    "8": "naw",
-    "9": "10",
-    "10": "11",
-    "11": "12"
   }
 }

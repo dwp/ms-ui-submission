@@ -8,6 +8,14 @@ describe('DataMapper', () => {
   };
   const applicationRef = 'ref';
   const session = {
+    conditionGather: [{
+      conditionName: 'test1',
+      conditionStartDate: {
+        dd: '01',
+        mm: '1',
+        yyyy: '2001',
+      },
+    }],
     voluntaryGather: [{
       organisationAddress: {
         address1: 'test',
@@ -75,16 +83,6 @@ describe('DataMapper', () => {
   };
 
   const journeyDataValues = {
-    conditions: {
-      conditions: [{
-        name: 'test',
-        conditionStartDate: {
-          dd: '01',
-          mm: '1',
-          yyyy: '2020',
-        },
-      }],
-    },
     'date-of-birth': {
       dateOfBirth: {
         dd: '01',
@@ -183,6 +181,10 @@ describe('DataMapper', () => {
     },
     consent: {
       consent: 'yes',
+    },
+    'another-health-condition': {
+      anotherCondition: 'yes',
+      limitReached: 'no',
     },
     employed: {
       screen: 'employed-other',

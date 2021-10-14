@@ -3,7 +3,7 @@ const sinon = require('sinon');
 
 const { assert, expect } = chai;
 const {
-  employmentDataUtils, genericDataUtils, pensionDataUtils, voluntaryDataUtils,
+  employmentDataUtils, genericDataUtils, voluntaryDataUtils, conditionDataUtils,
 } = require('../../../../app/lib/data-utils');
 const navigationOverride = require('../../../../app/middleware/navigation-override/navigation-override.js');
 const sectionPages = require('../../../../app/lib/section-pages');
@@ -43,7 +43,25 @@ describe('Navigation override', () => {
       };
       next = sinon.stub();
     });
-    it('should remove the last gather from the vountary gather array and put it in the journey', () => {
+    it('should remove the last gather from the condition gather array and put it in the journey', () => {
+      const populateConditionJourneyData = sinon.stub(conditionDataUtils, 'populateConditionJourneyData');
+      req.session.conditionGather = ['condition test'];
+      req.path = '/email';
+      navigationOverride(req, null, next);
+      assert(populateConditionJourneyData.calledOnce);
+      assert(next.calledOnce);
+      populateConditionJourneyData.restore();
+    });
+    it('should remove the entry from the condition journey data if the condition gather array is empty', () => {
+      const clearConditionJourneyData = sinon.stub(conditionDataUtils, 'clearConditionJourneyData');
+      req.session.conditionGather = [];
+      req.path = '/email';
+      navigationOverride(req, null, next);
+      assert(clearConditionJourneyData.calledOnce);
+      assert(next.calledOnce);
+      clearConditionJourneyData.restore();
+    });
+    it('should remove the last gather from the voluntary gather array and put it in the journey', () => {
       const populateVoluntaryJourneyData = sinon.stub(voluntaryDataUtils, 'populateVoluntaryJourneyData');
       req.session.voluntaryGather = ['voluntary test'];
       req.path = '/voluntary-work-hours';
@@ -112,7 +130,11 @@ describe('Navigation override', () => {
     let next;
     beforeEach(() => {
       req = {
+        journeyData: {
+          setDataForPage: sinon.stub(),
+        },
         session: {
+          anotherConditionBack: true,
           editing: true,
           backNavigationFlag: true,
           save: sinon.stub().yields(),
@@ -120,22 +142,24 @@ describe('Navigation override', () => {
       };
       next = sinon.stub();
     });
-    it('should set the backNavigationFlag to true if the page is in \'voluntary-work\', \'employed\', \'pension\', \'insurance\'', () => {
+    it('should set the backNavigationFlag to true if the page is in \'conditions\', \'voluntary-work\', \'employed\', \'pension\', \'insurance\'', () => {
+      req.path = '/conditions';
+      navigationOverride(req, null, next);
+      expect(req.session.backNavigationFlag).to.equal(true);
       req.path = '/voluntary-work';
       navigationOverride(req, null, next);
       expect(req.session.backNavigationFlag).to.equal(true);
       req.path = '/employed';
       navigationOverride(req, null, next);
       expect(req.session.backNavigationFlag).to.equal(true);
-      req.path = '/pension';
-      navigationOverride(req, null, next);
-      expect(req.session.backNavigationFlag).to.equal(true);
-      req.path = '/insurance';
-      navigationOverride(req, null, next);
-      expect(req.session.backNavigationFlag).to.equal(true);
       req.path = '/another-path';
       navigationOverride(req, null, next);
       expect(req.session.backNavigationFlag).to.equal(false);
+    });
+    it('should set anotherConditionBack to false if anotherConditionBack is true', () => {
+      req.path = '/another-path';
+      navigationOverride(req, null, next);
+      expect(req.session.anotherConditionBack).to.equal(false);
     });
     it('should set the backNavigationFlag to false if the page is not in \'voluntary-work\', \'employed\', \'pension\', \'insurance\'', () => {
       req.path = '/another-path';

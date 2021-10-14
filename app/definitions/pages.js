@@ -9,6 +9,7 @@ const bankDetailsValidators = require('./field-validators/bank-details.js');
 const claimEndDateValidators = require('./field-validators/claim-end-date.js');
 const claimStartDateValidators = require('./field-validators/claim-start-date.js');
 const conditionsValidators = require('./field-validators/conditions');
+const anotherHealthConditionValidators = require('./field-validators/another-health-condition');
 const dateOfBirthValidators = require('./field-validators/date-of-birth.js');
 const doctorDeclarationValidators = require('./field-validators/doctor-declaration.js');
 const consentOutcomeValidators = require('./field-validators/consent-outcome.js');
@@ -61,7 +62,6 @@ const statutoryPayValidator = require('./field-validators/statutory-pay');
 const statutoryPayEndDateValidator = require('./field-validators/statutory-pay-end-date');
 const claimStartDateAfterSsp = require('./field-validators/claim-start-date-after-statutory-sick-pay');
 
-const { genericDataUtils } = require('../lib/data-utils');
 const navigateToNextPage = require('../lib/navigation-rules');
 
 function checkForErrors(req, page) {
@@ -311,27 +311,21 @@ module.exports = {
     view: 'pages/conditions.njk',
     fieldValidators: conditionsValidators,
     hooks: {
-      pregather: (req, res, next) => {
-        if (typeof req.body.conditions === 'object') {
-          req.body.conditions = genericDataUtils.convertToArrayAndFilterBlanks(req.body.conditions);
-        }
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'conditions');
         next();
       },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'another-health-condition': {
+    view: 'pages/another-health-condition.njk',
+    fieldValidators: anotherHealthConditionValidators,
+    hooks: {
       prerender: (req, res, next) => {
-        const errors = req.journeyData.getValidationErrorsForPage('conditions');
-        Object.keys(errors).forEach((field) => {
-          const err = errors[field];
-          // field is in format 'conditions[<CONDITION_NUMBER>][<FIELD>]' e.g. conditions[0][name]
-          // create index from <CONDITION_NUMBER>
-          const index = field.slice((field.indexOf('[') + 1), field.indexOf(']'));
-
-          const { inline, summary } = err[0];
-          const ordinal = `conditions:ordinals.${parseInt(index)}`; // eslint-disable-line radix
-          err[0].inline = res.locals.t(inline, res.locals.t(ordinal));
-          err[0].summary = res.locals.t(summary, res.locals.t(ordinal));
-        });
-
-        res.locals.errorsFlag = checkForErrors(req, 'conditions');
+        res.locals.conditionGather = req.session.conditionGather || [];
+        res.locals.errorsFlag = checkForErrors(req, 'another-health-condition');
         next();
       },
       preredirect: navigateToNextPage,

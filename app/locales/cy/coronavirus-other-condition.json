@@ -1,11 +1,11 @@
 {
   "pageTitle" : "Unrhyw gyflyrau iechyd eraill",
   "coronavirusOtherCondition" : {
-    "label" : "Oes gennych chi unrhyw gyflyrau iechyd, salwch, anableddau neu anafiadau eraill?",
+    "label" : "Oes gennych gyflyrau iechyd, salwch, anableddau neu anafiadau?",
     "yes": "Oes",
     "no": "Na",
     "errors" : {
-      "required": "Dewiswch oes os oes gennych unrhyw gyflyrau iechyd, salwch, anableddau neu anafiadau eraill"
+      "required": "Dewiswch oes os oes gennych unrhyw afiechydon, anableddau neu anafiadau eraill"
     }
   }
 }

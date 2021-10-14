@@ -7,6 +7,10 @@
  * call with `npm run script all=1` to set all the true
  * call with `npm run script all=1 pregnant=0` to set all the true but set pregnant to false.
  * call with `npm run script keepOpen=true` to hang script completion and keep browser open.
+ * call with 'npm run script submitClaim=true` to complete declaration and submit claim.
+ *
+ * Set an environment variable of ENDPOINT to change ui instance
+ * ENDPOINT=https://ns-esa-f-qa.pub.health-dev.dwpcloud.uk/ npm run fill
  */
 /* eslint-disable */
 const {Builder, By, Key, until} = require('selenium-webdriver');
@@ -26,6 +30,7 @@ const args = process.argv.slice(2)
 (async function example() {
   // if the var has a value, use that, otherwise check for all
   const dev = args.dev !== undefined ? args.dev : args.all !== undefined ? args.all : false;
+  const endpoint = process.env.ENDPOINT;
   const coronavirus = args.coronavirus !== undefined ? args.coronavirus : args.all !== undefined ? args.all : false;
   const pregnant = args.pregnant !== undefined ? args.pregnant : args.all !== undefined ? args.all : false;
   const terminal = args.terminal !== undefined ? args.terminal : args.all !== undefined ? args.all : false;
@@ -53,6 +58,7 @@ const args = process.argv.slice(2)
   const email = args.mobile !== undefined? args.mobile : args.all !== undefined ? args.all : true;
   const conditions = 1;
   const keepOpen = args.keepOpen;
+  const submitClaim = args.submitClaim;
 
   let chrome = require('selenium-webdriver/chrome');
   let driver = await new Builder().forBrowser('chrome').build();
@@ -61,6 +67,10 @@ const args = process.argv.slice(2)
 
   if (dev) {
     baseUrl = 'https://ns-esa-f-dev.pub.health-dev.dwpcloud.uk/'; //dev
+  }
+
+  if (endpoint) {
+    baseUrl = endpoint;
   }
 
   try {
@@ -155,14 +165,19 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('continue-button')).click();
     }
 
-    for(let i = 0; i < conditions; i++){
-      await driver.findElement(By.name(`conditions[${i}][name]`)).sendKeys(faker.hacker.adjective() + ' ' + faker.hacker.noun());
-      await driver.findElement(By.name(`conditions[${i}][conditionStartDate][dd]`)).sendKeys('1');
-      await driver.findElement(By.name(`conditions[${i}][conditionStartDate][mm]`)).sendKeys('2');
-      await driver.findElement(By.name(`conditions[${i}][conditionStartDate][yyyy]`)).sendKeys('2003');
-      if (i < 11) await driver.findElement(By.id('add-another')).click();
+    for(let i = 1; i <= conditions; i++){
+    await driver.findElement(By.name(`conditionName`)).sendKeys(faker.hacker.adjective() + ' ' + faker.hacker.noun());
+    await driver.findElement(By.name(`conditionStartDate[dd]`)).sendKeys('1');
+    await driver.findElement(By.name(`conditionStartDate[mm]`)).sendKeys('2');
+    await driver.findElement(By.name(`conditionStartDate[yyyy]`)).sendKeys('2003');
+    await driver.findElement(By.id('continue-button')).click();
+    if ( i == conditions) {
+      await driver.findElement(By.id('f-anotherCondition-2')).click();
+    } else {
+      await driver.findElement(By.id('f-anotherCondition')).click();
     }
     await driver.findElement(By.id('continue-button')).click();
+    }
 
     await driver.findElement(By.name('doctor')).sendKeys('Dr. ' + faker.name.firstName() + ' ' + faker.name.lastName());
     await driver.findElement(By.name('name')).sendKeys(faker.company.companyName());
@@ -456,6 +471,12 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('f-dwpShareWithDoc-2')).click();
     }
     await driver.findElement(By.id('continue-button')).click();
+
+    if (submitClaim) {
+      await driver.findElement(By.id('continue-button')).click();
+      await driver.findElement(By.className('govuk-button')).click();
+    }
+
   } finally {
 
     if (keepOpen) {

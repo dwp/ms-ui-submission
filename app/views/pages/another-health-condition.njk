@@ -1,0 +1,61 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('another-health-condition:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {% if (conditionGather | length !== 0) %}
+        <p class="govuk-heading-m govuk-!-margin-0">{{ t('another-health-condition:list') }}</p>
+        <ul class="govuk-list govuk-heading-m govuk-!-padding-0">
+            {% for condition in conditionGather %}
+            <li>{{ condition.conditionName }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if (conditionGather | length < 12) %}
+        {{ casaGovukRadios({
+            name: 'anotherCondition',
+            fieldset: {
+                legend: {
+                    text: t('another-health-condition:condition.label'),
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            hint: {
+                text: t('another-health-condition:condition.hint'),
+                attributes: {
+                    style: 'color:black'
+                }
+            },
+            casaValue: formData.anotherCondition,
+            casaErrors: formErrors,
+            items: [{
+                text: t('another-health-condition:condition.yes'),
+                value: 'yes',
+                attributes: {
+                    'data-question': t('another-health-condition:condition.label'),
+                    'data-answer': t('another-health-condition:condition.yes')
+                }
+            }, {
+                text: t('another-health-condition:condition.no'),
+                value: 'no',
+                attributes: {
+                    'data-question': t('another-health-condition:condition.label'),
+                    'data-answer': t('another-health-condition:condition.no')
+                }
+            }]
+        }) }}
+        <input type="hidden" name="limitReached" value="no" />
+    {% else %}
+         <p class="govuk-body">
+            {{ t('another-health-condition:hint') }}
+          </p>
+        <input type="hidden" name="limitReached" value="yes" />
+    {% endif %}
+{% endblock %}

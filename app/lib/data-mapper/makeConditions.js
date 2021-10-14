@@ -6,14 +6,13 @@ const appLogger = Logger();
 /**
  * Build the Conditions part of the data structure.
  *
- * @param {object} journeyData containing page data
+ * @param {object} conditionGather containing condition data
  * @return {array} array
  */
-module.exports = (journeyData) => {
+module.exports = (conditionGather) => {
   appLogger.info('makeConditions');
-  const conditions = journeyData.getDataForPage('conditions');
-  return conditions.conditions.map((condition) => ({
-    name: condition.name,
+  return conditionGather.map((condition) => ({
+    name: condition.conditionName,
     start_date: `${condition.conditionStartDate.yyyy}-${formatDigit(condition.conditionStartDate.mm)}-${formatDigit(condition.conditionStartDate.dd)}`,
   }));
 };

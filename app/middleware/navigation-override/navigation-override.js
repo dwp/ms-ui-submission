@@ -1,6 +1,6 @@
 const Logger = require('../../lib/Logger');
 const {
-  employmentDataUtils, genericDataUtils, insuranceDataUtils, pensionDataUtils, voluntaryDataUtils,
+  employmentDataUtils, genericDataUtils, voluntaryDataUtils, conditionDataUtils,
 } = require('../../lib/data-utils');
 
 const appLogger = Logger();
@@ -18,9 +18,13 @@ const pagesBeforeGatewayPage = {
   'employment-expenses-details': 'employment',
   'employment-expenses': 'employment',
   'employment-last-work': 'employment',
+  email: 'condition',
+  'coronavirus-other-condition': 'condition',
+  // 'conditions': 'condition',
 };
 
-const gatewayPages = ['voluntary-work', 'employed', 'pension', 'insurance'];
+// start of loop
+const gatewayPages = ['voluntary-work', 'employed', 'conditions'];
 
 module.exports = (req, res, next) => {
   appLogger.info('running navigation-override');
@@ -41,6 +45,21 @@ module.exports = (req, res, next) => {
     && pageBeforeGatewayPage) {
     appLogger.info('backNavigationFlag and pageBeforeGatewayPage are set. Running scenario 1 switch');
     switch (pageBeforeGatewayPage) {
+    case 'condition':
+      appLogger.info('Processing conditions gather');
+      if (req.session.conditionGather && req.session.conditionGather.length > 0) {
+        appLogger.info('moving last condition entry from the gather to the journey');
+        conditionDataUtils.populateConditionJourneyData(req.journeyData,
+          req.session.conditionGather.pop());
+        if (req.session.conditionGather.length === 0) {
+          req.journeyData.setDataForPage('another-health-condition', {
+            anotherCondition: 'yes',
+          });
+        }
+      } else {
+        conditionDataUtils.clearConditionJourneyData(req);
+      }
+      break;
     case 'voluntary':
       appLogger.info('Processing voluntary gather');
       if (req.session.voluntaryGather && req.session.voluntaryGather.length > 0) {
@@ -74,39 +93,6 @@ module.exports = (req, res, next) => {
           employmentDataUtils.clearEmploymentJourneyData(req);
         }
       }
-
-      break;
-    case 'pension':
-      appLogger.info('Processing pension gather');
-      if (req.session.pensionGather && req.session.pensionGather.length > 0) {
-        appLogger.info('moving last pension entry from the gather to the journey');
-        pensionDataUtils.populatePensionJourneyData(req.journeyData,
-          req.session.pensionGather.pop());
-        if (req.session.pensionGather.length === 0) {
-          req.journeyData.setDataForPage('pension', {
-            screen: 'pension',
-            pension: 'yes',
-          });
-        }
-      } else {
-        pensionDataUtils.clearPensionJourneyData(req);
-      }
-      break;
-    case 'insurance':
-      appLogger.info('Processing insurance gather');
-      if (req.session.insuranceGather && req.session.insuranceGather.length > 0) {
-        appLogger.info('moving last insurance entry from the gather to the journey');
-        insuranceDataUtils.populateInsuranceJourneyData(req.journeyData,
-          req.session.insuranceGather.pop(), true);
-        if (req.session.insuranceGather.length === 0) {
-          req.journeyData.setDataForPage('insurance', {
-            screen: 'insurance',
-            insurance: 'yes',
-          });
-        }
-      } else {
-        insuranceDataUtils.clearInsuranceJourneyData(req);
-      }
       break;
     default:
       break;
@@ -117,6 +103,10 @@ module.exports = (req, res, next) => {
    * Start on the Check your answers page (cya)
    * edit a page and then go straight back to the cya page.
    */
+  if (req.session && req.session.editing && req.session.previousPage === 'check-your-answers' && currentPage === 'another-health-condition') {
+    req.journeyData.setDataForPage('another-condition', { cyaJourney: 'yes' });
+  }
+
   if (req.session && req.session.editing && currentPage === 'check-your-answers' && req.session.cyaBackNavigationFlag) {
     appLogger.info('Calling genericDataUtils.cancelEdit');
     genericDataUtils.cancelEdit(req);
@@ -136,6 +126,11 @@ module.exports = (req, res, next) => {
   } else {
     appLogger.info('Setting cyaBackNavigationFlag to false');
     req.session.cyaBackNavigationFlag = false;
+  }
+
+  if (req.session.anotherConditionBack === true) {
+    req.journeyData.setDataForPage('back-another-condition', { back: 'yes' });
+    req.session.anotherConditionBack = false;
   }
   req.session.previousPage = currentPage;
   appLogger.info('Saving session');

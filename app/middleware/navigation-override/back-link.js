@@ -17,6 +17,13 @@ module.exports = (req, res, next) => {
     req.session.historyStack = [];
   }
   req.session.nextBackLink = req.path;
+  if (req.session.backClicked && req.session.nextBackLink === '/conditions') {
+    req.session.conditionBack = true;
+  }
+  if (req.session.backClicked && req.session.nextBackLink === '/another-health-condition') {
+    req.session.anotherConditionBack = true;
+  }
+
   delete req.session.backClicked;
   next();
 };

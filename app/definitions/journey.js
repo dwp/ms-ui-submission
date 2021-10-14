@@ -20,6 +20,7 @@ module.exports = (() => {
   const coronaReasonPath = new UserJourney.Road();
   const coronaPath = new UserJourney.Road();
   const conditionsPath = new UserJourney.Road();
+  const anotherHealthConditionPath = new UserJourney.Road();
   const healthPath = new UserJourney.Road();
 
   const eligibilityCoronaPath = new UserJourney.Road();
@@ -90,16 +91,40 @@ module.exports = (() => {
 
   coronaPath.addWaypoints([
     'coronavirus-date',
-    ['coronavirus-other-condition', (sessionData) => sessionData['coronavirus-reason-for-claim'].coronavirusReasonForClaim !== 'high-risk'],
+    'coronavirus-other-condition',
   ]);
 
-  coronaPath.fork([conditionsPath, healthPath], (choices, sessionData) => ((typeof sessionData['coronavirus-other-condition'] === 'undefined' || typeof sessionData['coronavirus-other-condition'].coronavirusOtherCondition === 'undefined' || sessionData['coronavirus-other-condition'].coronavirusOtherCondition === 'yes') ? choices[0] : choices[1]));
+  coronaPath.fork([conditionsPath, healthPath],
+    (choices, sessionData) => ((typeof sessionData['coronavirus-other-condition'] === 'undefined'
+    || typeof sessionData['coronavirus-other-condition'].coronavirusOtherCondition === 'undefined'
+    || sessionData['coronavirus-other-condition'].coronavirusOtherCondition === 'yes') ? choices[0] : choices[1]));
 
+  // display when limit is NOT reached and answered NOT no to another condition
+  // or no another health condition cya journey
   conditionsPath.addWaypoints([
-    'conditions',
+    ['conditions', (sessionData) => !(typeof sessionData['another-health-condition'] !== 'undefined'
+        && (sessionData['another-health-condition'].anotherCondition === 'no'
+        || sessionData['another-health-condition'].limitReached === 'yes'))],
+  ]);
+  conditionsPath.mergeWith(anotherHealthConditionPath);
+
+  // display when limit is NOT reached and answered NOT no to another condition
+  anotherHealthConditionPath.addWaypoints([
+    ['another-health-condition', (sessionData) => !(typeof sessionData['another-health-condition'] !== 'undefined'
+      && (sessionData['another-health-condition'].anotherCondition === 'no'
+        || sessionData['another-health-condition'].limitReached === 'yes'))
+    || (typeof sessionData['another-condition'] !== 'undefined'
+        && (sessionData['another-condition'].cyaJourney === 'yes'))
+      || (typeof sessionData['back-another-condition'] !== 'undefined'
+        && (sessionData['back-another-condition'].back === 'yes'))],
   ]);
 
-  conditionsPath.mergeWith(healthPath);
+  anotherHealthConditionPath.fork(
+    [conditionsPath, healthPath],
+    (choices, context) => (typeof context['another-health-condition'] !== 'undefined'
+    && (context['another-health-condition'].condition === 'yes' || context['another-health-condition'].other === 'yes')
+      ? choices[0] : choices[1]),
+  );
 
   healthPath.addWaypoints([
     'medical-centre',

@@ -7,6 +7,14 @@ describe('DataMapper', () => {
     getLanguage: () => 'en',
   };
   const session = {
+    conditionGather: [{
+      conditionName: 'test1',
+      conditionStartDate: {
+        dd: '01',
+        mm: '1',
+        yyyy: '2001',
+      },
+    }],
     voluntaryGather: [{
       organisationAddress: {
         address1: 'test',
@@ -74,16 +82,6 @@ describe('DataMapper', () => {
   };
 
   const journeyDataValues = {
-    conditions: {
-      conditions: [{
-        name: 'test',
-        conditionStartDate: {
-          dd: '01',
-          mm: '1',
-          yyyy: '2020',
-        },
-      }],
-    },
     address: {
       correspondence: 'no',
       correspondenceAddress: {
@@ -161,6 +159,10 @@ describe('DataMapper', () => {
     },
     consent: {
       consent: 'yes',
+    },
+    'another-health-condition': {
+      anotherCondition: 'yes',
+      limitReached: 'no',
     },
     employed: {
       screen: 'employed-other',
@@ -315,11 +317,11 @@ describe('DataMapper', () => {
 
     journeyDataCopy.getDataForPage('coronavirus').coronavirusReasonForClaim = 'yes';
     journeyDataCopy.getDataForPage('coronavirus-reason-for-claim').coronavirusReasonForClaim = 'quarantining';
-    journeyDataCopy.getDataForPage('coronavirus-reason-for-claim').quarantiningDesc = 'I\'m quarantining because I have returned from another country on the red or amber list';
+    journeyDataCopy.getDataForPage('coronavirus-reason-for-claim').quarantiningDesc = 'I\'m quarantining because I have returned from another country on the red list';
 
     const dataCapture = makeDataCapture(i18nTranslator, journeyDataCopy, sessionCopy);
 
     expect(dataCapture).to.haveOwnProperty('coronavirus_reason', 'quarantining');
-    expect(dataCapture).to.haveOwnProperty('coronavirus_reason_desc', 'I\'m quarantining because I have returned from another country on the red or amber list');
+    expect(dataCapture).to.haveOwnProperty('coronavirus_reason_desc', 'I\'m quarantining because I have returned from another country on the red list');
   });
 });

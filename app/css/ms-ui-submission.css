@@ -107,3 +107,11 @@ span.nobr { white-space: nowrap; }
   text-decoration:underline;
   cursor: pointer;
 }
+
+@media (min-width: 40.0625em) {
+  .govuk-summary-list__actions--no-border-desktop li {
+    border-right: 0 !important;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}

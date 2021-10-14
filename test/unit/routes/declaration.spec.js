@@ -11,13 +11,20 @@ describe('Declaration routes', () => {
       getLanguage: () => 'en',
     }),
     session: {
+      conditionGather: [{
+        conditionName: 'test1',
+        conditionStartDate: {
+          dd: '01',
+          mm: '1',
+          yyyy: '2001',
+        },
+      }],
       save: (cb) => {
         cb(new Error('save error'));
       },
       applicationRef: 'test',
       journeyData: {
         getDataForPage: () => ({
-          conditions: [],
           nino: 'test',
           sortCode: '010101',
           accountNumber: '01 01 01 01',
@@ -47,7 +54,6 @@ describe('Declaration routes', () => {
     },
     journeyData: {
       getDataForPage: () => ({
-        conditions: [],
         nino: 'test',
         sortCode: '010101',
         accountNumber: '01 01 01 01',

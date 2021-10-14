@@ -1,9 +1,11 @@
-const { SimpleField, ArrayObjectField, rules } = require('@dwp/govuk-casa/lib/Validation');
+const Validation = require('@dwp/govuk-casa/lib/Validation');
 const dateExists = require('../../lib/validation-rules/date-exists.js');
 const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
 const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
 const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
 const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
+
+const { rules, SimpleField } = Validation;
 
 const Logger = require('../../lib/Logger');
 
@@ -11,17 +13,12 @@ const appLogger = Logger();
 
 appLogger.info('Conditions validator');
 
-const condition = {
-  name: SimpleField([
+module.exports = {
+  conditionName: SimpleField([
     rules.required.bind({
-      errorMsg: 'conditions:condition.errors.required',
+      errorMsg: 'conditions:name.errors.required',
     }),
-  ], (pageData, fieldName) => {
-    const index = fieldName.match(/\[(\d{1,2})\]/)[1];
-    const { name, conditionStartDate } = pageData.conditions[index];
-    return index === '0' ? true : (name || conditionStartDate.dd || conditionStartDate.mm || conditionStartDate.yyyy);
-  }),
-
+  ]),
   conditionStartDate: SimpleField([
     dateExists.bind({
       errorMsg: 'conditions:conditionStartDate.errors.required',
@@ -44,13 +41,5 @@ const condition = {
     dateNotAfter.bind({
       errorMsg: 'conditions:conditionStartDate.errors.inFuture',
     }),
-  ], (pageData, fieldName) => {
-    const index = fieldName.match(/\[(\d{1,2})\]/)[1];
-    const { name, conditionStartDate } = pageData.conditions[index];
-    return index === '0' ? true : (name || conditionStartDate.dd || conditionStartDate.mm || conditionStartDate.yyyy);
-  }),
-};
-
-module.exports = {
-  conditions: ArrayObjectField(condition),
+  ]),
 };

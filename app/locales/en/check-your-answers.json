@@ -6,8 +6,12 @@
 
   "headingClaimDate": "Claim date",
 
-  "headingHealth": "Your health conditions",
+  "headingHealth": "Health details",
   "conditions": "Conditions",
+  "healthConditions": "Health condition",
+  "anotherCondition": "Any other health conditions",
+  "visuallyHiddenTextOtherConditions": "whether you have any other conditions",
+  "visuallyHiddenTextCond": "your health condition %s",
   "started": "Started",
   "pregnant": "Pregnant",
   "due": "Baby due on",
@@ -116,7 +120,6 @@
   "visuallyHiddenTextOtherNumber": "phone number",
   "visuallyHiddenTextContactDetails": "contact details",
   "visuallyHiddenTextEmail": "email address",
-  "visuallyHiddenTextCond": "conditions",
   "visuallyHiddenTextDocDetail": "doctor's details",
   "visuallyHiddenTextLiveLessThanSixMonths": "whether your doctor said you might have less than 6 months to live",
   "visuallyHiddenTextDS1500": "whether a DS1500 form has been sent",
@@ -180,7 +183,7 @@
   "coronavirus-reason-high-risk": "I’ve been advised to ‘shield’ (take extra precautions to reduce contact with others) because I’m at very high risk of severe illness from coronavirus",
   "coronavirus-reason-self-isolation-symptoms": "I’m self-isolating because I have symptoms of coronavirus",
   "coronavirus-reason-self-isolation-contact": "I’m self-isolating because I came into contact with someone who has symptoms of coronavirus. Or I was told to self-isolate by a test and trace service",
-  "coronavirus-reason-quarantining": "I'm quarantining because I have returned from another country on the red or amber list",
+  "coronavirus-reason-quarantining": "I'm quarantining because I have returned from another country",
   "coronavirus-reason-other": "Other reason",
   "coronavirusOtherReason": "How affected by coronavirus if other",
 

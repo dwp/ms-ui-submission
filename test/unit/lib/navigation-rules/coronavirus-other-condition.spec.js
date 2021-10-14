@@ -13,7 +13,11 @@ describe('coronavirus-other-condition navigation rules', () => {
 
   beforeEach(() => {
     deleteIfPresent = sinon.stub(genericDataUtils, 'deleteIfPresent');
-    req = {};
+    req = {
+      session: {
+        editing: false,
+      },
+    };
   });
 
   afterEach(() => {

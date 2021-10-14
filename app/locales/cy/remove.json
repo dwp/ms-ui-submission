@@ -8,6 +8,7 @@
     "employment": "Ydych chi’n siwr eich bod eisiau dileu eich swydd yn %s?",
     "pension": "Ydych chi’n siwr eich bod eisiau dileu eich pensiwn gyda %s?",
     "insurance": "Ydych chi’n siwr eich bod eisiau dileu eich polisi gyda %s?",
+    "condition": "Ydych chi'n siwr eich bod eisiau tynnu %s o'ch cyflyrau iechyd?",
     "errors": {
       "required": "Dewiswch ydw os hoffech ddileu’r manylion rydych wedi’u rhoi ar gyfer yr adran hon"
     }
@@ -18,12 +19,14 @@
     "employment": "Oes gennych swydd arall?",
     "pension": "Ydych chi’n cael pensiynau neu flwydd-daliadau eraill?",
     "insurance": "Ydych chi’n cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall?",
+    "condition": "Oes gennych gyflwr iechyd, salwch, anabledd neu anaf arall?",
     "errors": {
       "required": {
         "voluntary": "Dewiswch ydw os ydych yn gwneud unrhyw waith gwirfoddol arall",
         "employment": "Dewiswch ydw os oes gennych swydd arall",
         "pension": "Dewiswch ydw os ydych yn cael pensiynau neu flwydd-daliadau eraill",
-        "insurance": "Dewiswch ydw os ydych yn cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall"
+        "insurance": "Dewiswch ydw os ydych yn cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall",
+        "condition": "Dewiswch oes os oes gennych unrhyw gyflwr iechyd, afiechyd, anabledd neu anaf arall"
       }
     }
   }

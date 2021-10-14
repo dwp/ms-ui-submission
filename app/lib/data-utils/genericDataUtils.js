@@ -3,6 +3,7 @@ const Logger = require('../Logger');
 
 const { getEmploymentFromJourneyData, clearEmploymentJourneyData } = require('./employmentDataUtils');
 const { getVoluntaryFromJourneyData, clearVoluntaryJourneyData } = require('./voluntaryDataUtils');
+const { getConditionFromJourneyData } = require('./conditionDataUtils');
 
 const appLogger = Logger();
 
@@ -119,6 +120,11 @@ const setInitialSectionQuestion = (journeyData, section, answer, target) => {
       initial: { voluntaryWork: answer, screen: 'voluntary-work' },
       loop: { other: answer, screen: 'voluntary-work-other' },
     },
+    condition: {
+      page: 'conditions',
+      initial: { condition: answer, screen: 'condition' },
+      loop: { other: answer, screen: 'condition-other' },
+    },
     employment: {
       page: 'employed',
       initial: { employed: answer, screen: 'employed' },
@@ -144,6 +150,13 @@ const setInitialSectionQuestion = (journeyData, section, answer, target) => {
 const cancelEdit = (req) => {
   appLogger.info('genericDataUtils: cancelEdit called');
   switch (req.session.editSection) {
+  case 'condition':
+    appLogger.info('Cancel from edit condition');
+    // eslint-disable-next-line max-len
+    if (isEqual(getConditionFromJourneyData(req.journeyData.getData()), req.session.conditionGather[req.session.editIndex])) {
+      req.journeyData.setDataForPage('another-condition', { cyaJourney: 'no' });
+    }
+    break;
   case 'voluntary':
     appLogger.info('Cancel from edit voluntary work');
     // eslint-disable-next-line max-len

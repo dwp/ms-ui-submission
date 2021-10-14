@@ -55,7 +55,7 @@ module.exports = (translator, journeyData, session) => {
   const emailJourneyData = journeyData.getDataForPage('email');
 
   const {
-    voluntaryGather, employmentGather, pensionGather, insuranceGather,
+    voluntaryGather, employmentGather, pensionGather, insuranceGather, conditionGather,
   } = session;
 
   const capture = {
@@ -95,17 +95,17 @@ module.exports = (translator, journeyData, session) => {
       capture.other_health_condition = coronavirusOtherCondition.coronavirusOtherCondition;
       if (coronavirusOtherCondition.coronavirusOtherCondition === 'yes') {
         appLogger.info('DataMapper: collecting other health conditions data');
-        capture.conditions = makeConditions(journeyData);
+        capture.conditions = makeConditions(conditionGather);
       }
     } else {
       appLogger.info('DataMapper: collecting health conditions data');
-      capture.conditions = makeConditions(journeyData);
+      capture.conditions = makeConditions(conditionGather);
     }
     const { coronavirusDate } = journeyData.getDataForPage('coronavirus-date');
     capture.coronavirus_date = `${coronavirusDate.yyyy}-${formatDigit(coronavirusDate.mm)}-${formatDigit(coronavirusDate.dd)}`;
   } else {
     appLogger.info('DataMapper: collecting health conditions data');
-    capture.conditions = makeConditions(journeyData);
+    capture.conditions = makeConditions(conditionGather);
   }
 
   capture.medical_centre = makeMedicalCentre(medicalCentre);
