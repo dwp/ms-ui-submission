@@ -1,4 +1,12 @@
-# 3.13.0 (2021-09-21)
+# 3.14.0 (2021-10-20)
+
+* ESAO-1441	Quarantine: Update content following the government changes relating to Green, Amber & red countries
+* ESAO-1407	Align page titles with H1s on pages identified in spike 1393
+* ESAO-1391	Inform users of period of activity which will result in timeout
+* ESAO-1329	Improve the journey for adding health conditions
+* ESAO-1359 Improve validation on the National Insurance Number page
+
+## <small> 3.13.0 (2021-09-21)</small>
 
 * ESAO-1419	Repair broken error skip link on 2 pages
 * ESAO-1411	Claimant Commitment not required for COVID claims: Update /complete page
