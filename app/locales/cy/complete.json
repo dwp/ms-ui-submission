@@ -6,9 +6,8 @@
     "title": "Beth sy’n digwydd nesaf"
   },
   "coronavirus" : {
-    "text1": "Bydd rhywun o’ch canolfan gwaith leol yn cysylltu â chi erbyn <span class=\"nobr\">%s</span>.",
-    "text2": "Byddant yn trefnu apwyntiad ‘Ymrwymiad Hawlydd’ gydag anogwr gwaith, sydd fel arfer dros y ffôn. Bydd eich anogwr gwaith yn siarad â chi am beth rydych angen ei wneud i gael ESA Dull Newydd, yn cynnwys gofyn i chi:<ul class=\"govuk-list govuk-list--bullet\"><li>egluro sut mae eich salwch neu anabledd yn effeithio eich gallu i weithio</li><li>darparu tystiolaeth feddygol</li><li>cytuno i ddweud wrthym os bydd eich amgylchiadau’n newid</li></ul>",
-    "text3": "Mae’n rhaid i chi gytuno ar eich Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd."
+    "text1": "Byddwn yn cysylltu â chi erbyn <span class=\"nobr\">%s</span> a threfnu apwyntiad ‘Ymrwymiad Hawlydd’ i chi, sydd fel arfer dros y ffôn.</br>Byddwn yn siarad â chi am beth sydd angen i chi ei wneud i gael ESA Dull Newydd, yn cynnwys gofyn i chi:</br><ul class=\"govuk-list govuk-list--bullet\"><li>egluro sut mae eich salwch neu anabledd yn effeithio eich gallu i weithio</li><li>darparu tystiolaeth feddygol</li><li>cytuno i ddweud wrthym os bydd eich amgylchiadau’n newid</li></ul>",
+    "text2": "Mae’n rhaid i chi gytuno ar eich Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd."
   },
   "medicalEvidence" : {
     "medicalEvidenceHeading": "Anfonwch dystiolaeth feddygol atom i gefnogi’ch cais",

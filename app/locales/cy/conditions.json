@@ -1,7 +1,8 @@
 {
   "pageTitle": "Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?",
   "label" : "Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?",
-  "body1": "Gallwch ychwanegu hyd at 12 cyflwr, mewn unrhyw drefn. Gallwch ddweud mwy wrthym am eich cyflyrau a sut maent yn effeithio arnoch, yn hwyrach yn y broses gwneud cais.",
+  "body1": "Byddwch yn gallu dweud mwy wrthym am eich cyflwr a sut mae’n effeithio arnoch yn y cam nesaf o’r broses gwneud cais.",
+  "hint1": "Os oes gennych fwy nag un cyflwr iechyd, fe allwch ychwanegu rhai wedyn. Gallwch roi hyd at 12 cyflwr iechyd, mewn unrhyw drefn.",
   "body2": "Os nad ydych yn gwybod yr union ddyddiad, gallwch roi amcangyfrif.",
   "name": {
     "label": "Enw cyflwr rhif",

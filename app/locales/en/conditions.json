@@ -1,7 +1,8 @@
 {
   "pageTitle": "What health condition, illness, disability or injury do you have?",
   "label" : "What health condition, illness, disability or injury do you have?",
-  "body1": "You can add up to 12 conditions, in any order. You can tell us more about your conditions and how they affect you, later in the claim process.",
+  "body1": "You will be able to tell us more about your condition and how it affects you at the next stage of the claim process.",
+  "hint1": "If you have more than one condition, you can add others later. You can add up to 12 conditions, in any order.",
   "body2": "If you do not know the exact date, you can give an estimate.",
   "name": {
     "label": "Name of condition",

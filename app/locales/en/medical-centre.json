@@ -2,6 +2,7 @@
   "pageTitle": "Which doctor’s surgery or medical centre do you use?",
   "heading": "Which doctor’s surgery or medical centre do you use?",
   "hint": "The Department for Work and Pensions might need to contact your doctor for more information about your condition.",
+  "hint2": "You can tell us about your consultant or specialist at the next stage of the claim process.",
   "name": {
     "label": "Name of surgery or medical centre",
     "errors": {

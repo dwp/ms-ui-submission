@@ -17,7 +17,8 @@
       }
     }) %}
 
-    <p class="govuk-body">{{ t('conditions:body1')}}</p>
+    <p class="govuk-hint">{{ t('conditions:body1') }}</p>
+    <p class="govuk-hint">{{ t('conditions:hint1') }}</p>
 
     <h2 class="govuk-label--s">{{ t('conditions:name.label') }}</h2>
     {{ casaGovukInput({
@@ -32,6 +33,12 @@
     {% set yearError = formErrors['conditionStartDate'][0].inline | matchYear or formErrors['conditionStartDate'][0].errorType | includesYear %}
     {% set dateParams = {
         name: 'conditionStartDate',
+        fieldset: {
+            legend: {
+                text: t('conditions:conditionStartDate.label'),
+                classes: 'govuk-visually-hidden'
+            }
+        },
         hint: {
             html: t('conditions:conditionStartDate.hint')
         },

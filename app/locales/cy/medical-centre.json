@@ -2,6 +2,7 @@
   "pageTitle": "Pa feddygfa neu ganolfan feddygol ydych chi’n ei defnyddio?",
   "heading": "Pa feddygfa neu ganolfan feddygol ydych chi’n ei defnyddio?",
   "hint": "Efallai y bydd angen i’r Adran Gwaith a Phensiynau gysylltu â’ch doctor i gael mwy o wybodaeth am eich cyflwr.",
+  "hint2": "Gallwch ddweud wrthym am eich ymgynghorydd neu arbenigwr yn y cam nesaf o’r broses gwneud cais.",
   "name": {
     "label": "Enw’r feddygfa neu ganolfan feddygol",
     "errors": {

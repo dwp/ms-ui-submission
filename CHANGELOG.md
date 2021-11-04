@@ -1,4 +1,14 @@
-# 3.14.0 (2021-10-20)
+# 3.15.0 (2021-11-04)
+
+* ESAO-1447 Amend hint text on 'may be eligible'
+* ESAO-1446 Update content on conditions page to reflect that more conditions can be added later
+* ESAO-1445 conditions - Make date fields more descriptive for screen reader
+* ESAO-1442 /complete page: Remove reference to 'jobcentre' and 'work coach'
+* ESAO-1430 Check your answers- Coronavirus related claims new section
+* ESAO-967 Investigation: User wants to provide consultant's details.
+* ESAO-862 Revisions to questions referencing "off sick" to account for Covid/isolation and self employed
+
+## <small> 3.14.0 (2021-10-20)</small>
 
 * ESAO-1441	Quarantine: Update content following the government changes relating to Green, Amber & red countries
 * ESAO-1407	Align page titles with H1s on pages identified in spike 1393

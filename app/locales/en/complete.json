@@ -6,9 +6,8 @@
     "title": "What happens next"
   },
   "coronavirus" : {
-    "text1": "Someone from your local jobcentre will contact you, by <span class=\"nobr\">%s</span>.",
-    "text2": "They will book you a ‘Claimant Commitment’ appointment with a work coach, which is normally over the phone. Your work coach will talk to you about what you need to do to get New Style ESA, including asking you to:<ul class=\"govuk-list govuk-list--bullet\"><li>explain how your illness or disability affects your ability to work</li><li>provide medical evidence</li><li>agree to tell us if your circumstances change</li></ul>",
-    "text3": "You must agree to your Claimant Commitment before you can get New Style ESA."
+    "text1": "We will contact you by <span class=\"nobr\">%s</span> and book you a ‘Claimant Commitment’ appointment, which is normally over the phone.</br>We'll talk to you about what you need to do to get New Style ESA, including asking you to:</br><ul class=\"govuk-list govuk-list--bullet\"><li>explain how your illness or disability affects your ability to work</li><li>provide medical evidence</li><li>agree to tell us if your circumstances change</li></ul>",
+    "text2": "You must agree to your Claimant Commitment before you can get New Style ESA."
   },
   "medicalEvidence" : {
     "medicalEvidenceHeading": "Send us medical evidence to support your application",
