@@ -1,0 +1,10 @@
+{
+  "pageTitle" : "Pwy sy'n gwneud cais?",
+  "label" : "Pwy sy'n gwneud cais?",
+  "self": "Rwy'n gwneud cais drosof fy hun",
+  "someOneElse": "Rwy'n gwneud cais ar ran rhywun arall",
+  "helpingSomeOne": "Rwy'n helpu rhywun i wneud cais",
+  "someOneElseHint": "Rwy'n benodai cofrestredig, dirprwy neu bwer atwrnai neu yn perthyn i Gorff Gweithredu Corfforaethol (CAB).",
+  "helpingSomeOneHint": "Mae'r ymgeisydd yn rhoi'r atebion i mi ac rwy'n eu cefnogi gyda'u cais",
+  "error": "Dewisiwch yr opsiwn sydd yn disgrifio orau pwy sydd yn gwneud y cais"
+}

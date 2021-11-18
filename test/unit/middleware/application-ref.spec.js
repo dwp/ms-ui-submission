@@ -10,7 +10,7 @@ describe('Application ref', () => {
 
     const router = {
       all: (path) => {
-        expect(path).to.equal('/coronavirus');
+        expect(path).to.equal('/who-is-applying');
       },
     };
     appRef(router, null, startPage);

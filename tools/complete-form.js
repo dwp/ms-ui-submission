@@ -63,7 +63,7 @@ const args = process.argv.slice(2)
   let chrome = require('selenium-webdriver/chrome');
   let driver = await new Builder().forBrowser('chrome').build();
 
-  var baseUrl = 'http://localhost:3000/'; //local
+  let baseUrl = 'http://localhost:3000/'; //local
 
   if (dev) {
     baseUrl = 'https://ns-esa-f-dev.pub.health-dev.dwpcloud.uk/'; //dev
@@ -74,7 +74,9 @@ const args = process.argv.slice(2)
   }
 
   try {
-    await driver.get(baseUrl.concat('coronavirus'));
+    await driver.get(baseUrl.concat('who-is-applying'));
+    await driver.findElement(By.id('f-whoIsApplying')).click();
+    await driver.findElement(By.id('continue-button')).click();
     await driver.findElement(By.className('govuk-button govuk-!-margin-bottom-4 govuk-!-margin-right-4')).click();
     if (coronavirus) {
       await driver.findElement(By.id('f-coronavirusReasonForClaim')).click();
@@ -484,7 +486,7 @@ const args = process.argv.slice(2)
         await new Promise(resolve => setTimeout(resolve, 2147483647));
       }
     } else {
-      await driver.quit();
+        await driver.quit();
     }
   }
 })();

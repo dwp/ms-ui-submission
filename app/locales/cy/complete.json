@@ -10,7 +10,8 @@
     "text2": "Mae’n rhaid i chi gytuno ar eich Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd."
   },
   "medicalEvidence" : {
-    "medicalEvidenceHeading": "Anfonwch dystiolaeth feddygol atom i gefnogi’ch cais",
+    "medicalEvidenceHeading": "Anfonwch dystiolaeth atom i gefnogi eich cais",
+    "ssp1Text": "Anfonwch eich SSP1 atom. Gallwch gael hwn gan eich cyflogwr.",
     "text1": "Gallwch hunan-ardystio am 7 diwrnod cyntaf eich cais ond mae angen i chi anfon tystiolaeth feddygol atom o ddiwrnod 8 ymlaen.",
     "text2": "Y math mwyaf cyffredin o dystysgrif feddygol yw nodyn ffitrwydd (a elwir hefyd yn ddatganiad ffitrwydd i weithio neu nodyn salwch), ond rydym hefyd yn derbyn mathau eraill o dystiolaeth feddygol.",
     "conditionalReveal": {
@@ -28,8 +29,9 @@
     "heading": "Sut i anfon eich tystiolaeth",
     "text1": "Os oes gennych nodyn ffitrwydd, gallwch ddefnyddio’r <a class=\"govuk-link\" href=\"https://www.gov.uk/anfon-eich-nodyn-ffitrwydd-ar-gyfer-eich-cais-esa\" target=\"_blank\">gwasanaeth Anfon eich nodyn ffitrwydd  (agor mewn tab newydd)</a> i’w anfon atom ar-lein.",
     "text2": "Os oes gennych fath arall o dystiolaeth feddygol, gallwch ei hanfon atom trwy’r post. Gallwch hefyd bostio’ch nodyn ffitrwydd.",
+    "ssp1Text": "Os oes gennych fath arall o dystiolaeth feddygol, gallwch ei hanfon atom trwy’r post. Gallwch hefyd anfon eich nodyn ffitrwydd neu SSP1.",
     "insetText": {
-      "heading": "Ble i anfon eich tystiolaeth feddygol trwy’r post",
+      "heading": "Ble i anfon eich tystiolaeth drwy'r post",
       "line1": "Freepost DWP ESA 26"
     }
   },

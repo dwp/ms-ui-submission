@@ -1,0 +1,40 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "components/button/macro.njk" import govukButton %}
+{% from "components/back-link/macro.njk" import govukBackLink %}
+{# journeyPreviousUrl is set to true stops casa adding the govuk-main-wrapper--l to the main block and messing up the top margin #}
+{%  set journeyPreviousUrl = true %}
+
+{% block casaPageTitle %}
+    {{ t('helping-someone-apply:pageTitle') }} - {{ t('app:commonTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+    {{ govukBackLink({
+        text: t('app:back'),
+        href: '/who-is-applying'
+    }) }}
+{% endblock %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="form-title govuk-heading-l">{{ t('helping-someone-apply:h1') }}</h1>
+            <p class="govuk-body">{{ t('helping-someone-apply:p1') | safe }}</p>
+            <p class="govuk-body">{{ t('helping-someone-apply:p2') }}</p>
+            <p class="govuk-body">{{ t('helping-someone-apply:p3') | safe }}</p>
+            <p class="govuk-body">
+                {{ govukButton({
+                    text: t('app:continue'),
+                    href: "/eligibility-start",
+                    classes: 'govuk-button govuk-!-margin-bottom-8'
+                }) }}
+            </p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}

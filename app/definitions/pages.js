@@ -1,6 +1,7 @@
 const moment = require('moment');
 const { trimWhiteSpace } = require('@dwp/govuk-casa/lib/GatherModifier');
 const { getEmployerName } = require('../lib/data-utils/employmentDataUtils');
+const whoIsApplyingValidator = require('./field-validators/who-is-applying.js');
 const addressValidators = require('./field-validators/address.js');
 const langPrefWritingValidators = require('./field-validators/language-preference-writing.js');
 const langPrefSpeakingValidators = require('./field-validators/language-preference-speaking.js');
@@ -76,9 +77,50 @@ module.exports = {
     view: 'pages/accessibility-statement',
   },
 
+  'who-is-applying': {
+    view: 'pages/who-is-applying.njk',
+    fieldValidators: whoIsApplyingValidator,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'who-is-applying');
+        req.journeyData.setDataForPage('eligibility-start-visited', false);
+        req.journeyData.setDataForPage('help-someone-apply-visited', false);
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'cannot-apply-online': {
+    view: 'pages/cannot-apply-online',
+    hooks: {
+      prerender: (req, res, next) => {
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'helping-someone-apply': {
+    view: 'pages/helping-someone-apply',
+    hooks: {
+      prerender: (req, res, next) => {
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
   // eligibility
   'eligibility-start': {
     view: 'pages/eligibility-start.njk',
+    hooks: {
+      prerender: (req, res, next) => {
+        req.journeyData.setDataForPage('eligibility-start-visited', true);
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
   },
 
   coronavirus: {
@@ -260,7 +302,7 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.claimEndDateHint = moment()
-          .subtract(2, 'months')
+          .add(2, 'months')
           .format('D M YYYY');
         if (typeof req.journeyData.getDataForPage('claim-start-date-after-statutory-sick-pay')
           !== 'undefined' && req.journeyData.getDataForPage('claim-start-date-after-statutory-sick-pay').claimStartDateAfterSsp === 'yes') {
@@ -282,7 +324,6 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.claimStartDateHint = moment()
-          .subtract(3, 'months')
           .format('D M YYYY');
         res.locals.errorsFlag = checkForErrors(req, 'claim-start-date');
         res.locals.hiddenSspEndDate = (typeof req.journeyData.getDataForPage('statutory-sick-pay-end') !== 'undefined'

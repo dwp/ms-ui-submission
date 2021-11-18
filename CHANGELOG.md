@@ -1,4 +1,10 @@
-# 3.15.0 (2021-11-04)
+# 3.16.0 (2021-11-18)
+
+* ESAO-1463 Add example date to claim start date and update example on claim end date
+* ESAO-1378 Investigate a clearer way to signpost appointee applications whereby an application has been started.
+* ESAO-1368 SSP1: Advise claimant a SSP1 is required to validate their claim - BAU only claims (Iteration 1)
+
+## <small> 3.15.0 (2021-11-04)</small>
 
 * ESAO-1447 Amend hint text on 'may be eligible'
 * ESAO-1446 Update content on conditions page to reflect that more conditions can be added later

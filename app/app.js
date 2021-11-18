@@ -238,7 +238,6 @@ require('./routes/complete')(casaApp, casaApp.config.mountUrl, casaApp.router);
 require('./routes/feedback')(casaApp.router, casaApp.csrfMiddleware, appConfig.NOTIFY_EMAILTO, appConfig.NOTIFY_APIKEY, appConfig.NOTIFY_PROXY, appConfig.NOTIFY_URL ? appConfig.NOTIFY_URL : null);
 require('./routes/thankyou')(casaApp.router);
 require('./routes/accessibility-statement')(casaApp.router);
-require('./routes/eligibility-start')(casaApp.router);
 require('./lib/view-filters')(casaSubApp);
 
 // Claim submission handlers

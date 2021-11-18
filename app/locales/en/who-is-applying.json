@@ -1,0 +1,10 @@
+{
+  "pageTitle" : "Who is applying?",
+  "label" : "Who is applying?",
+  "self": "I’m applying for myself",
+  "someOneElse": "I’m applying for someone else",
+  "helpingSomeOne": "I’m helping someone apply",
+  "someOneElseHint": "I’m a registered appointee, deputy, power of attorney or belong to a Corporate Acting Body (CAB).",
+  "helpingSomeOneHint": "The applicant is giving me the answers and I’m supporting them with their application.",
+  "error": "Select the option that best describes who is applying."
+}

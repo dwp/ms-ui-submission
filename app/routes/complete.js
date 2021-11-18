@@ -48,6 +48,16 @@ module.exports = (casaApp, mountUrl, router) => {
       appLogger.info(`pensions indicator set to ${pensionsIndicator}`);
       const universalCredit = req.journeyData.getDataForPage('universal-credit').universalCredit === 'yes';
       const coronavirus = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
+
+      // Display SSP1 content
+      const isCoronavirusClaim = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
+      const isRtiClaim = req.journeyData.getDataForPage('live-less-than-6-months').severeCondition === 'yes';
+      const isEmployee = req.session.employmentGather && req.session.employmentGather.some((employment) => employment.workTypes.some((workType) => workType === 'employee'));
+      const isStatutorySickPayRecent = req.journeyData.getDataForPage('statutory-sick-pay-recent') && req.journeyData.getDataForPage('statutory-sick-pay-recent').sspRecent === 'yes';
+
+      const displaySSP1Content = isCoronavirusClaim || isRtiClaim
+        ? false : isEmployee || isStatutorySickPayRecent;
+
       const dataForCompletePage = {
         employerData: employerInfo,
         p45Indicator,
@@ -55,7 +65,9 @@ module.exports = (casaApp, mountUrl, router) => {
         pensionsIndicator,
         fourteenDaysLater: moment().add(14, 'days').locale(req.language).format('D MMMM YYYY'),
         universalCredit,
+        displaySSP1Content,
       };
+
       // Empty session of all citizen data.
       casaApp.endSession(req).then(() => {
         appLogger.info('End session');

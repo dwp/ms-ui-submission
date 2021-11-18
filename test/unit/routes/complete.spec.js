@@ -20,10 +20,12 @@ describe('Complete route', () => {
         {
           employerName: 'Smiths',
           frequency: 'weekly',
+          workTypes: ['employee'],
         },
         {
           employerName: 'Browns',
           frequency: 'monthly',
+          workTypes: ['subContractor'],
         },
       ],
       pensionGather: {},
@@ -110,10 +112,12 @@ describe('Complete route', () => {
         {
           employerName: 'Smiths',
           frequency: 'weekly',
+          workTypes: ['employee'],
         },
         {
           employerName: 'Browns',
           frequency: 'monthly',
+          workTypes: ['subContractor'],
         },
       ],
       pensionGather: {},
@@ -251,5 +255,212 @@ describe('Complete route', () => {
       callback(req, res);
     };
     completeRoute(casaApp, mountUrl, router);
+  });
+
+  describe('Data for /complete', () => {
+    it('should set displaySSP1Content to true when \'employee\' selected on /employment-status and \'yes\' on /statutory-sick-pay-rent', (done) => {
+      const testReq = {
+        ...req,
+        journeyData: {
+          getDataForPage: () => (
+            {
+              ...req.journeyData.getDataForPage(),
+              sspRecent: 'yes',
+            }),
+        },
+      };
+
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isTrue(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(testReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
+
+    it('should set displaySSP1Content to true when \'employee\' selected on /employment-status and \'no\' on /statutory-sick-pay-rent', (done) => {
+      const testReq = {
+        ...req,
+        journeyData: {
+          getDataForPage: () => (
+            {
+              ...req.journeyData.getDataForPage(),
+              sspRecent: 'no',
+            }),
+        },
+      };
+
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isTrue(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(testReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
+
+    it('should set displaySSP1Content to true when \'No, I\'m unemployed\' is selected on /employed and \'yes\' on /statutory-sick-pay-rent', (done) => {
+      const testReq = {
+        ...req,
+        session: {
+          ...req.session,
+          employmentGather: undefined,
+        },
+        journeyData: {
+          getDataForPage: () => (
+            {
+              ...req.journeyData.getDataForPage(),
+              employed: 'no',
+              sspRecent: 'yes',
+            }),
+        },
+      };
+
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isTrue(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(testReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
+
+    it('should set displaySSP1Content to false when \'No, I\'m unemployed\' is selected on /employed and \'no\' on /statutory-sick-pay-rent', (done) => {
+      const testReq = {
+        ...req,
+        session: {
+          ...req.session,
+          employmentGather: undefined,
+        },
+        journeyData: {
+          getDataForPage: () => (
+            {
+              ...req.journeyData.getDataForPage(),
+              employed: 'no',
+              sspRecent: 'no',
+            }),
+        },
+      };
+
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isFalse(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(testReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
+
+    it('should set displaySSP1Content to false when \'employee\' isn\'t selected on /employment-status', (done) => {
+      const testReq = {
+        ...req,
+        session: {
+          ...req.session,
+          employmentGather: [
+            {
+              employerName: 'Browns',
+              frequency: 'monthly',
+              workTypes: ['subContractor'],
+            },
+          ],
+        },
+      };
+
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isFalse(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(testReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
+
+    it('should set displaySSP1Content to false when \'yes\' is selected on /coronavirus page', (done) => {
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isFalse(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(covidReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
+
+    it('should set displaySSP1Content to false when \'yes\' is selected on /live-less-than-6-months page', (done) => {
+      const testReq = {
+        ...req,
+        journeyData: {
+          getDataForPage: () => (
+            {
+              ...req.journeyData.getDataForPage(),
+              severeCondition: 'yes',
+            }),
+        },
+      };
+
+      casaApp.endSession = () => Promise.resolve();
+      res.redirect = () => done();
+      res.render = (template, { displaySSP1Content }) => {
+        try {
+          assert.isFalse(displaySSP1Content);
+          done();
+        } catch (e) {
+          done(e);
+        }
+      };
+      router.get = (path, callback) => {
+        assert.equal(path, '/complete');
+        callback(testReq, res);
+      };
+      completeRoute(casaApp, mountUrl, router);
+    });
   });
 });

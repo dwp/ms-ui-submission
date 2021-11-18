@@ -4,7 +4,7 @@ const appLogger = Logger();
 
 module.exports = (router) => {
   router.get('/', (req, res) => {
-    appLogger.info(`${req.method}: /welcome`);
-    res.render('pages/eligibility-start.njk');
+    appLogger.info(`${req.method}: /`);
+    res.redirect('/who-is-applying');
   });
 };

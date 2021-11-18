@@ -55,6 +55,12 @@
                 {{ t('complete:medicalEvidence.medicalEvidenceHeading') }}
             </h3>
 
+            {% if displaySSP1Content %}
+                <p class="govuk-body">
+                    {{ t('complete:medicalEvidence.ssp1Text') }}
+                </p>
+            {% endif %}
+
             <p class="govuk-body">
                 {{ t('complete:medicalEvidence.text1') }}
             </p>
@@ -83,6 +89,12 @@
             <p class="govuk-body">
                 {{ t('complete:sendEvidence.text2') }}
             </p>
+
+            {% if displaySSP1Content %}
+                <p class="govuk-body">
+                    {{ t('complete:sendEvidence.ssp1Text') }}
+                </p>
+            {% endif %}
 
             {{ govukInsetText({
                 html: sendEvidenceInset

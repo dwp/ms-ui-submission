@@ -9,10 +9,10 @@ describe('Index route', () => {
     render: () => {},
     redirect: () => {},
   };
-  it('should redirect to /eligibility-start', () => {
+  it('should redirect to /who-is-applying', () => {
     res.status = (statusCode) => ({
       redirect: (path) => {
-        assert.equal(path, '/eligibility-start');
+        assert.equal(path, '/who-is-applying');
         assert.equal(statusCode, 302);
       },
     });

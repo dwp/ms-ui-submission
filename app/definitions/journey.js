@@ -30,6 +30,13 @@ module.exports = (() => {
   const eligibilityEndPath = new UserJourney.Road();
 
   eligibilityCoronaPath.addWaypoints([
+    'who-is-applying',
+    ['helping-someone-apply', (sessionData) => sessionData['who-is-applying'].whoIsApplying === 'helpingSomeOne' && sessionData['help-someone-apply-visited'] !== true],
+    ['cannot-apply-online', (sessionData) => sessionData['who-is-applying'].whoIsApplying === 'someOneElse'],
+    ['eligibility-start', (sessionData) => sessionData['eligibility-start-visited'] !== true
+    && (sessionData['who-is-applying'].whoIsApplying === 'self'
+        || (sessionData['who-is-applying'].whoIsApplying === 'helpingSomeOne'
+          && sessionData['help-someone-apply-visited'] === true))],
     'coronavirus',
   ]);
 

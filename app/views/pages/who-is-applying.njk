@@ -1,0 +1,62 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "components/fieldset/macro.njk" import govukFieldset %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('who-is-applying:pageTitle') }} - {{ t('app:commonTitle') }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+{% endblock %}
+
+{% block journey_form %}
+    {% call govukFieldset({
+        legend: {
+            text: t('who-is-applying:label'),
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+        }
+    }) %}
+
+        {{ casaGovukRadios({
+            name: 'whoIsApplying',
+            casaValue: formData.whoIsApplying,
+            casaErrors: formErrors,
+            items: [{
+                text: t('who-is-applying:self'),
+                value: 'self',
+                attributes: {
+                    'data-question': t('who-is-applying:label'),
+                    'data-answer': t('who-is-applying:self')
+                }
+            }, {
+                text: t('who-is-applying:someOneElse'),
+                value: 'someOneElse',
+                hint: {
+                    text: t('who-is-applying:someOneElseHint')
+                },
+                attributes: {
+                    'data-question': t('who-is-applying:label'),
+                    'data-answer': t('who-is-applying:someOneElse')
+                }
+            }, {
+                text: t('who-is-applying:helpingSomeOne'),
+                value: 'helpingSomeOne',
+                hint: {
+                    text: t('who-is-applying:helpingSomeOneHint')
+                },
+                attributes: {
+                    'data-question': t('who-is-applying:label'),
+                    'data-answer': t('who-is-applying:helpingSomeOne')
+                }
+            }]
+        }) }}
+
+    {% endcall %}
+{% endblock %}
+
+{% block bodyEnd %}
+    {% include "casa/partials/scripts.njk" %}
+{% endblock %}
