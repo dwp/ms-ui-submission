@@ -1,4 +1,11 @@
-# 3.16.0 (2021-11-18)
+# 3.17.0 (2021-12-07)
+
+* ESAO-1420 Resolve accessibility issue with difference in title and dynamic H1s for 'remove' page
+* ESAO-1462 Point UC links in Eligibility at main guidance to be consistent with JSA links
+* ESAO-1439 Amend Accessibility Statement
+* ESAO-1469 Updates payload
+
+## <small> 3.16.0 (2021-11-18)</small>
 
 * ESAO-1463 Add example date to claim start date and update example on claim end date
 * ESAO-1378 Investigate a clearer way to signpost appointee applications whereby an application has been started.

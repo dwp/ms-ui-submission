@@ -223,6 +223,8 @@ module.exports = (translator, journeyData, session) => {
   if (emailJourneyData.emailProvided === 'yes') {
     capture.email = emailJourneyData.email;
   }
-
+  if (capture.conditions && capture.conditions.length === 0) {
+    capture.conditions = undefined;
+  }
   return capture;
 };

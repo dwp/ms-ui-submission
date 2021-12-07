@@ -3,8 +3,16 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 {% from "components/button/macro.njk" import govukButton %}
 
+{% set map = {
+    voluntary: 'organisationName',
+    employment: 'employerName',
+    pension: 'pensionProvider',
+    insurance: 'insuranceProvider',
+    condition: 'conditionName'
+} %}
+
 {% block casaPageTitle %}
-    {{ t('remove:pageTitle') }}
+    {{ t('remove:remove.' + section, gather[index][map[section]]) }}
 {% endblock %}
 
 {% block content %}
@@ -20,14 +28,6 @@
         {% endif %}
         <form action="#" method="post" autocomplete="off" novalidate>
             <input type="hidden" name="_csrf" value="{{ casa.csrfToken }}" />
-
-            {% set map = {
-                voluntary: 'organisationName',
-                employment: 'employerName',
-                pension: 'pensionProvider',
-                insurance: 'insuranceProvider',
-                condition: 'conditionName'
-            } %}
 
             {{ casaGovukRadios({
                 name: 'remove',

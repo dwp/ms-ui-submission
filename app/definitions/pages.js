@@ -156,7 +156,7 @@ module.exports = {
       },
       preredirect: (req, res, next) => {
         if (req.journeyData.getDataForPage('not-eligible-disability-or-health-condition').whatDoYouWantToDo === 'uc') {
-          res.status(302).redirect('https://www.gov.uk/how-to-claim-universal-credit');
+          res.status(302).redirect('https://www.gov.uk/universal-credit');
         } else if (req.journeyData.getDataForPage('not-eligible-disability-or-health-condition').whatDoYouWantToDo === 'nsjsa') {
           res.status(302).redirect('https://www.gov.uk/jobseekers-allowance');
         } else {
@@ -202,7 +202,7 @@ module.exports = {
       },
       preredirect: (req, res, next) => {
         if (req.journeyData.getDataForPage('get-national-insurance-credits').whatDoYouWantToDo === 'uc') {
-          res.status(302).redirect('https://www.gov.uk/how-to-claim-universal-credit');
+          res.status(302).redirect('https://www.gov.uk/universal-credit');
         } else {
           next();
         }

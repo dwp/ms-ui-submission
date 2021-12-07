@@ -18,16 +18,17 @@
         "h2": "How accessible this service is",
         "p1": "The service is using common styles, patterns and components from the GOV.UK Design System which are widely regarded as accessible.",
         "p2": "Some people may find parts of this service difficult to use:",
-        "li2": "if you say “new tab” to some voice control software, it opens the feedback link instead of opening a new tab",
-        "li3": "error messages are sometimes not read out in JAWS versions 18 and 19",
-        "li4": "headings are sometimes not read out in JAWS versions 18 and 19 and ZoomText. This is a known issue with Freedom Scientific software. Read <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">more about the issue with headings on GitHub</a>",
-        "li5": "text is sometimes repeated by ZoomText‘s DocReader and SpeakIt tools",
-        "li6": "reading zones sometimes move around the page when scrolling with ZoomText. This might cause a problem with the consent question pages, as well as the ‘check your answers’ and ‘what happens next’ pages, where there is lots of text"
+        "li1": "if you say “new tab” to some voice control software, it opens the feedback link instead of opening a new tab",
+        "li2": "error messages are sometimes not read out in JAWS versions 18 and 19",
+        "li3": "headings are sometimes not read out in JAWS versions 18 and 19 and ZoomText. This is a known issue with Freedom Scientific software. Read <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">more about the issue with headings on GitHub</a>",
+        "li4": "text is sometimes repeated by ZoomText‘s DocReader and SpeakIt tools",
+        "li5": "reading zones sometimes move around the page when scrolling with ZoomText. This might cause a problem with the consent question pages, as well as the ‘check your answers’ and ‘what happens next’ pages, where there is lots of text",
+        "li6": "visually hidden text for change links is read without spaces by JAWS versions 18 and 19"
     },
     "difficultyUsingService": {
         "h2": "What to do if you have difficulty using this service",
         "p1": "If you have difficulty using this service, contact us by email: <a class=\"govuk-link\" href=\"mailto:applyfornewstyleesa.accessibility@dwp.gov.uk\">applyfornewstyleesa.accessibility@dwp.gov.uk</a>",
-        "p2": "As part of providing this service, we may need to send you messages or documents. We'll ask you how you want us to send messages or documents to you, but contact us if you need them in a different format. For example large print, audio recording or braille."
+        "p2": "As part of providing this service, we may need to send you messages or documents.  <a class=\"govuk-link\" href=\"https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims\">Contact us</a> if you need them in a different format, for example large print, audio recording or braille."
     },
     "reportingAccessibilityProblems": {
         "h2": "Reporting accessibility problems with this service",
@@ -44,13 +45,16 @@
     },
     "howWeTested": {
         "h2": "How we tested this service",
-        "p1": "The service was last tested on 28 May 2020 and was checked for compliance with WCAG 2.1 AA. The tests were carried out by the Department for Work and Pensions.",
-        "p2": "The service was tested using both automated and manual testing."
+        "p1": "The service was last tested on 25 June 2021 and was assessed against the Web Content Accessibility Guidelines (WCAG) 2.1. The tests were carried out by the Digital Accessibility Centre.",
+        "p2": "The service was tested using both automated and manual testing.",
+        "p3": "The service was tested by a team of experienced auditors and analysts from the Digital Accessibility Centre, including disabled individuals and users of adaptive technology.",
+        "p4": "Testing included a combination of subjective pan-disability user feedback, comprehensive technical auditing and manual accessibility checking.",
+        "p5": "Technical auditing was carried out using a number of technical auditing and standards compliance assessment tools."
     },
     "improveAccessibility": {
         "h2": "What we're doing to improve accessibility",
-        "p1": "We conducted manual testing of the service using assistive technologies such as JAWS and Dragon. This has identified issues, mentioned in the ‘using this service’ section above, that we’re working to fix.",
-        "p2": "We will continue to iterate the design of the service, replacing the JavaScript solution for adding conditions to make it more usable.",
-        "p3": "This page was prepared on 14 April 2020 and last updated on 14 October 2021."
+        "p1": "We conduct automated and manual testing of the service using assistive technologies, such as aXe, Wave and VoiceOver. This has identified issues, mentioned in the ‘using this service’ section above, that we’re working to fix.",
+        "p2": "We will continue to iterate the design of the service, with accessibility considerations built into the lifecycle of each release.",
+        "p3": "This page was prepared on 14 April 2020 and last updated on 7 December 2021."
     }
 }
