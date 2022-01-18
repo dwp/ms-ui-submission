@@ -12,6 +12,10 @@
   "medicalEvidence" : {
     "medicalEvidenceHeading": "Send us evidence to support your application",
     "ssp1Text": "Send us your SSP1. You can get this from your employer.",
+    "temporaryChangeInset": {
+      "heading": "Temporary change",
+      "line1": "You will not need to provide medical evidence, including fit notes to cover the dates between 17 December 2021 and 26 January 2022. Do not ask your doctor for one."
+    },
     "text1": "You can self-certify for the first 7 days of your claim but you need to send us medical evidence from day 8 onwards.",
     "text2": "The most common type of medical certificate is a fit note (also called a statement of fitness for work or a sick note), but we also accept other types of medical evidence.",
     "conditionalReveal": {

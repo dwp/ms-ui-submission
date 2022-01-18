@@ -5,7 +5,7 @@ const appLogger = Logger();
 const pregnant = (req) => {
   appLogger.info('Navigation rules: pregnant');
   if (req.journeyData.getDataForPage('pregnant').pregnant === 'no') {
-    genericDataUtils.deleteIfPresent(req, 'pregnant', ['dueDate']);
+    genericDataUtils.deleteIfPresent(req, 'pregnant-due-date', ['dueDate']);
   }
 };
 

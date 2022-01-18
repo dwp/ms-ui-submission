@@ -9,22 +9,6 @@
 
 {% block journey_form %}
 
-    {% set correspondenceAddress %}
-
-        {{ casaPostalAddressObject({
-            fieldset: {
-                legend: {
-                    text: t('address:correspondenceAddress.label'),
-                    classes: 'govuk-fieldset__legend--m'
-                }
-            },
-            name: 'correspondenceAddress',
-            value: formData.correspondenceAddress,
-            casaErrors: formErrors
-        }) }}
-
-    {% endset -%}
-
     {{ casaPostalAddressObject({
         fieldset: {
             legend: {
@@ -61,9 +45,6 @@
             attributes: {
                 'data-question': t('address:correspondence.label'),
                 'data-answer': t('address:address.no')
-            },
-            conditional: {
-                html: correspondenceAddress
             }
         }]
     }) }}

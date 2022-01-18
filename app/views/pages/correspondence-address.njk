@@ -1,0 +1,25 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/postal-address-object/macro.njk" import casaPostalAddressObject with context %}
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('correspondence-address:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+        {{ casaPostalAddressObject({
+            fieldset: {
+                legend: {
+                    text: t('correspondence-address:correspondenceAddress.label'),
+                    isPageHeading: true,
+                    classes: 'govuk-fieldset__legend--l'
+                }
+            },
+            name: 'correspondenceAddress',
+            value: formData.correspondenceAddress,
+            casaErrors: formErrors
+        }) }}
+
+{% endblock %}

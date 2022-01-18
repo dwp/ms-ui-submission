@@ -12,6 +12,10 @@
   "medicalEvidence" : {
     "medicalEvidenceHeading": "Anfonwch dystiolaeth atom i gefnogi eich cais",
     "ssp1Text": "Anfonwch eich SSP1 atom. Gallwch gael hwn gan eich cyflogwr.",
+    "temporaryChangeInset": {
+      "heading": "Newid dros dro",
+      "line1": "Ni fydd angen i chi ddarparu tystiolaeth feddygol, gan gynnwys nodiadau ffitrwydd i gwmpasu’r dyddiadau rhwng 17 Rhagfyr a 26 Ionawr 2022.  Peidiwch â gofyn i’ch meddyg am un."
+    },
     "text1": "Gallwch hunan-ardystio am 7 diwrnod cyntaf eich cais ond mae angen i chi anfon tystiolaeth feddygol atom o ddiwrnod 8 ymlaen.",
     "text2": "Y math mwyaf cyffredin o dystysgrif feddygol yw nodyn ffitrwydd (a elwir hefyd yn ddatganiad ffitrwydd i weithio neu nodyn salwch), ond rydym hefyd yn derbyn mathau eraill o dystiolaeth feddygol.",
     "conditionalReveal": {

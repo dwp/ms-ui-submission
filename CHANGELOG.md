@@ -1,4 +1,11 @@
-# 3.17.0 (2021-12-07)
+# 3.18.0 (2022-01-12)
+
+* ESAO-1512 Move pregnancy due date to a separate page
+* ESAO-1474 Move the correspondence address to a separate page
+* ESAO-1475 Move the hospital details to a separate page
+* ESAO-1543 Explain temporary changes to medical evidence (fit notes) from 17 Dec to 26 Jan
+
+## <small> 3.17.0 (2021-12-07)</small>
 
 * ESAO-1420 Resolve accessibility issue with difference in title and dynamic H1s for 'remove' page
 * ESAO-1462 Point UC links in Eligibility at main guidance to be consistent with JSA links

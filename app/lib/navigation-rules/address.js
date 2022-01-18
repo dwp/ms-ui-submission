@@ -6,7 +6,7 @@ const appLogger = Logger();
 const address = (req) => {
   appLogger.info('Navigation rules: address');
   if (req.journeyData.getDataForPage('address').correspondence === 'yes') {
-    genericDataUtils.deleteIfPresent(req, 'address', ['correspondenceAddress']);
+    genericDataUtils.deleteIfPresent(req, 'correspondence-address', ['correspondenceAddress']);
   }
   const isWelsh = postcodeLookup(req.journeyData.getDataForPage('address').address.postcode);
   req.journeyData.setDataForPage('postcode', { welsh: isWelsh });

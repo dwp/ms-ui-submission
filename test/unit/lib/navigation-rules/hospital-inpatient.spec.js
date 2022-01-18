@@ -8,7 +8,7 @@ const hospitalInpatient = require('../../../../app/lib/navigation-rules/hospital
 describe('hospital-inpatient navigation rules', () => {
   let req;
   let deleteIfPresent;
-  const page = 'hospital-inpatient';
+  const page = 'hospital-details';
   const fieldNames = ['hospitalName', 'hospitalWard', 'admissionDate'];
 
   beforeEach(() => {

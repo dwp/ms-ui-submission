@@ -30,14 +30,14 @@
 
 {# Correspondence Address #}
 {% set correspondenceAddress %}
-    {{ journeyData.address.correspondenceAddress.address1 }}<br>
-    {% if journeyData.address.correspondenceAddress.address2 %}
-        {{ journeyData.address.correspondenceAddress.address2 }}<br>
+    {{ journeyData['correspondence-address'].correspondenceAddress.address1 }}<br>
+    {% if journeyData['correspondence-address'].correspondenceAddress.address2 %}
+        {{ journeyData['correspondence-address'].correspondenceAddress.address2 }}<br>
     {% endif %}
-    {% if journeyData.address.correspondenceAddress.address3 %}
-        {{ journeyData.address.correspondenceAddress.address3 }}<br>
+    {% if journeyData['correspondence-address'].correspondenceAddress.address3 %}
+        {{ journeyData['correspondence-address'].correspondenceAddress.address3 }}<br>
     {% endif %}
-    {{ journeyData.address.correspondenceAddress.postcode }}<br>
+    {{ journeyData['correspondence-address'].correspondenceAddress.postcode }}<br>
 {% endset %}
 
 {% if journeyData.address.correspondence === 'no' %}
@@ -47,7 +47,7 @@
         actions: {
             items: [{
                 attributes: { 'id': 'contact-address' },
-                href: "address?edit",
+                href: "correspondence-address?edit",
                 text: t('check-your-answers:change'),
                 visuallyHiddenText: t('check-your-answers:visuallyHiddenTextContactAddress')
             }]

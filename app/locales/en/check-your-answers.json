@@ -127,6 +127,7 @@
   "visuallyHiddenTextInHosp": "whether you are currently in hospital",
   "visuallyHiddenTextHospDetail": "hospital details",
   "visuallyHiddenTextPregnant": "whether you are pregnant",
+  "visuallyHiddenTextPregnantDue": "your pregnancy due date",
   "visuallyHiddenTextDocConsent": "consent for doctors to share details with DWP",
   "visuallyHiddenTextDwpConsent": "consent for DWP to share decision with your doctor",
   "visuallyHiddenTextVoluntaryWork": "whether you do voluntary work",

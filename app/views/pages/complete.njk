@@ -27,6 +27,11 @@
     </p>
 {% endset %}
 
+{% set medicalEvidenceTemporaryChangeInset %}
+    <p class="govuk-body govuk-!-font-weight-bold">{{ t('complete:medicalEvidence.temporaryChangeInset.heading') }}</p>
+    <p>{{ t('complete:medicalEvidence.temporaryChangeInset.line1') }}</p>
+{% endset %}
+
 <div class="govuk-width-container">
     <div class="govuk-grid-row">
         <div class="govuk-panel govuk-panel--confirmation govuk-!-margin-bottom-6 govuk-!-padding-0">
@@ -60,6 +65,10 @@
                     {{ t('complete:medicalEvidence.ssp1Text') }}
                 </p>
             {% endif %}
+
+            {{ govukInsetText({
+                html: medicalEvidenceTemporaryChangeInset
+            }) }}
 
             <p class="govuk-body">
                 {{ t('complete:medicalEvidence.text1') }}

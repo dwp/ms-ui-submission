@@ -85,9 +85,9 @@
 
 {% if journeyData['hospital-inpatient'].hospitalInpatient === 'yes' %}
 {% set hospital %}
-    {{ journeyData['hospital-inpatient'].hospitalName }}<br>
-    {{ journeyData['hospital-inpatient'].hospitalWard }}<br><br>
-    {{ t('check-your-answers:admittedOn') }} {{ journeyData['hospital-inpatient'].admissionDate | date(htmlLang) }}
+    {{ journeyData['hospital-details'].hospitalName }}<br>
+    {{ journeyData['hospital-details'].hospitalWard }}<br><br>
+    {{ t('check-your-answers:admittedOn') }} {{ journeyData['hospital-details'].admissionDate | date(htmlLang) }}
 {% endset %}
 {% set hospitalRow = {
     key: { text: t('check-your-answers:hospitalDetails') },
@@ -95,7 +95,7 @@
     actions: {
         items: [{
             attributes: { 'id': 'hospital-details' },
-            href: "hospital-inpatient?edit",
+            href: "hospital-details?edit",
             text: t('check-your-answers:change'),
             visuallyHiddenText: t('check-your-answers:visuallyHiddenTextHospDetail')
         }]
@@ -104,15 +104,9 @@
 {{ (healthRows.push(hospitalRow), null) }}
 {% endif %}
 
-{% set pregnant %}
-    {{ t('pregnant:pregnant.' + journeyData.pregnant.pregnant) }}<br>
-    {% if journeyData.pregnant.pregnant === 'yes' %}
-        {{ t('check-your-answers:due') }} {{ journeyData.pregnant.dueDate | date(htmlLang) }}
-    {% endif %}
-{% endset %}
 {% set pregnantRow = {
     key: { text: t('check-your-answers:pregnant') },
-    value: { html: pregnant },
+    value: { text: t('pregnant:pregnant.' + journeyData['pregnant'].pregnant )},
     actions: {
         items: [{
             attributes: { 'id': 'pregnant' },
@@ -123,6 +117,22 @@
     }
 } %}
 {{ (healthRows.push(pregnantRow), null) }}
+
+{% if journeyData['pregnant'].pregnant === 'yes' %}
+    {% set pregnantDueDateRow = {
+        key: { text: t('check-your-answers:due') },
+        value: { text: journeyData['pregnant-due-date'].dueDate | date(htmlLang) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'pregnant' },
+                href: "pregnant-due-date?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPregnantDue')
+            }]
+        }
+    } %}
+{{ (healthRows.push(pregnantDueDateRow), null) }}
+{% endif %}
 
 {% set doctorDeclarationRow = {
     key: { text: t('check-your-answers:doctorDeclaration') },

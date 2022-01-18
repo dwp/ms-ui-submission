@@ -3,6 +3,7 @@ const { trimWhiteSpace } = require('@dwp/govuk-casa/lib/GatherModifier');
 const { getEmployerName } = require('../lib/data-utils/employmentDataUtils');
 const whoIsApplyingValidator = require('./field-validators/who-is-applying.js');
 const addressValidators = require('./field-validators/address.js');
+const correspondenceAddressValidators = require('./field-validators/correspondence-address.js');
 const langPrefWritingValidators = require('./field-validators/language-preference-writing.js');
 const langPrefSpeakingValidators = require('./field-validators/language-preference-speaking.js');
 const lateClaimValidators = require('./field-validators/late-claim.js');
@@ -29,6 +30,7 @@ const employmentPayFrequencyOtherValidators = require('./field-validators/employ
 const employmentStatusValidators = require('./field-validators/employment-status.js');
 const employmentSupportValidators = require('./field-validators/employment-support.js');
 const hospitalInpatientValidators = require('./field-validators/hospital-inpatient.js');
+const hospitalDetailsValidators = require('./field-validators/hospital-details.js');
 const insuranceValidators = require('./field-validators/insurance.js');
 const medicalCentreValidators = require('./field-validators/medical-centre.js');
 const militaryOverseasValidators = require('./field-validators/military-overseas.js');
@@ -39,6 +41,7 @@ const otherNumberValidators = require('./field-validators/other-number.js');
 const pensionValidators = require('./field-validators/pension.js');
 const pensionInheritValidators = require('./field-validators/pension-inherit.js');
 const pregnantValidators = require('./field-validators/pregnant.js');
+const pregnantDueDateValidators = require('./field-validators/pregnant-due-date.js');
 const liveLessThanSixMonthsValidators = require('./field-validators/live-less-than-6-months.js');
 const sspEndValidators = require('./field-validators/ssp-end.js');
 const sspRecentValidators = require('./field-validators/ssp-recent.js');
@@ -252,6 +255,18 @@ module.exports = {
   address: {
     view: 'pages/address.njk',
     fieldValidators: addressValidators,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'address');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'correspondence-address': {
+    view: 'pages/correspondence-address.njk',
+    fieldValidators: correspondenceAddressValidators,
     hooks: {
       prerender: (req, res, next) => {
         res.locals.errorsFlag = checkForErrors(req, 'address');
@@ -624,11 +639,23 @@ module.exports = {
     fieldValidators: hospitalInpatientValidators,
     hooks: {
       prerender: (req, res, next) => {
+        next();
+        res.locals.errorsFlag = checkForErrors(req, 'hospital-inpatient');
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'hospital-details': {
+    view: 'pages/hospital-details.njk',
+    fieldValidators: hospitalDetailsValidators,
+    hooks: {
+      prerender: (req, res, next) => {
         res.locals.admissionDateHint = moment()
           .subtract(2, 'months')
           .format('D M YYYY');
         next();
-        res.locals.errorsFlag = checkForErrors(req, 'hospital-inpatient');
+        res.locals.errorsFlag = checkForErrors(req, 'hospital-details');
       },
       preredirect: navigateToNextPage,
     },
@@ -759,10 +786,22 @@ module.exports = {
     fieldValidators: pregnantValidators,
     hooks: {
       prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'pregnant');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'pregnant-due-date': {
+    view: 'pages/pregnant-due-date.njk',
+    fieldValidators: pregnantDueDateValidators,
+    hooks: {
+      prerender: (req, res, next) => {
         res.locals.dueDateHint = moment()
           .add(5, 'months')
           .format('D M YYYY');
-        res.locals.errorsFlag = checkForErrors(req, 'pregnant');
+        res.locals.errorsFlag = checkForErrors(req, 'pregnant-due-date');
         next();
       },
       preredirect: navigateToNextPage,

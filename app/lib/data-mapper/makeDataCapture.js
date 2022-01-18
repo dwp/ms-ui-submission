@@ -22,6 +22,7 @@ const appLogger = Logger();
 
 module.exports = (translator, journeyData, session) => {
   const address = journeyData.getDataForPage('address');
+  const correspondenceAddress = journeyData.getDataForPage('correspondence-address');
   const bankDetails = journeyData.getDataForPage('bank-details');
   const claimStartDate = journeyData.getDataForPage('claim-start-date');
   const claimEndDate = journeyData.getDataForPage('claim-end-date');
@@ -30,6 +31,7 @@ module.exports = (translator, journeyData, session) => {
   const ds1500Report = journeyData.getDataForPage('ds1500-report');
   const employed = journeyData.getDataForPage('employed');
   const hospitalInpatient = journeyData.getDataForPage('hospital-inpatient');
+  const hospitalDetails = journeyData.getDataForPage('hospital-details');
   const insurance = journeyData.getDataForPage('insurance');
   const medicalCentre = journeyData.getDataForPage('medical-centre');
   const militaryOverseas = journeyData.getDataForPage('military-overseas');
@@ -39,6 +41,7 @@ module.exports = (translator, journeyData, session) => {
   const pension = journeyData.getDataForPage('pension');
   const pensionInherit = journeyData.getDataForPage('pension-inherit');
   const pregnant = journeyData.getDataForPage('pregnant');
+  const pregnantDueDate = journeyData.getDataForPage('pregnant-due-date');
   const severeCondition = journeyData.getDataForPage('live-less-than-6-months');
   const ssp = journeyData.getDataForPage('statutory-pay');
   const sspEnd = journeyData.getDataForPage('statutory-sick-pay-end');
@@ -120,12 +123,12 @@ module.exports = (translator, journeyData, session) => {
   if (address.correspondence === 'no') {
     capture.correspondence_address = {
       lines: [
-        address.correspondenceAddress.address1,
-        address.correspondenceAddress.address2,
-        address.correspondenceAddress.address3,
+        correspondenceAddress.correspondenceAddress.address1,
+        correspondenceAddress.correspondenceAddress.address2,
+        correspondenceAddress.correspondenceAddress.address3,
       ],
       premises: '',
-      postcode: address.correspondenceAddress.postcode,
+      postcode: correspondenceAddress.correspondenceAddress.postcode,
     };
   } else {
     capture.correspondence_address = null;
@@ -148,16 +151,16 @@ module.exports = (translator, journeyData, session) => {
   capture.dwp_share_with_doc = consentOutcome.dwpShareWithDoc;
   capture.hospital_inpatient = hospitalInpatient.hospitalInpatient;
   if (hospitalInpatient.hospitalInpatient === 'yes') {
-    capture.hospital_name = hospitalInpatient.hospitalName;
-    capture.hospital_ward = hospitalInpatient.hospitalWard;
-    capture.hospital_admission_date = `${hospitalInpatient.admissionDate.yyyy}-${formatDigit(hospitalInpatient.admissionDate.mm)}-${formatDigit(hospitalInpatient.admissionDate.dd)}`;
+    capture.hospital_name = hospitalDetails.hospitalName;
+    capture.hospital_ward = hospitalDetails.hospitalWard;
+    capture.hospital_admission_date = `${hospitalDetails.admissionDate.yyyy}-${formatDigit(hospitalDetails.admissionDate.mm)}-${formatDigit(hospitalDetails.admissionDate.dd)}`;
   }
   capture.military_overseas = militaryOverseas.militaryOverseas;
   capture.mobile = mobile && mobile.mobile;
   capture.other_number = otherNumber && otherNumber.other && otherNumber.other.replace(/\s/g, '');
   capture.pregnant = pregnant.pregnant;
   if (pregnant.pregnant === 'yes') {
-    capture.due_date = `${pregnant.dueDate.yyyy}-${formatDigit(pregnant.dueDate.mm)}-${formatDigit(pregnant.dueDate.dd)}`;
+    capture.due_date = `${pregnantDueDate.dueDate.yyyy}-${formatDigit(pregnantDueDate.dueDate.mm)}-${formatDigit(pregnantDueDate.dueDate.dd)}`;
   }
   capture.severe_condition = severeCondition.severeCondition;
   if (severeCondition.severeCondition === 'yes') {

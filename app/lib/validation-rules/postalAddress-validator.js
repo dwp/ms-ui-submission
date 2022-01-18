@@ -110,7 +110,6 @@ function postalAddressObject(value) {
 
   if (typeof trimmedValue === 'object') {
     const reAddrRegex = /^[^\s]+[a-z0-9\-,.&#()/\\:;'" ]+$/i;
-    const reAddrAltRegex = cfg.altRegex || /^\d+|[^\s]+[a-z0-9\-,.&#()/\\:;'" ]+$/i;
     // UK Postcode regex taken from the dwp java pc checker
     // https://github.com/dwp/postcode-format-validation
     const pc = /^(?![QVX])[A-Z]((?![IJZ])[A-Z][0-9](([0-9]?)|([ABEHMNPRVWXY]?))|([0-9]([0-9]?|[ABCDEFGHJKPSTUW]?))) ?[0-9]((?![CIKMOV])[A-Z]){2}$|^(BFPO)[ ]?[0-9]{1,4}$/i;
@@ -122,7 +121,7 @@ function postalAddressObject(value) {
         cfg.errorMsgAddress1Format],
       address2: [reqF.address2, reAddrRegex, cfg.strlenmax, cfg.errorMsgAddress2,
         cfg.errorMsgAddress2Format],
-      address3: [reqF.address3, reAddrAltRegex, cfg.strlenmax, cfg.errorMsgAddress3,
+      address3: [reqF.address3, reAddrRegex, cfg.strlenmax, cfg.errorMsgAddress3,
         cfg.errorMsgAddress3Format],
       address4: [reqF.address4, reAddrRegex, cfg.strlenmax, cfg.errorMsgAddress4,
         cfg.errorMsgAddress4Format],

@@ -13,12 +13,6 @@ module.exports = {
       altRegex: /^[^0-9]*$/,
     }),
   ]),
-  correspondenceAddress: SimpleField([
-    validatePostalAddress.bind({
-      requiredFields: ['address1', 'postcode'],
-      altRegex: /^[^0-9]*$/,
-    }),
-  ], (pageData) => pageData.correspondence === 'no'),
   correspondence: SimpleField([
     rules.required.bind({
       errorMsg: 'address:correspondence.errors.required',

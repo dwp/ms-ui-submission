@@ -201,6 +201,7 @@ const args = process.argv.slice(2)
 
     if (inPatient) {
       await driver.findElement(By.id('f-hospitalInpatient')).click();
+      await driver.findElement(By.id('continue-button')).click();
       await driver.findElement(By.name('hospitalName')).sendKeys(faker.company.companyName());
       await driver.findElement(By.name('hospitalWard')).sendKeys(faker.company.companyName());
       const admissionDate = moment().subtract(3, 'months');
@@ -215,6 +216,7 @@ const args = process.argv.slice(2)
 
     if (pregnant) {
       await driver.findElement(By.id('f-pregnant')).click();
+      await driver.findElement(By.id('continue-button')).click();
       const dueDate = moment().add(3, 'months');
       await driver.findElement(By.name('dueDate[dd]')).sendKeys(dueDate.date().toString());
       await driver.findElement(By.name('dueDate[mm]')).sendKeys((dueDate.month() + 1).toString());

@@ -10,8 +10,5 @@
     "errors": {
       "required": "Select yes if you want letters sending to this address"
     }
-  },
-  "correspondenceAddress": {
-    "label": "Enter the address you want letters sent to"
   }
 }

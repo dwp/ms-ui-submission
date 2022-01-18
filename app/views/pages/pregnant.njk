@@ -9,43 +9,6 @@
 
 {% block journey_form %}
 
-    {% set dueDate %}
-
-    {% set dayError = formErrors['dueDate'][0].inline | matchDay or formErrors['dueDate'][0].errorType | includesDay %}
-    {% set monthError = formErrors['dueDate'][0].inline | matchMonth or formErrors['dueDate'][0].errorType | includesMonth %}
-    {% set yearError = formErrors['dueDate'][0].inline | matchYear or formErrors['dueDate'][0].errorType | includesYear %}
-
-        {% set dateParams = {
-             name: 'dueDate',
-             fieldset: {
-                 legend: {
-                     text: t('pregnant:dueDate.label'),
-                     classes: 'govuk-fieldset__legend--m'
-                 }
-             },
-             hint: {
-                 html: t('pregnant:dueDate.hint', dueDateHint )
-             },
-             casaValue: formData.dueDate,
-             casaErrors: formErrors
-        } %}
-
-        {% set dateErrorParams = {} %}
-
-        {% if dayError or monthError or yearError %}
-            {% set dateErrorParams = {
-                items: [
-                      { classes: 'govuk-input--width-2' + (' govuk-input--error' if dayError ) },
-                      { classes: 'govuk-input--width-2' + (' govuk-input--error' if monthError ) },
-                      { classes: 'govuk-input--width-4' + (' govuk-input--error' if yearError ) }
-                ]
-            } %}
-         {% endif %}
-
-         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
-
-    {% endset -%}
-
     {{ casaGovukRadios({
         name: 'pregnant',
         casaValue: formData.pregnant,
@@ -62,9 +25,6 @@
             attributes: {
                 'data-question': t('pregnant:pregnant.label'),
                 'data-answer': t('pregnant:pregnant.yes')
-            },
-            conditional: {
-                html: dueDate
             }
         }, {
             value: 'no',

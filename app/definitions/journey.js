@@ -81,6 +81,7 @@ module.exports = (() => {
     'date-of-birth',
     'national-insurance-number',
     'address',
+    ['correspondence-address', (sessionData) => sessionData.address.correspondence === 'no'],
     ['language-preference-writing', (sessionData) => sessionData.postcode.welsh === true],
     ['language-preference-speaking', (sessionData) => sessionData.postcode.welsh === true],
     'mobile',
@@ -138,7 +139,9 @@ module.exports = (() => {
     'live-less-than-6-months',
     ['ds1500-report', (sessionData) => sessionData['live-less-than-6-months'].severeCondition === 'yes'],
     'hospital-inpatient',
+    ['hospital-details', (sessionData) => sessionData['hospital-inpatient'].hospitalInpatient === 'yes'],
     'pregnant',
+    ['pregnant-due-date', (sessionData) => sessionData.pregnant.pregnant === 'yes'],
     'doctor-declaration',
   ]);
 

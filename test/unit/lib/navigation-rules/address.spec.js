@@ -8,7 +8,7 @@ const address = require('../../../../app/lib/navigation-rules/address');
 describe('address navigation rules', () => {
   let req;
   let deleteIfPresent;
-  const page = 'address';
+  const page = 'correspondence-address';
   const fieldNames = ['correspondenceAddress'];
 
   beforeEach(() => {

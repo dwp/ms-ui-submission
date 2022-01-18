@@ -84,13 +84,15 @@ describe('DataMapper', () => {
   const journeyDataValues = {
     address: {
       correspondence: 'no',
-      correspondenceAddress: {
+      address: {
         address1: 'test',
         address2: 'test',
         address3: 'test',
         postcode: 'test',
       },
-      address: {
+    },
+    'correspondence-address': {
+      correspondenceAddress: {
         address1: 'test',
         address2: 'test',
         address3: 'test',
@@ -108,6 +110,8 @@ describe('DataMapper', () => {
     },
     'hospital-inpatient': {
       hospitalInpatient: 'yes',
+    },
+    'hospital-details': {
       admissionDate: {
         dd: '01',
         mm: '01',
@@ -178,6 +182,8 @@ describe('DataMapper', () => {
     },
     pregnant: {
       pregnant: 'yes',
+    },
+    'pregnant-due-date': {
       dueDate: {
         dd: '01',
         mm: '01',
