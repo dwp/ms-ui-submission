@@ -6,8 +6,8 @@
     "title": "What happens next"
   },
   "coronavirus" : {
-    "text1": "We will contact you about your claim by <span class=\"nobr\">%s</span>.",
-    "text2": "You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will contact you to book a <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply\">‘Claimant Commitment (opens in new tab)'</a> appointment, which is normally over the phone."
+    "text1": "We are processing your claim and if we need any more information we will contact you by <span class=\"nobr\">%s</span>.",
+    "text2": "You can claim for up to 14 days for coronavirus isolation."
   },
   "non-shielding" : {
     "h3": "Send us evidence that you’re self-isolating to support your application",

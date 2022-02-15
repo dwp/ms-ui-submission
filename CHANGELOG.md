@@ -1,4 +1,9 @@
-# 3.18.0 (2022-01-12)
+# 3.19.0 (2022-02-15)
+
+* feature: content update confirmation page srti and covid claims ([c43aa5c4](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/c43aa5c4))
+
+
+## <small> 3.18.0 (2022-01-12)</small>
 
 * ESAO-1512 Move pregnancy due date to a separate page
 * ESAO-1474 Move the correspondence address to a separate page

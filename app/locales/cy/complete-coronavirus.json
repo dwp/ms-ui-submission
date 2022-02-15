@@ -6,8 +6,8 @@
     "title": "Beth sy’n digwydd nesaf"
   },
   "coronavirus" : {
-    "text1": "Byddwn yn cysylltu â chi am eich cais erbyn <span class=\"nobr\">%s</span>.",
-    "text2": "Gallwch wneud cais am hyd at 14 diwrnod am ynysu oherwydd coronafeirws. Ar gyfer ceisiadau sy'n fwy na 14 diwrnod byddwn yn cysylltu â chi i drefnu apwyntiad <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply\">‘Ymrwymiad Hawlydd (agor mewn tab newydd)'</a>, sydd fel arfer dros y ffôn."
+    "text1": "Rydym yn prosesu eich cais ac os byddwn angen mwy o wybodaeth, byddwn yn cysylltu â chi erbyn by <span class=\"nobr\">%s</span>.",
+    "text2": "Gallwch wneud cais am hyd at 14 diwrnod ar gyfer hunan ynysu oherwydd coronafeirws."
   },
   "non-shielding" : {
     "h3": "Anfonwch dystiolaeth atom eich bod yn hunan-ynysu i gefnogi’ch cais",

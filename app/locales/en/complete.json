@@ -6,8 +6,15 @@
     "title": "What happens next"
   },
   "coronavirus" : {
-    "text1": "We will contact you by <span class=\"nobr\">%s</span> and book you a ‘Claimant Commitment’ appointment, which is normally over the phone.</br>We'll talk to you about what you need to do to get New Style ESA, including asking you to:</br><ul class=\"govuk-list govuk-list--bullet\"><li>explain how your illness or disability affects your ability to work</li><li>provide medical evidence</li><li>agree to tell us if your circumstances change</li></ul>",
-    "text2": "You must agree to your Claimant Commitment before you can get New Style ESA."
+    "text1": "We will contact you by <span class=\"nobr\">%s</span>.",
+    "text2": "We will book you a 'Claimant Commitment' appointment, unless your Health Practitioner has informed you that you have less than 6 months to live, This is normally over the phone - unless you have told us you need an alternative format.",
+    "text3": "We'll talk to you about what you need to do to get New Style ESA, including asking you to:",
+    "text4": "You must agree to your Claimant Commitment before you can get New Style ESA.",
+    "conditionalBulletPoints": {
+      "li1": "explain how your illness or disability affects your ability to work",
+      "li2": "provide medical evidence",
+      "li3": "agree to tell us if your circumstances change"
+    }
   },
   "medicalEvidence" : {
     "medicalEvidenceHeading": "Send us evidence to support your application",
@@ -27,7 +34,16 @@
       "li4": "DS1500 (a form completed and sent to us by a doctor, consultant or specialist nurse if they think you might not live longer than 6 months, because of your condition)",
       "text2": "Other forms of evidence might include a doctor’s statement, consultant’s report or Local Authority notice."
     },
-    "text3": "You will need to keep sending us medical evidence as long as you’re unfit for work. We will tell you when you can stop sending it. For example, if your fit note is for 14 days, you will need to send us another one when it runs out."
+    "text3": "You will need to keep sending us medical evidence as long as you’re unfit for work. We will tell you when you can stop sending it. For example, if your fit note is for 14 days, you will need to send us another one when it runs out.",
+    "yesSRTI":{
+      "heading": "Send us your DS1500 medical form, if you have one",
+      "text1": "We will contact you by <span class=\"nobr\">%s</span>, if we need more information.",
+      "text2": "This is usually sent to the DWP by your doctor or specialist nurse.",
+      "text3": "If you have a copy, send it to:",
+      "text4": "You do not need to submit another DS1500 form if you have already submitted one for a Personal Independence Payment (PIP) claim.",
+      "text5": "If you do not have a DS1500, ask your doctor or specialist nurse to complete one as soon as possible. You do not have to pay for it.",
+      "text6": "If you have an SSP1 form, you need to send it to us. You can get this from your employer."
+    }
   },
   "sendEvidence": {
     "heading": "How to send your evidence",

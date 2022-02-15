@@ -66,6 +66,7 @@ module.exports = (casaApp, mountUrl, router) => {
         fourteenDaysLater: moment().add(14, 'days').locale(req.language).format('D MMMM YYYY'),
         universalCredit,
         displaySSP1Content,
+        isRtiClaim,
       };
 
       // Empty session of all citizen data.

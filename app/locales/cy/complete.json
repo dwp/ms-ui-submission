@@ -6,8 +6,16 @@
     "title": "Beth sy’n digwydd nesaf"
   },
   "coronavirus" : {
-    "text1": "Byddwn yn cysylltu â chi erbyn <span class=\"nobr\">%s</span> a threfnu apwyntiad ‘Ymrwymiad Hawlydd’ i chi, sydd fel arfer dros y ffôn.</br>Byddwn yn siarad â chi am beth sydd angen i chi ei wneud i gael ESA Dull Newydd, yn cynnwys gofyn i chi:</br><ul class=\"govuk-list govuk-list--bullet\"><li>egluro sut mae eich salwch neu anabledd yn effeithio eich gallu i weithio</li><li>darparu tystiolaeth feddygol</li><li>cytuno i ddweud wrthym os bydd eich amgylchiadau’n newid</li></ul>",
-    "text2": "Mae’n rhaid i chi gytuno ar eich Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd."
+    "text1": "Byddwn yn cysylltu â chi erbyn <span class=\"nobr\">%s</span>.",
+    "text1Addition": "os byddwn angen mwy o wybodaeth.",
+    "text2": "Byddwn yn trefnu apwyntiad ‘Ymrwymiad Hawlydd’ i chi oni bai bod eich Ymarferydd Iechyd wedi dweud wrthych bod gennych lai na 6 mis i fyw. Mae hyn fel arfer dros y ffôn – oni bai eich bod wedi dweud wrthym eich bod angen dull amgen.",
+    "text3": "Byddwn yn siarad â chi am beth sydd angen i chi ei wneud i gael ESA Dull Newydd, yn cynnwys gofyn i chi:",
+    "text4": "Rhaid i chi gytuno i’ch Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd.",
+    "conditionalBulletPoints": {
+      "li1": "egluro sut mae eich salwch neu anabledd yn effeithio ar eich gallu i weithio",
+      "li2": "darparu tystiolaeth meddygol",
+      "li3": "cytuno i ddweud wrthym os bydd eich amgylchiadau’n newid"
+    }
   },
   "medicalEvidence" : {
     "medicalEvidenceHeading": "Anfonwch dystiolaeth atom i gefnogi eich cais",
@@ -27,7 +35,16 @@
       "li4": "DS1500 (ffurflen wedi’i llenwi a’i hanfon atom gan doctor, ymgynghorydd neu nyrs arbenigol os ydynt yn credu efallai na fyddwch yn byw yn fwy na 6 mis, oherwydd eich cyflwr)",
       "text2": "Gallai mathau eraill o dystiolaeth gynnwys datganiad doctor, adroddiad ymgynghorydd neu hysbysiad Awdurdod Lleol."
     },
-    "text3": "Bydd angen i chi barhau i anfon tystiolaeth feddygol atom cyn belled â’ch bod ddim digon abl i weithio. Byddwn yn dweud wrthych pryd y gallwch roi’r gorau i’w hanfon. Er enghraifft, os yw’ch nodyn ffitrwydd am 14 diwrnod, bydd angen i chi i anfon un arall atom pan fydd yn rhedeg allan."
+    "text3": "Bydd angen i chi barhau i anfon tystiolaeth feddygol atom cyn belled â’ch bod ddim digon abl i weithio. Byddwn yn dweud wrthych pryd y gallwch roi’r gorau i’w hanfon. Er enghraifft, os yw’ch nodyn ffitrwydd am 14 diwrnod, bydd angen i chi i anfon un arall atom pan fydd yn rhedeg allan.",
+    "yesSRTI":{
+      "heading":"Anfonnwch eich ffurflen meddygol DS1500 i ni, os oes gennych un",
+      "text1": "Byddwn yn cysylltu â chi erbyn <span class=\"nobr\">%s</span>, os byddwn angen mwy o wybodaeth.",
+      "text2": "Mae hwn fel arfer yn cael ei anfon i’r DWP gan eich doctor neu nyrs arbenigol.",
+      "text3": "Os oes gennych gopi, anfonwch hi i:",
+      "text4": "Nid oes angen i chi anfon ffurflen DS1500 arall os ydych eisoes wedi anfon un ar gyfer cais am Daliad Annibyniaeth Personol (PIP).",
+      "text5": "Os nad oes gennych DS1500, gofynnwch i'ch doctor neu nyrs arbenigol gwblhau un cyn gynted â phosibl. Nid oes rhaid i chi dalu amdano.",
+      "text6": "Os oes gennych ffurflen SSP1, mae angen i chi ei hanfon atom. Gallwch gael hon gan eich cyflogwr."
+    }
   },
   "sendEvidence": {
     "heading": "Sut i anfon eich tystiolaeth",

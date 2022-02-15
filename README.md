@@ -35,7 +35,7 @@ See documentation of @dwp/govuk-casa.
 
 Use the node start script to start the application on local device by either:
 
-[a] pull the code from the git repo, and run `npm install`, and `env $(cat .env.dev | grep -v ^# | xargs) npm start`
+[a] pull the code from the git repo, and run `npm install`, and `env $(cat .env.dev | grep -v ^# | xargs) npm start` or `npm run start:dev` to run in dev environment
 
 OR
 
