@@ -1,3 +1,12 @@
 {
-
+    "1006947": {
+        "active": true,
+        "notes": "Regular expression denial of service -  gulp -> glob-watcher -> chokidar -> glob-parent - expires Monday, February 28, 2022 9:00:00 AM",
+        "expiry": 1646038800000
+    },
+    "1006307": {
+        "active": true,
+        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template - expires Monday, February 28, 2022 9:00:00 AM",
+        "expiry": 1646038800000
+    }
 }

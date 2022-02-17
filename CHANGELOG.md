@@ -1,3 +1,7 @@
+# 3.19.1 (2022-02-17)
+
+* fix: add gulp as dependency to fix bundling errors ([f1f33968](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/f1f33968))
+
 # 3.19.0 (2022-02-15)
 
 * feature: content update confirmation page srti and covid claims ([c43aa5c4](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/c43aa5c4))

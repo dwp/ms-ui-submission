@@ -5,6 +5,8 @@ const path = require('path');
 const FileStore = require('session-file-store')(expressSession);
 const fs = require('fs');
 const https = require('https');
+const gulp = require('gulp');
+require('../gulpfile');
 const RedisStore = require('connect-redis')(expressSession);
 const Redis = require('ioredis');
 const CryptoService = require('dwp-cryptoservice');
@@ -26,6 +28,9 @@ const cookieDetails = 'cookie-details';
 const appLogger = Logger();
 const casaSubApp = express();
 const startSubApp = require('./start-pages-sub-app/app');
+
+// create the minified js.
+gulp.task('minifyjs')();
 
 const app = express();
 
