@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "3.19.1",
+  "version": "3.20.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -38,14 +38,14 @@
   "license": "ISC",
   "dependencies": {
     "@dwp/govuk-casa": "4.1.0",
-    "body-parser": "1.19.1",
+    "body-parser": "1.19.2",
     "connect-redis": "5.2.0",
     "cookie-parser": "^1.4.6",
     "csurf": "1.11.0",
     "del": "6.0.0",
     "dwp-cryptoservice": "2.2.5",
     "dwp-winston-format": "1.2.1",
-    "express": "4.17.2",
+    "express": "4.17.3",
     "express-session": "1.17.2",
     "govuk-frontend": "3.14.0",
     "gulp": "4.0.2",

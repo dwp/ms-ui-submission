@@ -31,17 +31,17 @@
       "li1": "Med10 (a hospital certificate given to inpatients if your treatment lasts more than 7 days)",
       "li2": "MATB1 (if you’re pregnant but you cannot get Statutory Maternity Pay or Maternity Allowance)",
       "li3": "CF73 (a form issued by a psychiatric hospital)",
-      "li4": "DS1500 (a form completed and sent to us by a doctor, consultant or specialist nurse if they think you might not live longer than 6 months, because of your condition)",
+      "li4": "DS1500 or BASRiS (a form completed and sent to us by a doctor, consultant or specialist nurse if they think you might not live longer than 6 months, because of your condition)",
       "text2": "Other forms of evidence might include a doctor’s statement, consultant’s report or Local Authority notice."
     },
     "text3": "You will need to keep sending us medical evidence as long as you’re unfit for work. We will tell you when you can stop sending it. For example, if your fit note is for 14 days, you will need to send us another one when it runs out.",
     "yesSRTI":{
-      "heading": "Send us your DS1500 medical form, if you have one",
-      "text1": "We will contact you by <span class=\"nobr\">%s</span>, if we need more information.",
+      "heading": "Send us your DS1500 or BASRiS form, if you have one.",
+      "text1": "We will contact you by <span class=\"nobr\">%s</span> if we need more information.",
       "text2": "This is usually sent to the DWP by your doctor or specialist nurse.",
       "text3": "If you have a copy, send it to:",
-      "text4": "You do not need to submit another DS1500 form if you have already submitted one for a Personal Independence Payment (PIP) claim.",
-      "text5": "If you do not have a DS1500, ask your doctor or specialist nurse to complete one as soon as possible. You do not have to pay for it.",
+      "text4": "You do not need to submit another DS1500 or BASRiS form if you have already submitted one for a claim for Personal Independence Payment (PIP) or Adult Disability Payment (ADP).",
+      "text5": "If you do not have a DS1500 or BASRiS form, ask your doctor or specialist nurse to complete one as soon as possible. You do not have to pay for it.",
       "text6": "If you have an SSP1 form, you need to send it to us. You can get this from your employer."
     }
   },

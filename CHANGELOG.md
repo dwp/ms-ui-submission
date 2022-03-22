@@ -1,8 +1,12 @@
+# 3.20.0 (2022-03-21)
+
+* feature: Basris content changes ([1b2f0d9f](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/1b2f0d9f))
+
 # 3.19.1 (2022-02-17)
 
 * fix: add gulp as dependency to fix bundling errors ([f1f33968](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/f1f33968))
 
-# 3.19.0 (2022-02-15)
+## <small> 3.19.0 (2022-02-15)</small>
 
 * feature: content update confirmation page srti and covid claims ([c43aa5c4](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/c43aa5c4))
 
