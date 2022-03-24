@@ -1,12 +1,12 @@
 {
-  "pageTitle": "How has coronavirus affected you?",
+  "pageTitle": "How did coronavirus affect you?",
   "coronavirusReasonForClaim" : {
-    "label": "How has coronavirus affected you?",
-    "hint": "<p class=\"govuk-body\">This includes you or your child, now or some time in the past.</p>",
-    "reason-self-isolation-symptoms": "I’m self-isolating because I have symptoms of coronavirus",
-    "reason-self-isolation-contact": "I’m self-isolating because I came into contact with someone who has symptoms of coronavirus. Or I was told to self-isolate by a test and trace service",
+    "label": "How did coronavirus affect you?",
+    "hint": "<p class=\"govuk-body\">This includes you or your child, before 24 March 2022.</p>",
+    "reason-self-isolation-symptoms": "I was self-isolating because I had  coronavirus",
+    "reason-self-isolation-contact": "I was self-isolating because I got a notification from NHS or public health authorities that I had come into contact with someone with coronavirus",
     "reason-self-isolation-contact-data-answer": "I’m self-isolating because I came into contact with coronavirus",
-    "reason-quarantining": "I'm quarantining because I have returned from another country",
+    "reason-quarantining": "I was advised by my doctor or healthcare professional to self-isolate before surgery",
     "reason-other": "Other reason",
     "reason-other-data-answer": "Coronavirus other reason",
     "reason-other-label": "How else has coronavirus affected you?",

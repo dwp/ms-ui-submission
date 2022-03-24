@@ -1,6 +1,6 @@
 {
   "pageTitle": "Date you were affected by coronavirus",
-  "default-text": "This might be when you or your child started self-isolating or the date you returned to the UK for quarantine.",
+  "default-text": "This might be when you or your child started self-isolating.",
   "coronavirusDate" : {
     "label": "What date were you affected by coronavirus?",
     "hint": "For example, 28 2 2020",

@@ -9,6 +9,7 @@
 
 
 {% block journey_form %}
+    {% include "partials/coronavirus-notification-banner.njk" %}
 
     {% set selfIsolationSymptomsDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-symptoms') %}
     {% set selfIsolationContactDesc = t('coronavirus-reason-for-claim:coronavirusReasonForClaim.reason-self-isolation-contact') %}

@@ -2,7 +2,7 @@
   "pageTitle": "O ba ddyddiad ydych chi eisiau gwneud cais?",
   "claimStartDate" : {
     "label": "O ba ddyddiad ydych chi eisiau gwneud cais?",
-    "hint": "<p class=\"govuk-body\">Rydych angen tystiolaeth i gwmpasu’r cyfnod - er enghraifft, nodyn ffitrwydd (a elwir hefyd yn nodyn salwch) neu nodyn ynysu os ydych yn hunan-ynysu oherwydd coronafeirws.</p>",
+    "hint": "<p class=\"govuk-body\">Rydych angen tystiolaeth i gwmpasu’r cyfnod, er enghraifft, nodyn ffitrwydd (a elwir hefyd yn nodyn salwch) neu nodyn ynysu os oeddech yn hunanynysu cyn 24 Mawrth 2022 oherwydd coronafeirws.</p>Er enghraifft, <span class=\"nobr\">%s</span>",
     "errors": {
       "required": "Rhowch y dyddiad rydych eisiau gwneud cais o",
       "missingDay": "Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod",

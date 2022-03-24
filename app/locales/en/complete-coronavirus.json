@@ -6,25 +6,16 @@
     "title": "What happens next"
   },
   "coronavirus" : {
-    "text1": "We are processing your claim and if we need any more information we will contact you by <span class=\"nobr\">%s</span>.",
-    "text2": "You can claim for up to 14 days for coronavirus isolation."
+    "text1": "We will contact you about your claim by <span class=\"nobr\">%s</span>.",
+    "text2": "You can claim for up to 14 days for coronavirus isolation. For claims longer than 14 days we will contact you to book a <a class=\"govuk-link\" href=\"https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply/\" target=\"_blank\">'Claimant Commitment' (opens in new tab)</a> appointment. This is normally over the phone unless you have told us you need an alternative format.",
+    "text3": "The date of your claim must be before 24 March 2022. This is due to the temporary regulations that provided eligibility to Employment and Support Allowance (ESA) if you had been affected by coronavirus ending."
   },
   "non-shielding" : {
-    "h3": "Send us evidence that you’re self-isolating to support your application",
-    "body19": "There are different instructions depending on the reason you’re self-isolating.",
-    "body20": "Send us your evidence as soon as you can so we can process your claim.",
-    "h4-1": "If you’re self-isolating (but not for surgery)",
-    "body21": "You can get an <a class=\"govuk-link\" href=\"https://111.nhs.uk/isolation-note/\" target=\"_blank\">‘isolation note’ online from NHS 111 (opens in new tab)</a> if any of the following apply:",
-    "li12":	"you’re self-isolating because you have symptoms of coronavirus",
-    "li13":	"you’re self-isolating because you came into contact with someone who has symptoms of coronavirus",
-    "li14":	"you were told to self-isolate by a test and trace service",
-    "li15":	"you’re in quarantine because you’re returning from a trip abroad",
-    "body22": "You do not have to go to your doctor or a hospital.",
-    "body23": "Your isolation note will have a 16-digit reference number. We will contact you about your claim and take this reference number from you.",
-    "h4-2": "If you’re self-isolating because you have surgery",
-    "body24": "If you’ve been advised by your doctor or healthcare professional to self-isolate before going into hospital for surgery, your letter confirming the date of your procedure is proof. Send us a copy of your appointment letter.",
-    "body25": "If you do not have a printed copy of your letter or cannot leave your home to post it, your local council might be able to help. Go to <a class=\"govuk-link\" href=\"https://www.gov.uk/coronavirus-local-help\" target=\"_blank\">GOV.UK to find coronavirus help in your local area (opens in new tab)</a>.",
-    "inset3h4": "Where to send your letter by post",
+    "h3": "Send us your evidence to tell us you were self-isolating",
+    "li12":	"an isolation note online from  <a class=\"govuk-link\" href=\"https://111.nhs.uk/isolation-note/\" target=\"_blank\">NHS 111 (opens in a new tab)</a>, if you or your child were self-isolating in line with your government guidance and you could not work",
+    "li13":	"a notification from the NHS or public health authorities, if you had come into contact with someone with COVID-19",
+    "li14":	"the letter confirming the date of your procedure if you were advised by your doctor or healthcare professional to self-isolate before going into hospital for surgery",
+    "inset3h4": "Post your evidence to:",
     "inset3body": "Freepost DWP ESA 26"
   },
   "universalCreditYes": {
@@ -32,16 +23,9 @@
     "text1": "If you get or have applied for Universal Credit, you will need to tell them that you’ve applied for New Style ESA. You can do this by <a class=\"govuk-link\" href=\"https://www.gov.uk/sign-in-universal-credit\" target=\"_blank\">signing in to your Universal Credit account (opens in new tab)</a> and using the journal to contact your case manager.",
     "text2": "You must also enter details from your medical evidence into your Universal Credit account. For example, if you have a fit note, you do not need to send it to Universal Credit, but you must enter the dates."
   },
-  "universalCreditNo": {
-    "heading": "Do you need help with housing costs or support for a partner or child?",
-    "text1": "If you‘re on a low income or out of work, you can apply for Universal Credit as part of a dual claim with New Style ESA.",
-    "text2": "Unlike New Style ESA, you can apply with a partner and get support for housing costs, children and childcare.",
-    "text3": "You or your partner must have less than £16,000 in savings or investments to be eligible.",
-    "text4": "Find out <a class=\"govuk-link\" href=\"https://www.gov.uk/how-to-claim-universal-credit\" target=\"_blank\">how to claim for Universal Credit on GOV.UK (opens in new tab)</a>."
-  },
   "feedback": {
-  "feedbackHeading": "Give us your feedback",
-  "feedbackQuestionLink" : "<a class=\"govuk-link\" href=\"/feedback\" target=\"_blank\">What did you think of this service? (opens in new tab)</a>. It takes 30 seconds.",
-  "researchQuestion" : "Volunteer to <a class=\"govuk-link\" href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f\" target=\"_blank\">take part in research (opens in new tab)</a> to help improve this service."
+    "feedbackHeading": "Give us your feedback",
+    "feedbackQuestionLink" : "<a class=\"govuk-link\" href=\"/feedback\" target=\"_blank\">What did you think of this service? (opens in new tab)</a>. It takes 30 seconds.",
+    "researchQuestion" : "Volunteer to <a class=\"govuk-link\" href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f\" target=\"_blank\">take part in research (opens in new tab)</a> to help improve this service."
   }
 }

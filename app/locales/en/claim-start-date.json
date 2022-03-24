@@ -2,7 +2,7 @@
   "pageTitle": "What date do you want to claim from?",
   "claimStartDate" : {
     "label": "What date do you want to claim from?",
-    "hint": "<p class=\"govuk-body\">You need evidence to cover the period – for example, a fit note (also known as a sick note) or an isolation note if you’re self-isolating because of coronavirus.</p>For example, <span class=\"nobr\">%s</span>",
+    "hint": "<p class=\"govuk-body\">You need evidence to cover the period, for example, a fit note (also known as a sick note) or an isolation note if you were self-isolating before March 24 2022 because of coronavirus.</p>For example, <span class=\"nobr\">%s</span>",
     "errors": {
       "required": "Enter the date you want to claim from",
       "missingDay": "Date you want to claim from must include a day",

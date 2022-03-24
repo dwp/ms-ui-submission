@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block journey_form %}
+    {% include "partials/coronavirus-notification-banner.njk" %}
 
     {% set dayError = formErrors['coronavirusDate'][0].inline | matchDay or formErrors['coronavirusDate'][0].errorType | includesDay %}
     {% set monthError = formErrors['coronavirusDate'][0].inline | matchMonth or formErrors['coronavirusDate'][0].errorType | includesMonth %}

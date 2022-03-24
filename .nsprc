@@ -1,12 +1,17 @@
 {
-    "1065072": {
-        "active": true,
-        "notes": "Regular expression denial of service -  gulp -> glob-watcher -> chokidar -> glob-parent - expires Tuesday, March 29, 2022 10:25:39 AM",
-        "expiry": 1648549539000
-    },
-    "1066778": {
-        "active": true,
-        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template - expires Tuesday, March 29, 2022 10:25:39 AM",
-        "expiry": 1648549539000
-    }
+  "1065072": {
+    "active": true,
+    "notes": "Regular expression denial of service -  gulp -> glob-watcher -> chokidar -> glob-parent - expires Tuesday, March 29, 2022 10:25:39 AM",
+    "expiry": 1648549539000
+  },
+  "1066778": {
+    "active": true,
+    "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template - expires Tuesday, March 29, 2022 10:25:39 AM",
+    "expiry": 1648549539000
+  },
+  "1067285": {
+    "active": true,
+    "notes": "Prototype Pollution in minimist - gulp-inline>gulp-util>minimist - expires Tuesday, March 29, 2022 10:25:39 AM",
+    "expiry": 1648549539000
+  }
 }

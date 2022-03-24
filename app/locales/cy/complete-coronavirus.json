@@ -6,25 +6,16 @@
     "title": "Beth sy’n digwydd nesaf"
   },
   "coronavirus" : {
-    "text1": "Rydym yn prosesu eich cais ac os byddwn angen mwy o wybodaeth, byddwn yn cysylltu â chi erbyn by <span class=\"nobr\">%s</span>.",
-    "text2": "Gallwch wneud cais am hyd at 14 diwrnod ar gyfer hunan ynysu oherwydd coronafeirws."
+    "text1": "Byddwn yn cysylltu â chi am eich cais erbyn <span class=\"nobr\">%s</span>.",
+    "text2": "Gallwch wneud cais am hyd at 14 diwrnod ar gyfer hunanynysu oherwydd coronafeirws. Ar gyfer ceisiadau sydd yn fwy na 14 diwrnod, byddwn yn cysylltu â chi i trefnu apwyntiad  <a class=\"govuk-link\" href=\"https://www.gov.uk/guidance/new-style-employment-and-support-allowance#after-you-apply/\" target=\"_blank\">‘Ymrwymiad Hawlydd’ (agor mewn tab newydd)</a>. Mae hyn fel arfer dros y ffôn – oni bai eich bod wedi dweud wrthym eich bod angen dull amgen.",
+    "text3": "Rhaid i ddyddiad eich cais fod cyn 24 Mawrth 2022. Mae hyn oherwydd bod y rheoliadau dros dro a ddarparodd gymhwysedd i gael Lwfans Cyflogaeth a Chymorth (ESA) os oeddech wedi cael eich effeithio gan goronafeirws yn dod i ben."
   },
   "non-shielding" : {
-    "h3": "Anfonwch dystiolaeth atom eich bod yn hunan-ynysu i gefnogi’ch cais",
-    "body19": "Mae yna gyfarwyddiadau gwahanol yn dibynnu ar y rheswm rydych yn hunan-ynysu.",
-    "body20": "Anfonwch eich tystiolaeth atom cyn gynted ag y gallwch er mwyn i ni allu prosesu’ch cais.",
-    "h4-1": "Os ydych yn hunan-ynysu (ond ddim ar gyfer llawdriniaeth)",
-    "body21": "Gallwch gael <a class=\"govuk-link\" href=\"https://111.nhs.uk/isolation-note/\" target=\"_blank\">‘nodyn ynysu’ ar-lein gan y GIG 111 (agor mewn tab newydd)</a> os yw unrhyw un o’r canlynol yn berthnasol:",
-    "li12":     "rydych yn hunan-ynysu oherwydd bod gennych symptomau coronafeirws",
-    "li13":     "rydych yn hunan-ynysu oherwydd i chi ddod i gysylltiad â rhywun sydd â symptomau coronafeirws",
-    "li14":     "dywedwyd wrthych am hunan-ynysu gan wasanaeth profi ac olrhain",
-    "li15":     "rydych mewn cwarantîn oherwydd eich bod yn dychwelyd o daith dramor",
-    "body22": "Nid oes raid i chi fynd at eich doctor neu i ysbyty.",
-    "body23": "Bydd gan eich nodyn ynysu gyfeirnod 16 digid. Byddwn yn cysylltu â chi am eich cais ac yn cymryd y cyfeirnod hwn gennych.",
-    "h4-2": "Os ydych yn hunan-ynysu oherwydd eich bod chi’n cael llawdriniaeth",
-    "body24": "Os ydych wedi cael eich cynghori gan eich doctor neu weithiwr gofal iechyd proffesiynol i hunan-ynysu cyn mynd i’r ysbyty i gael llawdriniaeth, mae eich llythyr sy’n cadarnhau dyddiad eich triniaeth yn brawf. Anfonwch gopi o’ch llythyr apwyntiad atom.",
-    "body25": "Os nad oes gennych gopi wedi’i argraffu o’ch llythyr neu os na allwch adael eich cartref i’w bostio, efallai y bydd eich cyngor lleol yn gallu helpu. Ewch i <a class=\"govuk-link\" href=\"https://www.gov.uk/coronavirus-local-help\" target=\"_blank\">GOV.UK i ddod o hyd i help coronafeirws yn eich ardal leol (agor mewn tab newydd)</a>.",
-    "inset3h4": "Ble i anfon eich llythyr trwy’r post",
+    "h3": "Anfonwch eich tystiolaeth atom i ddweud wrthym eich bod yn hunanynysu",
+    "li12":	"nodyn ynysu ar-lein gan  <a class=\"govuk-link\" href=\"https://111.nhs.uk/isolation-note/\" target=\"_blank\">GIG 111 (yn agor mewn tab newydd)</a>, os oeddech chi neu'ch plentyn yn hunanynysu yn unol â chanllawiau eich llywodraeth ac na allech weithio",
+    "li13": "hysbysiad gan y GIG neu awdurdodau iechyd cyhoeddus, os oeddech wedi dod i gysylltiad â rhywun â COVID-19",
+    "li14": "y llythyr sy'n cadarnhau dyddiad eich triniaeth os cawsoch eich cynghori gan eich meddyg neu weithiwr gofal iechyd proffesiynol i hunanynysu cyn mynd i'r ysbyty am lawdriniaeth",
+    "inset3h4": "Postiwch eich tystiolaeth i:",
     "inset3body": "Freepost DWP ESA 26"
   },
   "universalCreditYes": {
@@ -40,8 +31,8 @@
     "text4": "Darganfyddwch <a class=\"govuk-link\" href=\"https://www.gov.uk/how-to-claim-universal-credit\" target=\"_blank\">sut i wneud cais am Gredyd Cynhwysol ar GOV.UK (agor mewn tab newydd)</a>."
   },
   "feedback": {
-  "feedbackHeading": "Rhowch eich adborth i ni",
-  "feedbackQuestionLink" : "<a class=\"govuk-link\" href=\"/feedback\" target=\"_blank\">Beth oeddech chi’n ei feddwl am y gwasanaeth hwn? (agor mewn tab newydd)</a>. Mae’n cymryd 30 eiliad.",
-  "researchQuestion" : "Gwirfoddolwch i <a class=\"govuk-link\" href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f\" target=\"_blank\">gymryd rhan mewn ymchwil (agor mewn tab newydd)</a> i helpu i wella’r gwasanaeth. Ar hyn o bryd mae’r ffurflen a’r gweithgareddau ymchwil dilynnol ond ar gael drwy gyfrwng y Saesneg."
+    "feedbackHeading": "Rhowch eich adborth i ni",
+    "feedbackQuestionLink" : "<a class=\"govuk-link\" href=\"/feedback\" target=\"_blank\">Beth oeddech chi’n ei feddwl am y gwasanaeth hwn? (agor mewn tab newydd)</a>. Mae’n cymryd 30 eiliad.",
+    "researchQuestion" : "Gwirfoddolwch i <a class=\"govuk-link\" href=\"https://getinvolved.dwp.gov.uk/digital/f56c176f\" target=\"_blank\">gymryd rhan mewn ymchwil (agor mewn tab newydd)</a> i helpu i wella’r gwasanaeth. Ar hyn o bryd mae’r ffurflen a’r gweithgareddau ymchwil dilynnol ond ar gael drwy gyfrwng y Saesneg."
   }
 }

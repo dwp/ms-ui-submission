@@ -7,6 +7,8 @@
 {% endblock %}
 
 {% block journey_form %}
+{% include "partials/coronavirus-notification-banner.njk" %}
+
 <h1 class="govuk-heading-l govuk-fieldset__legend--l">{{ t('coronavirus:coronavirusReasonForClaim.label') }}</h1>
 <p class="govuk-body">{{ t('coronavirus:coronavirusReasonForClaim.hint') | safe}}</p>
     {{ casaGovukRadios({

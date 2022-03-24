@@ -1,6 +1,6 @@
 {
   "pageTitle": "Y dyddiad yr effeithiodd coronafeirws arnoch",
-  "default-text": "Gall hyn fod pan ddechreuoch chi neu'ch plentyn hunan-ynysu neu'r dyddiad y gwnaethoch ddychwelyd i'r DU ar gyfer cwarantin.",
+  "default-text": "Gallai hyn fod pan wnaethoch chi neu eich plentyn ddechrau hunanynysu.",
   "coronavirusDate" : {
     "label": "Pa ddyddiad yr effeithwyd arnoch gan goronafeirws?",
     "hint": "Er enghraifft, 28 2 2020",

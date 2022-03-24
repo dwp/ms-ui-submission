@@ -1,12 +1,12 @@
 {
-  "pageTitle": "Sut mae coronafeirws wedi effeithio arnoch chi?",
+  "pageTitle": "Sut wnaeth coronafeirws effeithio arnoch?",
   "coronavirusReasonForClaim" : {
-    "label": "Sut mae coronafeirws wedi effeithio arnoch chi?",
-    "hint": "<p class=\"govuk-body\">Mae hyn yn cynnwys chi a’ch plentyn, nawr neu ryw amser yn y gorffennol.</p>",
-    "reason-self-isolation-symptoms": "Rwyf yn hunan-ynysu oherwydd mae gennyf symptomau coronafeirws",
-    "reason-self-isolation-contact": "Rwy’n hunan-ynysu oherwydd rwyf wedi bod mewn cysylltiad â rhywun sydd â symptomau coronafeirws. Neu dywedwyd wrthyf am hunan-ynysu gan wasanaeth profi ac olrhain",
+    "label": "Sut wnaeth coronafeirws effeithio arnoch?",
+    "hint": "<p class=\"govuk-body\">Mae hyn yn cynnwys chi neu’ch plentyn cyn 24 Mawrth 2022.</p>",
+    "reason-self-isolation-symptoms": "Roeddwn yn hunanynysu oherwydd bod gennyf coronafeirws",
+    "reason-self-isolation-contact": "Roeddwn yn hunanynysu oherwydd i mi gael hysbysiad gan y GIG neu awdurdodau iechyd cyhoeddus fy mod wedi dod i gysylltiad â rhywun â choronafeirws (COVID-19)",
     "reason-self-isolation-contact-data-answer": "I’m self-isolating because I came into contact with coronavirus",
-    "reason-quarantining": "Rydych mewn cwarantin oherwydd eich bod wedi dychwelyd o wlad arall",
+    "reason-quarantining": "Cefais fy nghynghori gan fy noctor neu weithiwr gofal iechyd proffesiynol i hunanynysu cyn llawdriniaeth",
     "reason-other": "Rheswm arall",
     "reason-other-data-answer": "Coronavirus other reason",
     "reason-other-label": "Ym mha ffordd arall mae coronafeirws wedi effeithio arnoch?",
