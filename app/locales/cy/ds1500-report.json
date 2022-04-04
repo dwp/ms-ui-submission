@@ -1,13 +1,13 @@
 {
-  "pageTitle" : "Ydy eich doctor, ymgynghorydd neu nyrs arbenigol wedi cwblhau ffurflen DS1500 neu BASRiS?",
+  "pageTitle" : "Ydy eich doctor, ymgynghorydd neu nyrs arbenigol wedi cwblhau ffurflen SR1, DS1500 neu BASRiS?",
   "ds1500Report" : {
-    "label" : "Ydy eich doctor, ymgynghorydd neu nyrs arbenigol wedi cwblhau ffurflen DS1500 neu BASRiS?",
+    "label" : "Ydy eich doctor, ymgynghorydd neu nyrs arbenigol wedi cwblhau ffurflen SR1, DS1500 neu BASRiS?",
     "yes": "Ydy",
     "no": "Na",
-    "hint" : "Mae DS1500 neu BASRiS yn ffurflen sy’n rhoi tystiolaeth am eich salwch i’r Adran Gwaith a Phensiynau.",
+    "hint" : "Mae SR1, DS1500 neu BASRiS yn ffurflen sy’n rhoi tystiolaeth am eich salwch i’r Adran Gwaith a Phensiynau",
     "dontKnow": "Nid wyf yn siwr",
     "errors" : {
-      "required": "Dewiswch ydy os yw eich doctor neu ymgynghorydd wedi cwblhau ffurflen DS1500 neu BASRiS"
+      "required": "Dewiswch ydy os yw eich doctor, ymgynghorydd neu nyrs arbenigol wedi cwblhau ffurflen SR1, DS1500 neu BASRiS"
     }
   }
 }

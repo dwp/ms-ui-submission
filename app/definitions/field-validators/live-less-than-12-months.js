@@ -11,7 +11,7 @@ appLogger.info('Severe condition validator');
 module.exports = {
   severeCondition: SimpleField([
     rules.required.bind({
-      errorMsg: 'live-less-than-6-months:severeCondition.errors.required',
+      errorMsg: 'live-less-than-12-months:severeCondition.errors.required',
     }),
   ]),
 };

@@ -51,7 +51,7 @@ module.exports = (casaApp, mountUrl, router) => {
 
       // Display SSP1 content
       const isCoronavirusClaim = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
-      const isRtiClaim = req.journeyData.getDataForPage('live-less-than-6-months').severeCondition === 'yes';
+      const isRtiClaim = req.journeyData.getDataForPage('live-less-than-12-months').severeCondition === 'yes';
       const isEmployee = req.session.employmentGather && req.session.employmentGather.some((employment) => employment.workTypes.some((workType) => workType === 'employee'));
       const isStatutorySickPayRecent = req.journeyData.getDataForPage('statutory-sick-pay-recent') && req.journeyData.getDataForPage('statutory-sick-pay-recent').sspRecent === 'yes';
 

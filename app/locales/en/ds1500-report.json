@@ -1,13 +1,13 @@
 {
-  "pageTitle" : "Has your doctor, consultant or specialist nurse completed a DS1500 or BASRiS form?",
+  "pageTitle" : "Has your doctor, consultant or specialist nurse completed an SR1, DS1500 or BASRiS form?",
   "ds1500Report" : {
-    "label" : "Has your doctor, consultant or specialist nurse completed a DS1500 or BASRiS form?",
+    "label" : "Has your doctor, consultant or specialist nurse completed an SR1, DS1500 or BASRiS form?",
     "yes": "Yes",
     "no": "No",
-    "hint" : "A DS1500 or BASRiS is a form that gives the Department for Work and Pensions evidence about your illness.",
+    "hint" : "An SR1, DS1500 or BASRiS is a form that gives the Department for Work and Pensions evidence about your illness.",
     "dontKnow": "I'm not sure",
     "errors" : {
-      "required": "Select yes if your doctor or specialist nurse has completed a DS1500 or BASRiS form"
+      "required": "Select yes if your doctor or specialist nurse has completed an SR1, DS1500 or BASRiS form"
     }
   }
 }

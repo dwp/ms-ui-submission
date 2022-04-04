@@ -5,7 +5,7 @@ const { assert } = chai;
 
 const { genericDataUtils } = require('../../../../app/lib/data-utils');
 
-const severeCondition = require('../../../../app/lib/navigation-rules/live-less-than-6-months');
+const severeCondition = require('../../../../app/lib/navigation-rules/live-less-than-12-months');
 
 describe('severe condition navigation rules', () => {
   let req;
@@ -19,7 +19,7 @@ describe('severe condition navigation rules', () => {
     req = {
       journeyData: {
         getDataForPage: (page) => {
-          if (page === 'live-less-than-6-months') {
+          if (page === 'live-less-than-12-months') {
             return {
               severeCondition: 'no',
             };
@@ -35,7 +35,7 @@ describe('severe condition navigation rules', () => {
   });
   it('should not call deleteIfPresent if severeCondition is not no', () => {
     req.journeyData.getDataForPage = (page) => {
-      if (page === 'live-less-than-6-months') {
+      if (page === 'live-less-than-12-months') {
         return {
           severeCondition: 'yes',
         };

@@ -5,8 +5,8 @@ const Logger = require('../../lib/Logger');
 const appLogger = Logger();
 
 const severeCondition = (req) => {
-  appLogger.info('Navigation rules: live-less-than-6-months');
-  if (req.journeyData.getDataForPage('live-less-than-6-months').severeCondition === 'no') {
+  appLogger.info('Navigation rules: live-less-than-12-months');
+  if (req.journeyData.getDataForPage('live-less-than-12-months').severeCondition === 'no') {
     genericDataUtils.deleteIfPresent(req, 'ds1500-report', ['ds1500Report']);
   }
 };

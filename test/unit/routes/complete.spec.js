@@ -434,7 +434,7 @@ describe('Complete route', () => {
       completeRoute(casaApp, mountUrl, router);
     });
 
-    it('should set displaySSP1Content to false when \'yes\' is selected on /live-less-than-6-months page', (done) => {
+    it('should set displaySSP1Content to false when \'yes\' is selected on /live-less-than-12-months page', (done) => {
       const testReq = {
         ...req,
         journeyData: {

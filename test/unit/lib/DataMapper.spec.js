@@ -212,7 +212,7 @@ describe('DataMapper', () => {
         yyyy: '0101',
       },
     },
-    'live-less-than-6-months': {
+    'live-less-than-12-months': {
       severeCondition: 'yes',
     },
     'ds1500-report': {

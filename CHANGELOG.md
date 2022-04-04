@@ -1,8 +1,12 @@
+# 3.22.0 (2022-04-04)
+
+* feature: SR1 policy changes ([2446f4ab](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/2446f4ab))
+
 # 3.21.0 (2022-03-24)
 
 * feature: Covid content changes ([90a23fd8](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/90a23fd8))
 
-# 3.20.0 (2022-03-21)
+## <small>3.20.0 (2022-03-21)</small>
 
 * feature: Basris content changes ([1b2f0d9f](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/1b2f0d9f))
 

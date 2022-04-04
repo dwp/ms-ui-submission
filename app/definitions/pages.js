@@ -42,7 +42,7 @@ const pensionValidators = require('./field-validators/pension.js');
 const pensionInheritValidators = require('./field-validators/pension-inherit.js');
 const pregnantValidators = require('./field-validators/pregnant.js');
 const pregnantDueDateValidators = require('./field-validators/pregnant-due-date.js');
-const liveLessThanSixMonthsValidators = require('./field-validators/live-less-than-6-months.js');
+const liveLessThanTwelveMonthsValidators = require('./field-validators/live-less-than-12-months.js');
 const sspEndValidators = require('./field-validators/ssp-end.js');
 const sspRecentValidators = require('./field-validators/ssp-recent.js');
 const statutoryPayOtherValidators = require('./field-validators/statutory-pay-other.js');
@@ -808,12 +808,12 @@ module.exports = {
     },
   },
 
-  'live-less-than-6-months': {
-    view: 'pages/live-less-than-6-months.njk',
-    fieldValidators: liveLessThanSixMonthsValidators,
+  'live-less-than-12-months': {
+    view: 'pages/live-less-than-12-months.njk',
+    fieldValidators: liveLessThanTwelveMonthsValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'live-less-than-6-months');
+        res.locals.errorsFlag = checkForErrors(req, 'live-less-than-12-months');
         next();
       },
       preredirect: navigateToNextPage,

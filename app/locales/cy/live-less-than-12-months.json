@@ -1,0 +1,12 @@
+{
+  "pageTitle" : "Ydy eich doctor wedi dweud y gallai fod gennych lai na 12 mis i fyw oherwydd unrhyw un o’ch cyflyrau?",
+  "severeCondition" : {
+    "label" : "Ydy eich doctor wedi dweud y gallai fod gennych lai na 12 mis i fyw oherwydd unrhyw un o’ch cyflyrau?",
+    "yes": "Ydy",
+    "no": "Na",
+    "hint" : "<p>Gallai hyn hefyd fod yn feddyg ymgynghorol neu nyrs arbenigol</p><p>Efallai y gallwch gael budd-daliadau ar gyfradd uwch neu gael taliadau yn gynharach nag arfer. Weithiau caiff hyn ei alw’n ’rheolau arbennig’.</p>",
+    "errors" : {
+      "required": "Dewiswch ydy os yw eich doctor wedi dweud y gallai fod gennych lai na 12 mis i fyw oherwydd unrhyw un o’ch cyflyrau"
+    }
+  }
+}

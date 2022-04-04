@@ -11,7 +11,7 @@ let dateNotBefore;
 const errorMsg = { inline: 'validation:rule.dateObject.inline', summary: 'validation:rule.dateObject.inline' };
 
 function dateCheck(date) {
-  if (date.mm === 2 && date.dd > 28) {
+  if (date.mm === '2' && date.dd > 28) {
     return {
       dd: 28,
       mm: date.mm,

@@ -42,7 +42,7 @@ module.exports = (translator, journeyData, session) => {
   const pensionInherit = journeyData.getDataForPage('pension-inherit');
   const pregnant = journeyData.getDataForPage('pregnant');
   const pregnantDueDate = journeyData.getDataForPage('pregnant-due-date');
-  const severeCondition = journeyData.getDataForPage('live-less-than-6-months');
+  const severeCondition = journeyData.getDataForPage('live-less-than-12-months');
   const ssp = journeyData.getDataForPage('statutory-pay');
   const sspEnd = journeyData.getDataForPage('statutory-sick-pay-end');
   const sspRecent = journeyData.getDataForPage('statutory-sick-pay-recent');

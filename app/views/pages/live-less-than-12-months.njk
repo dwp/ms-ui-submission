@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('live-less-than-6-months:pageTitle') }}
+    {{ t('live-less-than-12-months:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,30 +12,30 @@
         name: 'severeCondition',
         fieldset: {
             legend: {
-                text: t('live-less-than-6-months:severeCondition.label'),
+                text: t('live-less-than-12-months:severeCondition.label'),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
         },        
         hint: {
-            html: t('live-less-than-6-months:severeCondition.hint'),
+            html: t('live-less-than-12-months:severeCondition.hint'),
             classes: 'govuk-hint-black'
         },
         casaValue: formData.severeCondition,
         casaErrors: formErrors,
         items: [{
-            text: t('live-less-than-6-months:severeCondition.yes'),
+            text: t('live-less-than-12-months:severeCondition.yes'),
             value: 'yes',
             attributes: {
-                'data-question': t('live-less-than-6-months:severeCondition.label'),
-                'data-answer': t('live-less-than-6-months:severeCondition.yes')
+                'data-question': t('live-less-than-12-months:severeCondition.label'),
+                'data-answer': t('live-less-than-12-months:severeCondition.yes')
             }
         }, {
-            text: t('live-less-than-6-months:severeCondition.no'),
+            text: t('live-less-than-12-months:severeCondition.no'),
             value: 'no',
             attributes: {
-                'data-question': t('live-less-than-6-months:severeCondition.label'),
-                'data-answer': t('live-less-than-6-months:severeCondition.no')
+                'data-question': t('live-less-than-12-months:severeCondition.label'),
+                'data-answer': t('live-less-than-12-months:severeCondition.no')
             }
         }]
     }) }}

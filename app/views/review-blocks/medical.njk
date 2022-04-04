@@ -32,21 +32,21 @@
 {{ (healthRows.push(medicalRow), null) }}
 {% endif %}
 
-{% set liveLessThanSixMonthsRow = {
-    key: { text: t('check-your-answers:liveLessThanSixMonths') },
-    value: { text: t('check-your-answers:liveLessThanSixMonths-' + journeyData['live-less-than-6-months'].severeCondition) },
+{% set liveLessThanTwelveMonthsRow = {
+    key: { text: t('check-your-answers:liveLessThanTwelveMonths') },
+    value: { text: t('check-your-answers:liveLessThanTwelveMonths-' + journeyData['live-less-than-12-months'].severeCondition) },
     actions: {
         items: [{
-            attributes: { 'id': 'live-less-than-6-months' },
-            href: "live-less-than-6-months?edit",
+            attributes: { 'id': 'live-less-than-12-months' },
+            href: "live-less-than-12-months?edit",
             text: t('check-your-answers:change'),
-            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLiveLessThanSixMonths')
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextliveLessThanTwelveMonths')
         }]
     }
 } %}
-{{ (healthRows.push(liveLessThanSixMonthsRow), null) }}
+{{ (healthRows.push(liveLessThanTwelveMonthsRow), null) }}
 
-{% if journeyData['live-less-than-6-months'].severeCondition === 'yes' %}
+{% if journeyData['live-less-than-12-months'].severeCondition === 'yes' %}
 {% set ds1500 %}
     {% if journeyData['ds1500-report'].ds1500Report === 'dontKnow' %}
         {{ t('ds1500-report:ds1500Report.dontKnow') | safe }}
