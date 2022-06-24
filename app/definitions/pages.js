@@ -52,11 +52,7 @@ const voluntaryWorkHoursValidators = require('./field-validators/voluntary-work-
 const voluntaryWorkRoleValidators = require('./field-validators/voluntary-work-role.js');
 const workOverseasValidators = require('./field-validators/work-overseas.js');
 const universalCreditValidators = require('./field-validators/universal-credit.js');
-// coronavirus
-const coronavirusReasonForClaimValidators = require('./field-validators/coronavirus-reason-for-claim.js');
-const coronavirusDateValidators = require('./field-validators/coronavirus-date.js');
-const coronavirusOtherConditionValidators = require('./field-validators/coronavirus-other-condition.js');
-const coronaValidator = require('./field-validators/coronavirus');
+
 const disabilityOrHealthConditionValidator = require('./field-validators/disability-or-health-condition');
 const notEligibleDisablityHealthConditionValidator = require('./field-validators/not-eligible-disability-or-health-condition');
 const statePensionAgeValidator = require('./field-validators/state-pension-age');
@@ -120,18 +116,6 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         req.journeyData.setDataForPage('eligibility-start-visited', true);
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  coronavirus: {
-    view: 'pages/coronavirus.njk',
-    fieldValidators: coronaValidator,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'coronavirus');
         next();
       },
       preredirect: navigateToNextPage,
@@ -955,41 +939,4 @@ module.exports = {
     },
   },
 
-  // Coronavirus
-  'coronavirus-reason-for-claim': {
-    view: 'pages/coronavirus-reason-for-claim.njk',
-    fieldValidators: coronavirusReasonForClaimValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'coronavirus-reason-for-claim');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'coronavirus-date': {
-    view: 'pages/coronavirus-date.njk',
-    fieldValidators: coronavirusDateValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'coronavirus-date');
-        res.locals.coronavirusReason = req.session.journeyData['coronavirus-reason-for-claim'].coronavirusReasonForClaim;
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
-
-  'coronavirus-other-condition': {
-    view: 'pages/coronavirus-other-condition.njk',
-    fieldValidators: coronavirusOtherConditionValidators,
-    hooks: {
-      prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'coronavirus-other-condition');
-        next();
-      },
-      preredirect: navigateToNextPage,
-    },
-  },
 };

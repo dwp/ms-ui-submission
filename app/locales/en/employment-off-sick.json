@@ -1,8 +1,7 @@
 {
-  "pageTitle" : "Are you off work from your job at %s?",
-  "hint": "This could be because of your health or coronavirus.",
+  "pageTitle" : "Are you off sick from your job at %s?",
   "offSick" : {
-    "label" : "Are you off work from your job at %s?",
+    "label" : "Are you off sick from your job at %s?",
     "yes": "Yes",
     "no": "No",
     "errors" : {

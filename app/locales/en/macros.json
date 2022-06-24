@@ -3,7 +3,11 @@
     "address1": "Building and street <span class=\"govuk-visually-hidden\">line 1 of 2</span>",
     "address2": "<span class=\"govuk-visually-hidden\">Building and street line 2 of 2</span>",
     "address3": "Town or city",
-    "postcode": "Postcode"
+    "postcode": "Postcode",
+    "labels": {
+      "address1": "Address line 1",
+      "address2": "Address line 2 (optional)"
+    }
   },
   "errors": {
     "address": {

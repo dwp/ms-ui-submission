@@ -1,3 +1,11 @@
+# 3.23.0 (2022-06-24)
+
+* feature: content update medical center ([ecfd260e](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/ecfd260e))
+* feature: content update employment and claim start ([7c3d3863](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/7c3d3863))
+* feature: covid page removal ([f08bd594](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/f08bd594))
+* feature: assisted digital phone number ([97d93c5e](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/97d93c5e))
+
+
 # 3.22.0 (2022-04-04)
 
 * feature: SR1 policy changes ([2446f4ab](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/2446f4ab))

@@ -3,6 +3,7 @@
 
 {# Build up fieldset attributes #}
 {% set fieldsetAttributes = params.fieldset or {} %}
+{% set isCustomLabels = params.addressLabels | length %}
 {% if fieldErrors %}
   {% set fieldsetAttributes = mergeObjects({
     legend: {
@@ -11,6 +12,15 @@
     }
   }, params.fieldset or {}) %}
 {% endif %}
+
+{# Address labels #}
+{% macro address(line) %}
+    {% if isCustomLabels %}
+      {{t('macros:postalAddressObject' + '.labels' + '.' + line) | safe}}
+    {% else %}
+        {{t('macros:postalAddressObject' + '.' + line) | safe}}
+    {% endif %}
+{% endmacro %}
 
 {% if params.casaErrors[params.name] %}
 <div class="govuk-form-group govuk-form-group--error" id="f-{{params.name}}-error">
@@ -30,7 +40,7 @@
   {% endif %}
   {{ govukInput({
     label: {
-      html: t('macros:postalAddressObject.address1')
+      html: address('address1')
     },
     id: 'f-' + params.name + '[address1]',
     name: params.name + '[address1]',
@@ -50,7 +60,7 @@
   {% endif %}
   {{ govukInput({
     label: {
-      html: t('macros:postalAddressObject.address2')
+      html: address('address2')
     },
     id: 'f-' + params.name + '[address2]',
     name: params.name + '[address2]',

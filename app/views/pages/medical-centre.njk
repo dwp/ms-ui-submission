@@ -6,13 +6,11 @@
 {% block casaPageTitle %}
     {{ t('medical-centre:pageTitle') }}
 {% endblock %}
-
 {% block journey_form %}
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('medical-centre:heading') }}</h1>
 
     <p class="govuk-hint">{{ t('medical-centre:hint') }}</p>
-    <p class="govuk-hint">{{ t('medical-centre:hint2') }}</p>
 
     {{ casaGovukInput({
         label: {
@@ -21,6 +19,13 @@
         classes: 'govuk-!-width-one-half',
         name: 'name',
         value: formData.name,
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaPostalAddressObject({
+        addressLabels: 'true',
+        name: 'address',
+        value: formData.address,
         casaErrors: formErrors
     }) }}
 
@@ -38,24 +43,10 @@
         label: {
             text: t('medical-centre:doctor.label')
         },
-        hint: {
-            text: t('medical-centre:doctor.hint')
-        },
         classes: 'govuk-!-width-one-half',
         name: 'doctor',
         value: formData.doctor,
         casaErrors: formErrors
     }) }}
 
-    {{ casaPostalAddressObject({
-        fieldset: {
-            legend: {
-                html: t('medical-centre:address.label'),
-                classes: 'govuk-!-font-weight-bold'
-            }
-        },
-        name: 'address',
-        value: formData.address,
-        casaErrors: formErrors
-    }) }}
 {% endblock %}

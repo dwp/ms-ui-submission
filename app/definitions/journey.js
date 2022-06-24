@@ -16,20 +16,16 @@ module.exports = (() => {
   const pensionPath = new UserJourney.Road();
   const insurancePath = new UserJourney.Road();
   const restOfJourney = new UserJourney.Road();
-  // coronavirus
-  const coronaReasonPath = new UserJourney.Road();
-  const coronaPath = new UserJourney.Road();
   const conditionsPath = new UserJourney.Road();
   const anotherHealthConditionPath = new UserJourney.Road();
   const healthPath = new UserJourney.Road();
 
-  const eligibilityCoronaPath = new UserJourney.Road();
   const eligibilityHealthConditions = new UserJourney.Road();
   const eligibilityChecks = new UserJourney.Road();
   const eligibilityStatutoryPayPath = new UserJourney.Road();
   const eligibilityEndPath = new UserJourney.Road();
 
-  eligibilityCoronaPath.addWaypoints([
+  eligibilityHealthConditions.addWaypoints([
     'who-is-applying',
     ['helping-someone-apply', (sessionData) => sessionData['who-is-applying'].whoIsApplying === 'helpingSomeOne' && sessionData['help-someone-apply-visited'] !== true],
     ['cannot-apply-online', (sessionData) => sessionData['who-is-applying'].whoIsApplying === 'someOneElse'],
@@ -37,12 +33,6 @@ module.exports = (() => {
     && (sessionData['who-is-applying'].whoIsApplying === 'self'
         || (sessionData['who-is-applying'].whoIsApplying === 'helpingSomeOne'
           && sessionData['help-someone-apply-visited'] === true))],
-    'coronavirus',
-  ]);
-
-  eligibilityCoronaPath.fork([eligibilityChecks, eligibilityHealthConditions], (choices, sessionData) => (sessionData.coronavirus.coronavirusReasonForClaim === 'yes' ? choices[0] : choices[1]));
-
-  eligibilityHealthConditions.addWaypoints([
     'disability-or-health-condition',
     ['not-eligible-disability-or-health-condition', (sessionData) => sessionData['disability-or-health-condition'].disabilityOrHealthCondition === 'no'],
   ]);
@@ -89,23 +79,7 @@ module.exports = (() => {
     'email',
   ]);
 
-  startApplication.fork([coronaReasonPath, conditionsPath], (choices, sessionData) => (sessionData.coronavirus.coronavirusReasonForClaim === 'yes' ? choices[0] : choices[1]));
-
-  coronaReasonPath.addWaypoints([
-    'coronavirus-reason-for-claim',
-  ]);
-
-  coronaReasonPath.mergeWith(coronaPath);
-
-  coronaPath.addWaypoints([
-    'coronavirus-date',
-    'coronavirus-other-condition',
-  ]);
-
-  coronaPath.fork([conditionsPath, healthPath],
-    (choices, sessionData) => ((typeof sessionData['coronavirus-other-condition'] === 'undefined'
-    || typeof sessionData['coronavirus-other-condition'].coronavirusOtherCondition === 'undefined'
-    || sessionData['coronavirus-other-condition'].coronavirusOtherCondition === 'yes') ? choices[0] : choices[1]));
+  startApplication.mergeWith(conditionsPath);
 
   // display when limit is NOT reached and answered NOT no to another condition
   // or no another health condition cya journey
@@ -260,6 +234,6 @@ module.exports = (() => {
   restOfJourney.end();
 
   const journey = new UserJourney.Map();
-  journey.startAt(eligibilityCoronaPath);
+  journey.startAt(eligibilityHealthConditions);
   return journey;
 })();

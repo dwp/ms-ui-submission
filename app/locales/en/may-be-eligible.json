@@ -3,5 +3,17 @@
     "h1": "Based on your answers, you may be eligible for New Style ESA",
     "inset": "<p>You will not be able to save your answers and come back to the form later. But you’ll get a chance to check and update your answers before you send them.</p><p>There is no time limit for filling in the application. But if you stay on the same page for 60 minutes, it will time out and you’ll have to start again.</p>",
     "p1": "We will treat your personal information carefully. We may use it for any of our purposes. To learn about your information rights and how we use information, see our <a class=\"govuk-link\" href=\"https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter\" target=\"_blank\">personal information charter (opens in new tab)</a>.",
-    "button": "Start now"
+    "button": "Start now",
+    "details": {
+        "headline": "I need help doing things online",
+        "p": "The following links open in a new tab",
+        "ul": {
+            "li1": "Telephone: 0800 328 5644 (choose option 3)",
+            "li2": "Textphone: 0800 328 1344 (choose option 3)",
+            "li3": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://www.relayuk.bt.com/\">Relay UK <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a> if you cannot hear or speak on the phone: 18001 then 0800 328 5644",
+            "li4": "British Sign Language (BSL) <a class=\"govuk-link\" target=\"_blank\" href=\"https://portal.starleaf.com/webrtc?name=DWP&target=DWP@interpreterslive.call.sl\">video relay service <span class=\"govuk-visually-hidden\">(opens in new tab)</span> </a> if you’re on a computer - find out how to <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.youtube.com/watch?v=vZJc6OKmAUA\">use the service on a mobile or tablet <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a>",
+            "li5": "Welsh language: 0800 328 1744 \n Monday to Friday, 8am to 6pm (except public holidays)"
+        },
+        "link": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://www.gov.uk/call-charges\">Find out about call charges <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a>"
+    }
 }

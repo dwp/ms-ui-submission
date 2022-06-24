@@ -12,7 +12,8 @@ module.exports = (req, res, next) => {
       });
     }
   }
-  if (req.session.backClicked === true && req.session.nextBackLink === '/coronavirus') {
+
+  if (req.session.backClicked === true && req.session.nextBackLink === '/disability-or-health-condition') {
     req.journeyData.setDataForPage('eligibility-start-visited', false);
   }
   if (req.session.nextBackLink === '/helping-someone-apply') {

@@ -1,8 +1,7 @@
 {
-  "pageTitle" : "Ydych chi i ffwrdd o’ch gwaith yn %s?",
-  "hint": "Gallai hyn fod oherwydd eich iechyd neu goronafeirws.",
+  "pageTitle" : "Ydych chi i ffwrdd yn sâl o'ch swydd yn %s?",
   "offSick" : {
-    "label" : "Ydych chi i ffwrdd o’ch gwaith yn %s?",
+    "label" : "Ydych chi i ffwrdd yn sâl o'ch swydd yn %s?",
     "yes": "Ydw",
     "no": "Na",
     "errors" : {

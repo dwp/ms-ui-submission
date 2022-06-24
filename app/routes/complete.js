@@ -47,15 +47,13 @@ module.exports = (casaApp, mountUrl, router) => {
       }
       appLogger.info(`pensions indicator set to ${pensionsIndicator}`);
       const universalCredit = req.journeyData.getDataForPage('universal-credit').universalCredit === 'yes';
-      const coronavirus = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
 
       // Display SSP1 content
-      const isCoronavirusClaim = req.journeyData.getDataForPage('coronavirus').coronavirusReasonForClaim === 'yes';
       const isRtiClaim = req.journeyData.getDataForPage('live-less-than-12-months').severeCondition === 'yes';
       const isEmployee = req.session.employmentGather && req.session.employmentGather.some((employment) => employment.workTypes.some((workType) => workType === 'employee'));
       const isStatutorySickPayRecent = req.journeyData.getDataForPage('statutory-sick-pay-recent') && req.journeyData.getDataForPage('statutory-sick-pay-recent').sspRecent === 'yes';
 
-      const displaySSP1Content = isCoronavirusClaim || isRtiClaim
+      const displaySSP1Content = isRtiClaim
         ? false : isEmployee || isStatutorySickPayRecent;
 
       const dataForCompletePage = {
@@ -82,11 +80,8 @@ module.exports = (casaApp, mountUrl, router) => {
               err_stack: saveErr.stack,
             });
           }
-          if (coronavirus) {
-            res.render('pages/complete-coronavirus.njk', dataForCompletePage);
-          } else {
-            res.render('pages/complete.njk', dataForCompletePage);
-          }
+
+          res.render('pages/complete.njk', dataForCompletePage);
         });
       }).catch((err) => {
         appLogger.error('Error ending session', {
@@ -103,11 +98,7 @@ module.exports = (casaApp, mountUrl, router) => {
             });
           }
           appLogger.info('Render end screen page if session saved and ended successfully');
-          if (coronavirus) {
-            res.render('pages/complete-coronavirus.njk', dataForCompletePage);
-          } else {
-            res.render('pages/complete.njk', dataForCompletePage);
-          }
+          res.render('pages/complete.njk', dataForCompletePage);
         });
       });
     }

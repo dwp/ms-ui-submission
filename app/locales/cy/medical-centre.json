@@ -1,30 +1,25 @@
 {
-  "pageTitle": "Pa feddygfa neu ganolfan feddygol ydych chi’n ei defnyddio?",
-  "heading": "Pa feddygfa neu ganolfan feddygol ydych chi’n ei defnyddio?",
-  "hint": "Efallai y bydd angen i’r Adran Gwaith a Phensiynau gysylltu â’ch doctor i gael mwy o wybodaeth am eich cyflwr.",
-  "hint2": "Gallwch ddweud wrthym am eich ymgynghorydd neu arbenigwr yn y cam nesaf o’r broses gwneud cais.",
+  "pageTitle": "Beth yw enw eich meddygfa neu ganolfan feddygol?",
+  "heading": "Beth yw enw eich meddygfa neu ganolfan feddygol?",
+  "hint": "Efallai y bydd angen i ni gysylltu â nhw i gael rhagor o wybodaeth.",
   "name": {
-    "label": "Enw’r feddygfa neu ganolfan feddygol",
+    "label": "Enw meddygfa neu ganolfan feddygol",
     "errors": {
       "required": "Rhowch enw eich meddygfa neu ganolfan feddygol"
     }
   },
-  "phoneNumber": {
-    "label": "Rhif ffôn y feddygfa",
-    "errors": {
-      "required": "Rhowch rif ffôn ar gyfer y feddygfa neu ganolfan feddygol",
-      "badFormat": "Rhowch y rhif ffôn yn y ffurf gywir"
-    }
-  },
-  "doctor": {
-    "label": "Enw eich doctor (dewisol)",
-    "hint": "Mae hyn yn helpu i nodi’r person cywir i siarad â hwy."
-  },
   "address": {
-    "label": "Cyfeiriad meddygfa eich doctor",
     "address1": {
+      "label": "Llinell cyfeiriad 1",
       "errors": {
-        "required": "Rhowch linell 1 o’r cyfeiriad ar gyfer y feddygfa neu ganolfan feddygol"
+        "required": "Rhowch linell 1 o gyfeiriad eich meddygfa neu ganolfan feddygol",
+        "badFormat": "Mae'n rhaid i'r cyfeiriad ond cynnwys llythrennau, rhifau, atalnodau neu atalnodau llawn"
+      }
+    },
+    "address2": {
+      "label": "Llinell cyfeiriad 2 (dewisol)",
+      "errors": {
+        "badFormat": "Mae'n rhaid i'r cyfeiriad ond cynnwys llythrennau, rhifau, atalnodau neu atalnodau llawn"
       }
     }
   },
@@ -32,5 +27,15 @@
     "errors": {
       "badFormat": "Rhowch god post gwirioneddol yn y ffurf gywir"
     }
+  },
+  "phoneNumber": {
+    "label": "Rhif ffôn",
+    "errors": {
+      "required": "Rhowch rif ffôn eich meddygfa neu ganolfan feddygol",
+      "badFormat": "Rhowch y rhif ffôn yn y ffurf gywir"
+    }
+  },
+  "doctor": {
+    "label": "Enw eich meddyg (dewisol)"
   }
 }

@@ -1,9 +1,6 @@
 {% set healthRows = [] %}
 {% if journeyData['medical-centre'].name %}
 {% set medical %}
-    {% if journeyData['medical-centre'].doctor %}
-        {{ journeyData['medical-centre'].doctor }}<br>
-    {% endif %}
     {{ journeyData['medical-centre'].name }}<br>
     {{ journeyData['medical-centre'].address.address1 }}<br>
     {% if journeyData['medical-centre'].address.address2 %}
@@ -15,6 +12,9 @@
     {{ journeyData['medical-centre'].address.postcode }}<br>
     {% if journeyData['medical-centre'].phoneNumber %}
         {{ journeyData['medical-centre'].phoneNumber }}<br>
+    {% endif %}
+    {% if journeyData['medical-centre'].doctor %}
+        {{ journeyData['medical-centre'].doctor }}<br>
     {% endif %}
 {% endset %}
 {% set medicalRow = {

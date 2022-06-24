@@ -1,6 +1,7 @@
 {% extends "layouts/custom-journey.njk" %}
 {% from "components/inset-text/macro.njk" import govukInsetText %}
 {% from "components/button/macro.njk" import govukButton %}
+{% from "components/details/macro.njk" import govukDetails %}
 
 {% block pageTitle %}
     {{ t('may-be-eligible:pageTitle') }} - {{ t('app:commonTitle') }}
@@ -15,6 +16,18 @@
 {% endblock %}
 
 {% block content %}
+{% set onlineHelpDetails %}
+    <p class="govuk-body"> {{ t('may-be-eligible:details.p') }}</p>
+    <ul class="govuk-list govuk-list--bullet">
+        <li>{{ t('may-be-eligible:details.ul.li1') }}</li>
+        <li>{{ t('may-be-eligible:details.ul.li2') }}</li>
+        <li>{{ t('may-be-eligible:details.ul.li3') | safe }}</li>
+        <li>{{ t('may-be-eligible:details.ul.li4') | safe}}</li>
+        <li>{{ t('may-be-eligible:details.ul.li5') | striptags(true) | escape | nl2br}}</li>
+    </ul>
+    <p class="govuk-body">{{ t('may-be-eligible:details.link') | safe }}</p>
+{% endset %}
+
         <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
                 <h1 class="form-title govuk-heading-l">{{ t('may-be-eligible:h1') }}</h1>
@@ -22,13 +35,17 @@
                     html: t('may-be-eligible:inset')
                 }) }}
                 <p class="govuk-body">{{ t('may-be-eligible:p1') | safe }}</p>
+                {{ govukDetails({
+                    summaryText:t('may-be-eligible:details.headline'),
+                    html: onlineHelpDetails
+                }) }}
                 <p class="govuk-body">
                 {{ govukButton({
                     text: t('may-be-eligible:button'),
                     href: "/name",
                     classes: 'govuk-button govuk-!-margin-bottom-8'
                 }) }}
-            </p>
+                </p>
             </div>
         </div>
 {% endblock %}

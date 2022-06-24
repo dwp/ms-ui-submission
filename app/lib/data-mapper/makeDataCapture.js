@@ -50,7 +50,6 @@ module.exports = (translator, journeyData, session) => {
   const universalCredit = journeyData.getDataForPage('universal-credit');
   const voluntaryWork = journeyData.getDataForPage('voluntary-work');
   const workOverseas = journeyData.getDataForPage('work-overseas');
-  const coronavirus = journeyData.getDataForPage('coronavirus');
   const claimStartDateAfterSsp = journeyData.getDataForPage('claim-start-date-after-statutory-sick-pay');
   const postcode = journeyData.getDataForPage('postcode');
   const langPrefWriting = journeyData.getDataForPage('language-preference-writing');
@@ -65,51 +64,8 @@ module.exports = (translator, journeyData, session) => {
     language: translator.getLanguage() === 'cy' ? 'cy' : 'en',
   };
 
-  if (coronavirus.coronavirusReasonForClaim === 'yes') {
-    const
-      {
-        coronavirusReasonForClaim,
-        otherReasonDetail,
-        selfIsolationSymptomsDesc,
-        selfIsolationContactDesc,
-        quarantiningDesc,
-      } = journeyData.getDataForPage('coronavirus-reason-for-claim');
-    appLogger.info('DataMapper: collecting coronavirus data');
-    capture.coronavirus_reason = coronavirusReasonForClaim;
-    switch (coronavirusReasonForClaim) {
-    case 'self-isolation-symptoms':
-      capture.coronavirus_reason_desc = selfIsolationSymptomsDesc;
-      break;
-    case 'self-isolation-contact':
-      capture.coronavirus_reason_desc = selfIsolationContactDesc;
-      break;
-    case 'quarantining':
-      capture.coronavirus_reason_desc = quarantiningDesc;
-      break;
-    case 'other':
-      capture.coronavirus_reason_desc = otherReasonDetail;
-      break;
-    default:
-      capture.coronavirus_reason_desc = 'none';
-      break;
-    }
-    const coronavirusOtherCondition = journeyData.getDataForPage('coronavirus-other-condition');
-    if (typeof coronavirusOtherCondition !== 'undefined') {
-      capture.other_health_condition = coronavirusOtherCondition.coronavirusOtherCondition;
-      if (coronavirusOtherCondition.coronavirusOtherCondition === 'yes') {
-        appLogger.info('DataMapper: collecting other health conditions data');
-        capture.conditions = makeConditions(conditionGather);
-      }
-    } else {
-      appLogger.info('DataMapper: collecting health conditions data');
-      capture.conditions = makeConditions(conditionGather);
-    }
-    const { coronavirusDate } = journeyData.getDataForPage('coronavirus-date');
-    capture.coronavirus_date = `${coronavirusDate.yyyy}-${formatDigit(coronavirusDate.mm)}-${formatDigit(coronavirusDate.dd)}`;
-  } else {
-    appLogger.info('DataMapper: collecting health conditions data');
-    capture.conditions = makeConditions(conditionGather);
-  }
+  appLogger.info('DataMapper: collecting health conditions data');
+  capture.conditions = makeConditions(conditionGather);
 
   capture.medical_centre = makeMedicalCentre(medicalCentre);
   capture.statutory_pay_other = statutoryPayOther.statutoryPayOther;

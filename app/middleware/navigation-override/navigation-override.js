@@ -19,8 +19,6 @@ const pagesBeforeGatewayPage = {
   'employment-expenses': 'employment',
   'employment-last-work': 'employment',
   email: 'condition',
-  'coronavirus-other-condition': 'condition',
-  // 'conditions': 'condition',
 };
 
 // start of loop

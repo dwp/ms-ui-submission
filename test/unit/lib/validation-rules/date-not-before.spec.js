@@ -108,8 +108,8 @@ describe('Date not before validator', () => {
   it('should return an error if claim-end-date is before claim-start-date', () => {
     const date = moment().startOf('day');
     const claimStartDate = JSON.stringify({
-      dd: date.date(),
-      mm: date.format('M'),
+      dd: 1,
+      mm: '02',
       yyyy: date.year(),
     });
     const dataContext = {
@@ -119,8 +119,8 @@ describe('Date not before validator', () => {
       },
     };
     const value = dateCheck({
-      dd: date.date(),
-      mm: date.subtract(1, 'months').format('M'),
+      dd: 1,
+      mm: '01',
       yyyy: date.year(),
     });
     return assert.isRejected(dateNotBefore(value, dataContext));
@@ -148,8 +148,8 @@ describe('Date not before validator', () => {
   it('should return an error if claim-start-date is before ssp-end-date', () => {
     const date = moment().startOf('day');
     const sspEndDate = JSON.stringify({
-      dd: date.date(),
-      mm: date.format('M'),
+      dd: 1,
+      mm: '02',
       yyyy: date.year(),
     });
     const dataContext = {
@@ -159,8 +159,8 @@ describe('Date not before validator', () => {
       },
     };
     const value = dateCheck({
-      dd: date.date(),
-      mm: date.subtract(1, 'months').format('M'),
+      dd: 1,
+      mm: '01',
       yyyy: date.year(),
     });
     return assert.isRejected(dateNotBefore(value, dataContext));

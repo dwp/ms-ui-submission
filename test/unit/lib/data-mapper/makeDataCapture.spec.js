@@ -220,27 +220,11 @@ describe('DataMapper', () => {
         yyyy: '2020',
       },
     },
-    coronavirus: {
-      coronavirusReasonForClaim: 'yes',
-    },
     'universal-credit': {
       universalCredit: 'yes',
     },
     'claim-start-date-after-statutory-sick-pay': {
       claimStartDateAfterSsp: 'yes',
-    },
-    'coronavirus-reason-for-claim': {
-      coronavirusReasonForClaim: 'high-risk',
-    },
-    'coronavirus-date': {
-      coronavirusDate: {
-        dd: '01',
-        mm: '01',
-        yyyy: '2020',
-      },
-    },
-    'coronavirus-other-condition': {
-      coronavirusOtherCondition: 'yes',
     },
     email: {
       emailProvided: 'yes',
@@ -316,18 +300,5 @@ describe('DataMapper', () => {
     expect(mdc).to.have.property('nino', 'AA370773A');
     expect(mdc.pensions[0]).to.have.property('start_date', '');
     expect(mdc.pensions[0]).to.have.property('inherited', '');
-  });
-  it('should build a data object with coronavirus quarantining description', () => {
-    const sessionCopy = { ...session };
-    const journeyDataCopy = { ...journeyData };
-
-    journeyDataCopy.getDataForPage('coronavirus').coronavirusReasonForClaim = 'yes';
-    journeyDataCopy.getDataForPage('coronavirus-reason-for-claim').coronavirusReasonForClaim = 'quarantining';
-    journeyDataCopy.getDataForPage('coronavirus-reason-for-claim').quarantiningDesc = 'I\'m quarantining because I have returned from another country on the red list';
-
-    const dataCapture = makeDataCapture(i18nTranslator, journeyDataCopy, sessionCopy);
-
-    expect(dataCapture).to.haveOwnProperty('coronavirus_reason', 'quarantining');
-    expect(dataCapture).to.haveOwnProperty('coronavirus_reason_desc', 'I\'m quarantining because I have returned from another country on the red list');
   });
 });
