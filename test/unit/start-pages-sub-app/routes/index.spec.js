@@ -9,7 +9,17 @@ describe('Index route', () => {
     render: () => {},
     redirect: () => {},
   };
-  it('should redirect to /who-is-applying', () => {
+  const reqEnglish = {
+    query: {
+      lang: 'en',
+    },
+  };
+  const reqWelsh = {
+    query: {
+      lang: 'cy',
+    },
+  };
+  it('should redirect to english /who-is-applying', () => {
     res.status = (statusCode) => ({
       redirect: (path) => {
         assert.equal(path, '/who-is-applying');
@@ -19,7 +29,22 @@ describe('Index route', () => {
     const router = {
       get: (path, callback) => {
         assert.equal(path, '/');
-        callback({}, res);
+        callback(reqEnglish, res);
+      },
+    };
+    indexRoute(router);
+  });
+  it('should redirect to welsh /who-is-applying', () => {
+    res.status = (statusCode) => ({
+      redirect: (path) => {
+        assert.equal(path, '/who-is-applying?lang=cy');
+        assert.equal(statusCode, 302);
+      },
+    });
+    const router = {
+      get: (path, callback) => {
+        assert.equal(path, '/');
+        callback(reqWelsh, res);
       },
     };
     indexRoute(router);

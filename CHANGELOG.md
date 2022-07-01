@@ -1,10 +1,14 @@
+# 3.24.0 (2022-06-30)
+
+* feature: covid sms message ([399e606f](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/399e606f))
+* fix:  welsh language query parameter fix([a0e6f89d](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/a0e6f89d))
+
 # 3.23.0 (2022-06-24)
 
 * feature: content update medical center ([ecfd260e](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/ecfd260e))
 * feature: content update employment and claim start ([7c3d3863](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/7c3d3863))
 * feature: covid page removal ([f08bd594](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/f08bd594))
 * feature: assisted digital phone number ([97d93c5e](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/97d93c5e))
-
 
 # 3.22.0 (2022-04-04)
 
