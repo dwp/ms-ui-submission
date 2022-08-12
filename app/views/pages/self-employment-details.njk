@@ -10,7 +10,7 @@
 {% block journey_form %}
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('self-employment-details:heading') }}</h1>
-
+    <p class="govuk-hint">{{ t('self-employment-details:hint') }}</p>
     {{ casaGovukInput({
         label: {
             text: t('self-employment-details:jobTitle.label')
@@ -26,17 +26,7 @@
             text: t('self-employment-details:employerName.label')
         },
         name: 'employerName',
-        value: formData.employerName,
-        classes:'govuk-!-width-one-half',
-        casaErrors: formErrors
-    }) }}
-
-    {{ casaGovukInput({
-        label: {
-            text: t('self-employment-details:employerTel.label')
-        },
-        name: 'employerTel',
-        value: formData.employerTel,
+        value: formData.employerName, 
         classes:'govuk-!-width-one-half',
         casaErrors: formErrors
     }) }}
@@ -48,8 +38,19 @@
                 classes: 'govuk-!-font-weight-bold'
             }
         },
+        addressLabels: 'true',
         name: 'employerAddress',
         value: formData.employerAddress,
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('self-employment-details:employerTel.label')
+        },
+        name: 'employerTel',
+        value: formData.employerTel,
+        classes:'govuk-!-width-one-half',
         casaErrors: formErrors
     }) }}
 {% endblock %}

@@ -1,32 +1,37 @@
 {
-    "1067329": {
-        "active": true,
-        "notes": "Regular expression denial of service -  gulp -> glob-watcher -> chokidar -> glob-parent - expires Friday, July 29, 2022 10:25:55 AM",
-        "expiry": 1659090355000
-    },
     "1069553": {
         "active": true,
-        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template - expires Friday, July 29, 2022 10:25:55 AM",
-        "expiry": 1659090355000
-    },
-    "1067342": {
-        "active": true,
-        "notes": "Prototype Pollution in minimist - gulp-inline>gulp-util>minimist - expires Friday, July 29, 2022 10:25:55 AM",
-        "expiry": 1659090355000
-    },
-    "1070413": {
-        "active": true,
-        "notes": "json-schema is vulnerable to Prototype Pollution - expires Friday, July 29, 2022 10:25:55 AM",
-        "expiry": 1659090355000
+        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template - expires Wednesday, August 31, 2022 11:32:45 AM",
+        "expiry": 1661941965000
     },
     "1070415": {
         "active": true,
-        "notes": "Inefficient Regular Expression Complexity - expires Friday, July 29, 2022 10:25:55 AM",
-        "expiry": 1659090355000
+        "notes": "json-schema is vulnerable to Prototype Pollution - expires Wednesday, August 31, 2022 11:32:45 AM",
+        "expiry": 1661941965000
     },
-    "1070447": {
+    "1070415": {
         "active": true,
-        "notes": "Path Traversal @dwp/govuk-casa>moment - expires Friday, July 29, 2022 10:25:55 AM",
-        "expiry": 1659090355000
+        "notes": "Inefficient Regular Expression Complexity - expires Wednesday, August 31, 2022 11:32:45 AM",
+        "expiry": 1661941965000
+    },
+    "1081699": {
+        "active": true,
+        "notes": "Terser insecure use of regular expressions before  gulp-minify>terser- - expires Wednesday, August 31, 2022 11:32:45 AM",
+        "expiry": 1661941965000
+    },
+    "1081761": {
+        "active": true,
+        "notes": "Inefficient Regular Expression Complexity in  @dwp/govuk-casa>moment - expires Wednesday, August 31, 2022 11:32:45 AM",
+        "expiry": 1661941965000
+    },
+    "1081763": {
+        "active": true,
+        "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment  -expires Wednesday, August 31, 2022 11:32:45 AM",
+        "expiry": 1661941965000
+    },
+    "1081884": {
+       "active": true,
+       "notes": "glob-parent before 5.1.2 vulnerable to Regular   gulp>glob-watcher>chokidar>glob-parent   - expires Wednesday, August 31, 2022 11:32:45 AM",
+       "expiry": 1661941965000
     }
 }

@@ -32,13 +32,13 @@
         {% set employmentDetails %}
             {{ emp.jobTitle }}<br>
             {{ emp.employerName }}<br>
-            {{ emp.employerTel }}<br>
             {{ emp.employerAddress.address1 }}<br>
             {% if emp.employerAddress.address2 %}
                 {{ emp.employerAddress.address2 }}<br>
             {% endif %}
             {{ emp.employerAddress.address3 }}<br>
             {{ emp.employerAddress.postcode }}<br>
+            {{ emp.employerTel }}<br>
         {% endset %}
 
         {% set employmentHours %}

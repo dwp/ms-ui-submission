@@ -1,3 +1,9 @@
+# 3.25.0 (2022-08-11)
+
+* feature: update content on employment details page ([4aa81dad](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/4aa81dad))
+* feature: update content on self employment details page ([ff4bbf40](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/ff4bbf40))
+* feature: update check your answers page ([b9caa0f3](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/b9caa0f3))
+
 # 3.24.0 (2022-06-30)
 
 * feature: covid sms message ([399e606f](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/399e606f))

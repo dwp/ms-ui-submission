@@ -19,17 +19,21 @@ module.exports = {
       errorMsg: 'employment-details:employerName.errors.required',
     }),
   ]),
+  employerAddress: SimpleField([
+    validatePostalAddress.bind({
+      errorMsgAddress1: 'employment-details:employerAddress.address1.errors.required',
+      errorMsgAddress1Format: 'employment-details:employerAddress.address1.errors.badFormat',
+      errorMsgAddress2Format: 'employment-details:employerAddress.address2.errors.badFormat',
+      errorMsgPostcodeFormat: 'employment-details:postcode.errors.badFormat',
+      altRegex: /^[^0-9]*$/,
+    }),
+  ]),
   employerTel: SimpleField([
     rules.required.bind({
       errorMsg: 'employment-details:employerTel.errors.required',
     }),
     validatePhoneNumber.bind({
       errorMsg: 'employment-details:employerTel.errors.badFormat',
-    }),
-  ]),
-  employerAddress: SimpleField([
-    validatePostalAddress.bind({
-      altRegex: /^[^0-9]*$/,
     }),
   ]),
 };

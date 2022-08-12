@@ -1,6 +1,7 @@
 {
-  "pageTitle": "Paid work details",
-  "heading": "Employment details",
+  "pageTitle": "Tell us about your job",
+  "heading": "Tell us about your job",
+  "hint": "If you have more than one job, we will ask about your other jobs later.",
   "jobTitle": {
     "label": "Job title",
     "errors": {
@@ -8,19 +9,37 @@
     }
   },
   "employerName": {
-    "label": "Employer name",
+    "label": "Name of employer",
     "errors": {
       "required": "Enter your employer's name"
     }
   },
   "employerTel": {
-    "label": "Telephone number",
+    "label": "Phone number",
     "errors": {
-      "required": "Enter your employer's telephone number",
-      "badFormat": "Enter a real telephone number"
+      "required": "Enter your employer's phone number",
+      "badFormat": "Enter a real phone number"
     }
   },
   "employerAddress": {
-    "label": "Employer address"
+    "label": "Employer address",
+    "address1": {
+      "label": "Address line 1",
+      "errors": {
+        "required": "Enter line 1 of the address",
+        "badFormat": "The address must contain only letters, numbers, commas or full stops"
+      }
+    },
+    "address2": {
+      "label": "Address line 2 (optional)",
+      "errors": {
+        "badFormat": "The address must contain only letters, numbers, commas or full stops"
+      }
+    }
+  },
+  "postcode": {
+    "errors": {
+      "badFormat": "Enter a real postcode in the right format"
+    }
   }
 }

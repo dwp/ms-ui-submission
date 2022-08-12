@@ -10,7 +10,7 @@
 {% block journey_form %}
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-4">{{ t('employment-details:heading') }}</h1>
-
+    <p class="govuk-hint">{{ t('employment-details:hint') }}</p>
     {{ casaGovukInput({
         label: {
             text: t('employment-details:jobTitle.label')
@@ -31,16 +31,6 @@
         casaErrors: formErrors
     }) }}
 
-    {{ casaGovukInput({
-        label: {
-            text: t('employment-details:employerTel.label')
-        },
-        name: 'employerTel',
-        value: formData.employerTel,
-        classes:'govuk-!-width-one-half',
-        casaErrors: formErrors
-    }) }}
-
     {{ casaPostalAddressObject({
         fieldset: {
             legend: {
@@ -48,8 +38,19 @@
                 classes: 'govuk-!-font-weight-bold'
             }
         },
+        addressLabels: 'true',
         name: 'employerAddress',
         value: formData.employerAddress,
+        casaErrors: formErrors
+    }) }}
+
+    {{ casaGovukInput({
+        label: {
+            text: t('employment-details:employerTel.label')
+        },
+        name: 'employerTel',
+        value: formData.employerTel,
+        classes:'govuk-!-width-one-half',
         casaErrors: formErrors
     }) }}
 {% endblock %}
