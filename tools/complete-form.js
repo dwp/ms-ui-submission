@@ -13,7 +13,7 @@
  * ENDPOINT=https://ns-esa-f-qa.pub.health-dev.dwpcloud.uk/ npm run fill
  */
 /* eslint-disable */
-const {Builder, By, Key, until} = require('selenium-webdriver');
+const { Builder, By, Key, until } = require('selenium-webdriver');
 const faker = require('faker');
 const moment = require('moment');
 
@@ -31,7 +31,6 @@ const args = process.argv.slice(2)
   // if the var has a value, use that, otherwise check for all
   const dev = args.dev !== undefined ? args.dev : args.all !== undefined ? args.all : false;
   const endpoint = process.env.ENDPOINT;
-  const coronavirus = args.coronavirus !== undefined ? args.coronavirus : args.all !== undefined ? args.all : false;
   const pregnant = args.pregnant !== undefined ? args.pregnant : args.all !== undefined ? args.all : false;
   const terminal = args.terminal !== undefined ? args.terminal : args.all !== undefined ? args.all : false;
   const inPatient = args.inPatient !== undefined ? args.inPatient : args.all !== undefined ? args.all : true;
@@ -55,13 +54,17 @@ const args = process.argv.slice(2)
   const insurance = args.insurance !== undefined ? args.insurance : args.all !== undefined ? args.all : true;
   const mobile = args.mobile !== undefined ? args.mobile : args.all !== undefined ? args.all : true;
   const otherNumber = args.otherNumber !== undefined ? args.otherNumber : args.all !== undefined ? args.all : true;
-  const email = args.mobile !== undefined? args.mobile : args.all !== undefined ? args.all : true;
+  const email = args.mobile !== undefined ? args.mobile : args.all !== undefined ? args.all : true;
   const conditions = 1;
   const keepOpen = args.keepOpen;
   const submitClaim = args.submitClaim;
 
-  let chrome = require('selenium-webdriver/chrome');
-  let driver = await new Builder().forBrowser('chrome').build();
+  require('chromedriver');
+  const webdriver = require('selenium-webdriver');
+
+  let driver = new webdriver.Builder()
+    .forBrowser(webdriver.Browser.CHROME)
+    .build();
 
   let baseUrl = 'http://localhost:3000/'; //local
 
@@ -78,15 +81,9 @@ const args = process.argv.slice(2)
     await driver.findElement(By.id('f-whoIsApplying')).click();
     await driver.findElement(By.id('continue-button')).click();
     await driver.findElement(By.className('govuk-button govuk-!-margin-bottom-4 govuk-!-margin-right-4')).click();
-    if (coronavirus) {
-      await driver.findElement(By.id('f-coronavirusReasonForClaim')).click();
-      await driver.findElement(By.id('continue-button')).click();
-    } else {
-      await driver.findElement(By.id('f-coronavirusReasonForClaim-2')).click();
-      await driver.findElement(By.id('continue-button')).click();
-      await driver.findElement(By.id('f-disabilityOrHealthCondition')).click();
-      await driver.findElement(By.id('continue-button')).click();
-    }
+    await driver.findElement(By.id('continue-button')).click();
+    await driver.findElement(By.id('f-disabilityOrHealthCondition')).click();
+    await driver.findElement(By.id('continue-button')).click();
 
     await driver.findElement(By.id('f-statePensionAge')).click();
     await driver.findElement(By.id('continue-button')).click();
@@ -156,29 +153,18 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('continue-button')).click();
     }
 
-    if(coronavirus) {
-        await driver.findElement(By.id('f-coronavirusReasonForClaim')).click();
-        await driver.findElement(By.id('continue-button')).click();
-        await driver.findElement(By.name('coronavirusDate[dd]')).sendKeys('4');
-        await driver.findElement(By.name('coronavirusDate[mm]')).sendKeys('4');
-        await driver.findElement(By.name('coronavirusDate[yyyy]')).sendKeys('2020');
-        await driver.findElement(By.id('continue-button')).click();
-        await driver.findElement(By.id('f-coronavirusOtherCondition')).click();
-        await driver.findElement(By.id('continue-button')).click();
-    }
-
-    for(let i = 1; i <= conditions; i++){
-    await driver.findElement(By.name(`conditionName`)).sendKeys(faker.hacker.adjective() + ' ' + faker.hacker.noun());
-    await driver.findElement(By.name(`conditionStartDate[dd]`)).sendKeys('1');
-    await driver.findElement(By.name(`conditionStartDate[mm]`)).sendKeys('2');
-    await driver.findElement(By.name(`conditionStartDate[yyyy]`)).sendKeys('2003');
-    await driver.findElement(By.id('continue-button')).click();
-    if ( i == conditions) {
-      await driver.findElement(By.id('f-anotherCondition-2')).click();
-    } else {
-      await driver.findElement(By.id('f-anotherCondition')).click();
-    }
-    await driver.findElement(By.id('continue-button')).click();
+    for (let i = 1; i <= conditions; i++) {
+      await driver.findElement(By.name(`conditionName`)).sendKeys(faker.hacker.adjective() + ' ' + faker.hacker.noun());
+      await driver.findElement(By.name(`conditionStartDate[dd]`)).sendKeys('1');
+      await driver.findElement(By.name(`conditionStartDate[mm]`)).sendKeys('2');
+      await driver.findElement(By.name(`conditionStartDate[yyyy]`)).sendKeys('2003');
+      await driver.findElement(By.id('continue-button')).click();
+      if (i == conditions) {
+        await driver.findElement(By.id('f-anotherCondition-2')).click();
+      } else {
+        await driver.findElement(By.id('f-anotherCondition')).click();
+      }
+      await driver.findElement(By.id('continue-button')).click();
     }
 
     await driver.findElement(By.name('doctor')).sendKeys('Dr. ' + faker.name.firstName() + ' ' + faker.name.lastName());
@@ -238,7 +224,7 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('f-voluntaryWork')).click();
       await driver.findElement(By.id('continue-button')).click();
 
-      for(let i = 0; i < voluntaryJobs; i++){
+      for (let i = 0; i < voluntaryJobs; i++) {
         await driver.findElement(By.name('organisationName')).sendKeys(faker.company.companyName());
         await driver.findElement(By.name('organisationAddress[address1]')).sendKeys(faker.address.streetAddress());
         await driver.findElement(By.name('organisationAddress[postcode]')).sendKeys('LS1 1DJ');
@@ -254,7 +240,7 @@ const args = process.argv.slice(2)
         }
         await driver.findElement(By.id('continue-button')).click();
 
-        if(i !== voluntaryJobs - 1) {
+        if (i !== voluntaryJobs - 1) {
           await driver.findElement(By.id('f-other')).click();
           await driver.findElement(By.id('continue-button')).click();
         } else {
@@ -281,7 +267,7 @@ const args = process.argv.slice(2)
       await driver.findElement(By.name('employerAddress[postcode]')).sendKeys('LS1 1DJ');
       await driver.findElement(By.id('continue-button')).click();
 
-      if(offSick) {
+      if (offSick) {
         await driver.findElement(By.id('f-offSick')).click();
         await driver.findElement(By.id('continue-button')).click();
         const lastWorkedDate = moment().subtract(3, 'weeks');
@@ -294,7 +280,7 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('continue-button')).click();
       }
 
-      if(!offSick) {
+      if (!offSick) {
         if (sameHours) {
           await driver.findElement(By.id('f-sameHours')).click();
           await driver.findElement(By.name('hours')).sendKeys('12');
@@ -488,7 +474,7 @@ const args = process.argv.slice(2)
         await new Promise(resolve => setTimeout(resolve, 2147483647));
       }
     } else {
-        await driver.quit();
+      await driver.quit();
     }
   }
 })();

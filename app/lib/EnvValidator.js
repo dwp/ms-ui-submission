@@ -89,12 +89,17 @@ module.exports = (envParam) => {
 
   /* -------------------------------------------------------------------- ESA controller api */
   validateRequiredString('ESA_CONTROLLER_URL');
-  validateRequiredString('NOTIFICATION_API_URL');
 
   /* -------------------------------------------------------------------- Notify */
   validateRequiredString('NOTIFY_EMAILTO');
   validateRequiredString('NOTIFY_APIKEY');
   validateRequiredString('NOTIFY_PROXY');
+
+  /* -------------------------------------------------------------------- Notification service */
+  validateRequiredString('SQS_AWS_REGION');
+  validateRequiredString('SMS_API_KEY');
+  validateRequiredString('ENC_KEY_ALIAS');
+  validateRequiredString('QUEUE_URL');
 
   /* -------------------------------------------------------------------- Google Analytics */
   validateRequiredString('GOOGLE_TAG_MANAGER_ID');

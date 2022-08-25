@@ -1,7 +1,7 @@
 {
   "pageTitle": "Statutory Sick Pay end date",
   "sspEndDate": {
-    "label": "What’s your Statutory Sick Pay end date?",
+    "label": "What's your Statutory Sick Pay end date?",
     "hint": "<p class=\"govuk-body\" style=\"color:black\">You can find this in section B on form SSP1 if your employer has given it to you. If not, check with your employer or accountant.</p><p>It can be a date in the past or up to 3 months in the future. For example, <span class=\"nobr\">%s</span></p>",
     "errors": {
       "required": "Enter your Statutory Sick Pay end date",

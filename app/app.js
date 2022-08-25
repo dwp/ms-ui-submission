@@ -15,7 +15,7 @@ const RedisKmsStoreDecorator = require('./lib/RedisKmsStoreDecorator');
 const Logger = require('./lib/Logger');
 const envValidator = require('./lib/EnvValidator');
 const SubmissionService = require('./lib/SubmissionService');
-const NotificationService = require('./lib/NotificationService');
+const { processNotifications } = require('./services/NotificationService');
 const journey = require('./definitions/journey');
 const cookieMiddleware = require('./middleware/cookie-message');
 const mediaMiddleware = require('./middleware/media.js');
@@ -75,11 +75,6 @@ const submissionService = new SubmissionService(
   appConfig.API_KEY,
 );
 
-// Create an instance of the notification service
-appLogger.info('Set up Notification Service');
-const notificationService = new NotificationService(
-  appConfig.NOTIFICATION_API_URL,
-);
 // Prepare the KMS crypto for encrypting session data
 appLogger.info('Set up KMS crypto service client');
 const kmsKeyProvider = new KmsKeyProvider({
@@ -233,7 +228,7 @@ const cookiePolicyPost = require('./routes/cookie-policy.post');
 require('./routes/check-your-answers')(casaApp.router, casaApp.csrfMiddleware, casaApp.config.mountUrl, journey);
 require('./routes/cancel')(casaApp.router, casaApp.csrfMiddleware);
 require('./routes/remove')(casaApp.router, casaApp.csrfMiddleware);
-require('./routes/declaration')(casaApp, casaApp.config.mountUrl, casaApp.router, casaApp.csrfMiddleware, submissionService, notificationService);
+require('./routes/declaration')(casaApp, casaApp.config.mountUrl, casaApp.router, casaApp.csrfMiddleware, submissionService, processNotifications, appConfig);
 require('./routes/complete')(casaApp, casaApp.config.mountUrl, casaApp.router);
 require('./routes/feedback')(casaApp.router, casaApp.csrfMiddleware, appConfig.NOTIFY_EMAILTO, appConfig.NOTIFY_APIKEY, appConfig.NOTIFY_PROXY, appConfig.NOTIFY_URL ? appConfig.NOTIFY_URL : null);
 require('./routes/thankyou')(casaApp.router);

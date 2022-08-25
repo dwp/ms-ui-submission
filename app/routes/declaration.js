@@ -1,11 +1,11 @@
+/* eslint-disable max-len */
 const Logger = require('../lib/Logger');
 const dataMapper = require('../lib/DataMapper');
-const smsTemplate = require('../template/sms-notification.json');
 const smsConstants = require('../lib/constants/sms-constants.js');
 
 const appLogger = Logger();
 
-module.exports = (casaApp, mountUrl, router, csrf, submissionService, notificationService) => {
+module.exports = (casaApp, mountUrl, router, csrf, submissionService, processNotifications, config) => {
   router.get('/declaration', csrf, (req, res) => {
     if (!req.session.journeyData) {
       res.status(302).redirect('/welcome');
@@ -50,24 +50,20 @@ module.exports = (casaApp, mountUrl, router, csrf, submissionService, notificati
 
       appLogger.info('Send application data for (ref: %s)', req.session.applicationRef);
       submissionService.sendApplication(data)
-        .then((response) => {
+        .then(async (response) => {
           if (response.statusCode === 200) {
             appLogger.info('Application accepted by Submission Handler');
             if (req.session.journeyData.mobile.mobile === 'yes') {
               const mobileNo = req.session.journeyData.mobile.number.replace(/[()]/g, '').replace(/\s/g, '').replace('-', '');
               const smsTemplateId = data.data_capture.language === 'en' ? smsConstants.SMS_EN_TEMPLATE : smsConstants.SMS_CY_TEMPLATE;
               appLogger.debug('SMS template id:', smsTemplateId);
-              const smsNotificationData = JSON.parse(JSON.stringify(smsTemplate).replace('$mobile_no$', mobileNo).replace('$template_id$', smsTemplateId));
-              notificationService.sendNotification(smsNotificationData)
-                .then((resp) => {
-                  if (resp.statusCode === 202) {
-                    appLogger.info('SMS accepted by Notification Service');
-                  } else {
-                    appLogger.warn('Issue with SMS Notification Service, received status code:', resp.statusCode);
-                  }
-                }).catch((err) => {
-                  appLogger.error('Issue with SMS Notification Service', err.message);
-                });
+              try {
+                appLogger.info('SMS notification triggered');
+                const { MessageId } = await processNotifications(mobileNo, smsTemplateId, config);
+                appLogger.info(`notification message sent to SQS id: ${MessageId}`);
+              } catch (err) {
+                appLogger.error('Error processing sms notification', err);
+              }
             }
             gotoThankYou();
           } else {

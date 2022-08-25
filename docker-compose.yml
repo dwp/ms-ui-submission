@@ -4,15 +4,12 @@ networks:
 services:
   localstack:
     container_name: localstack
-    image: localstack/localstack:0.11.2
+    image: localstack/localstack:1.0.3
     ports:
       - 4566:4566
-      - 8080:8080
     environment:
-      SERVICES: kms
       HOSTNAME_EXTERNAL: ${LOCALSTACK_HOSTNAME}
       HOSTNAME: ${LOCALSTACK_HOSTNAME}
-      DEFAULT_REGION: ${AWS_REGION}
     networks:
       - test
     healthcheck:
@@ -33,9 +30,15 @@ services:
     entrypoint: /bin/sh -c
     command:
       - |
-        until [ `curl -s http://localstack:8080/health | grep -o running | wc -l` -eq 1 ]; do echo "services not available, sleeping 5."; sleep 5; done
-        aws kms create-key --endpoint-url http://localstack:4566 --output=text | cut -f7 > key.txt
+        until [ `curl -s http://localstack:4566/health | grep -o "\"\(kms\|sqs\)\": \"\(available\|running\)"\" | wc -l` -eq 2 ]; do echo "services not available, sleeping 5."; sleep 5; done
+        echo "creating sqs queue"
+        aws sqs create-queue --endpoint-url http://localstack:4566 --queue-name test
+        echo "creating KMS keys"
+        aws kms create-key --endpoint-url http://localstack:4566 --output=text | cut -f8 > key.txt
         aws kms create-alias --endpoint-url http://localstack:4566 --alias-name ${REDIS_KMS_ID} --target-key-id `cat key.txt`
+        aws kms create-key --endpoint-url http://localstack:4566 --output=text | cut -f8 > key.txt
+        aws kms create-alias --endpoint-url http://localstack:4566 --alias-name ${ENC_KEY_ALIAS} --target-key-id `cat key.txt`
+        echo "localstack init complete"
     depends_on:
       - localstack
 
@@ -56,7 +59,7 @@ services:
     networks:
       - test
     ports:
-      - 8081:8081
+      - 8091:8091
     image: nginx:latest
     volumes:
       - ./stub-config/stub.conf:/etc/nginx/conf.d/stub.conf
@@ -86,13 +89,13 @@ services:
       REDIS_ENCRYPTION_TRANSIT: ${REDIS_ENCRYPTION_TRANSIT}
       KMS_ENDPOINT_URL: ${KMS_ENDPOINT_URL}
       REDIS_MAX_RETRY: ${REDIS_MAX_RETRY}
-      NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
-      NOTIFY_APIKEY: ${NOTIFY_APIKEY}
-      NOTIFY_PROXY: ${NOTIFY_PROXY}
       NOTIFY_URL: ${NOTIFY_URL}
-      NOTIFICATION_API_URL: ${NOTIFICATION_API_URL}
       GOOGLE_TAG_MANAGER_ID: ${GOOGLE_TAG_MANAGER_ID}
-
+      QUEUE_URL: ${QUEUE_URL}
+      SQS_AWS_REGION: ${SQS_AWS_REGION}
+      SQS_ENDPOINT_OVERRIDE: ${SQS_ENDPOINT_OVERRIDE}
+      ENC_KEY_ALIAS: ${ENC_KEY_ALIAS}
+      SMS_API_KEY: ${SMS_API_KEY}
     networks:
       - test
     ports:
@@ -127,13 +130,13 @@ services:
       REDIS_ENCRYPTION_TRANSIT: ${REDIS_ENCRYPTION_TRANSIT}
       KMS_ENDPOINT_URL: ${KMS_ENDPOINT_URL}
       REDIS_MAX_RETRY: ${REDIS_MAX_RETRY}
-      NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
-      NOTIFY_APIKEY: ${NOTIFY_APIKEY}
-      NOTIFY_PROXY: ${NOTIFY_PROXY}
       NOTIFY_URL: ${NOTIFY_URL}
-      NOTIFICATION_API_URL: ${NOTIFICATION_API_URL}
       GOOGLE_TAG_MANAGER_ID: ${GOOGLE_TAG_MANAGER_ID}
-
+      QUEUE_URL: ${QUEUE_URL}
+      SQS_AWS_REGION: ${SQS_AWS_REGION}
+      SQS_ENDPOINT_OVERRIDE: ${SQS_ENDPOINT_OVERRIDE}
+      ENC_KEY_ALIAS: ${ENC_KEY_ALIAS}
+      SMS_API_KEY: ${SMS_API_KEY}
     networks:
       - test
     build:
@@ -178,7 +181,6 @@ services:
       - test
     depends_on:
       - selenium
-
 
 #To use develop image prior to merge (when working in CI)
   journey_test:

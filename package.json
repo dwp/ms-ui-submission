@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "3.25.0",
+  "version": "4.0.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -24,7 +24,7 @@
     "quality:lintfix": "eslint -c node_modules/@dwp/eslint-config-base/.eslintrc.js --fix .",
     "quality:coverage": "nyc --reporter=lcov npm test",
     "fill": "export PATH=$PATH:$(pwd)/node_modules/chromedriver/bin && node tools/complete-form.js",
-    "fill:multiple": "node tools/call-complete-form.js",
+    "fill:all": "export SUBMITCLAIM=true && node tools/call-complete-form.js",
     "package:changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 1",
     "errorpages": "./node_modules/.bin/gulp",
     "build": "./node_modules/.bin/gulp minifyjs"
@@ -37,6 +37,7 @@
   "author": "DWP Digital Health PDU",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-sqs": "3.137.0",
     "@dwp/govuk-casa": "4.1.0",
     "body-parser": "1.20.0",
     "connect-redis": "5.2.0",
@@ -70,16 +71,17 @@
   },
   "devDependencies": {
     "@dwp/eslint-config-base": "4.1.0",
+    "aws-sdk-client-mock": "^1.0.0",
     "chai": "4.2.0",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.6.0",
-    "chromedriver": "96.0.0",
+    "chromedriver": "103.0.0",
     "eslint": "7.11.0",
     "faker": "5.1.0",
     "mocha": "^8.1.3",
     "nyc": "15.1.0",
     "rewire": "5.0.0",
-    "selenium-webdriver": "4.0.0-alpha.7",
+    "selenium-webdriver": "4.3.1",
     "sinon": "9.2.0",
     "sinon-chai": "3.5.0"
   }

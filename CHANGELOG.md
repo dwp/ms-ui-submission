@@ -1,3 +1,7 @@
+# 4.0.0 (2022-08-25)
+
+* feature: add send-notification lambda support for strategic notification service solution ([d96b8a66](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/d96b8a66))
+
 # 3.25.0 (2022-08-11)
 
 * feature: update content on employment details page ([4aa81dad](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/4aa81dad))

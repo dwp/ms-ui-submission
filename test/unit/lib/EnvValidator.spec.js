@@ -21,11 +21,16 @@ describe('EnvValidator', () => {
       REDIS_HOST: '',
       REDIS_ENCRYPTION_TRANSIT: '',
       ESA_CONTROLLER_URL: 'http://test:8000/v1/',
-      NOTIFICATION_API_URL: 'http://test:8000/v1/',
       NOTIFY_EMAILTO: 'test@test.co.uk',
       NOTIFY_APIKEY: 'apikey',
       NOTIFY_PROXY: 'test',
-      GOOGLE_TAG_MANAGER_ID: `GTM-AB1TEST`
+      GOOGLE_TAG_MANAGER_ID: 'GTM-AB1TEST',
+      SQS_AWS_REGION: 'eu-west-2',
+      SQS_ENDPOINT_OVERRIDE: 'http://localstack:4599',
+      RETRY_QUEUE_URL: 'retryQueue',
+      ENC_KEY_ALIAS: 'alias/encryption-key',
+      QUEUE_URL: 'queue',
+      SMS_API_KEY: 'apikey',
     };
   });
 
