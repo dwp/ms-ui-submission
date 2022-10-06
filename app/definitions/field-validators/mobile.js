@@ -1,5 +1,5 @@
 const Validation = require('@dwp/govuk-casa/lib/Validation');
-const validatePhoneNumber = require('../../lib/validation-rules/phone-number-validator.js');
+const validatePhoneNumber = require('../../lib/validation-rules/mobile-phone-number-validator.js');
 
 const { rules, SimpleField } = Validation;
 

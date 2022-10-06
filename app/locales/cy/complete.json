@@ -32,17 +32,17 @@
       "li1": "Med10 (tystysgrif ysbyty a roddir i gleifion mewnol os yw’ch triniaeth yn parhau mwy na 7 diwrnod)",
       "li2": "MATB1 (os ydych yn feichiog ond na allwch gael Tâl Mamolaeth Statudol na Lwfans Mamolaeth)",
       "li3": "CF73 (ffurflen a gyhoeddir gan ysbyty seiciatryddol)",
-      "li4": "SR1, DS1500 neu BASRiS (ffurflen wedi’i chwblhau a’i hanfon i ni gan ddoctor, ymgynghorydd neu nyrs arbenigol os ydynt yn meddwl efallai na fyddwch yn byw am fwy na 12 mis, oherwydd eich cyflwr)",
-      "text2": "Gallai mathau eraill o dystiolaeth gynnwys datganiad doctor, adroddiad ymgynghorydd neu hysbysiad Awdurdod Lleol."
+      "li4": "SR1 neu DS1500 (ffurflen wedi’i chwblhau a’i hanfon i ni gan ddoctor, ymgynghorydd neu nyrs arbenigol os ydynt yn meddwl efallai na fyddwch yn byw am fwy na 12 mis, oherwydd eich cyflwr)",
+      "text2": "Gallai mathau eraill o dystiolaeth gynnwys datganiad meddyg, adroddiad ymgynghorydd neu hysbysiad Awdurdod Lleol."
     },
     "text3": "Bydd angen i chi barhau i anfon tystiolaeth feddygol atom cyn belled â’ch bod ddim digon abl i weithio. Byddwn yn dweud wrthych pryd y gallwch roi’r gorau i’w hanfon. Er enghraifft, os yw’ch nodyn ffitrwydd am 14 diwrnod, bydd angen i chi i anfon un arall atom pan fydd yn rhedeg allan.",
     "yesSRTI":{
-      "heading":"Anfonwch eich ffurflen SR1, DS1500 neu BASRiS, os oes gennych un.",
+      "heading":"Anfonwch eich ffurflen SR1 neu DS1500, os oes gennych un.",
       "text1": "Byddwn yn cysylltu â chi erbyn <span class=\"nobr\">%s</span> os ydym angen mwy o wybodaeth.",
       "text2": "Mae hwn fel arfer yn cael ei anfon i’r DWP gan eich doctor neu nyrs arbenigol.",
       "text3": "Os oes gennych gopi, anfonwch hi i:",
-      "text4": "Nid oes angen i chi anfon ffurflen SR1, DS1500 neu BASRiS arall os ydych eisoes wedi anfon un ar gyfer cais am Daliad Annibyniaeth Personol (PIP) neu Daliad Anabledd Oedolyn (ADP).",
-      "text5": "Os nad oes gennych ffurflen SR1, DS1500 neu BASRiS, gofynnwch i'ch doctor neu nyrs arbenigol gwblhau un cyn gynted â phosibl. Nid oes rhaid i chi dalu amdani.",
+      "text4": "Nid oes angen i chi anfon ffurflen SR1 neu DS1500 arall os ydych eisoes wedi anfon un ar gyfer cais am Daliad Annibyniaeth Personol (PIP) neu Daliad Anabledd Oedolyn (ADP).",
+      "text5": "Os nad oes gennych ffurflen SR1 neu DS1500, gofynnwch i'ch doctor neu nyrs arbenigol gwblhau un cyn gynted â phosibl. Nid oes rhaid i chi dalu amdani.",
       "text6": "Os oes gennych ffurflen SSP1, mae angen i chi ei hanfon atom. Gallwch gael y ffurflen hon gan eich cyflogwr."
     }
   },

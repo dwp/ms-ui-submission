@@ -1,37 +1,34 @@
 {
     "1069553": {
         "active": true,
-        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template - expires Wednesday, August 31, 2022 11:32:45 AM",
-        "expiry": 1661941965000
+        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template"
     },
     "1070415": {
         "active": true,
-        "notes": "json-schema is vulnerable to Prototype Pollution - expires Wednesday, August 31, 2022 11:32:45 AM",
-        "expiry": 1661941965000
+        "notes": "json-schema is vulnerable to Prototype Pollution"
     },
     "1070415": {
         "active": true,
-        "notes": "Inefficient Regular Expression Complexity - expires Wednesday, August 31, 2022 11:32:45 AM",
-        "expiry": 1661941965000
+        "notes": "Inefficient Regular Expression Complexity"
     },
     "1081699": {
         "active": true,
-        "notes": "Terser insecure use of regular expressions before  gulp-minify>terser- - expires Wednesday, August 31, 2022 11:32:45 AM",
-        "expiry": 1661941965000
-    },
-    "1081761": {
-        "active": true,
-        "notes": "Inefficient Regular Expression Complexity in  @dwp/govuk-casa>moment - expires Wednesday, August 31, 2022 11:32:45 AM",
-        "expiry": 1661941965000
-    },
-    "1081763": {
-        "active": true,
-        "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment  -expires Wednesday, August 31, 2022 11:32:45 AM",
-        "expiry": 1661941965000
+        "notes": "Terser insecure use of regular expressions before  gulp-minify>terser"
     },
     "1081884": {
        "active": true,
-       "notes": "glob-parent before 5.1.2 vulnerable to Regular   gulp>glob-watcher>chokidar>glob-parent   - expires Wednesday, August 31, 2022 11:32:45 AM",
-       "expiry": 1661941965000
+       "notes": "glob-parent before 5.1.2 vulnerable to Regular   gulp>glob-watcher>chokidar>glob-parent"
+    },
+    "1081763": {
+       "active": true,
+       "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment"
+    },
+    "1084324": {
+       "active": true,
+       "notes": "Inefficient Regular Expression Complexity in    @dwp/govuk-casa>moment"
+    },
+    "1084429": {
+       "active": true,
+       "notes": "Moment.js vulnerable to Inefficient Regular     @dwp/govuk-casa>moment"
     }
 }

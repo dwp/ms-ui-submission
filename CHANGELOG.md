@@ -1,3 +1,10 @@
+# 4.1.0 (2022-10-04)
+
+* feature: remove mention of Basris from ds1500 report page ([45d70619](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/45d70619))
+* feature: remove mention of Basris from check your answers page ([9c667ab4](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/9c667ab4))
+* feature: remove mention of Basris from complete page ([613189a6](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/613189a6))
+* fix: update phone number validation ([d4caef78](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/d4caef78))
+
 # 4.0.0 (2022-08-25)
 
 * feature: add send-notification lambda support for strategic notification service solution ([d96b8a66](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/d96b8a66))

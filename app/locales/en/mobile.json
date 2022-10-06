@@ -12,8 +12,8 @@
   "number" : {
     "label" : "Mobile number",
     "errors" : {
-      "required" : "Enter your mobile number",
-      "badFormat": "Enter a real mobile number"
+      "required" : "Enter a mobile number, like 07700 900 982. For international numbers, include the country code, like +39 1 33 45 70 90.",
+      "badFormat": "Enter a mobile number, like 07700 900 982. For international numbers, include the country code, like +39 1 33 45 70 90."
     }
   }
 }
