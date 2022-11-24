@@ -7,30 +7,35 @@
 {% endblock %}
 
 {% block journey_form %}
+
     {{ casaGovukRadios({
         name: 'statutoryPayEndDate',
         fieldset: {
             legend: {
-                text: t('statutory-pay-end-date:label'),
+                text: t('statutory-pay-end-date:statutoryEnd.label'),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
         },
+        hint: {
+            classes: 'govuk-hint-black',
+            text: t('statutory-pay-end-date:statutoryEnd.hint') | safe
+        },
         casaValue: formData.statutoryPayEndDate,
         casaErrors: formErrors,
         items: [{
-            text: t('statutory-pay-end-date:yes'),
+            text: t('statutory-pay-end-date:statutoryEnd.yes'),
             value: 'yes',
             attributes: {
-                'data-question': t('statutory-pay-end-date:label', statutoryPayType),
-                'data-answer': t('statutory-pay-end-date:yes')
+                'data-question': t('statutory-pay-end-date:statutoryEnd.label', statutoryPayType),
+                'data-answer': t('statutory-pay-end-date:statutoryEnd.yes')
             }
         }, {
-            text: t('statutory-pay-end-date:no'),
+            text: t('statutory-pay-end-date:statutoryEnd.no'),
             value: 'no',
             attributes: {
-                'data-question': t('statutory-pay-end-date:label', statutoryPayType),
-                'data-answer': t('statutory-pay-end-date:no')
+                'data-question': t('statutory-pay-end-date:statutoryEnd.label', statutoryPayType),
+                'data-answer': t('statutory-pay-end-date:statutoryEnd.no')
             }
         }]
     }) }}

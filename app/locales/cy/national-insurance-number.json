@@ -2,7 +2,7 @@
   "pageTitle": "Rhif Yswiriant Gwladol",
   "nino" : {
     "label": "Beth yw eich rhif Yswiriant Gwladol?",
-    "hint": "<p class=\"govuk-hint\">Mae ar eich cerdyn Yswiriant Gwladol, llythyr budd-dal, slip cyflog neu P60.</p><p>Er enghraifft, <span class=\"nobr\">QQ 12 34 56 C</span></p>",
+    "hint": "<p class=\"govuk-body\">Mae ar eich cerdyn Yswiriant Gwladol, llythyr budd-dal, slip cyflog neu P60.</p>Er enghraifft, <span class=\"nobr\">QQ 12 34 56 C</span>",
     "errors": {
       "badFormat": "Rhowch eich rhif Yswiriant Gwladol yn y ffurf gywir"
     }

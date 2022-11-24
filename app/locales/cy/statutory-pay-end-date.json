@@ -1,7 +1,10 @@
 {
     "pageTitle": "Ydy eich Tâl Salwch Statudol yn dod i ben yn y 3 mis nesaf?",
-    "label": "Ydy eich Tâl Salwch Statudol yn dod i ben yn y 3 mis nesaf?",
-    "yes": "Ydy",
-    "no": "Na",
+    "statutoryEnd": {
+        "label": "Ydy eich Tâl Salwch Statudol yn dod i ben yn y 3 mis nesaf?",
+        "yes": "Ydy",
+        "no": "Na",
+        "hint": "<p class=\"govuk-body\">Gallwch ddod o hyd i'r dyddiad hwn ar eich ffurflen SSP1.</p><p class=\"govuk-body\">Os nad oes gennych ffurflen SSP1, gallwch gael y wybodaeth hon gan eich cyflogwr.</p>"
+    },
     "error": "Dewiswch ydy os yw eich Tâl Salwch Statudol yn dod i ben yn y 3 mis nesaf"
 }

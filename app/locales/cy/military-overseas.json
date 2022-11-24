@@ -1,7 +1,7 @@
 {
   "pageTitle" : "Yn y 12 wythnos diwethaf, ydych chi wedi byw dramor gydag aelod o’r teulu a gafodd eu hanfon yno gyda’r lluoedd arfog?",
   "heading" : "Yn y 12 wythnos diwethaf, ydych chi wedi byw dramor gydag aelod o’r teulu a gafodd eu hanfon yno gyda’r lluoedd arfog?",
-  "hint" : "Mae hyn yn ein helpu i ddeall unrhyw fylchau yn eich cofnod Yswiriant Gwladol y DU.",
+  "hint" : "<p class=\"govuk-body\">Mae hyn yn ein helpu i ddeall unrhyw fylchau yn eich cofnod Yswiriant Gwladol y DU.</p>",
   "yes": "Ydw",
   "no": "Na",
   "errors": {

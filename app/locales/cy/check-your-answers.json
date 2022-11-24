@@ -65,6 +65,8 @@
   "sspRecentEnd": "Tâl Salwch Statudol wedi dod i ben",
   "otherStatPay": "Taliadau statudol eraill",
 
+  "sspReasonNo": "Rheswm dros beidio â chael Tâl Salwch Statudol",
+
   "headingOverseas": "Gweithio a byw dramor",
   "workOverseas": "Wedi gweithio dramor yn y 5 mlynedd diwethaf",
   "militaryOverseas": "Wedi byw dramor gyda aelod o’r teulu yn y lluoedd arfog yn y 12 wythnos diwethaf",
@@ -147,6 +149,7 @@
   "visuallyHiddenTextEmploymentExpensesDetails": "manylion treuliau ar gyfer %s",
   "visuallyHiddenTextOtherEmployment": "os oes gennych swydd arall",
   "visuallyHiddenTextSsp": "os ydych yn cael Tâl Salwch Statudol neu beidio",
+  "visuallyHiddenTextSspReasonNo": "y rheswm pam nad ydych yn cael Tâl Salwch Statudol",
   "visuallyHiddenTextSspRecent": "os ydych yn cael Tâl Salwch Statudol yn yr 13 wythnos cyn y dyddiad rydych eisiau gwneud cais o",
   "visuallyHiddenTextSspRecentEnd": "dyddiad gorffen eich Tâl Salwch Statudol",
   "visuallyHiddenTextSspEnd": "dyddiad gorffen eich Tâl Salwch Statudol",

@@ -20,8 +20,11 @@
     <p class="govuk-hint">{{ t('conditions:body1') }}</p>
     <p class="govuk-hint">{{ t('conditions:hint1') }}</p>
 
-    <h2 class="govuk-label--s">{{ t('conditions:name.label') }}</h2>
     {{ casaGovukInput({
+        label: {
+            text: t('conditions:name.label'),
+            classes: "govuk-label--s"
+        },
         name: 'conditionName',
         classes: 'govuk-input--width-20',
         value: formData.conditionName,
@@ -36,11 +39,12 @@
         fieldset: {
             legend: {
                 text: t('conditions:conditionStartDate.label'),
-                classes: 'govuk-visually-hidden'
+                classes: 'govuk-fieldset__legend--s'
             }
         },
         hint: {
-            html: t('conditions:conditionStartDate.hint')
+            html: t('conditions:conditionStartDate.hint'),
+            classes: 'govuk-hint-black'
         },
         casaValue: formData.conditionStartDate,
         casaErrors: formErrors
@@ -57,8 +61,6 @@
             ]
         } %}
     {% endif %}
-    <h2 class="govuk-label--s">{{ t('conditions:conditionStartDate.label') }}</h2>
-    <p class="govuk-body">{{ t('conditions:body2')}}</p>
-     {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+    {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
   {% endcall %}
 {%  endblock %} %}

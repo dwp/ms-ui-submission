@@ -1,0 +1,13 @@
+{
+    "pageTitle": "Dywedwch wrthym pam nad ydych yn cael Tâl Salwch Statudol",
+    "label": "Dywedwch wrthym pam nad ydych yn cael Tâl Salwch Statudol",
+    "hint": "<p class=\"govuk-body\">Dylai'r rheswm (rhesymau) fod ar eich ffurflen SSP1. Os nad ydych wedi cael ffurflen SSP1, gallwch gael y wybodaeth hon gan eich cyflogwr.</p><p class=\"govuk-body\">Os nad ydych yn siwr, gallwch ddal i wneud cais am ESA Dull Newydd.</p>",
+    "error": "Dewiswch y rheswm nad ydych yn cael Tâl Salwch Statudol",
+    "esa12": "Rydych wedi cael ESA yn ystod y 12 wythnos diwethaf",
+    "contractEnd": "Mae eich contract cyflogaeth wedi dod i ben neu bydd yn dod i ben",
+    "afterContract": "Fe aethoch yn sâl ar ôl i'ch contract cyflogaeth ddod i ben",
+    "ssp28": "Yn fuan byddwch wedi bod yn cael SSP am 28 wythnos yn olynnol",
+    "zeroContact": "Rydych ar gontract dim oriau",
+    "anotherReason": "Rheswm arall",
+    "notKnown": "Nid ydych yn gwybod"
+}

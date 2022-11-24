@@ -2,7 +2,7 @@
   "pageTitle": "Yswiriant iechyd parhaol",
   "insurance": {
     "label": "Ydych chi’n cael unrhyw yswiriant iechyd parhaol wedi sefydlu gan gyflogwr?",
-    "hint": "Mae yswiriant iechyd parhaol yn diogelu eich incwm os ydych yn stopio gweithio oherwydd salwch, anaf neu anabledd.",
+    "hint": "<p class=\"govuk-body\">Mae yswiriant iechyd parhaol yn diogelu eich incwm os ydych yn stopio gweithio oherwydd salwch, anaf neu anabledd.</p>",
     "yes": "Ydw",
     "no": "Na",
     "notsure": "Nid wyf yn siwr",

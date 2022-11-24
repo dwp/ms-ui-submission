@@ -45,6 +45,7 @@ module.exports = (() => {
     'national-insurance',
     ['get-national-insurance-credits', (sessionData) => sessionData['national-insurance'].nationalInsurance === 'no'],
     'statutory-pay',
+    ['reason-no-sick-pay', (sessionData) => sessionData['statutory-pay'].statutoryPay === 'no'],
   ]);
 
   eligibilityChecks.fork([eligibilityEndPath, eligibilityStatutoryPayPath], (choices, sessionData) => (sessionData['statutory-pay'].statutoryPay === 'no' ? choices[0] : choices[1]));

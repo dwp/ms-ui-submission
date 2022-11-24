@@ -7,10 +7,6 @@
         "active": true,
         "notes": "json-schema is vulnerable to Prototype Pollution"
     },
-    "1070415": {
-        "active": true,
-        "notes": "Inefficient Regular Expression Complexity"
-    },
     "1081699": {
         "active": true,
         "notes": "Terser insecure use of regular expressions before  gulp-minify>terser"
@@ -23,12 +19,12 @@
        "active": true,
        "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment"
     },
-    "1084324": {
-       "active": true,
-       "notes": "Inefficient Regular Expression Complexity in    @dwp/govuk-casa>moment"
-    },
-    "1084429": {
-       "active": true,
-       "notes": "Moment.js vulnerable to Inefficient Regular     @dwp/govuk-casa>moment"
-    }
+    "1084694": {
+        "active": true,
+        "notes": "Moment.js vulnerable to Inefficient Regular' in   @dwp/govuk-casa>moment"
+     },
+     "1084765": {
+        "active": true,
+        "notes": "minimatch ReDoS vulnerability' in   gulp-minify>minimatch"
+     }
 }

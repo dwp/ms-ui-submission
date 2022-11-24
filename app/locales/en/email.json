@@ -4,7 +4,7 @@
     "label" : "Do you have an email address?",
     "yes": "Yes",
     "no": "No",
-    "hint": "We’ll use this to send details of appointments.",
+    "hint": "<p class=\"govuk-body\">We’ll use this to send details of appointments.</p>",
     "errors" : {
       "required": "Select yes if you have an email address"
     }

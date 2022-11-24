@@ -4,7 +4,7 @@
     "label" : "Are you getting Statutory Sick Pay?",
     "yes": "Yes",
     "no": "No",
-    "hint": "You can apply for New Style ESA if you do not get Statutory Sick Pay or it ends in the next 3 months.",
+    "hint": "<p>Statutory Sick Pay (SSP) is paid by your employer in the same way as your wages.</p><p>If you’re not sure, check our information on <a class=\"govuk-link\" href=\"https://www.gov.uk/statutory-sick-pay\" target=\"_blank\">SSP and eligibility (opens in a new tab)</a>.</p><p>You can apply for New Style ESA if you do not get Statutory Sick Pay or it ends in the next 3 months.</p>",
     "errors" : {
       "required": "Select yes if you get Statutory Sick Pay"
     }

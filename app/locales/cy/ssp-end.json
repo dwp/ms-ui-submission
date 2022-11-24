@@ -1,8 +1,8 @@
 {
-  "pageTitle": "Dyddiad gorffen Tâl Salwch Statudol",
+  "pageTitle": "Beth yw dyddiad gorffen eich Tâl Salwch Statudol",
   "sspEndDate": {
-    "label": "Beth yw eich dyddiad gorffen Tâl Salwch Statudol?",
-    "hint": "<p class=\"govuk-body\" style=\"color:black\">Gallwch ddod o hyd i hwn yn adran B ar ffurflen SSP1 os yw eich cyflogwr wedi’i roi i chi. Os na, gofynnwch i’ch cyflogwr neu gyfrifydd.</p><p>Gall fod yn ddyddiad yn y gorffennol neu hyd at 3 mis yn y dyfodol. Er enghraifft, <span class=\"nobr\">%s</span></p>",
+    "label": "Beth yw dyddiad gorffen eich Tâl Salwch Statudol?",
+    "hint": "<p class=\"govuk-body\">Gall hwn fod yn wahanol i'r dyddiad diwethaf y cawsoch eich talu SSP.</p><p class=\"govuk-body\">Gall fod yn ddyddiad yn y gorffennol neu hyd at 3 mis o heddiw.</p><p class=\"govuk-body\">Gallwch ddod o hyd i'r dyddiad hwn ar eich ffurflen SSP1. Os nad oes gennych ffurflen SSP1, mae angen i chi gael y wybodaeth hon gan eich cyflogwr.</p>Er enghraifft, <span class=\"nobr\">%s</span>",
     "errors": {
       "required": "Rhowch eich dyddiad gorffen Tâl Salwch Statudol",
       "missingDay": "Mae’n rhaid i’ch dyddiad gorffen Tâl Salwch Statudol gynnwys diwrnod",

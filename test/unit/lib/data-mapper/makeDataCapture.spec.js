@@ -141,6 +141,9 @@ describe('DataMapper', () => {
     'statutory-sick-pay': {
       ssp: 'yes',
     },
+    'reason-no-sick-pay': {
+      statutoryPayNoReason: '',
+    },
     'statutory-sick-pay-end': {
       sspEndDate: {
         dd: '01',
@@ -252,6 +255,7 @@ describe('DataMapper', () => {
     };
     const jd = { ...journeyData };
     jd.getDataForPage('statutory-sick-pay').ssp = 'no';
+    jd.getDataForPage('reason-no-sick-pay').statutoryPayNoReason = 'esa12';
     jd.getDataForPage('pension').inherited = '';
     const s = { ...session };
     s.voluntaryGather[0].sameHours = 'no';
@@ -277,6 +281,7 @@ describe('DataMapper', () => {
   it('should build a data object with other alternate options', () => {
     const jd = { ...journeyData };
     jd.getDataForPage('statutory-sick-pay').ssp = 'no';
+    jd.getDataForPage('reason-no-sick-pay').statutoryPayNoReason = 'esa12';
     jd.getDataForPage('pension').inherited = '';
     const s = { ...session };
     s.voluntaryGather[0].sameHours = 'no';

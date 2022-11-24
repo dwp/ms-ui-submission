@@ -4,7 +4,7 @@
     "label" : "Oes gennych chi rif ffôn symudol?",
     "yes": "Oes",
     "no": "Na",
-    "hint": "Byddwn yn defnyddio’r rhif hwn i gysylltu â chi am eich cais.",
+    "hint": "<p class=\"govuk-body\">Byddwn yn defnyddio’r rhif hwn i gysylltu â chi am eich cais.</p>",
     "errors" : {
       "required": "Dewiswch oes os oes gennych rif ffôn symudol"
     }

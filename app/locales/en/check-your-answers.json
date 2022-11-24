@@ -65,6 +65,8 @@
   "sspRecentEnd": "Statutory Sick Pay ended",
   "otherStatPay": "Other statutory payments",
 
+  "sspReasonNo": "Reason not getting Statutory Sick Pay",
+
   "headingOverseas": "Working and living abroad",
   "workOverseas": "Worked abroad in the last 5 years",
   "militaryOverseas": "Lived abroad with family member in the armed forces in the last 12 weeks",
@@ -147,6 +149,7 @@
   "visuallyHiddenTextEmploymentExpensesDetails": "expenses details for %s",
   "visuallyHiddenTextOtherEmployment": "whether you have another job",
   "visuallyHiddenTextSsp": "whether you get Statutory Sick Pay or not",
+  "visuallyHiddenTextSspReasonNo": "the reason why you are not getting Statutory Sick Pay",
   "visuallyHiddenTextSspRecent": "whether you got Statutory Sick Pay in the 13 weeks before the date you want to claim from",
   "visuallyHiddenTextSspRecentEnd": "end date for your Statutory Sick Pay",
   "visuallyHiddenTextSspEnd": "end date for your Statutory Sick Pay",

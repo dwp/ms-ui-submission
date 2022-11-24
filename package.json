@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -37,16 +37,16 @@
   "author": "DWP Digital Health PDU",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-sqs": "3.150.0",
+    "@aws-sdk/client-sqs": "3.194.0",
     "@dwp/govuk-casa": "4.1.0",
-    "body-parser": "1.20.0",
+    "body-parser": "1.20.1",
     "connect-redis": "5.2.0",
     "cookie-parser": "1.4.6",
     "csurf": "1.11.0",
     "del": "6.1.1",
     "dwp-cryptoservice": "2.2.5",
     "dwp-winston-format": "1.2.1",
-    "express": "4.18.1",
+    "express": "4.18.2",
     "express-session": "1.17.3",
     "govuk-frontend": "3.14.0",
     "gulp": "4.0.2",
@@ -57,7 +57,7 @@
     "gulp-nunjucks-render": "2.2.3",
     "gulp-replace": "1.1.3",
     "hashids": "2.2.10",
-    "ioredis": "5.2.2",
+    "ioredis": "5.2.4",
     "lodash.isequal": "4.5.0",
     "lodash.merge": "4.6.2",
     "moment": "2.29.4",
@@ -66,25 +66,25 @@
     "punycode": "2.1.1",
     "request-promise-native": "1.0.9",
     "session-file-store": "1.5.0",
-    "uuid": "8.3.2",
-    "winston": "3.8.1",
-    "google-libphonenumber": "3.2.30"
+    "uuid": "9.0.0",
+    "winston": "3.8.2",
+    "google-libphonenumber": "3.2.31"
   },
   "devDependencies": {
     "@dwp/eslint-config-base": "4.1.0",
     "aws-sdk-client-mock": "1.0.0",
-    "chai": "4.2.0",
+    "chai": "4.3.6",
     "chai-as-promised": "7.1.1",
     "chai-subset": "1.6.0",
     "chromedriver": "103.0.0",
-    "eslint": "7.11.0",
-    "faker": "5.1.0",
-    "i18n": "0.15.0",
-    "mocha": "8.1.3",
+    "eslint": "7.32.0",
+    "faker": "5.5.3",
+    "i18n": "0.15.1",
+    "mocha": "8.4.0",
     "nyc": "15.1.0",
     "rewire": "5.0.0",
-    "selenium-webdriver": "4.3.1",
-    "sinon": "9.2.0",
-    "sinon-chai": "3.5.0"
+    "selenium-webdriver": "4.5.0",
+    "sinon": "9.2.4",
+    "sinon-chai": "3.7.0"
   }
 }

@@ -2,7 +2,7 @@
   "pageTitle": "Permanent health insurance",
   "insurance": {
     "label": "Are you getting any money from permanent health insurance set up by an employer?",
-    "hint": "Permanent health insurance protects your income if you stop work due to an illness, injury or disability.",
+    "hint": "<p class=\"govuk-body\">Permanent health insurance protects your income if you stop work due to an illness, injury or disability.</p>",
     "yes": "Yes",
     "no": "No",
     "notsure": "I'm not sure",

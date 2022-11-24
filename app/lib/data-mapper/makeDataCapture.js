@@ -47,6 +47,7 @@ module.exports = (translator, journeyData, session) => {
   const sspEnd = journeyData.getDataForPage('statutory-sick-pay-end');
   const sspRecent = journeyData.getDataForPage('statutory-sick-pay-recent');
   const statutoryPayOther = journeyData.getDataForPage('statutory-pay-other');
+  const statutoryPayNoReason = journeyData.getDataForPage('reason-no-sick-pay');
   const universalCredit = journeyData.getDataForPage('universal-credit');
   const voluntaryWork = journeyData.getDataForPage('voluntary-work');
   const workOverseas = journeyData.getDataForPage('work-overseas');
@@ -125,6 +126,9 @@ module.exports = (translator, journeyData, session) => {
   capture.ssp = ssp && ssp.statutoryPay;
   if (ssp && ssp.statutoryPay === 'yes') {
     capture.ssp_end = `${sspEnd.sspEndDate.yyyy}-${formatDigit(sspEnd.sspEndDate.mm)}-${formatDigit(sspEnd.sspEndDate.dd)}`;
+  }
+  if (ssp && ssp.statutoryPay === 'no') {
+    capture.statutory_pay_no_reason = statutoryPayNoReason.statutoryPayNoReason;
   }
   capture.ssp_recent = sspRecent && sspRecent.sspRecent;
   if ((ssp && ssp.statutoryPay === 'yes') || (sspRecent && sspRecent.sspRecent === 'yes')) {

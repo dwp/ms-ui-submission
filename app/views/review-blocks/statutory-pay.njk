@@ -80,6 +80,22 @@
 } %}
 {{ (statRows.push(universalCreditRow), null) }}
 
+{% if journeyData['statutory-pay'].statutoryPay === 'no' %}
+    {% set sspReasonNoRow = {
+        key: { text: t('check-your-answers:sspReasonNo') },
+        value: { text: t('reason-no-sick-pay:' + journeyData['reason-no-sick-pay'].statutoryPayNoReason) },
+        actions: {
+            items: [{
+                attributes: { 'id': 'reason-no-sick-pay' },
+                href: "reason-no-sick-pay?edit",
+                text: t('check-your-answers:change'),
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSspReasonNo')
+            }]
+        }
+    } %}
+    {{ (statRows.push(sspReasonNoRow), null) }}
+{% endif %}
+
 {{ govukSummaryList({
     rows: statRows
 }) }}

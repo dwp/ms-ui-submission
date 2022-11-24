@@ -59,6 +59,7 @@ const statePensionAgeValidator = require('./field-validators/state-pension-age')
 const nationalInsuranceValidator = require('./field-validators/national-insurance');
 const getNationalInsuranceCreditsValidator = require('./field-validators/get-national-insurance-credits');
 const statutoryPayValidator = require('./field-validators/statutory-pay');
+const statutoryPayNoReasonValidator = require('./field-validators/reason-no-sick-pay');
 const statutoryPayEndDateValidator = require('./field-validators/statutory-pay-end-date');
 const claimStartDateAfterSsp = require('./field-validators/claim-start-date-after-statutory-sick-pay');
 
@@ -203,6 +204,18 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.errorsFlag = checkForErrors(req, 'statutory-pay');
+        next();
+      },
+      preredirect: navigateToNextPage,
+    },
+  },
+
+  'reason-no-sick-pay': {
+    view: 'pages/reason-no-sick-pay',
+    fieldValidators: statutoryPayNoReasonValidator,
+    hooks: {
+      prerender: (req, res, next) => {
+        res.locals.errorsFlag = checkForErrors(req, 'reason-no-sick-pay');
         next();
       },
       preredirect: navigateToNextPage,
@@ -822,7 +835,7 @@ module.exports = {
     hooks: {
       prerender: (req, res, next) => {
         res.locals.sspEndDateHint = moment()
-          .add(2, 'weeks')
+          .subtract(3, 'months')
           .format('D M YYYY');
         res.locals.errorsFlag = checkForErrors(req, 'statutory-sick-pay-end');
         next();

@@ -1,3 +1,9 @@
+# 4.2.0 (2022-11-24)
+
+* feature: add reason for no ssp page ([d85281c4](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/d85281c4))
+* feature: update ssp content ([63cce4f1](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/63cce4f1))
+* fix (accessibility): ensure ids of elements unique and form elements have labels ([10f0f0f9](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/10f0f0f9))
+
 # 4.1.0 (2022-10-04)
 
 * feature: remove mention of Basris from ds1500 report page ([45d70619](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/45d70619))

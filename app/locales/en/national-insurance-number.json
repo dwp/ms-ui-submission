@@ -2,7 +2,7 @@
   "pageTitle": "National Insurance number",
   "nino" : {
     "label": "What is your National Insurance number?",
-    "hint": "<p class=\"govuk-hint\">It's on your National Insurance card, benefit letter, payslip or P60.</p><p>For example, <span class=\"nobr\">QQ 12 34 56 C</span></p>",
+    "hint": "<p class=\"govuk-body\">It's on your National Insurance card, benefit letter, payslip or P60.</p>For example, <span class=\"nobr\">QQ 12 34 56 C</span>",
     "errors": {
       "badFormat": "Enter your National Insurance number in the right format"
     }

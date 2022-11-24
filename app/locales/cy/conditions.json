@@ -3,7 +3,6 @@
   "label" : "Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?",
   "body1": "Byddwch yn gallu dweud mwy wrthym am eich cyflwr a sut mae’n effeithio arnoch yn y cam nesaf o’r broses gwneud cais.",
   "hint1": "Os oes gennych fwy nag un cyflwr iechyd, fe allwch ychwanegu rhai wedyn. Gallwch roi hyd at 12 cyflwr iechyd, mewn unrhyw drefn.",
-  "body2": "Os nad ydych yn gwybod yr union ddyddiad, gallwch roi amcangyfrif.",
   "name": {
     "label": "Enw cyflwr rhif",
     "errors": {
@@ -12,7 +11,7 @@
   },
   "conditionStartDate": {
     "label": "Pryd wnaeth o ddechrau gyntaf",
-    "hint": "Er enghraifft, 30 3 1997",
+    "hint": "<p>Os nad ydych yn gwybod yr union ddyddiad, gallwch roi amcangyfrif.</p><p class=\"govuk-hint\">Er enghraifft, 30 3 1997</p>",
     "errors": {
       "required": "Rhowch y dyddiad y dechreuodd eich cyflwr",
       "missingDay": "Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod",
