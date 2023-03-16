@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Expenses - %s",
+  "pageTitle" : "Does %s pay you any expenses?",
   "expenses" : {
     "label" : "Does %s pay you any expenses?",
     "yes": "Yes",

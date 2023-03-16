@@ -1,3 +1,9 @@
+# 4.3.0 (2023-03-16)
+
+* feature: update support phone number ([b1784167](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/b1784167))
+* feature: update ssp content ([63cce4f1](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/63cce4f1))
+* fix (accessibility): use page header for page title ([a1c8b556](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/a1c8b556))
+
 # 4.2.0 (2022-11-24)
 
 * feature: add reason for no ssp page ([d85281c4](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/d85281c4))

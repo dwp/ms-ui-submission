@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Dyddiad gweithio diwethaf - %s",
+  "pageTitle": "Pa ddyddiad wnaethoch chi weithio ddiwethaf yn %s?",
   "lastWorkedDate" : {
     "label": "Pa ddyddiad wnaethoch chi weithio ddiwethaf yn %s?",
     "hint": "<p class=\"govuk-body\" style=\"color:black\">Os gwnaethoch weithio shifft nos, defnyddiwch y dyddiad ddaeth eich shifft i ben.</p><p>Er enghraifft, <span class=\"nobr\">%s</span></p>",

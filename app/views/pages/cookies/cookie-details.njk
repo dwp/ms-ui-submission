@@ -16,11 +16,10 @@
       <p class="govuk-body">
         {{ t('cookie-details:weNeedEssentialCookies') }}
       </p>
-      <p>
         {{ govukInsetText({
           html: t('cookie-details:youCanChange', { url: cookiePolicyUrl })
         }) }}
-      </p>
+
 
       <h2 class="govuk-heading-m">
         {{ t('cookie-details:ifCookiesOff') }}
@@ -50,11 +49,11 @@
       <p class="govuk-body">
         {{ t('cookie-details:weUseGoogleAnalytics') }}
       </p>
-      <p>
+
         {{ govukInsetText({
           html: t('cookie-details:weDoNotAllowGoogle')
         }) }}
-      </p>
+
       <p class="govuk-body">
         {{ t('cookie-details:googleCollects') }}
       </p>

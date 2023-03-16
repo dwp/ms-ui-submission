@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Edrychwch dros eich atebion",
+  "pageTitle" : "Edrychwch dros eich atebion cyn anfon eich cais",
   "heading" : "Edrychwch dros eich atebion cyn anfon eich cais",
   "change": "Newid",
   "remove": "Dileu",
@@ -123,7 +123,7 @@
   "visuallyHiddenTextContactDetails": "manylion cyswllt",
   "visuallyHiddenTextEmail": "cyfeiriad e-bost",
   "visuallyHiddenTextDocDetail": "Manylion meddygfa neu ganolfan feddygol",
-  "visuallyHiddenTextliveLessThanTwelveMonths": "p’un a ddywedodd eich meddyg fod gennych lai na 6 mis i fyw",
+  "visuallyHiddenTextliveLessThanTwelveMonths": "p’un a ddywedodd eich meddyg fod gennych lai na 12 mis i fyw",
   "visuallyHiddenTextDS1500": "os oes ffurflen SR1 neu DS1500 wedi cael ei hanfon",
   "visuallyHiddenTextInHosp": "os ydych yn yr ysbyty ar hyn o bryd",
   "visuallyHiddenTextHospDetail": "manylion yr ysbyty",

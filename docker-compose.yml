@@ -43,16 +43,21 @@ services:
       - localstack
 
   redis-cluster:
-    container_name: redis-cluster
-    image: grokzen/redis-cluster:latest
-    environment:
-      IP: 0.0.0.0
+    image: grokzen/redis-cluster:6.2.10
+    expose:
+      - 7000
+      - 7001
+      - 7002
+      - 7003
+      - 7004
+      - 7005
     networks:
       - test
-    ports:
-      - "7000:7000-7005:7005"
-    environment:
-      - CLUSTER_ONLY=true
+    healthcheck:
+      test: [ "CMD", "redis-cli", "-p", "7000", "ping" ]
+      interval: 1s
+      timeout: 3s
+      retries: 30
 
   stub:
     container_name: stub
@@ -171,7 +176,7 @@ services:
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
+      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE
       - TEST_RUNNER=SmokeTests
     volumes:
       - '.:/usr/src/mymaven/.'
@@ -189,7 +194,7 @@ services:
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
+      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE
       - TEST_RUNNER=FeatureTests
     volumes:
       - '.:/usr/src/mymaven/.'
@@ -207,7 +212,7 @@ services:
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
+      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE
       - TEST_RUNNER=AxeTests
     volumes:
       - './aXe-reports:/target/aXe-text-reports/'

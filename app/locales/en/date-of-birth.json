@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Date of birth",
+  "pageTitle": "What is your date of birth?",
   "dateOfBirth" : {
     "label": "What is your date of birth?",
     "hint": "For example, <span class=\"nobr\">%s</span>",

@@ -1,5 +1,5 @@
 {
-  "pageTitle": "Date last worked - %s",
+  "pageTitle": "What date did you last work?",
   "lastWorkedDate" : {
     "label": "What date did you last work at %s?",
     "hint": "<p class=\"govuk-body\" style=\"color:black\">If you worked a night shift, use the date that your shift ended.</p><p>For example, <span class=\"nobr\">%s</span></p>",

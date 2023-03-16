@@ -8,12 +8,12 @@
         "headline": "Rwyf angen help gwneud pethau ar-lein",
         "p": "Mae'r dolenni canlynol yn agor mewn tab newydd",
         "ul": {
-            "li1": "Ffôn: 0800 328 5644 (dewiswch opsiwn 3)",
+            "li1": "Ffôn: 0800 055 6688 (dewiswch opsiwn 3)",
             "li2": "Ffôn testun: 0800 328 1344 (dewiswch opsiwn 3)",
-            "li3": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://www.relayuk.bt.com/\">Relay UK <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a> os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 328 5644",
-            "li4": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://portal.starleaf.com/webrtc?name=DWP&target=DWP@interpreterslive.call.sl\">Gwasanaeth cyfnewid fideo <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a> Iaith Arwyddion Prydain (BSL) os ydych ar gyfrifiadur - darganfyddwch sut i <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.youtube.com/watch?v=vZJc6OKmAUA\">ddefnyddio'r gwasanaeth ar ffôn symudol neu lechen <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a>",
+            "li3": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://www.relayuk.bt.com/\">Relay UK <span class=\"govuk-visually-hidden\">(agor mewn tab newydd)</span></a> os na allwch glywed neu siarad ar y ffôn: 18001 yna 0800 055 6688",
+            "li4": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://portal.starleaf.com/webrtc?name=DWP&target=DWP@interpreterslive.call.sl\">Gwasanaeth cyfnewid fideo <span class=\"govuk-visually-hidden\">(agor mewn tab newydd)</span></a> Iaith Arwyddion Prydain (BSL) os ydych ar gyfrifiadur - darganfyddwch sut i <a class=\"govuk-link\" target=\"_blank\" href=\"https://www.youtube.com/watch?v=vZJc6OKmAUA\">ddefnyddio'r gwasanaeth ar ffôn symudol neu lechen <span class=\"govuk-visually-hidden\">(agor mewn tab newydd)</span></a>",
             "li5": "Llinell Gymraeg: 0800 328 1744 \n Dydd Llun i ddydd Gwener, 8am i 6pm (ac eithrio gwyliau cyhoeddus)"
         },
-        "link": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://www.gov.uk/call-charges\">Find out about call charges <span class=\"govuk-visually-hidden\">(opens in new tab)</span></a>"
+        "link": "<a class=\"govuk-link\" target=\"_blank\" href=\"https://www.gov.uk/call-charges\">Darganfyddwch am gostau galwadau <span class=\"govuk-visually-hidden\">(agor mewn tab newydd)</span></a>"
     }
 }

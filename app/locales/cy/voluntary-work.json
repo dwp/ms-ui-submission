@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Gwaith gwirfoddol",
+  "pageTitle" : "Ydych chi’n gwneud unrhyw waith gwirfoddol ar hyn o bryd?",
   "voluntaryWork" : {
     "label" : "Ydych chi’n gwneud unrhyw waith gwirfoddol ar hyn o bryd?",
     "yes": "Ydw",
@@ -10,7 +10,7 @@
   },
 
   "list": "Rydych wedi ychwanegu manylion ar gyfer:",
-  "pageTitleOther": "Gwaith gwirfoddol arall",
+  "pageTitleOther": "Ydych chi’n gwneud unrhyw waith gwirfoddol arall?",
   "other" : {
     "label" : "Ydych chi’n gwneud unrhyw waith gwirfoddol arall?",
     "errors" : {

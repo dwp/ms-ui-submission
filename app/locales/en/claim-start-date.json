@@ -2,7 +2,7 @@
   "pageTitle": "What date do you want to claim Employment Support Allowance from?",
   "claimStartDate" : {
     "label": "What date do you want to claim Employment Support Allowance from?",
-    "hint": "<p class=\"govuk-body\">You cannot claim NS ESA for any dates you were paid SSP.</p><p class=\"govuk-body\">Your claim should start the day after your SSP ends. For example, if your SSP ends on 25 October 2022, you can claim NS ESA from 26 October 2022.<p class=\"govuk-body\">You will need evidence such as a fit note (also known as a sick note) to cover the period you want to claim for.</p>For example, <span class=\"nobr\">%s</span>",
+    "hint": "<p class=\"govuk-body\">You cannot claim NS ESA for any dates you were paid SSP.</p><p class=\"govuk-body\">Your claim should start the day after your SSP ends. For example, if your SSP ends on 25 October 2022, you can claim NS ESA from 26 October 2022.<p class=\"govuk-body\">You will need evidence such as a fit note (also known as a sick note) to cover the period you want to claim for.</p><p class=\"govuk-hint\">For example, %s</p>",
     "errors": {
       "required": "Enter the date you want to claim from",
       "missingDay": "Date you want to claim from must include a day",

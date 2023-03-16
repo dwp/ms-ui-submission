@@ -11,7 +11,7 @@
   },
 
   "list": "You have added details for:",
-  "pageTitleOther": "Other paid work",
+  "pageTitleOther": "Do you have another job?",
   "other" : {
     "label" : "Do you have another job?",
     "yes": "Yes",

@@ -1,30 +1,42 @@
 {
-    "1069553": {
+    "1090114": {
         "active": true,
         "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template"
     },
-    "1070415": {
+    "1091357": {
         "active": true,
-        "notes": "json-schema is vulnerable to Prototype Pollution"
+        "notes": "Terser insecure use of regular expressions before v4.8.1 and v5.14.2 leads to ReDoS  gulp-minify>terser"
     },
-    "1081699": {
-        "active": true,
-        "notes": "Terser insecure use of regular expressions before  gulp-minify>terser"
-    },
-    "1081884": {
+    "1091181": {
        "active": true,
-       "notes": "glob-parent before 5.1.2 vulnerable to Regular   gulp>glob-watcher>chokidar>glob-parent"
+       "notes": "glob-parent before 5.1.2 vulnerable to Regular Expression Denial of Service in enclosure regex  gulp>glob-watcher>chokidar>glob-parent"
     },
-    "1081763": {
+    "1090142": {
        "active": true,
        "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment"
     },
-    "1084694": {
+    "1090141": {
         "active": true,
-        "notes": "Moment.js vulnerable to Inefficient Regular' in   @dwp/govuk-casa>moment"
+        "notes": "Moment.js vulnerable to Inefficient Regular Expression Complexity' in   @dwp/govuk-casa>moment"
      },
-     "1084765": {
+
+     "1091174": {
         "active": true,
-        "notes": "minimatch ReDoS vulnerability' in   gulp-minify>minimatch"
+        "notes": "minimatch ReDoS vulnerability gulp-minify>minimatch"
+     },
+
+     "1090137": {
+        "active": true,
+        "notes": "qs vulnerable to Prototype Pollution @dwp/govuk-casa > body-parser > qs"
+     },
+
+     "1090135": {
+        "active": true,
+        "notes": "qs vulnerable to Prototype Pollution gulp-base64-v2 > request > qs"
+     },
+
+     "1091236": {
+        "active": true,
+        "notes": "Inefficient Regular Expression Complexity in nth-check gulp-inline > cheerio > css-select > nth-check"
      }
 }

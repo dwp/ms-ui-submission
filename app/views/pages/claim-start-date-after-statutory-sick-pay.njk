@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('claim-start-date-after-statutory-sick-pay:pageTitle') }}
+    {{ t('claim-start-date-after-statutory-sick-pay:pageTitle',sspEndDate | dayAfterDate(htmlLang)) }}
 {% endblock %}
 
 {% block journey_form %}

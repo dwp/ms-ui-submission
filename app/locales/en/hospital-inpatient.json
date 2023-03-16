@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Currently in hospital",
+  "pageTitle" : "Are you currently staying in hospital as an inpatient?",
   "hospitalInpatient" : {
     "label" : "Are you currently staying in hospital as an inpatient?",
     "yes": "Yes",

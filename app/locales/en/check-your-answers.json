@@ -1,5 +1,5 @@
 {
-  "pageTitle" : "Check your answers",
+  "pageTitle" : "Check your answers before sending your application",
   "heading" : "Check your answers before sending your application",
   "change": "Change",
   "remove": "Remove",
@@ -123,7 +123,7 @@
   "visuallyHiddenTextContactDetails": "contact details",
   "visuallyHiddenTextEmail": "email address",
   "visuallyHiddenTextDocDetail": "GP surgery or medical centre details",
-  "visuallyHiddenTextliveLessThanTwelveMonths": "whether your doctor said you might have less than 6 months to live",
+  "visuallyHiddenTextliveLessThanTwelveMonths": "whether your doctor said you might have less than 12 months to live",
   "visuallyHiddenTextDS1500": "whether an SR1 or DS1500 form has been sent",
   "visuallyHiddenTextInHosp": "whether you are currently in hospital",
   "visuallyHiddenTextHospDetail": "hospital details",
