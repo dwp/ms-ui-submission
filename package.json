@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -37,9 +37,9 @@
   "author": "DWP Digital Health PDU",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-sqs": "3.259.0",
+    "@aws-sdk/client-sqs": "3.293.0",
     "@dwp/govuk-casa": "4.1.0",
-    "body-parser": "1.20.1",
+    "body-parser": "1.20.2",
     "connect-redis": "5.2.0",
     "cookie-parser": "1.4.6",
     "csurf": "1.11.0",
@@ -57,8 +57,8 @@
     "gulp-minify": "3.1.0",
     "gulp-nunjucks-render": "2.2.3",
     "gulp-replace": "1.1.4",
-    "hashids": "2.2.10",
-    "ioredis": "5.3.0",
+    "hashids": "2.2.11",
+    "ioredis": "5.3.1",
     "lodash.isequal": "4.5.0",
     "lodash.merge": "4.6.2",
     "moment": "2.29.4",

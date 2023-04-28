@@ -3,7 +3,7 @@
         "active": true,
         "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template"
     },
-    "1091357": {
+    "1091691": {
         "active": true,
         "notes": "Terser insecure use of regular expressions before v4.8.1 and v5.14.2 leads to ReDoS  gulp-minify>terser"
     },
@@ -11,11 +11,11 @@
        "active": true,
        "notes": "glob-parent before 5.1.2 vulnerable to Regular Expression Denial of Service in enclosure regex  gulp>glob-watcher>chokidar>glob-parent"
     },
-    "1090142": {
+    "1091430": {
        "active": true,
        "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment"
     },
-    "1090141": {
+    "1091441": {
         "active": true,
         "notes": "Moment.js vulnerable to Inefficient Regular Expression Complexity' in   @dwp/govuk-casa>moment"
      },
@@ -38,5 +38,13 @@
      "1091236": {
         "active": true,
         "notes": "Inefficient Regular Expression Complexity in nth-check gulp-inline > cheerio > css-select > nth-check"
+     },
+     "1091652": {
+         "active": true,
+         "notes": "decode-uri-component vulnerable to Denial of Service (DoS)"
+     },
+     "1091653": {
+         "active": true,
+         "notes": "xml2js is vulnerable to prototype pollution"
      }
 }

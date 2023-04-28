@@ -16,23 +16,16 @@
     },
     "howAccessibleThisServiceIs": {
         "h2": "Pa mor hygyrch yw’r gwasanaeth hwn",
-        "p1": "Mae’r gwasanaeth yn defnyddio arddulliau, patrymau a chydrannau cyffredin o System Ddylunio GOV.UK sy’n cael eu hystyried yn eang i fod yn hygyrch.",
-        "p2": "Efallai y bydd rhai pobl yn ei chael hi’n anodd defnyddio rhannau o’r gwasanaeth hwn:",
-        "li1": "os ydych yn dweud “new tab” wrth rhai meddalwedd rheoli llais, mae’n agor yn y ddolen adborth yn lle agor tab newydd",
-        "li2": "weithiau ni fydd negeseuon gwall yn cael eu darllen allan yn JAWS fersiynau 18 a 19",
-        "li3": "weithiau ni fydd penawdau yn cael eu darllen allan yn JAWS fersiynau18 and 19 a ZoomText. Mae hyn yn broblem hysbys gyda meddalwedd Freedom Scientific . Darllenwch <a class=\"govuk-link\" href=\"https://github.com/FreedomScientific/VFO-standards-support/issues/100/\">fwy am y materion am benawdau ar GitHub</a>",
-        "li4": "weithiau bydd testun yn cael ei ailadrodd gan declynnau ZoomText’s DocReader a SpeakIt",
-        "li5": "weithiau bydd adrannau darllen yn symud o gwmpas y dudalen pan yn sgrolio gyda ZoomText. Efallai bydd hyn yn achosi problem gyda’r tudalennau cwestiynau caniatâd, yn ogystal â’r tudalennau ‘edrych dros eich atebion’ a ‘beth sy’n digwydd nesaf’, ble mae llawer o gynnwys",
-        "li6": "mae ysgrifen cudd ar gyfer dolenni newid yn cael eu darllen heb fylchau gan fersiynau 18 ac 19 JAWS"
+        "p1": "Mae’r gwasanaeth yn defnyddio arddulliau, patrymau a chydrannau cyffredin o System Ddylunio GOV.UK sy’n cael eu hystyried yn eang i fod yn hygyrch."
     },
     "difficultyUsingService": {
         "h2": "Beth i’w wneud os ydych yn cael anhawster defnyddio’r gwasanaeth hwn",
-        "p1": "Os ydych yn cael anhawster defnyddio’r gwasanaeth hwn, cysylltwch â ni drwy e-bost: <a class=\"govuk-link\" href=\"mailto:applyfornewstyleesa.accessibility@dwp.gsi.gov.uk\">applyfornewstyleesa.accessibility@dwp.gsi.gov.uk</a>",
-        "p2": "Fel rhan o gynnig y gwasanaeth hwn, efallai y bydd angen anfon negeseuon neu ddogfennau atoch. <a class=\"govuk-link\" href=\"https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims\">Cysylltwch â ni</a> os ydych eu hangen mewn fformat gwahanol, er enghraifft print bras, recordiad sain neu braille."
+        "p1": "Os ydych yn cael anhawster defnyddio’r gwasanaeth hwn, <a class=\"govuk-link\" href=\"https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact\">cysylltwch â DWP am hygyrchedd.</a>",
+        "p2": "Fel rhan o gynnig y gwasanaeth hwn, efallai y bydd angen i ni  anfon negeseuon neu ddogfennau atoch. <a class=\"govuk-link\" href=\"https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims\">Cysylltwch â ni</a> os ydych eu hangen mewn fformat gwahanol, er enghraifft print bras, recordiad sain neu braille."
     },
     "reportingAccessibilityProblems": {
         "h2": "Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn",
-        "p1": "Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblemau nad ydynt wedi’u rhestru ar y dudalen hon neu’n credu nad ydym yn cwrdd â gofynion hygyrchedd, cysylltwch â ni trwy e-bost: <a class=\"govuk-link\" href=\"mailto:applyfornewstyleesa.accessibility@dwp.gsi.gov.uk\">applyfornewstyleesa.accessibility@dwp.gsi.gov.uk</a>"
+        "p1": "Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblemau nad ydynt wedi'u rhestru ar y dudalen hon neu os credwch nad ydynt yn bodloni gofynion hygyrchedd, <a class=\"govuk-link\" href=\"https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact\">cysylltwch â DWP am hygyrchedd.</a>"
     },
     "enforcementProcedure": {
         "h2": "Y drefn gorfodaeth",
@@ -45,16 +38,8 @@
     },
     "howWeTested": {
         "h2": "Sut gwnaethom brofi’r gwasanaeth",
-        "p1": "Cafodd y gwasanaeth ei brofi ddiwethaf ar 25 Mehefin 2021 a'i asesu yn erbyn Canllawiau Hygyrchedd Cynnwys Gwe (WCAG) 2.1. Cafodd y profion eu gwneud gan y Ganolfan Hygyrchedd Digidol.",
-        "p2": "Profwyd y gwasanaeth gan ddefnyddio profion awtomataidd a phrofion â llaw.",
-        "p3": "Profwyd y gwasanaeth gan dîm o archwilwyr a dadansoddwyr profiadol o'r Ganolfan Hygyrchedd Digidol, gan gynnwys unigolion anabl a defnyddwyr technoleg addasol.",
-        "p4": "Roedd y profion yn cynnwys cyfuniad o adborth goddrychol gan ddefnyddwyr pan-anabledd, archwilio technegol cynhwysfawr a gwirio hygyrchedd â llaw.",
-        "p5": "Cynhaliwyd archwilio technegol gan ddefnyddio nifer o offer archwilio technegol a teclynnau asesu cydymffurfiaeth safonau."
-    },
-    "improveAccessibility": {
-        "h2": "Beth rydym yn ei wneud i wella hygyrchedd",
-        "p1": "Rydym yn cynnal profion â llaw ar y gwasanaeth gan ddefnyddio technolegau cynorthwyol fel JAWS a Dragon. Mae hyn wedi nodi materion, y soniwyd amdanynt yn yr adran ‘defnyddio’r gwasanaeth hwn’ uchod, rydym yn gweithio i'w datrys.",
-        "p2": "Byddwn yn parhau i ailadrodd dyluniad y gwasanaeth, gydag ystyriaethau hygyrchedd wedi'u hymgorffori yng nghylch bywyd pob rhyddhad.",
-        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 7 Rhagfyr 2021."
+        "p1": "Profwyd y gwasanaeth ddiwethaf ar 16 Mawrth 2023 a gwiriwyd ei fod yn cydymffurfio â WCAG 2.1 AA. Cafodd y profion eu cynnal gan yr Adran Gwaith a Phensiynau.",
+        "p2": "Profwyd y gwasanaeth gan ddefnyddio profion â llaw ac awtomataidd.",
+        "p3": "Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 27 Ebrill 2023."
     }
 }

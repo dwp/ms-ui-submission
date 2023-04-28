@@ -1,3 +1,7 @@
+# 4.4.0 (2023-04-27)
+
+* feature: update accessibility statement ([abf9ae0c](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/abf9ae0c))
+
 # 4.3.0 (2023-03-16)
 
 * feature: update support phone number ([b1784167](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/b1784167))
