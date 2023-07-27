@@ -47,26 +47,26 @@
 {{ (healthRows.push(liveLessThanTwelveMonthsRow), null) }}
 
 {% if journeyData['live-less-than-12-months'].severeCondition === 'yes' %}
-{% set ds1500 %}
-    {% if journeyData['ds1500-report'].ds1500Report === 'dontKnow' %}
-        {{ t('ds1500-report:ds1500Report.dontKnow') | safe }}
+{% set sr1 %}
+    {% if journeyData['sr1-report'].sr1Report === 'dontKnow' %}
+        {{ t('sr1-report:sr1Report.dontKnow') | safe }}
     {% else %}
-        {{ t('ds1500-report:ds1500Report.' + journeyData['ds1500-report'].ds1500Report) }}
+        {{ t('sr1-report:sr1Report.' + journeyData['sr1-report'].sr1Report) }}
     {% endif %}
 {% endset %}
-{% set ds1500Row = {
-    key: { text: t('check-your-answers:ds1500Sent') },
-    value: { text: ds1500 },
+{% set sr1Row = {
+    key: { text: t('check-your-answers:sr1Sent') },
+    value: { text: sr1 },
     actions: {
         items: [{
-            attributes: { 'id': 'ds1500-report' },
-            href: "ds1500-report?edit",
+            attributes: { 'id': 'sr1-report' },
+            href: "sr1-report?edit",
             text: t('check-your-answers:change'),
-            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextDS1500')
+            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSR1')
         }]
     }
 } %}
-{{ (healthRows.push(ds1500Row), null) }}
+{{ (healthRows.push(sr1Row), null) }}
 {% endif %}
 
 {% set inpatientRow = {

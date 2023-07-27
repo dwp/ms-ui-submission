@@ -6,16 +6,16 @@ const Logger = require('../../lib/Logger');
 
 const appLogger = Logger();
 
-appLogger.info('ds1500 report validator');
+appLogger.info('sr1 report validator');
 
 module.exports = {
-  ds1500Report: SimpleField([
+  sr1Report: SimpleField([
     rules.required.bind({
-      errorMsg: 'ds1500-report:ds1500Report.errors.required',
+      errorMsg: 'sr1-report:sr1Report.errors.required',
     }),
     rules.inArray.bind({
       source: ['yes', 'no', 'dontKnow'],
-      errorMsg: 'ds1500-report:ds1500Report.errors.required',
+      errorMsg: 'sr1-report:sr1Report.errors.required',
     }),
   ]),
 };

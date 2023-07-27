@@ -28,7 +28,7 @@ module.exports = (translator, journeyData, session) => {
   const claimEndDate = journeyData.getDataForPage('claim-end-date');
   const consentOutcome = journeyData.getDataForPage('consent-outcome');
   const doctorDeclaration = journeyData.getDataForPage('doctor-declaration');
-  const ds1500Report = journeyData.getDataForPage('ds1500-report');
+  const sr1Report = journeyData.getDataForPage('sr1-report');
   const employed = journeyData.getDataForPage('employed');
   const hospitalInpatient = journeyData.getDataForPage('hospital-inpatient');
   const hospitalDetails = journeyData.getDataForPage('hospital-details');
@@ -121,7 +121,7 @@ module.exports = (translator, journeyData, session) => {
   }
   capture.severe_condition = severeCondition.severeCondition;
   if (severeCondition.severeCondition === 'yes') {
-    capture.ds1500_report = ds1500Report.ds1500Report;
+    capture.ds1500_report = sr1Report.sr1Report;
   }
   capture.ssp = ssp && ssp.statutoryPay;
   if (ssp && ssp.statutoryPay === 'yes') {

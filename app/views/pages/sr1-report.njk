@@ -1,0 +1,48 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('sr1-report:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'sr1Report',
+        fieldset: {
+            legend: {
+                text: t('sr1-report:sr1Report.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        hint: {
+            text: t('sr1-report:sr1Report.hint')
+        },
+        casaValue: formData.sr1Report,
+        casaErrors: formErrors,
+        items: [{
+                    text: t('sr1-report:sr1Report.yes'),
+                    value: 'yes',
+                    attributes: {
+                        'data-question': t('sr1-report:sr1Report.label'),
+                        'data-answer': t('sr1-report:sr1Report.yes')
+                    }
+                }, {
+                    text: t('sr1-report:sr1Report.no'),
+                    value: 'no',
+                    attributes: {
+                        'data-question': t('sr1-report:sr1Report.label'),
+                        'data-answer': t('sr1-report:sr1Report.no')
+                    }
+                }, {
+                    text: t('sr1-report:sr1Report.dontKnow'),
+                    value: 'dontKnow',
+                    attributes: {
+                        'data-question': t('sr1-report:sr1Report.label'),
+                        'data-answer': t('sr1-report:sr1Report.dontKnow')
+                    }
+                }]
+    }) }}
+{% endblock %}

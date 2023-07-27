@@ -1,0 +1,13 @@
+{
+  "pageTitle" : "Has your doctor, consultant or specialist nurse completed an SR1 form?",
+  "sr1Report" : {
+    "label" : "Has your doctor, consultant or specialist nurse completed an SR1 form?",
+    "yes": "Yes",
+    "no": "No",
+    "hint" : "An SR1 is a form that gives the Department for Work and Pensions evidence about your illness.",
+    "dontKnow": "I'm not sure",
+    "errors" : {
+      "required": "Select yes if your doctor or specialist nurse has completed an SR1 form"
+    }
+  }
+}

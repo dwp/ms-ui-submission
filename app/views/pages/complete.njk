@@ -18,6 +18,7 @@
         <li>{{ t('complete:medicalEvidence.conditionalReveal.li4') }}</li>
     </ul>
     <p class="govuk-body"> {{ t('complete:medicalEvidence.conditionalReveal.text2') }}</p>
+    <p class="govuk-body"> {{ t('complete:medicalEvidence.conditionalReveal.text3') }}</p>
 {% endset %}
 
 {% set sendEvidenceInset %}
@@ -25,11 +26,6 @@
     <p>
         {{ t('complete:sendEvidence.insetText.line1') }}
     </p>
-{% endset %}
-
-{% set medicalEvidenceTemporaryChangeInset %}
-    <p class="govuk-body govuk-!-font-weight-bold">{{ t('complete:medicalEvidence.temporaryChangeInset.heading') }}</p>
-    <p>{{ t('complete:medicalEvidence.temporaryChangeInset.line1') }}</p>
 {% endset %}
 
 {% set sendEvidenceInsetYesSRTI %}
@@ -56,22 +52,41 @@
 
             {% if (not isRtiClaim) %}
                 <p class="govuk-body">
-                    {{ t('complete:coronavirus.text1', fourteenDaysLater) | safe }}
+                    {{ t('complete:claimantCommitment.text1', fourteenDaysLater) | safe }}
                 </p>
                 <p class="govuk-body">
-                    {{ t('complete:coronavirus.text2') | safe }}
-                </p>
-                <p class="govuk-body">
-                  {{ t('complete:coronavirus.text3') | safe }}
+                    {{ t('complete:claimantCommitment.text2') | safe }}
                 </p>
                 <ul class="govuk-list govuk-list--bullet">
-                  <li>{{ t('complete:coronavirus.conditionalBulletPoints.li1') }}</li>
-                  <li>{{ t('complete:coronavirus.conditionalBulletPoints.li2') }}</li>
-                  <li>{{ t('complete:coronavirus.conditionalBulletPoints.li3') }}</li>
+                  <li>{{ t('complete:claimantCommitment.conditionalBulletPoints.li1') }}</li>
+                  <li>{{ t('complete:claimantCommitment.conditionalBulletPoints.li2') }}</li>
+                  <li>{{ t('complete:claimantCommitment.conditionalBulletPoints.li3') }}</li>
                 </ul>
 
+
             <p class="govuk-body">
-              {{ t('complete:coronavirus.text4') | safe }}
+              {{ t('complete:claimantCommitment.text3') | safe }}
+            </p>
+
+            <p class="govuk-body">
+              {{ t('complete:claimantCommitment.text4') | safe }}
+            </p>
+
+            <p class="govuk-body">
+              {{ t('complete:claimantCommitment.text5') | safe }}
+            </p>
+
+            <p class="govuk-body">
+              {{ t('complete:claimantCommitment.text6') | safe }}
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>{{ t('complete:claimantCommitment.esaPayments.li1') }}</li>
+              <li>{{ t('complete:claimantCommitment.esaPayments.li2') }}</li>
+            </ul>
+
+            <p class="govuk-body">
+              {{ t('complete:claimantCommitment.text7') | safe }}
             </p>
 
             <h3 class="govuk-heading-m">
@@ -84,10 +99,6 @@
                 </p>
             {% endif %}
 
-            {{ govukInsetText({
-                html: medicalEvidenceTemporaryChangeInset
-            }) }}
-
             <p class="govuk-body">
                 {{ t('complete:medicalEvidence.text1') }}
             </p>
@@ -96,13 +107,17 @@
                 {{ t('complete:medicalEvidence.text2') }}
             </p>
 
+            <p class="govuk-body">
+                {{ t('complete:medicalEvidence.text3') }}
+            </p>
+
             {{ govukDetails({
             summaryText: t('complete:medicalEvidence.conditionalReveal.heading'),
             html: medicalEvidenceDetails
             }) }}
 
             <p class="govuk-body">
-                {{ t('complete:medicalEvidence.text3') }}
+                {{ t('complete:medicalEvidence.text4') }}
             </p>
 
             <h3 class="govuk-heading-m">
@@ -113,13 +128,13 @@
                 {{ t('complete:sendEvidence.text1') | safe }}
             </p>
 
-            <p class="govuk-body">
-                {{ t('complete:sendEvidence.text2') }}
-            </p>
-
             {% if displaySSP1Content %}
                 <p class="govuk-body">
                     {{ t('complete:sendEvidence.ssp1Text') }}
+                </p>
+            {% else %}
+                <p class="govuk-body">
+                    {{ t('complete:sendEvidence.text2') }}
                 </p>
             {% endif %}
 

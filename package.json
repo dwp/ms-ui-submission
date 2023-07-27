@@ -1,6 +1,6 @@
 {
   "name": "ms-ui-submission",
-  "version": "4.4.0",
+  "version": "4.5.0",
   "engines": {
     "node": "12.13.0"
   },
@@ -37,7 +37,7 @@
   "author": "DWP Digital Health PDU",
   "license": "ISC",
   "dependencies": {
-    "@aws-sdk/client-sqs": "3.293.0",
+    "@aws-sdk/client-sqs": "3.321.1",
     "@dwp/govuk-casa": "4.1.0",
     "body-parser": "1.20.2",
     "connect-redis": "5.2.0",
@@ -58,12 +58,12 @@
     "gulp-nunjucks-render": "2.2.3",
     "gulp-replace": "1.1.4",
     "hashids": "2.2.11",
-    "ioredis": "5.3.1",
+    "ioredis": "5.3.2",
     "lodash.isequal": "4.5.0",
     "lodash.merge": "4.6.2",
     "moment": "2.29.4",
     "notifications-node-client": "4.9.0",
-    "nunjucks": "3.2.3",
+    "nunjucks": "3.2.4",
     "punycode": "2.3.0",
     "request-promise-native": "1.0.9",
     "session-file-store": "1.5.0",
@@ -83,7 +83,7 @@
     "mocha": "8.4.0",
     "nyc": "15.1.0",
     "rewire": "5.0.0",
-    "selenium-webdriver": "4.8.0",
+    "selenium-webdriver": "4.8.1",
     "sinon": "9.2.4",
     "sinon-chai": "3.7.0"
   }

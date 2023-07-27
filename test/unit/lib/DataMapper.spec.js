@@ -218,8 +218,8 @@ describe('DataMapper', () => {
     'live-less-than-12-months': {
       severeCondition: 'yes',
     },
-    'ds1500-report': {
-      ds1500Report: 'yes',
+    'sr1-report': {
+      sr1Report: 'yes',
     },
     'bank-details': {
       accountName: 'test',

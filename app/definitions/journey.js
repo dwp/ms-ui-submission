@@ -112,7 +112,7 @@ module.exports = (() => {
   healthPath.addWaypoints([
     'medical-centre',
     'live-less-than-12-months',
-    ['ds1500-report', (sessionData) => sessionData['live-less-than-12-months'].severeCondition === 'yes'],
+    ['sr1-report', (sessionData) => sessionData['live-less-than-12-months'].severeCondition === 'yes'],
     'hospital-inpatient',
     ['hospital-details', (sessionData) => sessionData['hospital-inpatient'].hospitalInpatient === 'yes'],
     'pregnant',

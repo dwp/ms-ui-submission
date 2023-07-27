@@ -7,7 +7,7 @@ const appLogger = Logger();
 const severeCondition = (req) => {
   appLogger.info('Navigation rules: live-less-than-12-months');
   if (req.journeyData.getDataForPage('live-less-than-12-months').severeCondition === 'no') {
-    genericDataUtils.deleteIfPresent(req, 'ds1500-report', ['ds1500Report']);
+    genericDataUtils.deleteIfPresent(req, 'sr1-report', ['sr1Report']);
   }
 };
 

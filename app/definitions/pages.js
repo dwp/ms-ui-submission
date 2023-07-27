@@ -15,7 +15,7 @@ const anotherHealthConditionValidators = require('./field-validators/another-hea
 const dateOfBirthValidators = require('./field-validators/date-of-birth.js');
 const doctorDeclarationValidators = require('./field-validators/doctor-declaration.js');
 const consentOutcomeValidators = require('./field-validators/consent-outcome.js');
-const ds1500ReportValidators = require('./field-validators/ds1500-report.js');
+const sr1ReportValidators = require('./field-validators/sr1-report.js');
 const emailValidator = require('./field-validators/email');
 const employedValidators = require('./field-validators/employed.js');
 const employmentDetailsValidators = require('./field-validators/employment-details.js');
@@ -424,12 +424,12 @@ module.exports = {
     },
   },
 
-  'ds1500-report': {
-    view: 'pages/ds1500-report.njk',
-    fieldValidators: ds1500ReportValidators,
+  'sr1-report': {
+    view: 'pages/sr1-report.njk',
+    fieldValidators: sr1ReportValidators,
     hooks: {
       prerender: (req, res, next) => {
-        res.locals.errorsFlag = checkForErrors(req, 'ds1500-report');
+        res.locals.errorsFlag = checkForErrors(req, 'sr1-report');
         next();
       },
       preredirect: navigateToNextPage,

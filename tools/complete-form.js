@@ -178,7 +178,7 @@ const args = process.argv.slice(2)
     if (terminal) {
       await driver.wait(until.elementLocated(By.id('f-severeCondition'))).click();
       await driver.findElement(By.id('continue-button')).click();
-      await driver.findElement(By.id('f-ds1500Report')).click();
+      await driver.findElement(By.id('f-sr1Report')).click();
       await driver.findElement(By.id('continue-button')).click();
     } else {
       await driver.wait(until.elementLocated(By.id('f-severeCondition-2'))).click();
