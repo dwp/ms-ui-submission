@@ -1,5 +1,5 @@
 {
-    "1092417": {
+    "1093311": {
         "active": true,
         "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template"
     },
@@ -20,27 +20,27 @@
         "notes": "Moment.js vulnerable to Inefficient Regular Expression Complexity' in   @dwp/govuk-casa>moment"
      },
 
-     "1092637": {
+     "1094009": {
         "active": true,
         "notes": "minimatch ReDoS vulnerability gulp-minify>minimatch"
      },
 
-     "1090137": {
+     "1094099": {
         "active": true,
         "notes": "qs vulnerable to Prototype Pollution @dwp/govuk-casa > body-parser > qs"
      },
 
-     "1090135": {
+     "1094097": {
         "active": true,
         "notes": "qs vulnerable to Prototype Pollution gulp-base64-v2 > request > qs"
      },
 
-     "1092365": {
+     "1094087": {
          "active": true,
          "notes": "decode-uri-component vulnerable to Denial of Service (DoS)"
      },
 
-     "1092100": {
+     "1093882": {
          "active": true,
          "notes": "Inefficient Regular Expression Complexity in nth-check"
       },
