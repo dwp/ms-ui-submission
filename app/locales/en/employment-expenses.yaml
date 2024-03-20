@@ -1,0 +1,8 @@
+---
+pageTitle: Does {{employerName}} pay you any expenses?
+expenses:
+  label: Does {{employerName}} pay you any expenses?
+  yes: Yes
+  no: No
+  errors:
+    required: Select yes if your employer pays you any expenses

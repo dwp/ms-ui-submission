@@ -21,7 +21,7 @@
         name: 'lateClaim',
         fieldset: {
             legend: {
-                text: t('late-claim:lateClaim.label', claimStartDate | date(htmlLang)) | safe,
+                text: t('late-claim:lateClaim.label', { calcDate : claimStartDate | date(htmlLang) }) | safe,
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--m'
             }

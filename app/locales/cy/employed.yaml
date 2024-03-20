@@ -1,0 +1,17 @@
+---
+pageTitle: Ydych chi ar hyn o bryd yn gyflogedig neu’n hunangyflogedig, hyd yn oed os nad ydych yn gallu weithio ar hyn o bryd?
+employed:
+  label: Ydych chi ar hyn o bryd yn gyflogedig neu’n hunangyflogedig, hyd yn oed os nad ydych yn gallu weithio ar hyn o bryd?
+  hint: Dewiswch ydw os ydych ar gontract oriau sero
+  yes: Ydw, rwyf ar hyn o bryd yn gyflogedig neu’n hunangyflogedig
+  no: Na, rwyf yn ddi-waith
+  errors:
+    required: Dewiswch ydw os ydych ar hyn o bryd yn gyflogedig
+list: 'Rydych wedi ychwanegu manylion ar gyfer:'
+pageTitleOther: Oes gennych chi swydd arall?
+other:
+  label: Oes gennych chi swydd arall?
+  yes: Oes
+  no: Na
+  errors:
+    required: Dewiswch oes os oes gennych chi swydd arall

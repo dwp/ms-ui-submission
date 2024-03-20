@@ -1,5 +1,7 @@
-const { assert } = require('chai');
-const indexRoute = require('../../../../app/start-pages-sub-app/routes/index.js');
+import { assert } from 'chai';
+import indexRouteDefault from '../../../../app/start-pages-sub-app/routes/index.js';
+
+const indexRoute = indexRouteDefault;
 
 describe('Index route', () => {
   const res = {

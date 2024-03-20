@@ -1,0 +1,7 @@
+---
+title: Session timeout
+heading: Sorry, you'll need to start again
+message1: Your session has ended because you have not done anything on the service for {{sessionTimeout}} minutes.
+message2: We do this for your security. We have not saved any personal information you entered
+inset: This page is also available <a href="session-timeout?lang=cy" class="govuk-link">in Welsh (Cymraeg)</a>.
+buttonText: Start your application again

@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makeMedicalCentre = require('../../../../app/lib/data-mapper/makeMedicalCentre.js');
+import { expect } from 'chai';
+import makeMedicalCentre from '../../../../src/lib/data-mapper/makeMedicalCentre.js';
 
 describe('setting up medical centre data for submission', () => {
   const medicalCentre = {

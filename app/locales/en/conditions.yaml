@@ -1,0 +1,24 @@
+---
+pageTitle: What health condition, illness, disability or injury do you have?
+label: What health condition, illness, disability or injury do you have?
+body1: You will be able to tell us more about your condition and how it affects you at the next stage of the claim process.
+hint1: If you have more than one condition, you can add others later. You can add up to 12 conditions, in any order.
+name:
+  label: Name of condition
+  errors:
+    required: Enter the name of your condition
+conditionStartDate:
+  label: When it first started
+  hint: <p>If you do not know the exact date, you can give an estimate.</p><p class="govuk-hint">For example, 30 3 1997</p>
+  errors:
+    required: Enter the date your condition started
+    missingDay: Date your condition started must include a day
+    missingMonth: Date your condition started must include a month
+    missingYear: Date your condition started must include a year
+    missingDayAndMonth: Date your condition started must include a day and a month
+    missingDayAndYear: Date your condition started must include a day and a year
+    missingMonthAndYear: Date your condition started must include a month and a year
+    badFormatYear: Enter the date your condition started with a year in the right format, for example 2001 not 01
+    notReal: Enter a real date for when your condition started
+    notRealDigits: Enter a real date for when your condition started, using only digits
+    inFuture: Date your condition started must be in the past

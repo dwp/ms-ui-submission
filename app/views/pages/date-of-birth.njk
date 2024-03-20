@@ -7,13 +7,14 @@
 {% endblock %}
 
 {% block journey_form %}
-
     {% set dayError = formErrors['dateOfBirth'][0].inline | matchDay or formErrors['dateOfBirth'][0].errorType | includesDay %}
     {% set monthError = formErrors['dateOfBirth'][0].inline | matchMonth or formErrors['dateOfBirth'][0].errorType | includesMonth %}
     {% set yearError = formErrors['dateOfBirth'][0].inline | matchYear or formErrors['dateOfBirth'][0].errorType | includesYear %}
 
+    {% set dateErrorParams = {} %}
+
     {% set dateParams = {
-        name: 'dateOfBirth',
+        namePrefix: 'dateOfBirth',
         fieldset: {
              legend: {
                  text: t('date-of-birth:dateOfBirth.label'),
@@ -22,13 +23,11 @@
              }
         },
         hint: {
-            html: t('date-of-birth:dateOfBirth.hint', dateOfBirthHint )
+            html: t('date-of-birth:dateOfBirth.hint', { dateOfBirthHint : dateOfBirthHint })
         },
         casaValue: formData.dateOfBirth,
         casaErrors: formErrors
     } %}
-
-    {% set dateErrorParams = {} %}
 
     {% if dayError or monthError or yearError %}
         {% set dateErrorParams = {
@@ -38,10 +37,8 @@
                   { classes: 'govuk-input--width-4' + (' govuk-input--error' if yearError ) }
             ]
         } %}
-     {% endif %}
+    {% endif %}
 
-     {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+    {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
 
 {% endblock %}
-
-

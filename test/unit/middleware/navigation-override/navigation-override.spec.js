@@ -1,16 +1,32 @@
-const chai = require('chai');
-const sinon = require('sinon');
+import sinon from 'sinon';
 
-const { assert, expect } = chai;
-const {
-  employmentDataUtils, genericDataUtils, voluntaryDataUtils, conditionDataUtils,
-} = require('../../../../app/lib/data-utils');
-const navigationOverride = require('../../../../app/middleware/navigation-override/navigation-override.js');
-const sectionPages = require('../../../../app/lib/section-pages');
+import { assert, expect } from 'chai';
+import employmentDataUtils from '../../../../src/lib/data-utils/employmentDataUtils.js';
+import genericDataUtils from '../../../../src/lib/data-utils/genericDataUtils.js';
+import voluntaryDataUtils from '../../../../src/lib/data-utils/voluntaryDataUtils.js';
+import conditionDataUtils from '../../../../src/lib/data-utils/conditionDataUtils.js';
+import navigationOverride from '../../../../src/middleware/navigation-override/navigation-override.js';
+import sectionPages from '../../../../src/lib/section-pages.json' assert { type: 'json' };
+import { JourneyContext } from '@dwp/govuk-casa';
+
+let sandbox;
 
 describe('Navigation override', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should cancel the edit if we are editing, the target is cya and the cyaBackNavigationFlag is true', () => {
     const req = {
+      casa: {
+        journeyContext: {
+          getValidationErrorsForPage: () => ['error'],
+        },
+      },
+      query: {},
       session: {
         editing: true,
         cyaBackNavigationFlag: true,
@@ -32,14 +48,20 @@ describe('Navigation override', () => {
     let next;
     beforeEach(() => {
       req = {
+        query: {},
         session: {
           editing: true,
           backNavigationFlag: true,
           save: sinon.stub().yields(),
         },
-        journeyData: {
-          setDataForPage: sinon.stub(),
-        },
+        casa: {
+          journeyContext: {
+              setDataForPage: sinon.stub(),
+              data: {
+                  employed: sinon.stub(),
+              },
+          },
+        }
       };
       next = sinon.stub();
     });
@@ -130,14 +152,23 @@ describe('Navigation override', () => {
     let next;
     beforeEach(() => {
       req = {
+        query: {},
         journeyData: {
-          setDataForPage: sinon.stub(),
+          setData: sinon.stub(),
         },
         session: {
           anotherConditionBack: true,
           editing: true,
           backNavigationFlag: true,
           save: sinon.stub().yields(),
+        },
+        casa: {
+          journeyContext: {
+            setDataForPage: sinon.stub(),
+            data: {
+              employed: sinon.stub(),
+            },
+          },
         },
       };
       next = sinon.stub();

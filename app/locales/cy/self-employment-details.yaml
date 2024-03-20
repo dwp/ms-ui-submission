@@ -1,0 +1,39 @@
+---
+pageTitle: Dywedwch wrthym am eich hunangyflogaeth
+heading: Dywedwch wrthym am eich hunangyflogaeth
+hint: Os oes gennych fwy nag un swydd, byddwn yn gofyn am eich swyddi eraill yn nes ymlaen
+jobTitle:
+  label: Teitl y swydd
+  errors:
+    required: Rhowch deitl eich swydd
+employerName:
+  label: Enw'r busnes
+  errors:
+    required: Rhowch enw’r busnes
+employerTel:
+  label: Rhif ffôn
+  errors:
+    required: Rhowch rif ffôn y busnes
+    badFormat: Rhowch rif ffôn gwirioneddol
+employerAddress:
+  label: Cyfeiriad busnes
+  address1:
+    label: Llinell cyfeiriad 1
+    errors:
+      required: Rhowch linell 1 o'r cyfeiriad
+      badFormat: Mae'n rhaid i'r cyfeiriad ond cynnwys llythrennau, rhifau, atalnodau
+        neu atalnodau llawn
+  address2:
+    label: Llinell cyfeiriad 2 (dewisol)
+    errors:
+      badFormat: Mae'n rhaid i'r cyfeiriad ond cynnwys llythrennau, rhifau, atalnodau
+        neu atalnodau llawn
+  address3:
+    label: Tref neu ddinas
+    errors:
+      required: Rhowch dref neu ddinas
+      badFormat: Mae’n rhaid i tref neu ddinas ond cynnwys llythrennau, atalnodau neu atalnodau llawn
+postcode:
+  errors:
+    required: Rhowch god post
+    badFormat: Rhowch god post gwirioneddol yn y ffurf gywir

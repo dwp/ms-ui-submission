@@ -1,0 +1,39 @@
+{% extends "layouts/custom-journey.njk" %}
+
+{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+
+{% block casaPageTitle %}
+    {{ t('statutory-sick-pay-recent:pageTitle') }}
+{% endblock %}
+
+{% block journey_form %}
+
+    {{ casaGovukRadios({
+        name: 'sspRecent',
+        fieldset: {
+            legend: {
+                text: t('statutory-sick-pay-recent:sspRecent.label'),
+                isPageHeading: true,
+                classes: 'govuk-fieldset__legend--l'
+            }
+        },
+        casaValue: formData.sspRecent,
+        casaErrors: formErrors,
+        items: [{
+            value: 'yes',
+            text: t('statutory-sick-pay-recent:sspRecent.yes'),
+            attributes: {
+                'data-question': t('statutory-sick-pay-recent:sspRecent.label'),
+                'data-answer': t('statutory-sick-pay-recent:sspRecent.yes')
+            }
+        }, {
+            value: 'no',
+            text: t('statutory-sick-pay-recent:sspRecent.no'),
+            attributes: {
+                'data-question': t('statutory-sick-pay-recent:sspRecent.label'),
+                'data-answer': t('statutory-sick-pay-recent:sspRecent.no')
+            }
+        }]
+    }) }}
+
+{% endblock %}

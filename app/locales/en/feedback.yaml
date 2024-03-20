@@ -1,0 +1,21 @@
+---
+pageTitle: Give feedback
+h1: Give feedback
+hint: ''
+rating:
+  label: Overall, how did you feel about the service you received today?
+  verySatisfied: Very satisfied
+  satisfied: Satisfied
+  neither: Neither satisfied nor dissatisfied
+  dissatisfied: Dissatisfied
+  veryDissatisfied: Very dissatisfied
+comments:
+  para1: Do not include any personal or financial information, for example your National Insurance or credit card numbers.
+  para2: The feedback you provide is anonymous and not part of your application.
+errors:
+  required: Select how satisfied you are before sending
+  maxLength: Enter how we could improve this service in 1,200 characters or fewer (including spaces)
+research: Volunteer to <a target="_blank" href="https://forms.office.com/pages/responsepage.aspx?id=6fbxllcQF0GsKIDN_ob4w3C0kR238l1Nq4_w4WOy9kNUQVJRQzNQN1RXNlVFMk4xMEUxTlBCWjNPOS4u" class="govuk-link">take part in research (opens in new tab)</a> to help improve this service.
+h2: How could we improve this service?
+insetText: We will not respond to your feedback or use it when we process your claim.
+button: Send feedback

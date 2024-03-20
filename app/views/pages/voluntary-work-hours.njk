@@ -4,7 +4,7 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('voluntary-work-hours:pageTitle', organisationName) }}
+    {{ t('voluntary-work-hours:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
@@ -26,7 +26,7 @@
         name: 'sameHours',
         fieldset: {
             legend: {
-                text: t('voluntary-work-hours:sameHours.label', organisationName),
+                text: t('voluntary-work-hours:sameHours.label', { organisationName : organisationName }),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
@@ -37,7 +37,7 @@
             value: 'yes',
             text: t('voluntary-work-hours:sameHours.yes'),
             attributes: {
-                'data-question': t('voluntary-work-hours:sameHours.label', organisationName),
+                'data-question': t('voluntary-work-hours:sameHours.label', { organisationName : organisationName }),
                 'data-answer': t('voluntary-work-hours:sameHours.yes')
             },
             conditional: {
@@ -47,7 +47,7 @@
             value: 'no',
             text: t('voluntary-work-hours:sameHours.no'),
             attributes: {
-                'data-question': t('voluntary-work-hours:sameHours.label', organisationName),
+                'data-question': t('voluntary-work-hours:sameHours.label', { organisationName : organisationName }),
                 'data-answer': t('voluntary-work-hours:sameHours.no')
             }
         }]

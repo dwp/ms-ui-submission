@@ -1,45 +1,89 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
-const dateExists = require('../../lib/validation-rules/date-exists.js');
-const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
-const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
-const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
-const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import dateComponentsExist from '../../../src/lib/validators/date-components-exist.js';
+import dateYearLengthIsValid from '../../../src/lib/validators/date-year-length-isValid.js';
+import dateIsReal from '../../../src/lib/validators/date-is-real.js';
+import dateNotAfter from '../../../src/lib/validators/date-not-after.js';
 
-const { rules, SimpleField } = Validation;
+const appLogger = logger();
+appLogger.info('Conditions fields validations');
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
-appLogger.info('Conditions validator');
-
-module.exports = {
-  conditionName: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('conditionName').validators([
+    r.required.make({
       errorMsg: 'conditions:name.errors.required',
     }),
   ]),
-  conditionStartDate: SimpleField([
-    dateExists.bind({
-      errorMsg: 'conditions:conditionStartDate.errors.required',
+  field('conditionStartDate').validators([
+    r.required.make({
+      errorMsg: {
+        summary: 'conditions:conditionStartDate.errors.required',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-    dateComponentsExist.bind({
-      errorMsgDayMissing: 'conditions:conditionStartDate.errors.missingDay',
-      errorMsgMonthMissing: 'conditions:conditionStartDate.errors.missingMonth',
-      errorMsgYearMissing: 'conditions:conditionStartDate.errors.missingYear',
-      errorMsgDayAndMonthMissing: 'conditions:conditionStartDate.errors.missingDayAndMonth',
-      errorMsgDayAndYearMissing: 'conditions:conditionStartDate.errors.missingDayAndYear',
-      errorMsgMonthAndYearMissing: 'conditions:conditionStartDate.errors.missingMonthAndYear',
+    dateComponentsExist.make({
+      errorMsgDayMissing: {
+        summary: 'conditions:conditionStartDate.errors.missingDay',
+        focusSuffix: ['[dd]'],
+      },
+      errorMsgMonthMissing: {
+        summary: 'conditions:conditionStartDate.errors.missingMonth',
+        focusSuffix: ['[mm]']
+      },
+      errorMsgYearMissing: {
+        summary: 'conditions:conditionStartDate.errors.missingYear',
+        focusSuffix: ['[yyyy]']
+      },
+      errorMsgDayAndMonthMissing: {
+        summary: 'conditions:conditionStartDate.errors.missingDayAndMonth',
+        focusSuffix: ['[dd]', '[mm]']
+      },
+      errorMsgDayAndYearMissing: {
+        summary: 'conditions:conditionStartDate.errors.missingDayAndYear',
+        focusSuffix: ['[dd]', '[yyyy]']
+      },
+      errorMsgMonthAndYearMissing: {
+        summary: 'conditions:conditionStartDate.errors.missingMonthAndYear',
+        focusSuffix: ['[mm]', '[yyyy]']
+      },
     }),
-    dateYearLengthIsValid.bind({
-      errorMsg: 'conditions:conditionStartDate.errors.badFormatYear',
+    dateYearLengthIsValid.make({
+      errorMsg: {
+        summary: 'conditions:conditionStartDate.errors.badFormatYear',
+        focusSuffix: ['[yyyy]']
+      }
     }),
-    dateIsReal.bind({
-      errorMsg: 'conditions:conditionStartDate.errors.notReal',
-      errorMsgDigits: 'conditions:conditionStartDate.errors.notRealDigits',
+    dateIsReal.make({
+      errorMsg: {
+        summary: 'conditions:conditionStartDate.errors.notReal',
+      },
+      errorMsgDigits: {
+        summary: 'conditions:conditionStartDate.errors.notRealDigits',
+      },
     }),
-    dateNotAfter.bind({
-      errorMsg: 'conditions:conditionStartDate.errors.inFuture',
+    dateNotAfter.make({
+      allowSingleDigitDay: true,
+      allowSingleDigitMonth: true,
+      errorMsg: {
+        summary: 'conditions:conditionStartDate.errors.inFuture',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
+    }),
+    r.dateObject.make({
+      allowSingleDigitDay: true,
+      allowSingleDigitMonth: true,
+      errorMsg: {
+        summary: 'conditions:conditionStartDate.errors.required',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
+    }),
+  ]).processors([
+    // Trim spaces from each attribute
+    (value) => ({
+      dd: value.dd.replace(/\s+/g, ''),
+      mm: value.mm.replace(/\s+/g, ''),
+      yyyy: value.yyyy.replace(/\s+/g, ''),
     }),
   ]),
-};
+];

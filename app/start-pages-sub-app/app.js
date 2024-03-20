@@ -1,69 +1,72 @@
-const express = require('express');
-const nunjucks = require('nunjucks');
-const path = require('path');
-const I18n = require('../../node_modules/@dwp/govuk-casa/lib/I18n');
-
-const locales = ['en', 'cy'];
-const I18nUtility = I18n([path.resolve(__dirname, '../locales')], locales);
-const Logger = require('../lib/Logger');
+import express from 'express';
+import { dirname, resolve } from 'path';
+import { fileURLToPath } from 'url';
+import { configure } from '../../src/casa.js';
+import pages from '../definitions/pages.js';
+import planFactory from '../definitions/plan.js';
+import headers from '../../src/middleware/headers.js';
+import ping from '../start-pages-sub-app/routes/ping.js';
+import index from '../start-pages-sub-app/routes/index.js';
+import welcome from '../start-pages-sub-app/routes/welcome.js';
+import security from '../start-pages-sub-app/routes/security.js';
+import Logger from '../../src/lib/logger.js';
 
 const appLogger = Logger();
-const app = express();
-appLogger.debug('Set up nunjucks environment');
-const env = nunjucks.configure([
-  path.resolve(__dirname, 'views'),
-  path.resolve(__dirname, '../views'),
-  path.resolve(__dirname, '../../node_modules/@dwp/govuk-casa/views'),
-  path.resolve(__dirname, '../../node_modules/@dwp/govuk-casa/views/casa'),
-  path.resolve(__dirname, '../../node_modules/govuk-frontend/govuk'),
-  path.resolve(__dirname, '../../node_modules/govuk-frontend/govuk/components'),
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-], {
-  autoescape: true,
-  express: app,
-});
+appLogger.info('Loading start-pages-sub-app')
 
-const csp = {
-  'script-src': [
-    "'self'",
-    "'unsafe-inline'",
-    "'sha256-P8kY3SA5xRdEft8gjfb/t1FP6Nmd892V2PRx7lGETfE='",
-    "'sha256-DE9Q8ymiovhm19g8P/nbMMre7j2sel59tMCnbxlSUuE='",
-    'https://www.google-analytics.com/',
-    'https://tagmanager.google.com/',
-    'https://www.googletagmanager.com/',
-  ],
+const i18n = {
+    i18n: {
+        dirs: [resolve(__dirname, 'locales')],
+        locales: ['en', 'cy'],
+        defaultLocale: 'en',
+    },
 };
 
-app.set('view engine', 'njk');
+const csp = {
+    'script-src': [
+        "'self'",
+        "'unsafe-inline'",
+        "'sha256-P8kY3SA5xRdEft8gjfb/t1FP6Nmd892V2PRx7lGETfE='",
+        "'sha256-DE9Q8ymiovhm19g8P/nbMMre7j2sel59tMCnbxlSUuE='",
+        'https://www.google-analytics.com/',
+        'https://tagmanager.google.com/',
+        'https://www.googletagmanager.com/',
+    ],
+};
 
-require('../../node_modules/@dwp/govuk-casa/middleware/headers')(app, csp);
-require('../../node_modules/@dwp/govuk-casa/middleware/i18n')(app, locales, I18nUtility);
+const views = [resolve(__dirname, 'views'), './node_modules/govuk-frontend/components'];
 
-app.use((req, res, next) => {
-  // set up casa things...
-  res.locals = {
-    casaMountUrl: '/',
-    phase: 'beta',
-    govuk: {
-      assetPath: '/govuk/frontend/assets',
-      components: {
-        header: {
-          assetsPath: '/govuk/frontend/assets/images',
-          serviceName: req.i18nTranslator.t('app:serviceName'),
-          serviceUrl: '/',
-          homepageUrl: 'https://www.gov.uk/',
-        },
-      },
-    },
-    ...res.locals,
-  };
-  next();
-});
+const application = ({
+    session,
+}) => {
+    // Configure CASA app
+    const { mount } = configure({
+        views,
+        phase: 'beta',
+        serviceName: 'app:serviceName',
+        session,
+        pages: pages(),
+        plan: planFactory(),
+        i18n,
+    });
 
-require('./routes/ping')(app);
-require('./routes/index')(app);
-require('./routes/welcome')(app);
-require('./routes/security')(app);
+    // Mount and return the app
+    const casaApp = express();
+    casaApp.set('view engine', 'njk');
+    return mount(casaApp, {
+        route: '/:contextid',
+    });
+};
 
-module.exports = app;
+const app = express();
+const router = express.Router();
+headers(app, csp);
+
+ping(router);
+index(router);
+welcome(router);
+security(router);
+
+export default application;

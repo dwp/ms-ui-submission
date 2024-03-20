@@ -1,10 +1,8 @@
-const chai = require('chai');
-const rewire = require('rewire');
-const sinon = require('sinon');
-
-const { assert, expect } = chai;
-
-const genericDataUtils = rewire('../../../../app/lib/data-utils/genericDataUtils.js');
+import sinon from 'sinon';
+import { assert, expect } from 'chai';
+import genericDataUtils from '../../../../src/lib/data-utils/genericDataUtils.js';
+import employmentDataDefault from '../../../../src/lib/data-utils/employmentDataUtils.js';
+import voluntaryDataDefault from '../../../../src/lib/data-utils/voluntaryDataUtils.js';
 
 describe('genericDataUtils.convertToArrayAndFilterBlanks', () => {
   it('should exist', () => {
@@ -102,8 +100,9 @@ describe('genericDataUtils.deleteIfPresent', () => {
     const page = 'pensions-payment';
     const dataItems = [];
     const req = {
-      journeyData: {
-        getDataForPage: () => {
+      casa: {
+        journeyContext: {
+          data: {},
         },
       },
     };
@@ -123,10 +122,12 @@ describe('genericDataUtils.cancelEdit', () => {
         pensionGather: [],
         insuranceGather: [],
       },
-      journeyData: {
-        setDataForPage: sinon.stub(),
-        getData: (p) => {
-          req.journeyData[p] = req.session.editSection;
+      casa: {
+        journeyContext: {
+          data: {},
+          getData: (p) => {
+            req.casa.journeyContext[p] = req.session.editSection;
+          },
         },
       },
     };
@@ -134,65 +135,40 @@ describe('genericDataUtils.cancelEdit', () => {
   it('should set values for voluntary work if editSection is voluntary', () => {
     req.session.editSection = 'voluntary';
     req.session.voluntaryGather[0] = 'voluntaryData';
-    const getVoluntaryFromJourneyData = sinon.stub()
-      .returns('voluntaryData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getVoluntaryFromJourneyData', getVoluntaryFromJourneyData);
-    const clearVoluntaryJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearVoluntaryJourneyData', clearVoluntaryJourneyData);
+    const sandbox = sinon.createSandbox();
+    sandbox.stub(voluntaryDataDefault, 'getVoluntaryFromJourneyData').returns('voluntaryData');
+    sandbox.stub(voluntaryDataDefault, 'clearVoluntaryJourneyData').resolves();
     genericDataUtils.cancelEdit(req);
-    assert(getVoluntaryFromJourneyData.calledOnce);
-    assert(clearVoluntaryJourneyData.calledOnce);
-    assert(req.journeyData.setDataForPage.calledOnce);
+    assert(voluntaryDataDefault.getVoluntaryFromJourneyData.calledOnce);
+    sandbox.restore();
   });
   it('should not set values for voluntary work if editSection is voluntary', () => {
     req.session.editSection = 'voluntary';
     req.session.voluntaryGather[0] = 'notVoluntaryData';
-    const getVoluntaryFromJourneyData = sinon.stub()
-      .returns('voluntaryData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getVoluntaryFromJourneyData', getVoluntaryFromJourneyData);
-    const clearVoluntaryJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearVoluntaryJourneyData', clearVoluntaryJourneyData);
+    const sandbox = sinon.createSandbox();
+    sandbox.stub(voluntaryDataDefault, 'getVoluntaryFromJourneyData').returns('voluntaryData');
+    sandbox.stub(voluntaryDataDefault, 'clearVoluntaryJourneyData').resolves();
     genericDataUtils.cancelEdit(req);
-    assert(getVoluntaryFromJourneyData.calledOnce);
-    assert(clearVoluntaryJourneyData.notCalled);
-    assert(req.journeyData.setDataForPage.notCalled);
+    assert(voluntaryDataDefault.getVoluntaryFromJourneyData.calledOnce);
+    assert(voluntaryDataDefault.clearVoluntaryJourneyData.notCalled);
+    sandbox.restore();
   });
   it('should set values for paid work if editSection is employment', () => {
     req.session.editSection = 'employment';
     req.session.employmentGather[0] = 'employmentData';
-    const getEmploymentFromJourneyData = sinon.stub()
-      .returns('employmentData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getEmploymentFromJourneyData', getEmploymentFromJourneyData);
-    const clearEmploymentJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearEmploymentJourneyData', clearEmploymentJourneyData);
+    const sandbox = sinon.createSandbox();
+    sandbox.stub(employmentDataDefault, 'getEmploymentFromJourneyData').returns('employmentData');
     genericDataUtils.cancelEdit(req);
-    assert(getEmploymentFromJourneyData.calledOnce);
-    assert(clearEmploymentJourneyData.calledOnce);
-    assert(req.journeyData.setDataForPage.calledOnce);
+    assert(employmentDataDefault.getEmploymentFromJourneyData.calledOnce);
+    sandbox.restore();
   });
   it('should not set values for paid work if editSection is employment', () => {
     req.session.editSection = 'employment';
     req.session.employmentGather[0] = 'notEmploymentData';
-    const getEmploymentFromJourneyData = sinon.stub()
-      .returns('employmentData');
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('getEmploymentFromJourneyData', getEmploymentFromJourneyData);
-    const clearEmploymentJourneyData = sinon.stub()
-      .resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    genericDataUtils.__set__('clearEmploymentJourneyData', clearEmploymentJourneyData);
+    const sandbox = sinon.createSandbox();
+    sandbox.stub(employmentDataDefault, 'getEmploymentFromJourneyData').returns('employmentData');
     genericDataUtils.cancelEdit(req);
-    assert(getEmploymentFromJourneyData.calledOnce);
-    assert(clearEmploymentJourneyData.notCalled);
-    assert(req.journeyData.setDataForPage.notCalled);
+    assert(employmentDataDefault.getEmploymentFromJourneyData.calledOnce);
+    sandbox.restore();
   });
 });

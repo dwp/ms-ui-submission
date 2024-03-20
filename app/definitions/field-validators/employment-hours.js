@@ -1,35 +1,37 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Employment hours validator');
 
-module.exports = {
-  sameHours: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('sameHours').validators([
+    r.required.make({
       errorMsg: 'employment-hours:sameHours.errors.required',
     }),
-    rules.inArray.bind({
+    r.inArray.make({
       source: ['yes', 'no'],
       errorMsg: 'employment-hours:sameHours.errors.required',
     }),
   ]),
-
-  hours: SimpleField([
-    rules.required.bind({
+  field('hours').validators([
+    r.required.make({
       errorMsg: 'employment-hours:hours.errors.required',
     }),
-    rules.regex.bind({
+    r.regex.make({
       errorMsg: 'employment-hours:hours.errors.notNum',
       pattern: /^[0-9.]*$/,
     }),
-    rules.regex.bind({
+    r.regex.make({
       errorMsg: 'employment-hours:hours.errors.badFormat',
       pattern: /^[0-9]{1,2}(\.[0-9])?$/,
     }),
-  ], (pageData) => pageData.sameHours === 'yes'),
-};
+  ]).conditions(
+    [
+    // Only validate the 'hours' field if user selects yes
+      ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.sameHours === 'yes',
+    ],
+    (pageData) => pageData.sameHours === 'yes',
+  ),
+];

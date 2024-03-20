@@ -1,18 +1,17 @@
-const { SimpleField, rules } = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Nino validator');
 
-module.exports = {
-  nino: SimpleField([
-    rules.nino.bind({
+export default () => [
+  field('nino').validators([
+    r.nino.make({
       allowWhitespace: true,
       errorMsg: {
         summary: 'national-insurance-number:nino.errors.badFormat',
       },
     }),
   ]),
-};
+];

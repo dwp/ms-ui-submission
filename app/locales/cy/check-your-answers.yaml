@@ -1,0 +1,175 @@
+---
+pageTitle: Edrychwch dros eich atebion cyn anfon eich cais
+heading: Edrychwch dros eich atebion cyn anfon eich cais
+change: Newid
+remove: Dileu
+headingClaimDate: Dyddiad y cais
+headingHealth: Manylion iechyd
+conditions: Cyflyrau
+healthConditions: Cyflwr iechyd
+anotherCondition: Unrhyw gyflyrau iechyd eraill
+visuallyHiddenTextOtherConditions: os oes gennych unrhyw gyflyrau eraill
+visuallyHiddenTextCond: eich cyflwr iechyd {{ conditionName }}
+started: Dechreuodd
+pregnant: Beichiog
+due: Disgwylir y babi ar
+doctorsDetails: Manylion meddygfa neu ganolfan feddygol
+liveLessThanTwelveMonths: Mae’r doctor wedi dweud efallai bod gennych lai na 12 mis i fyw
+liveLessThanTwelveMonths-yes: Ydy
+liveLessThanTwelveMonths-no: Na
+ds1500Sent: ffurflen SR1 neu DS1500 wedi’i chwblhau
+inHospital: Yn yr ysbyty ar hyn o bryd
+hospitalDetails: Manylion yr ysbyty
+admittedOn: Mynd i mewn i’r ysbyty ar
+doctorDeclaration: Gall y doctor rannu manylion gyda DWP
+headingConsentOutcome: Rhannu’r penderfyniad gyda’ch doctor
+consentOutcome: Gall DWP rannu’r penderfyniad gyda’ch doctor
+headingVoluntaryWork: Gwaith gwirfoddol
+doingVoluntaryWork: Gwneud gwaith gwirfoddol
+yourRoleAt: Eich rôl yn
+voluntaryWorkDetails: Manylion gwaith gwirfoddol
+voluntaryWorkType: Math o waith gwirfoddol
+voluntaryWorkHours: Oriau o waith gwirfoddol bob wythnos
+otherVoluntaryWorkHeading: Gwaith gwirfoddol arall
+doingOtherVoluntaryWork: Gwneud gwaith gwirfoddol arall
+differentHours: Nifer gwahanol o oriau bob wythnos
+eachWeek: bob wythnos
+hour: awr
+hours: awr
+none: Dim
+refNum: Rhif cyfeirnod
+headingPaidWork: Gwaith â thâl
+currentlyEmployed: Cyflogedig ar hyn o bryd
+yourJobAt: Eich swydd yn
+employmentDetails: Manylion cyflogaeth
+selfEmploymentDetails: Manylion hunangyflogaeth
+offSick: I ffwrdd yn sâl o’r gwaith hwn
+lastWork: Wedi gweithio ddiwethaf
+employmentStatus: Statws cyflogaeth
+employmentHours: Oriau rydych yn eu gweithio bob wythnos
+earnings: Enillion
+supportWorker: Gweithiwr cefnogol proffesiynol
+employmentExpenses: Treuliau
+employmentExpensesDetails: Manylion treuliau
+otherEmploymentHeading: Gwaith â thâl arall
+otherEmployment: Unrhyw swyddi arall
+statPayHeading: Tâl statudol
+ssp: Cael Tâl Salwch Statudol
+sspEnd: Dyddiad gorffen Tâl Salwch Statudol
+sspRecent: Tâl Salwch Statudol yn yr 13 wythnos cyn y dyddiad rydych eisiau gwneud cais o
+sspRecentEnd: Tâl Salwch Statudol wedi dod i ben
+otherStatPay: Taliadau statudol eraill
+sspReasonNo: Rheswm dros beidio â chael Tâl Salwch Statudol
+headingOverseas: Gweithio a byw dramor
+workOverseas: Wedi gweithio dramor yn y 5 mlynedd diwethaf
+militaryOverseas: Wedi byw dramor gyda aelod o’r teulu yn y lluoedd arfog yn y 12 wythnos diwethaf
+pensionHeading: Pensiynau
+pensions: Cael arian o bensiwn neu flwydd-dal
+pensionInherit: Cael taliadau pensiwn neu flwydd-dal rydych wedi’u hetifeddu gan rywun sydd wedi marw
+yourPensionWith: Eich pensiwn gyda
+pensionDetails: Manylion pensiwn neu flwydd-dal
+pensionStarted: Dyddiad dechrau pensiwn neu flwydd-dal
+pensionFrequency: Amlder talu pensiwn neu flwydd-dal
+pensionPayment: Taliadau o bensiwn neu flwydd-dal
+pensionDeductions: Didyniadau o bensiwn neu flwydd-dal
+beforeDeductions: cyn didyniadau
+afterDeductions: ar ôl didyniadau
+pensionDeductionDetails: Manylion didyniadau
+pensionInherited: Pensiwn neu flwydd-dal wedi’i etifeddu
+otherPensionsHeading: Pensiynau eraill
+otherPensions: Unrhyw bensiynau eraill
+insurance: Yswiriant iechyd parhaol
+yourPolicyWith: Eich polisi gyda
+insuranceDetails: Manylion yswiriant iechyd parhaol
+insurancePremiums: Premiymau sydd wedi’u talu
+no: Rwyf wedi talu llai na hanner y premiymau
+yes: Rwyf wedi talu mwy na hanner y premiymau
+notsure: Nid wyf yn siwr
+insuranceEmployer: Dal i weithio i’r cyflogwr sydd wedi sefydlu’r polisi
+insuranceEmployerEnd: Cyflogaeth wedi dod i ben
+insuranceAmount: Swm o’r yswiriant
+otherInsuranceHeading: Yswiriant iechyd parhaol arall
+otherInsurance: Unrhyw yswiriant iechyd parhaol arall
+personalHeading: Manylion personol
+name: Enw
+dob: Dyddiad geni
+nino: Rhif Yswiriant Gwladol
+address: Cyfeiriad gartref
+contactAddress: Cyfeiriad cyswllt amgen
+mobile: Rhif ffôn symudol
+otherNumber: Rhif ffôn
+claimDate: Dyddiad dechrau cais
+claimEndDate: Dyddiad gorffen cais
+contactDetails: Manylion cyswllt
+email: Cyfeiriad e-bost
+visuallyHiddenTextName: enw
+visuallyHiddenTextDoB: dyddiad geni
+visuallyHiddenTextHomeAddress: cyfeiriad gartref
+visuallyHiddenTextContactAddress: cyfeiriad cyswllt
+visuallyHiddenTextMobile: rhif ffôn symudol
+visuallyHiddenTextOtherNumber: rhif ffôn
+visuallyHiddenTextContactDetails: manylion cyswllt
+visuallyHiddenTextEmail: cyfeiriad e-bost
+visuallyHiddenTextDocDetail: Manylion meddygfa neu ganolfan feddygol
+visuallyHiddenTextliveLessThanTwelveMonths: p’un a ddywedodd eich meddyg fod gennych lai na 12 mis i fyw
+visuallyHiddenTextDS1500: os oes ffurflen SR1 neu DS1500 wedi cael ei hanfon
+visuallyHiddenTextInHosp: os ydych yn yr ysbyty ar hyn o bryd
+visuallyHiddenTextHospDetail: manylion yr ysbyty
+visuallyHiddenTextPregnant: os ydych yn feichiog
+visuallyHiddenTextPregnantDue: dyddiad geni disgwyliedig eich babi
+visuallyHiddenTextDocConsent: caniatâd i ddoctoriaid rannu manylion gyda DWP
+visuallyHiddenTextDwpConsent: caniatâd i DWP i rannu penderfyniad gyda’ch doctor
+visuallyHiddenTextVoluntaryWork: os ydych yn gwneud gwaith gwirfoddol
+visuallyHiddenTextVoluntaryWorkDetails: manylion gwaith gwirfoddol ar gyfer {{organisationName}}
+visuallyHiddenTextVoluntaryWorkType: math o waith gwirfoddol yn {{organisationName}}
+visuallyHiddenTextVoluntaryWorkHours: nifer o oriau rydych yn gwirfoddoli yn {{organisationName}}
+visuallyHiddenTextOtherVoluntaryWork: os ydych yn gwneud gwaith gwirfoddol arall
+visuallyHiddenTextCurrentlyEmployed: os ydych yn gyflogedig
+visuallyHiddenTextEmploymentDetails: manylion cyflogaeth ar gyfer {{employerName}}
+visuallyHiddenTextSelfEmploymentDetails: manylion hunangyflogaeth
+visuallyHiddenTextOffSick: os ydych i ffwrdd yn sâl neu beidio yn {{employerName}}
+visuallyHiddenTextEmploymentStatus: statws cyflogaeth yn {{employerName}}
+visuallyHiddenTextLastWork: pryd wnaethoch weithio diwethaf yn {{employerName}}
+visuallyHiddenTextEmploymentHours: nifer o oriau rydych yn eu gweithio yn {{employerName}}
+visuallyHiddenTextEarnings: enillion yn {{employerName}}
+visuallyHiddenTextSupportWorker: os oes gennych weithiwr cefnogol proffesiynol yn {{employerName}}
+visuallyHiddenTextEmploymentExpenses: treuliau sy’n cael eu talu am gan {{employerName}}
+visuallyHiddenTextEmploymentExpensesDetails: manylion treuliau ar gyfer {{employerName}}
+visuallyHiddenTextOtherEmployment: os oes gennych swydd arall
+visuallyHiddenTextSsp: os ydych yn cael Tâl Salwch Statudol neu beidio
+visuallyHiddenTextSspReasonNo: y rheswm pam nad ydych yn cael Tâl Salwch Statudol
+visuallyHiddenTextSspRecent: os ydych yn cael Tâl Salwch Statudol yn yr 13 wythnos cyn y dyddiad rydych eisiau gwneud cais o
+visuallyHiddenTextSspRecentEnd: dyddiad gorffen eich Tâl Salwch Statudol
+visuallyHiddenTextSspEnd: dyddiad gorffen eich Tâl Salwch Statudol
+visuallyHiddenTextOtherStatPay: taliadau statudol eraill
+visuallyHiddenTextClaimStartDate: dyddiad dechrau’r cais
+visuallyHiddenTextEndDate: dyddiad gorffen cais
+visuallyHiddenTextWorkOverseas: os ydych wedi gweithio dramor
+visuallyHiddenTextMilitaryOverseas: os ydych wedi byw dramor gyda’r lluoedd arfog
+visuallyHiddenTextPensions: os ydych yn cael arian o bensiwn
+visuallyHiddenPensionInherit: p'un a ydych yn cael taliadau pensiwn neu flwydd-dal rydych wedi'u hetifeddu gan rywun a fu farw
+visuallyHiddenTextPensionDetails: manylion pensiwn neu flwydd-dal
+visuallyHiddenTextPensionFrequency: amlder taliad gan {{pensionProvider}}
+visuallyHiddenTextPensionDeductions: os ydych yn cael didyniadau o’ch taliadau {{pensionProvider}}
+visuallyHiddenTextPensionDeductionDetails: manylion o ddidyniadau o’ch taliadau {{pensionProvider}}
+visuallyHiddenTextPensionInherited: os ydych wedi etifeddu eich pensiwn gan {{pensionProvider}}
+visuallyHiddenTextOtherPensions: os oes gennych bensiynau eraill
+visuallyHiddenTextInsurance: os ydych yn cael yswiriant iechyd parhaol
+visuallyHiddenTextInsuranceDetails: manylion yswiriant iechyd parhaol
+visuallyHiddenTextInsurancePremiums: 'premiymau sy’n cael eu talu tuag at eich yswiriant {{insuranceProvider}} '
+visuallyHiddenTextInsuranceAmount: swm rydych yn ei gael gan eich yswiriant {{insuranceProvider}}
+visuallyHiddenTextOtherInsurance: unrhyw yswiriant iechyd parhaol arall
+removeVisuallyHiddenTextPaidWork: y swydd yn {{employerName}}
+removeVisuallyHiddenTextVoluntaryWork: y gwaith gwirfoddol yn {{organisationName}}
+removeVisuallyHiddenTextPension: y pensiwn gan {{pensionProvider}}
+removeVisuallyHiddenTextInsurance: yr yswiriant iechyd parhaol gan {{insuranceProvider}}
+universalCredit: Credyd Cynhwysol
+visuallyHiddenTextUniversalCredit: os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol
+claimStartDateAfterSsp: Cais o <span class="nobr">{{calculatedDate}}</span>
+visuallyHiddenTextClaimStartDateAfterSsp: Os ydych eisiau gwneud cais o {{calculatedDate}}
+headingLanguage: Dewis iaith
+langPrefWriting: Ysgrifennu
+visuallyHiddenTextLangPrefWriting: Ym mha iaith ydych chi am i ni ysgrifennu atoch?
+langPrefSpeaking: Siarad
+visuallyHiddenTextLangPrefSpeaking: Ym mha iaith ydych chi am i ni siarad â chi?
+headingPhone: Rhif ffôn

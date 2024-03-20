@@ -1,48 +1,87 @@
-const moment = require('moment');
-const { SimpleField } = require('@dwp/govuk-casa/lib/Validation');
-const dateExists = require('../../lib/validation-rules/date-exists.js');
-const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
-const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
-const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
-const dateNotBefore = require('../../lib/validation-rules/date-not-before.js');
-const dateOutOfRange = require('../../lib/validation-rules/date-out-of-range.js');
+import { DateTime } from 'luxon';
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import dateComponentsExist from '../../../src/lib/validators/date-components-exist.js';
+import dateYearLengthIsValid from '../../../src/lib/validators/date-year-length-isValid.js';
+import dateIsReal from '../../../src/lib/validators/date-is-real.js';
+import dateNotBefore from '../../../src/lib/validators/date-not-before.js';
+import dateOutOfRange from '../../../src/lib/validators/date-out-of-range.js';
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Pregnant due date validator');
 
-const today = () => moment().startOf('day');
-const latestValidDueDate = () => moment().startOf('day').add(10, 'months');
+const today = () => DateTime.now().startOf('day');
+const latestValidDueDate = () => DateTime.now().startOf('day').plus({ months: 10 });
 
-module.exports = {
-  dueDate: SimpleField([
-    dateExists.bind({
-      errorMsg: 'pregnant-due-date:dueDate.errors.required',
+export default () => [
+  field('dueDate').validators([
+    r.required.make({
+      errorMsg: {
+        summary: 'pregnant-due-date:dueDate.errors.required',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-    dateComponentsExist.bind({
-      errorMsgDayMissing: 'pregnant-due-date:dueDate.errors.missingDay',
-      errorMsgMonthMissing: 'pregnant-due-date:dueDate.errors.missingMonth',
-      errorMsgYearMissing: 'pregnant-due-date:dueDate.errors.missingYear',
-      errorMsgDayAndMonthMissing: 'pregnant-due-date:dueDate.errors.missingDayAndMonth',
-      errorMsgDayAndYearMissing: 'pregnant-due-date:dueDate.errors.missingDayAndYear',
-      errorMsgMonthAndYearMissing: 'pregnant-due-date:dueDate.errors.missingMonthAndYear',
+    dateComponentsExist.make({
+      errorMsgDayMissing: {
+        summary: 'pregnant-due-date:dueDate.errors.missingDay',
+        focusSuffix: ['[dd]'],
+      },
+      errorMsgMonthMissing: {
+        summary: 'pregnant-due-date:dueDate.errors.missingMonth',
+        focusSuffix: ['[mm]']
+      },
+      errorMsgYearMissing: {
+        summary: 'pregnant-due-date:dueDate.errors.missingYear',
+        focusSuffix: ['[yyyy]']
+      },
+      errorMsgDayAndMonthMissing: {
+        summary: 'pregnant-due-date:dueDate.errors.missingDayAndMonth',
+        focusSuffix: ['[dd]', '[mm]']
+      },
+      errorMsgDayAndYearMissing: {
+        summary: 'pregnant-due-date:dueDate.errors.missingDayAndYear',
+        focusSuffix: ['[dd]', '[yyyy]']
+      },
+      errorMsgMonthAndYearMissing: {
+        summary: 'pregnant-due-date:dueDate.errors.missingMonthAndYear',
+        focusSuffix: ['[mm]', '[yyyy]']
+      },
     }),
-    dateYearLengthIsValid.bind({
-      errorMsg: 'pregnant-due-date:dueDate.errors.badFormatYear',
+    dateYearLengthIsValid.make({
+      errorMsg: {
+        summary: 'pregnant-due-date:dueDate.errors.badFormatYear',
+        focusSuffix: ['[yyyy]']
+      }
     }),
-    dateIsReal.bind({
-      errorMsg: 'pregnant-due-date:dueDate.errors.notReal',
-      errorMsgDigits: 'pregnant-due-date:dueDate.errors.notRealDigits',
+    dateIsReal.make({
+      errorMsg: {
+        summary: 'pregnant-due-date:dueDate.errors.notReal',
+      },
+      errorMsgDigits: {
+        summary: 'pregnant-due-date:dueDate.errors.notRealDigits',
+      },
     }),
-    dateNotBefore.bind({
-      errorMsg: 'pregnant-due-date:dueDate.errors.inPast',
+    dateNotBefore.make({
+      errorMsg: {
+        summary: 'pregnant-due-date:dueDate.errors.inPast',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-    dateOutOfRange.bind({
-      errorMsg: 'pregnant-due-date:dueDate.errors.outOfRange',
+    dateOutOfRange.make({
+      errorMsg: {
+        summary: 'pregnant-due-date:dueDate.errors.outOfRange',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
       earliestDate: today,
       latestDate: latestValidDueDate,
     }),
+  ]).processors([
+    // Trim spaces from each attribute
+    (value) => ({
+      dd: value.dd.replace(/\s+/g, ''),
+      mm: value.mm.replace(/\s+/g, ''),
+      yyyy: value.yyyy.replace(/\s+/g, ''),
+    }),
   ]),
-};
+];

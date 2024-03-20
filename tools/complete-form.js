@@ -2,20 +2,20 @@
  * This function can be called with a parameter matching the variables defined at the
  * start of the 'example' function the argument takes the form variable=value.
  * The value is 'yes', 'true' or '1' for true and 'no', 'false' or '0' for false.
- * call the script with npm run fill for the default values.
- * call with `npm run script all=0` to set all the false
+ * Call the script with npm run fill for the default values.
+ * Call with `npm run script all=0` to set all the false
  * call with `npm run script all=1` to set all the true
  * call with `npm run script all=1 pregnant=0` to set all the true but set pregnant to false.
- * call with `npm run script keepOpen=true` to hang script completion and keep browser open.
- * call with 'npm run script submitClaim=true` to complete declaration and submit claim.
+ * Call with `npm run script keepOpen=true` to hang script completion and keep browser open.
+ * Call with 'npm run script submitClaim=true` to complete declaration and submit claim.
  *
  * Set an environment variable of ENDPOINT to change ui instance
- * ENDPOINT=https://ns-esa-f-qa.pub.health-dev.dwpcloud.uk/ npm run fill
+ * ENDPOINT=https://ns-esa-f-qa.pub.health-dev.dwpcloud.uk/ npm run fill.
  */
 /* eslint-disable */
 const { Builder, By, Key, until } = require('selenium-webdriver');
 const faker = require('faker');
-const moment = require('moment');
+const DateTime = require('luxon');
 
 const args = process.argv.slice(2)
   .filter(a => a.split('=').length === 2)
@@ -190,10 +190,10 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('continue-button')).click();
       await driver.findElement(By.name('hospitalName')).sendKeys(faker.company.companyName());
       await driver.findElement(By.name('hospitalWard')).sendKeys(faker.company.companyName());
-      const admissionDate = moment().subtract(3, 'months');
-      await driver.findElement(By.name('admissionDate[dd]')).sendKeys(admissionDate.date().toString());
-      await driver.findElement(By.name('admissionDate[mm]')).sendKeys((admissionDate.month() + 1).toString());
-      await driver.findElement(By.name('admissionDate[yyyy]')).sendKeys(admissionDate.year());
+      const admissionDate = DateTime.now().minus({months: 3});
+      await driver.findElement(By.name('admissionDate[dd]')).sendKeys(admissionDate.day.toString());
+      await driver.findElement(By.name('admissionDate[mm]')).sendKeys((admissionDate.month + 1).toString());
+      await driver.findElement(By.name('admissionDate[yyyy]')).sendKeys(admissionDate.year);
     } else {
       await driver.findElement(By.id('f-hospitalInpatient-2')).click();
     }
@@ -203,10 +203,10 @@ const args = process.argv.slice(2)
     if (pregnant) {
       await driver.findElement(By.id('f-pregnant')).click();
       await driver.findElement(By.id('continue-button')).click();
-      const dueDate = moment().add(3, 'months');
-      await driver.findElement(By.name('dueDate[dd]')).sendKeys(dueDate.date().toString());
-      await driver.findElement(By.name('dueDate[mm]')).sendKeys((dueDate.month() + 1).toString());
-      await driver.findElement(By.name('dueDate[yyyy]')).sendKeys(dueDate.year());
+      const dueDate = DateTime.now().plus({months: 3});
+      await driver.findElement(By.name('dueDate[dd]')).sendKeys(dueDate.day.toString());
+      await driver.findElement(By.name('dueDate[mm]')).sendKeys((dueDate.month + 1).toString());
+      await driver.findElement(By.name('dueDate[yyyy]')).sendKeys(dueDate.year);
     } else {
       await driver.findElement(By.id('f-pregnant-2')).click();
     }
@@ -270,10 +270,10 @@ const args = process.argv.slice(2)
       if (offSick) {
         await driver.findElement(By.id('f-offSick')).click();
         await driver.findElement(By.id('continue-button')).click();
-        const lastWorkedDate = moment().subtract(3, 'weeks');
-        await driver.findElement(By.name('lastWorkedDate[dd]')).sendKeys(lastWorkedDate.date().toString());
-        await driver.findElement(By.name('lastWorkedDate[mm]')).sendKeys((lastWorkedDate.month() + 1).toString());
-        await driver.findElement(By.name('lastWorkedDate[yyyy]')).sendKeys(lastWorkedDate.year());
+        const lastWorkedDate = DateTime.now().minus({weeks: 3});
+        await driver.findElement(By.name('lastWorkedDate[dd]')).sendKeys(lastWorkedDate.day.toString());
+        await driver.findElement(By.name('lastWorkedDate[mm]')).sendKeys((lastWorkedDate.month + 1).toString());
+        await driver.findElement(By.name('lastWorkedDate[yyyy]')).sendKeys(lastWorkedDate.year);
         await driver.findElement(By.id('continue-button')).click();
       } else {
         await driver.findElement(By.id('f-offSick-2')).click();
@@ -324,30 +324,30 @@ const args = process.argv.slice(2)
       await driver.findElement(By.id('continue-button')).click();
       await driver.findElement(By.id('f-offSick')).click();
       await driver.findElement(By.id('continue-button')).click();
-      const lastWorkedDate = moment().subtract(3, 'weeks');
-      await driver.findElement(By.name('lastWorkedDate[dd]')).sendKeys(lastWorkedDate.date().toString());
-      await driver.findElement(By.name('lastWorkedDate[mm]')).sendKeys((lastWorkedDate.month() + 1).toString());
-      await driver.findElement(By.name('lastWorkedDate[yyyy]')).sendKeys(lastWorkedDate.year());
+      const lastWorkedDate = DateTime.now().minus({weeks: 3});
+      await driver.findElement(By.name('lastWorkedDate[dd]')).sendKeys(lastWorkedDate.day.toString());
+      await driver.findElement(By.name('lastWorkedDate[mm]')).sendKeys((lastWorkedDate.month + 1).toString());
+      await driver.findElement(By.name('lastWorkedDate[yyyy]')).sendKeys(lastWorkedDate.year);
       await driver.findElement(By.id('continue-button')).click();
       await driver.findElement(By.id('f-other-2')).click();
       await driver.findElement(By.id('continue-button')).click();
 
       if (ssp) {
 
-        const sspEndDate = moment().subtract(4, 'weeks');
-        await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
-        await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
-        await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
+        const sspEndDate = DateTime.now().minus({weeks: 4});
+        await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.day.toString());
+        await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month + 1).toString());
+        await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year);
         await driver.findElement(By.id('continue-button')).click();
 
       } else {
         if (sspRecent) {
           await driver.findElement(By.id('f-sspRecent')).click();
           await driver.findElement(By.id('continue-button')).click();
-          const sspEndDate = moment().subtract(4, 'weeks');
-          await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.date().toString());
-          await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month() + 1).toString());
-          await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year());
+          const sspEndDate = DateTime.now().minus({weeks: 4});
+          await driver.findElement(By.name('sspEndDate[dd]')).sendKeys(sspEndDate.day.toString());
+          await driver.findElement(By.name('sspEndDate[mm]')).sendKeys((sspEndDate.month + 1).toString());
+          await driver.findElement(By.name('sspEndDate[yyyy]')).sendKeys(sspEndDate.year);
           await driver.findElement(By.id('continue-button')).click();
         } else {
           await driver.findElement(By.id('f-sspRecent-2')).click();
@@ -363,10 +363,10 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('f-sspRecent')).click();
         await driver.findElement(By.id('continue-button')).click();
 
-        const sspRecentEndDate = moment().subtract(4, 'months');
-        await driver.findElement(By.name('sspRecentEndDate[dd]')).sendKeys(sspRecentEndDate.date().toString());
-        await driver.findElement(By.name('sspRecentEndDate[mm]')).sendKeys((sspRecentEndDate.month() + 1).toString());
-        await driver.findElement(By.name('sspRecentEndDate[yyyy]')).sendKeys(sspRecentEndDate.year());
+        const sspRecentEndDate = DateTime.now().minus({months: 4});
+        await driver.findElement(By.name('sspRecentEndDate[dd]')).sendKeys(sspRecentEndDate.day.toString());
+        await driver.findElement(By.name('sspRecentEndDate[mm]')).sendKeys((sspRecentEndDate.month + 1).toString());
+        await driver.findElement(By.name('sspRecentEndDate[yyyy]')).sendKeys(sspRecentEndDate.year);
         await driver.findElement(By.id('continue-button')).click();
       } else {
         await driver.findElement(By.id('f-sspRecent-2')).click();
@@ -391,26 +391,26 @@ const args = process.argv.slice(2)
         await driver.findElement(By.id('f-claimStartDateAfterSsp-2')).click();
         await driver.findElement(By.id('continue-button')).click();
 
-        const claimDate = moment().subtract(3, 'week');
-        await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.date().toString());
-        await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month() + 1).toString());
-        await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year().toString());
+        const claimDate = DateTime.now().minus({weeks: 3});
+        await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.day.toString());
+        await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month + 1).toString());
+        await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year.toString());
         await driver.findElement(By.id('continue-button')).click();
       }
     } else {
-      const claimDate = moment().subtract(3, 'week');
-      await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.date().toString());
-      await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month() + 1).toString());
-      await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year().toString());
+      const claimDate = DateTime.now().minus({weeks: 3});
+      await driver.findElement(By.name('claimStartDate[dd]')).sendKeys(claimDate.day.toString());
+      await driver.findElement(By.name('claimStartDate[mm]')).sendKeys((claimDate.month + 1).toString());
+      await driver.findElement(By.name('claimStartDate[yyyy]')).sendKeys(claimDate.year.toString());
       await driver.findElement(By.id('continue-button')).click();
     }
 
     if (claimEndDate) {
       await driver.findElement(By.id('f-claimEnd')).click();
-      const returnToWorkDate = moment().add(1, 'month');
-      await driver.findElement(By.name('claimEndDate[dd]')).sendKeys(returnToWorkDate.date().toString());
-      await driver.findElement(By.name('claimEndDate[mm]')).sendKeys((returnToWorkDate.month() + 1).toString());
-      await driver.findElement(By.name('claimEndDate[yyyy]')).sendKeys(returnToWorkDate.year());
+      const returnToWorkDate = DateTime.now().plus({months: 1});
+      await driver.findElement(By.name('claimEndDate[dd]')).sendKeys(returnToWorkDate.day.toString());
+      await driver.findElement(By.name('claimEndDate[mm]')).sendKeys((returnToWorkDate.month + 1).toString());
+      await driver.findElement(By.name('claimEndDate[yyyy]')).sendKeys(returnToWorkDate.year);
     } else {
       await driver.findElement(By.id('f-claimEnd-2')).click();
     }

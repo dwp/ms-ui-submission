@@ -12,4 +12,4 @@ const setConsentCookie = (req, res, consentCookieName, cookieValue, useTLS = fal
   req.session.cookieChoiceMade = true;
 };
 
-module.exports = setConsentCookie;
+export default setConsentCookie;

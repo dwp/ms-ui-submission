@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makeConditions = require('../../../../app/lib/data-mapper/makeConditions.js');
+import { expect } from 'chai';
+import makeConditions from '../../../../src/lib/data-mapper/makeConditions.js';
 
 describe('setting up condition data for submission', () => {
   const conditionGather = [

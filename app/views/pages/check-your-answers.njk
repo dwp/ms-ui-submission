@@ -1,7 +1,7 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "components/button/macro.njk" import govukButton %}
-{% from "components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "../macros/cya-header.njk" import cyaHeader with context %}
 
 {% block casaPageTitle %}
@@ -34,14 +34,14 @@
             <p class="govuk-body">
                 {{ govukButton({
                     attributes: { id: 'continue-button' },
-                    text: t('common:form.buttons.continue.label')
+                    text: t('app:continue')
                 }) }}
             </p>
         </form>
     </div>
     <div class="govuk-grid-column-one-third"></div>
 </div>
-<style>
+<style nonce="{{ cspNonce }}">
     .button-link {
         background:none!important;
         color: #005ea5;

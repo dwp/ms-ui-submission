@@ -1,8 +1,0 @@
-{
-  "title": "Sesiwn wedi amseru allan",
-  "heading" : "Mae’n ddrwg gennym, bydd angen i chi ddechrau eto",
-  "message1" : "Mae’ch sesiwn wedi dod i ben oherwydd nad ydych wedi gwneud unrhyw beth ar y gwasanaeth am %s munud.",
-  "message2" : "Rydym yn gwneud hyn er eich diogelwch. Nid ydym wedi arbed unrhyw wybodaeth bersonol rydych wedi’i roi",
-  "inset": "Mae’r dudalen yma hefyd ar gael <a href=\"session-timeout?lang=en\" class=\"govuk-link\">yn Saesneg (English)</a>.",
-  "buttonText" : "Dechrau eich cais eto"
-}

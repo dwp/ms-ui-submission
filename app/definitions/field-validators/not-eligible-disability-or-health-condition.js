@@ -1,17 +1,14 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('not-eligible-disability-or-health-condition validator');
 
-module.exports = {
-  whatDoYouWantToDo: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('whatDoYouWantToDo').validators([
+    r.required.make({
       errorMsg: 'not-eligible-disability-or-health-condition:error',
     }),
   ]),
-};
+];

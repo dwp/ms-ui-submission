@@ -2,7 +2,7 @@
 
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 {% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
-{% from "components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
 {% block casaPageTitle %}
     {{ t('conditions:pageTitle') }}
@@ -35,7 +35,7 @@
     {% set monthError = formErrors['conditionStartDate'][0].inline | matchMonth or formErrors['conditionStartDate'][0].errorType | includesMonth %}
     {% set yearError = formErrors['conditionStartDate'][0].inline | matchYear or formErrors['conditionStartDate'][0].errorType | includesYear %}
     {% set dateParams = {
-        name: 'conditionStartDate',
+        namePrefix: 'conditionStartDate',
         fieldset: {
             legend: {
                 text: t('conditions:conditionStartDate.label'),
@@ -61,6 +61,6 @@
             ]
         } %}
     {% endif %}
-    {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+    {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
   {% endcall %}
-{%  endblock %} %}
+{%  endblock %}

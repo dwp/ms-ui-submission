@@ -1,12 +1,18 @@
-const chai = require('chai');
-const rewire = require('rewire');
-const sinon = require('sinon');
+import sinon from 'sinon';
+import { assert, expect } from 'chai';
+import voluntaryDataUtils from '../../../../src/lib/data-utils/voluntaryDataUtils.js';
+import {JourneyContext} from "@dwp/govuk-casa";
 
-const { assert, expect } = chai;
-
-const voluntaryDataUtils = rewire('../../../../app/lib/data-utils/voluntaryDataUtils.js');
+let sandbox;
 
 describe('voluntaryDataUtils.getVoluntaryFromJourneyData', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should build a valid voluntary object', () => {
     const jd = {
       'voluntary-work-details': {
@@ -42,6 +48,13 @@ describe('voluntaryDataUtils.getVoluntaryFromJourneyData', () => {
 });
 
 describe('voluntaryDataUtils.populateVoluntaryJourneyData', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should build a valid voluntary object', () => {
     const jd = {
       data: {},
@@ -49,7 +62,27 @@ describe('voluntaryDataUtils.populateVoluntaryJourneyData', () => {
         jd.data[p] = d;
       },
     };
-    voluntaryDataUtils.populateVoluntaryJourneyData(jd, {
+      const req = {
+          casa: {
+              journeyContext: {
+                  setDataForPage: (p, d) => {
+                      req.casa.journeyContext.data[p] = d;
+                  },
+                  data: {
+                      'voluntary-work-details': {
+                          organisationName: 'new',
+                          organisationAddress: {},
+                      },
+                  },
+              },
+          },
+          session: {
+              save: () => {},
+              editIndex: '0',
+              voluntaryGather: [{ organisationName: 'old' }],
+          },
+      };
+    voluntaryDataUtils.populateVoluntaryJourneyData(req, jd, {
       organisationName: 'test',
       organisationAddress: {
         address1: 'address1',
@@ -87,77 +120,105 @@ describe('voluntaryDataUtils.populateVoluntaryJourneyData', () => {
 });
 
 describe('voluntaryDataUtils.clearVoluntaryJourneyData', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should remove voluntary journey data', () => {
     const req = {
-      journeyData: {
-        setDataForPage: (p, d) => {
-          req.journeyData.data[p] = d;
+        session: {
+            save: () => {}
         },
-        data: {
-          'voluntary-work': {},
-          'voluntary-work-details': {},
-          'voluntary-work-role': {},
-          'voluntary-work-hours': {},
+      casa: {
+        journeyContext: {
+          setDataForPage: (p, d) => {
+            req.casa.journeyContext.data[p] = d;
+          },
+          data: {
+            'voluntary-work': {},
+            'voluntary-work-details': {},
+            'voluntary-work-role': {},
+            'voluntary-work-hours': {},
+          },
         },
       },
     };
     voluntaryDataUtils.clearVoluntaryJourneyData(req);
-    expect(req.journeyData.data).to.eql({
-      'voluntary-work': undefined,
-      'voluntary-work-details': undefined,
-      'voluntary-work-role': undefined,
-      'voluntary-work-hours': undefined,
+    expect(req.casa.journeyContext.data).to.eql({
+      'voluntary-work': {},
+      'voluntary-work-details': {},
+      'voluntary-work-role': {},
+      'voluntary-work-hours': {},
     });
   });
 });
 
 describe('voluntaryDataUtils.updateSpecificVoluntary', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should update a specific instance of voluntary work to the voluntary Gather and call relevant functions', () => {
     const req = {
-      journeyData: {
-        getData: sinon.stub(),
-        setDataForPage: sinon.stub(),
+      casa: {
+        journeyContext: {
+          setDataForPage: (p, d) => {
+            req.casa.journeyContext.data[p] = d;
+          },
+          data: {
+            'voluntary-work-details': {
+              organisationName: 'new',
+              organisationAddress: {},
+            },
+          },
+        },
       },
       session: {
-        editIndex: 0,
-        voluntaryGather: [],
+        save: () => {},
+        editIndex: '0',
+        voluntaryGather: [{ organisationName: 'old' }],
       },
     };
-    const getVoluntaryFromJourneyData = sinon.stub().returns('data');
-    /* eslint-disable-next-line no-underscore-dangle */
-    voluntaryDataUtils.__set__('getVoluntaryFromJourneyData', getVoluntaryFromJourneyData);
-    const clearVoluntaryJourneyData = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    voluntaryDataUtils.__set__('clearVoluntaryJourneyData', clearVoluntaryJourneyData);
     voluntaryDataUtils.updateSpecificVoluntary(req);
-    assert(getVoluntaryFromJourneyData.calledOnce);
-    assert(clearVoluntaryJourneyData.calledOnce);
-    assert(req.journeyData.setDataForPage.calledOnce);
-    assert(req.journeyData.getData.calledOnce);
-    expect(req.session.voluntaryGather[0]).to.equal('data');
+    expect(req.session.voluntaryGather[0].organisationName).to.equal('new');
   });
 });
 
 describe('voluntaryDataUtils.addVoluntaryToGather', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should add an instance of voluntary work to the voluntary Gather and call relevant functions', () => {
     const req = {
-      journeyData: {
-        getData: sinon.stub(),
+      casa: {
+        journeyContext: {
+          setDataForPage: (p, d) => {
+            req.casa.journeyContext.data[p] = d;
+          },
+          data: {
+            'voluntary-work-details': {
+              organisationName: 'new',
+              organisationAddress: {},
+            },
+          },
+        },
       },
       session: {
+        save: () => {},
         voluntaryGather: [],
       },
     };
-    const getVoluntaryFromJourneyData = sinon.stub().returns('data');
-    /* eslint-disable-next-line no-underscore-dangle */
-    voluntaryDataUtils.__set__('getVoluntaryFromJourneyData', getVoluntaryFromJourneyData);
-    const clearVoluntaryJourneyData = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    voluntaryDataUtils.__set__('clearVoluntaryJourneyData', clearVoluntaryJourneyData);
     voluntaryDataUtils.addVoluntaryToGather(req);
-    assert(getVoluntaryFromJourneyData.calledOnce);
-    assert(clearVoluntaryJourneyData.calledOnce);
-    assert(req.journeyData.getData.calledOnce);
-    expect(req.session.voluntaryGather[0]).to.equal('data');
+    expect(req.session.voluntaryGather[0].organisationName).to.equal('new');
   });
 });

@@ -39,7 +39,7 @@
 
     {% for pension in pensionGather %}
 
-        {{ cyaHeader(t('check-your-answers:yourPensionWith') + ' ' + pension.pensionProvider, 'pension', loop.index0, t('check-your-answers:removeVisuallyHiddenTextPension', pension.pensionProvider)) }}
+        {{ cyaHeader(t('check-your-answers:yourPensionWith') + ' ' + pension.pensionProvider, 'pension', loop.index0, t('check-your-answers:removeVisuallyHiddenTextPension', { pensionProvider : pension.pensionProvider })) }}
 
         {% set pensionDetails %}
             {{ pension.pensionProvider }}<br>
@@ -59,7 +59,7 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'pension-details-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=pension-details&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=pension-details&index='+loop.index0,
                     text: t('check-your-answers:change'),
                     visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDetails')
                 }]
@@ -70,7 +70,7 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'pension-start-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=pension-start&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=pension-start&index='+loop.index0,
                     text: t('check-your-answers:change'),
                     visuallyHiddenText: t('check-your-answers:pensionStarted')
                 }]
@@ -81,20 +81,20 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'pension-frequency-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=pension-frequency&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=pension-frequency&index='+loop.index0,
                     text: t('check-your-answers:change'),
-                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionFrequency', pension.pensionProvider)
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionFrequency', { pensionProvider: pension.pensionProvider })
                 }]
             }
         }, {
             key: { text: t('check-your-answers:pensionDeductions') },
-            value: { text: t('pension-deductions:deductions.' + pension.deductions) },
+            value: { text: t('pension-deductions:deductions.' + { deductions: pension.deductions }) },
             actions: {
                 items: [{
                     attributes: { 'id': 'pension-deductions-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=pension-deductions&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=pension-deductions&index='+loop.index0,
                     text: t('check-your-answers:change'),
-                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDeductions', pension.pensionProvider)
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDeductions', { pensionProvider: pension.pensionProvider })
                 }]
             }
         }] %}
@@ -114,7 +114,7 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'pension-payment-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=pension-payment&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=pension-payment&index='+loop.index0,
                         text: t('check-your-answers:change'),
                         visuallyHiddenText: t('check-your-answers:pensionPayment')
                     }]
@@ -136,9 +136,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'pension-deductions-details-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=pension-deductions-details&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=pension-deductions-details&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDeductionDetails', pension.pensionProvider)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionDeductionDetails', { pensionProvider: pension.pensionProvider })
                     }]
                 }
             } %}
@@ -155,7 +155,7 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'pension-amount-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=pension-payment&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=pension-payment&index='+loop.index0,
                         text: t('check-your-answers:change'),
                         visuallyHiddenText: t('check-your-answers:pensionPayment')
                     }]
@@ -170,9 +170,9 @@
             actions: {
                 items: [{
                 attributes: { 'id': 'pension-inherited-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=pension-inherited&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=pension-inherited&index='+loop.index0,
                     text: t('check-your-answers:change'),
-                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionInherited', pension.pensionProvider)
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextPensionInherited', { pensionProvider: pension.pensionProvider })
                 }]
             }
         } %}

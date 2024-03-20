@@ -1,7 +1,7 @@
 {% extends "layouts/generic-template.njk" %}
 
-{% from "components/inset-text/macro.njk" import govukInsetText %}
-{% from "components/table/macro.njk" import govukTable %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% block casaPageTitle %}
   {{ t('cookie-details:pageTitle') }}
@@ -144,7 +144,7 @@
         }, {
           text: t('cookie-details:table.session.purpose')
         }, {
-          text: t('cookie-details:table.session.expires', sessionMinutes)
+          text: t('cookie-details:table.session.expires', { sessionMinutes : sessionMinutes })
         }]]
       }) }}
 

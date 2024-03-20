@@ -1,23 +1,11 @@
 {% extends "casa/layouts/journey.njk" %}
 
-{% from "components/error-summary/macro.njk" import govukErrorSummary with context %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary with context %}
 {% from "casa/components/journey-form/macro.njk" import casaJourneyForm with context %}
-{% from "components/footer/macro.njk" import govukFooter with context %}
+{% from "govuk/components/footer/macro.njk" import govukFooter with context %}
 
 {% block head %}
-  {%- if cookieMessage === "accept" -%}
-    {% include "partials/gtm-script.njk" %}
-  {%- endif %}
 {%  include "includes/application-styles.njk" %}
-{% endblock %}
-
-{% block bodyStart %}
-  {%- if cookieMessage === "accept" -%}
-    {% include "partials/gtm-noscript.njk" %}
-  {%- endif %}
-  {% if cookieMessage === "unset" or cookieChoiceMade %}
-    {% include "partials/cookie-message.njk" %}
-  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}

@@ -1,0 +1,14 @@
+---
+pageTitle: Oes gennych chi gyfeiriad e-bost?
+radio:
+  label: Oes gennych chi gyfeiriad e-bost?
+  yes: Oes
+  no: Na
+  hint: <p class="govuk-body">Byddwn yn defnyddio hwn i anfon manylion apwyntiadau.</p>
+  errors:
+    required: Dewiswch oes os oes gennych gyfeiriad e-bost
+input:
+  label: Cyfeiriad e-bost
+  errors:
+    required: Rhowch eich cyfeiriad e-bost
+    badFormat: Rhowch gyfeiriad e-bost yn y ffurf cywir, fel name@example.com

@@ -1,0 +1,8 @@
+---
+pageTitle: What voluntary work you do at {{organisationName}}?
+role:
+  label: What do you do at {{organisationName}}?
+  hint: ''
+  errors:
+    required: Enter what do you do at this organisation
+    maxLength: Enter what you do at this organisation in 500 characters or fewer (including spaces)

@@ -1,0 +1,115 @@
+---
+pageTitle: What happens next
+header: Application sent
+refReminder: Your reference number is your National Insurance number
+whatNow:
+  title: What happens next
+claimantCommitment:
+  text1: We will contact you by <span class="nobr">{{fourteenDaysLater}}</span>. We will book you a 'Claimant
+    Commitment' appointment, unless your Health Practitioner has informed you that
+    you have less than 12 months to live. This is normally over the phone - unless
+    you have told us you need an alternative format.
+  text2: 'We''ll talk to you about what you need to do to get New Style ESA, including
+    asking you to:'
+  conditionalBulletPoints:
+    li1: explain how your illness or disability affects your ability to work
+    li2: provide medical evidence
+    li3: agree to tell us if your circumstances change
+  text3: You must agree to your Claimant Commitment before you can get New Style ESA.
+  text4: After your Claimant Commitment appointment, we will send you a Capability
+    for Work questionnaire which you should complete and return. It will ask you about
+    your current illness, disability, injury or health condition and how it affects
+    your ability to work.
+  text5: You may also be asked to have a Work Capability Assessment with a healthcare
+    professional. This helps us give you the right support to help you work when you
+    can. This might be work you have not done, or thought of doing, before. Not everyone
+    has to have an assessment, but if you’re asked to attend one, you must go.
+  text6: 'Your New Style ESA payments might be stopped if:'
+  esaPayments:
+    li1: you do not complete and return the questionnaire
+    li2: you do not attend an assessment that you have been asked to
+  text7: If you have also applied for Universal Credit, you might be asked to complete
+    a questionnaire or attend a Work Capability Assessment. If so, you must complete
+    and return the questionnaire and attend the assessment, or your New Style ESA
+    payments might be stopped.
+medicalEvidence:
+  medicalEvidenceHeading: Send us medical evidence to support your application
+  ssp1Text: Send us your SSP1. You can get this from your employer.
+  text1: If your doctor, consultant or nurse has said you might have less than 12
+    months to live, you can ask them to complete an SR1 form. An SR1 form provides
+    evidence about your illness and is sent directly to DWP. It may help you get benefits
+    at a higher rate and to start getting them quicker than usual.
+  text2: You can self-certify for the first 7 days of your claim but you need to send
+    us medical evidence from day 8 onwards.
+  text3: The most common type of medical certificate is a fit note (also called a
+    statement of fitness for work or a sick note), but we also accept other types
+    of medical evidence.
+  conditionalReveal:
+    heading: Other types of medical evidence
+    text1: 'As well as fit notes, we also accept these medical certificates:'
+    li1: Med10 (a hospital certificate given to inpatients if your treatment lasts
+      more than 7 days)
+    li2: MATB1 (if you’re pregnant but you cannot get Statutory Maternity Pay or Maternity
+      Allowance)
+    li3: CF73 (a form issued by a psychiatric hospital)
+    li4: SR1 (a form completed and sent to us by a doctor, consultant or specialist
+      nurse if they think you might not live longer than 12 months because of your
+      condition)
+    text2: Other forms of evidence might include a doctor’s statement, consultant’s
+      report or Local Authority notice.
+    text3: Please note, DS1500 forms are being phased out and your clinician should
+      give you an SR1 form instead.
+  text4: You will need to keep sending us medical evidence as long as you’re unfit
+    for work. We will tell you when you can stop sending it. For example, if your
+    fit note is for 14 days, you will need to send us another one when it runs out.
+  yesSRTI:
+    heading: Send us your SR1 form, if you have one.
+    text1: We will contact you by <span class="nobr">{{fourteenDaysLater}}</span> if we need more information.
+    text2: This is usually sent to the DWP by your doctor or specialist nurse.
+    text3: 'If you have a copy, send it to:'
+    text4: You do not need to submit another SR1 form if you have already submitted
+      one for a claim for Personal Independence Payment (PIP) or Adult Disability
+      Payment (ADP).
+    text5: If you do not have an SR1 form you can ask your doctor or specialist nurse
+      to complete one. You do not have to pay for it.
+    text6: Please note, DS1500 forms are being phased out and your clinician should
+      give you an SR1 form instead.
+sendEvidence:
+  heading: How to send your evidence
+  text1: If you have a fit note, you can use the <a class="govuk-link" href="https://www.gov.uk/send-fit-note"
+    target="_blank">Send Your Fit Note service (opens in new tab)</a> to send it to
+    us online.
+  text2: If you have another form of medical evidence, you can send it to us by post.
+    You can also post your fit note.
+  ssp1Text: If you have another form of medical evidence, you can send it to us by
+    post. You can also post your fit note and SSP1.
+  insetText:
+    heading: Where to send your evidence by post
+    line1: Freepost DWP ESA 26
+universalCreditYes:
+  heading: Tell Universal Credit
+  text1: If you get or have applied for Universal Credit, you will need to tell them
+    that you’ve applied for New Style ESA. You can do this by <a class="govuk-link"
+    href="https://www.gov.uk/sign-in-universal-credit" target="_blank">signing in
+    to your Universal Credit account (opens in new tab)</a> and using the journal
+    to contact your case manager.
+  text2: You must also enter details from your medical evidence into your Universal
+    Credit account. For example, if you have a fit note, you do not need to send it
+    to Universal Credit, but you must enter the dates.
+universalCreditNo:
+  heading: Do you need help with housing costs or support for a partner or child?
+  text1: If you‘re on a low income or out of work, you can apply for Universal Credit
+    as part of a dual claim with New Style ESA.
+  text2: Unlike New Style ESA, you can apply with a partner and get support for housing
+    costs, children and childcare.
+  text3: You or your partner must have less than £16,000 in savings or investments
+    to be eligible.
+  text4: Find out <a class="govuk-link" href="https://www.gov.uk/how-to-claim-universal-credit"
+    target="_blank">how to claim for Universal Credit on GOV.UK (opens in new tab)</a>.
+feedback:
+  feedbackHeading: Give us your feedback
+  feedbackQuestionLink: <a class="govuk-link" href="/feedback" target="_blank">What
+    did you think of this service? (opens in new tab)</a>. It takes 30 seconds.
+  researchQuestion: Volunteer to <a class="govuk-link" href="https://forms.office.com/pages/responsepage.aspx?id=6fbxllcQF0GsKIDN_ob4w3C0kR238l1Nq4_w4WOy9kNUQVJRQzNQN1RXNlVFMk4xMEUxTlBCWjNPOS4u"
+    target="_blank">take part in research (opens in new tab)</a> to help improve this
+    service.

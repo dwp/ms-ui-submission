@@ -1,0 +1,17 @@
+---
+pageTitle: What is your Statutory Sick Pay end date?
+sspEndDate:
+  label: What is your Statutory Sick Pay end date?
+  hint: <p class="govuk-body">This might be different from the last date you were paid SSP.</p><p class="govuk-body">It can be a date in the past or up to 3 months from today.</p><p class="govuk-body">You can find this date on your SSP1 form. If you do not have an SSP1 form, you need to get this information from your employer.</p> <p>For example, {{sspEndDateHint}}</p>
+  errors:
+    required: Enter your Statutory Sick Pay end date
+    missingDay: Your Statutory Sick Pay end date must include a day
+    missingMonth: Your Statutory Sick Pay end date must include a month
+    missingYear: Your Statutory Sick Pay end date must include a year
+    missingDayAndMonth: Your Statutory Sick Pay end date must include a day and a month
+    missingDayAndYear: Your Statutory Sick Pay end date must include a day and a year
+    missingMonthAndYear: Your Statutory Sick Pay end date must include a month and a year
+    badFormatYear: Enter your Statutory Sick Pay end date with a year in the right format, for example 2001 not 01
+    notReal: Enter a real Statutory Sick Pay end date
+    notRealDigits: Enter a real Statutory Sick Pay end date using only digits
+    outOfRange: Your Statutory Sick Pay end date cannot be more than 3 months in the future

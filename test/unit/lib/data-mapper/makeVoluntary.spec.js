@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makeVoluntary = require('../../../../app/lib/data-mapper/makeVoluntary.js');
+import { expect } from 'chai';
+import makeVoluntary from '../../../../src/lib/data-mapper/makeVoluntary.js';
 
 describe('setting up voluntary work data for submission', () => {
   const voluntaryGather = [

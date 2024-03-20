@@ -1,0 +1,18 @@
+---
+pageTitle: O ba ddyddiad ydych chi eisiau gwneud cais am Lwfans Cyflogaeth a Chymorth?
+claimStartDate:
+  label: O ba ddyddiad ydych chi eisiau gwneud cais am Lwfans Cyflogaeth a Chymorth?
+  hint: <p class="govuk-body">Ni allwch wneud cais am NS ESA am unrhyw ddyddiadau y cawsoch eich talu SSP.</p><p class="govuk-body">Dylai eich cais ddechrau y diwrnod ar ôl i'ch SSP ddod i ben. Er enghraifft, os yw eich SSP yn dod i ben ar 25 Hydref 2022, gallwch wneud cais am NS ESA o 26 Hydref 2022.</p><p class="govuk-body">Byddwch angen tystiolaeth fel nodyn ffitrwydd (a elwir hefyd yn nodyn salwch) i gwmpasu’r cyfnod rydych eisiau gwneud cais amdano.</p>Er enghraifft, <span class="nobr">{{claimStartDateHint}}</span>
+  errors:
+    required: Rhowch y dyddiad rydych eisiau gwneud cais o
+    missingDay: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod
+    missingMonth: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys mis
+    missingYear: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys blwyddyn
+    missingDayAndMonth: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod a mis
+    missingDayAndYear: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys diwrnod a blwyddyn
+    missingMonthAndYear: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o gynnwys mis a blwyddyn
+    badFormatYear: Rhowch y dyddiad rydych eisiau gwneud cais o gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01
+    notReal: Rhowch ddyddiad gwirioneddol rydych eisiau gwneud cais o
+    notRealDigits: Rhowch ddyddiad gwirioneddol rydych eisiau gwneud cais o drwy ddefnyddio rhifau yn unig
+    outOfRange: Ni all y dyddiad fod yn fwy na 3 mis yn y dyfodol
+    beforeSsp: Mae’n rhaid i’r dyddiad rydych eisiau gwneud cais o fod ar ôl dyddiad gorffen eich Tâl Salwch Statudol

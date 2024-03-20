@@ -1,15 +1,14 @@
-const { rules, SimpleField } = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Hospital inpatient validator');
 
-module.exports = {
-  hospitalInpatient: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('hospitalInpatient').validators([
+    r.required.make({
       errorMsg: 'hospital-inpatient:hospitalInpatient.errors.required',
     }),
   ]),
-};
+];

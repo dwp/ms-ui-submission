@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makeApplicant = require('../../../../app/lib/data-mapper/makeApplicant.js');
+import { expect } from 'chai';
+import makeApplicant from '../../../../src/lib/data-mapper/makeApplicant.js';
 
 describe('setting up applicant data for submission', () => {
   const journeyDataValues = {
@@ -39,9 +37,7 @@ describe('setting up applicant data for submission', () => {
       other: 'no',
     },
   };
-  const journeyData = {
-    getDataForPage: (page) => journeyDataValues[page],
-  };
+  const journeyData = journeyDataValues;
   it('should build an applicant object containing values from inputs', () => {
     const app = makeApplicant(journeyData);
     expect(app).to.have.property('forenames', 'test');

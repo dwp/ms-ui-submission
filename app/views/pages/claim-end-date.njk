@@ -16,14 +16,14 @@
     {% set yearError = formErrors['claimEndDate'][0].inline | matchYear or formErrors['claimEndDate'][0].errorType | includesYear %}
 
         {% set dateParams = {
-            name: 'claimEndDate',
+            namePrefix: 'claimEndDate',
             fieldset: {
                 legend: {
                     text: t('claim-end-date:claimEndDate.label')
                 }
             },
             hint: {
-                html: t('claim-end-date:claimEndDate.hint', claimEndDateHint)
+                html: t('claim-end-date:claimEndDate.hint', { claimEndDateHint : claimEndDateHint })
             },
             casaValue: formData.claimEndDate,
             casaErrors: formErrors
@@ -41,7 +41,7 @@
             } %}
         {% endif %}
 
-         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+         {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
 
     {% endset %}
 

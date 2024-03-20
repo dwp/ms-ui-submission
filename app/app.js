@@ -1,38 +1,74 @@
-const casa = require('@dwp/govuk-casa');
-const express = require('express');
-const expressSession = require('express-session');
-const path = require('path');
-const FileStore = require('session-file-store')(expressSession);
-const fs = require('fs');
-const https = require('https');
-const gulp = require('gulp');
-require('../gulpfile');
-const RedisStore = require('connect-redis')(expressSession);
-const Redis = require('ioredis');
-const CryptoService = require('dwp-cryptoservice');
-const KmsKeyProvider = require('dwp-cryptoservice/KmsKeyProvider');
-const RedisKmsStoreDecorator = require('./lib/RedisKmsStoreDecorator');
-const Logger = require('./lib/Logger');
-const envValidator = require('./lib/EnvValidator');
-const SubmissionService = require('./lib/SubmissionService');
-const { processNotifications } = require('./services/NotificationService');
-const journey = require('./definitions/journey');
-const cookieMiddleware = require('./middleware/cookie-message');
-const mediaMiddleware = require('./middleware/media.js');
+import express from 'express';
+import expressSession from 'express-session';
+
+import { dirname, join, resolve } from 'path';
+import { fileURLToPath } from 'url';
+
+import '../gulpfile.js';
+
+import cRedis from 'connect-redis';
+import { Cluster } from 'ioredis';
+import sessionFileStore from 'session-file-store';
+
+import CryptoService from '@dwp/dwp-cryptoservice';
+import KmsKeyProvider from '@dwp/dwp-cryptoservice/lib/KmsKeyProvider.js';
+import { configure } from '../src/casa.js';
+import envValidator from '../src/lib/EnvValidator.js';
+import RedisKmsStoreDecorator from '../src/lib/RedisKmsStoreDecorator.js';
+
+import SubmissionService from '../src/lib/SubmissionService.js';
+import notificationService from './services/NotificationService.js';
+
+import eventsFactory from './definitions/events.js';
+import pages from './definitions/pages.js';
+import planFactory from './definitions/plan.js';
+
+import middlewareEdit from '../src/middleware/edit.js';
+import middlewarePagePath from '../src/middleware/page-path.js';
+import middlewareAppRef from '../src/middleware/application-ref.js';
+import middlewareJourneyLog from '../src/middleware/journey-logger.js';
+import middlewareBackOverride from '../src/middleware/navigation-override/index.js';
+
+import checkYourAnswersPlugin from './plugins/check-your-answers/plugin.js';
+import cookieConsentPlugin from './plugins/cookie-consent/plugin.js';
+import middlewarePlugin from '../src/middleware/timeout-helper.js';
+import cookieDetailsGet from '../src/routes/cookie-details.get.js';
+import cookiePolicyGet from '../src/routes/cookie-policy.get.js';
+import cookiePolicyPost from '../src/routes/cookie-policy.post.js';
+
+import checkYourAnswers from '../src/routes/check-your-answers.js';
+import cancel from '../src/routes/cancel.js';
+import remove from '../src/routes/remove.js';
+import declaration from '../src/routes/declaration.js';
+import complete from '../src/routes/complete.js';
+import feedback from '../src/routes/feedback.js';
+import thankyou from '../src/routes/thankyou.js';
+import accessibilitySt from '../src/routes/accessibility-statement.js';
+import telephoneApp from '../src/routes/telephone-application.js';
+import ping from './start-pages-sub-app/routes/ping.js';
+
+import viewFilters from './view-filters/view-filters.js';
+
+import Logger from '../src/lib/logger.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const RedisStore = cRedis(expressSession);
+
+const FileStore = sessionFileStore(expressSession);
+const { processNotifications } = notificationService;
+
+import welcome from "./start-pages-sub-app/routes/welcome.js";
+
+const { static: expressStatic } = express; // CommonJS
 
 const consentCookieName = 'SeenCookieMessage';
 const cookiePolicy = 'cookie-policy';
-const cookieConsent = 'cookie-consent';
 const cookieDetails = 'cookie-details';
 
 const appLogger = Logger();
-const casaSubApp = express();
-const startSubApp = require('./start-pages-sub-app/app');
 
 // create the minified js.
-gulp.task('minifyjs')();
-
-const app = express();
+// task('minifyjs')(); // NEEDS FIXING
 
 let appConfig = { ...process.env };
 
@@ -40,7 +76,7 @@ try {
   appConfig = envValidator(appConfig);
 } catch (e) {
   if (!e.message.includes('LOG_LEVEL')) {
-    appLogger.crit('Environment is misconfigured', {
+    appLogger.fatal('Environment is misconfigured', {
       err_message: e.message,
       err_stack: e.stack,
     });
@@ -49,21 +85,6 @@ try {
   }
   process.exit(1);
 }
-// Hide the app pages from search engine indexes.
-// Either remove this code or set the ROBOT_INDEX env var to true
-// to remove the Robots Tag header.
-if (process.env.ROBOT_INDEX !== 'true') {
-  appLogger.info('Add X-Robots-Tag with noindex, nofollow');
-  app.use((req, res, next) => {
-    res.set('X-Robots-Tag', 'noindex, nofollow');
-    next();
-  });
-}
-
-app.use(startSubApp);
-app.use(casaSubApp);
-
-casaSubApp.use('/govuk/esa', express.static(path.join(__dirname, 'static/esa')));
 
 if (appConfig.NOTIFY_PROXY === 'null') {
   appConfig.NOTIFY_PROXY = null;
@@ -83,6 +104,7 @@ const kmsKeyProvider = new KmsKeyProvider({
   region: appConfig.REDIS_AWS_REGION,
   endpointUrl: appConfig.KMS_ENDPOINT_URL ? appConfig.KMS_ENDPOINT_URL : null,
 });
+
 const cryptoService = new CryptoService(kmsKeyProvider);
 
 // Prepare a session store
@@ -104,7 +126,7 @@ if (appConfig.REDIS_PORT && appConfig.REDIS_HOST) {
       redisOptions: { db: 0, tls: {} },
     };
   }
-  redisClient = new Redis.Cluster([{
+  redisClient = new Cluster([{
     host: appConfig.REDIS_HOST,
     port: appConfig.REDIS_PORT,
   }], clusterOptions);
@@ -119,12 +141,30 @@ if (appConfig.REDIS_PORT && appConfig.REDIS_HOST) {
     });
     retryCount++; // eslint-disable-line
     if (retryCount > REDIS_MAX_RETRY) {
-      appLogger.crit('Redis could not recover from error; exiting', {
+      appLogger.fatal('Redis could not recover from error; exiting', {
         err_message: e.message,
         err_stack: e.stack,
       });
       process.exit(1);
     }
+  });
+  redisClient.on('ready', () => {
+    appLogger.info('Redis connection ready');
+  });
+  redisClient.on('reconnecting', () => {
+    appLogger.info('Redis reconnecting');
+  });
+  redisClient.on('end', () => {
+    appLogger.info('Redis connection ended');
+  });
+  redisClient.on('connect', () => {
+    appLogger.info('Redis connection established');
+  });
+  redisClient.on('warning', (e) => {
+    appLogger.warn('Redis warning: %s', e);
+  });
+  redisClient.on('close', () => {
+    appLogger.info('Redis connection closed');
   });
 
   // Decorate the session store with KMS-enabled getters/setters
@@ -155,121 +195,143 @@ if (appConfig.REDIS_PORT && appConfig.REDIS_HOST) {
   });
 }
 
+const views = [resolve(__dirname, 'views'), './node_modules/govuk-frontend/components'];
+const session = {
+  name: 'SESSIONID',
+  secret: appConfig.SESSIONS_SECRET,
+  ttl: appConfig.SESSIONS_TTL, // Idle time before sessions are destroyed (seconds)
+  secure: appConfig.SERVER_SSL_ENABLED,
+  store: sessionStore,
+};
+
 appLogger.info('Set up CASA application');
-const casaApp = casa(casaSubApp, {
-  mountUrl: '/',
-  views: {
-    dirs: [path.resolve(__dirname, 'views'), './node_modules/govuk-frontend/components'],
-  },
-  compiledAssetsDir: path.resolve(__dirname, 'static'),
-  phase: 'beta',
-  serviceName: 'app:serviceName',
-  sessions: {
-    name: 'SESSIONID',
-    store: sessionStore,
-    secret: appConfig.SESSIONS_SECRET,
-    // Idle time before sessions are destroyed (seconds)
-    ttl: appConfig.SESSIONS_TTL,
-    secure: appConfig.SERVER_SSL_ENABLED,
-  },
-  i18n: {
-    dirs: [path.resolve(__dirname, 'locales')],
-    locales: ['en', 'cy'],
-  },
-  allowPageEdit: true,
-  csp: {
-    'script-src': [
-      "'self'",
-      "'unsafe-inline'",
-      "'sha256-P8kY3SA5xRdEft8gjfb/t1FP6Nmd892V2PRx7lGETfE='",
-      "'sha256-DE9Q8ymiovhm19g8P/nbMMre7j2sel59tMCnbxlSUuE='",
-      "'sha256-8PMdLcrHifoMMuqmO1JrZ/OCYR5pkBEJcDv9tlGGYLY='",
-      "'sha256-+6WnXIl4mbFTCARd8N3COQmT3bJJmo32N8q8ZSQAIcU='",
-      'https://www.google-analytics.com/',
-      'https://tagmanager.google.com/',
-      'https://www.googletagmanager.com/',
+const application = ({
+  MOUNT_URL = '/',
+}) => {
+  const plan = planFactory();
+  const events = eventsFactory(plan);
+
+  // Configure some CASA routes and other middleware for use in our CASA app
+  const {
+    staticRouter, ancillaryRouter, csrfMiddleware, mount, nunjucksEnv,
+  } = configure({
+    views,
+    phase: 'beta',
+    serviceName: 'app:serviceName',
+    session,
+    hooks: [{
+      hook: 'journey.postvalidate',
+      middleware: (req, res, next) => {
+        const errors = req.casa.journeyContext.getValidationErrorsForPage(req.casa.waypoint);
+        console.log(`Running the example "journey.postvalidate" hook on "${req.path}". There were ${errors.length} errors`);
+        next();
+      },
+    }],
+    i18n: {
+      dirs: [resolve(__dirname, 'locales')],
+      locales: ['en', 'cy'],
+    },
+    pages: pages(),
+    plan,
+    events,
+    plugins: [
+      middlewarePlugin(),
+      cookieConsentPlugin(
+        '/',
+        '/',
+        consentCookieName,
+        cookiePolicy,
+        appConfig.SERVER_SSL_ENABLED,
+      ),
+      checkYourAnswersPlugin({
+        waypoints: ['check-your-answers'],
+      }),
     ],
-  },
-  mountController: function casaMountController(mountCommonMiddleware) {
-    mediaMiddleware(this.expressApp, '/', './app/');
-    mountCommonMiddleware();
-    cookieMiddleware(
-      this.expressApp,
-      '/',
-      '/',
-      consentCookieName,
-      cookiePolicy,
-      cookieConsent,
-      appConfig.SERVER_SSL_ENABLED,
-    );
-  },
-});
-
-// Add Google Tag Manger ID to view
-casaSubApp.get('nunjucksEnv').addGlobal('googleTagManagerId', appConfig.GOOGLE_TAG_MANAGER_ID);
-
-const startPage = journey.allWaypoints()[0];
-
-require('./middleware/edit')(casaApp.router);
-require('./middleware/timeout-helper')(casaApp.router);
-require('./middleware/page-path')(casaApp.router);
-require('./middleware/application-ref')(casaApp.router, redisClient, startPage);
-require('./middleware/journey-logger.js')(casaApp.router);
-
-require('./middleware/navigation-override')(casaApp.router);
-casaApp.loadDefinitions(
-  require('./definitions/pages'),
-  journey,
-);
-
-const cookieDetailsGet = require('./routes/cookie-details.get');
-const cookiePolicyGet = require('./routes/cookie-policy.get');
-const cookiePolicyPost = require('./routes/cookie-policy.post');
-require('./routes/check-your-answers')(casaApp.router, casaApp.csrfMiddleware, casaApp.config.mountUrl, journey);
-require('./routes/cancel')(casaApp.router, casaApp.csrfMiddleware);
-require('./routes/remove')(casaApp.router, casaApp.csrfMiddleware);
-require('./routes/declaration')(casaApp, casaApp.config.mountUrl, casaApp.router, casaApp.csrfMiddleware, submissionService, processNotifications, appConfig);
-require('./routes/complete')(casaApp, casaApp.config.mountUrl, casaApp.router);
-require('./routes/feedback')(casaApp.router, casaApp.csrfMiddleware, appConfig.NOTIFY_EMAILTO, appConfig.NOTIFY_APIKEY, appConfig.NOTIFY_PROXY, appConfig.NOTIFY_URL ? appConfig.NOTIFY_URL : null);
-require('./routes/thankyou')(casaApp.router);
-require('./routes/accessibility-statement')(casaApp.router);
-require('./routes/telephone-application')(casaApp.router);
-require('./lib/view-filters')(casaSubApp);
-
-// Claim submission handlers
-const submissionCommonMw = [casaApp.csrfMiddleware];
-
-// Cookie policy pages
-casaApp.router.get(`/${cookieDetails}`, submissionCommonMw, cookieDetailsGet(
-  cookiePolicy,
-  consentCookieName,
-  'SESSIONID',
-  appConfig.SESSIONS_TTL,
-));
-casaApp.router.get(`/${cookiePolicy}`, submissionCommonMw, cookiePolicyGet(cookieDetails));
-casaApp.router.post(`/${cookiePolicy}`, submissionCommonMw, cookiePolicyPost(consentCookieName, appConfig.SERVER_SSL_ENABLED));
-
-// Setup SSL
-let httpsServer;
-if (appConfig.SERVER_SSL_ENABLED) {
-  httpsServer = https.createServer({
-    key: fs.readFileSync(appConfig.SERVER_SSL_KEYFILE),
-    cert: fs.readFileSync(appConfig.SERVER_SSL_CERTFILE),
-    ca: fs.readFileSync(appConfig.SERVER_SSL_CACERTFILE),
-  }, app);
-}
-// Start server
-const server = (appConfig.SERVER_SSL_ENABLED ? httpsServer : app)
-  .listen(appConfig.SERVER_PORT, () => {
-    const { address, port } = server.address();
-    const urlProtocol = appConfig.SERVER_SSL_ENABLED ? 'https' : 'http';
-    appLogger.info(`App listening at ${urlProtocol}://%s:%s`, address, port);
+    helmetConfigurator: (config) => {
+      if (!appConfig.SERVER_SSL_ENABLED) {
+        appLogger.info('running on http');
+        config.contentSecurityPolicy.directives.upgradeInsecureRequests = null;
+      }
+      config.contentSecurityPolicy.directives['script-src'] = [
+        ...config.contentSecurityPolicy.directives['script-src'],
+        '\'unsafe-inline\'',
+      ].filter((directive) => !(directive instanceof Function) || directive.name !== 'casaCspNonce');
+      return config;
+    },
   });
 
-// Ensure all inactive connections are terminated by the ALB,
-// by setting this a few seconds higher than the ALB idle timeout
-server.keepAliveTimeout = 65000;
+  staticRouter.use('/assets', expressStatic(resolve(__dirname, 'assets/')));
+  staticRouter.all('/assets', (req, res) => res.status(404).send('Not found'));
 
-// Ensure the headersTimeout is set higher than the
-// keepAliveTimeout due to this nodejs regression bug: https://github.com/nodejs/node/issues/27363
-server.headersTimeout = 66000;
+  // Mount everything in an ExpressJS app
+  const casaApp = express();
+  const app = express();
+
+  // Hide the app pages from search engine indexes.
+  // Either remove this code or set the ROBOT_INDEX env var to true
+  // to remove the Robots Tag header.
+  if (process.env.ROBOT_INDEX !== 'true') {
+    appLogger.info('Add X-Robots-Tag with noindex, nofollow');
+    app.use((req, res, next) => {
+      res.set('X-Robots-Tag', 'noindex, nofollow');
+      next();
+    });
+  }
+
+  app.use(expressSession({
+    ...session,
+    resave: true,
+    saveUninitialized: true,
+  }));
+
+  nunjucksEnv.addGlobal('googleTagManagerId', appConfig.GOOGLE_TAG_MANAGER_ID);
+
+  const staticMiddleware = express.static(join(__dirname, 'static/esa'));
+  casaApp.use('/govuk/esa', staticMiddleware);
+
+  middlewareEdit(casaApp);
+  middlewareBackOverride(ancillaryRouter);
+  middlewarePagePath(casaApp);
+
+  const startPage = plan.getWaypoints()[0];
+  middlewareAppRef(ancillaryRouter, redisClient, `/${startPage}`);
+
+  middlewareJourneyLog(casaApp);
+
+  checkYourAnswers(ancillaryRouter, csrfMiddleware, MOUNT_URL, plan);
+  cancel(ancillaryRouter, csrfMiddleware);
+  remove(ancillaryRouter, csrfMiddleware);
+  declaration(casaApp, MOUNT_URL, ancillaryRouter, csrfMiddleware, submissionService, processNotifications, appConfig);
+  complete(casaApp, MOUNT_URL, ancillaryRouter);
+  feedback(ancillaryRouter, csrfMiddleware, appConfig.NOTIFY_EMAILTO, appConfig.NOTIFY_APIKEY, appConfig.NOTIFY_PROXY, appConfig.NOTIFY_URL ? appConfig.NOTIFY_URL : null);
+  thankyou(ancillaryRouter);
+  accessibilitySt(ancillaryRouter);
+  telephoneApp(ancillaryRouter);
+  viewFilters(nunjucksEnv, casaApp);
+  welcome(ancillaryRouter);
+  app.use(MOUNT_URL, ping(casaApp));
+
+  // Example of how to mount a handler for the `/` index route. Need to use a
+  // regex for the specific match to only `/`.
+  ancillaryRouter.use(/^\/$/, (req, res) => {
+    res.redirect(302, `${req.baseUrl}/who-is-applying`);
+  });
+
+  ancillaryRouter.get(`/${cookiePolicy}`, csrfMiddleware, cookiePolicyGet(cookieDetails));
+  ancillaryRouter.post(`/${cookiePolicy}`, csrfMiddleware, cookiePolicyPost(consentCookieName, appConfig.SERVER_SSL_ENABLED));
+  ancillaryRouter.get(`/${cookieDetails}`, csrfMiddleware, cookieDetailsGet(
+    cookiePolicy,
+    consentCookieName,
+    'SESSIONID',
+    appConfig.SESSIONS_TTL,
+  ));
+
+  // Mount the CASA app on a parent ExpressJS app
+  mount(casaApp);
+
+  app.use(MOUNT_URL, casaApp);
+
+  return app;
+};
+
+export default application;

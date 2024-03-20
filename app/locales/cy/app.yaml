@@ -1,0 +1,41 @@
+---
+serviceName: Gwneud cais am Lwfans Cyflogaeth a Chymorth Dull Newydd
+commonTitle: Gwneud cais am Lwfans Cyflogaeth a Chymorth Dull Newydd - GOV.UK
+continue: Parhau
+saveChanges: Arbed newidiadau
+cancel: Canslo
+yes: Yes
+no: Na
+back: Yn ôl
+notSure: Nid wyf yn siwr
+date:
+  day: Diwrnod
+  month: Mis
+  year: Blwyddyn
+finish: Gorffen
+finishLink: https://www.gov.uk/lwfans-cyflogaeth-a-chymorth/eich-cais-esa
+timeout:
+  title: Bydd eich sesiwn yn dod i ben mewn <span class="timeout-expires">5</span> munud
+  line1: Nid ydych wedi gwneud unrhyw beth ar y gwasanaeth am dipyn o amser.
+  line2: Bydd eich sesiwn yn dod i ben mewn <span class="timeout-expires">5</span> munud os nad ydych yn gwneud dim ar y dudalen. Byddwch angen dechrau eich cais eto os bydd hyn yn digwydd.
+  minute: munud
+  minutes: munud
+  button: Ailddechrau eich cais
+cookies:
+  canWeUseCookies: Allwn ni ddefnyddio cwcis yn ein gwasanaethau?
+  useAnalytics: Fe hoffem ddefnyddio cwcis dadansoddi i gasglu gwybodaeth am sut rydych yn defnyddio ein gwasanaethau. Mae hyn yn ein helpu i’w gwella.
+  readMore: Gallwch <a href="{{url}}" class="govuk-link">ddarllen mwy am ein cwcis</a> cyn i chi benderfynu.
+  yes: Gallwch, rwyf yn OK gyda cwcis dadansoddi
+  no: Na, peidiwch â defnyddio cwcis dadansoddi
+  youAccepted: Rydych wedi derbyn cwcis dadansoddi. Gallwch <a href="{{url}}" class="govuk-link">newid eich gosodiadau cwcis</a> unrhyw bryd.
+  youRejected: Rydych wedi gwrthod cwcis dadansoddi. Gallwch <a href="{{url}}" class="govuk-link">newid eich gosodiadau cwcis</a> unrhyw bryd.
+  hide: Cuddio
+phaseBanner:
+  phase: beta
+  text: Mae hwn yn wasanaeth newydd – bydd eich <a href="/feedback" class="govuk-link" target="_blank">adborth (agor mewn tab newydd)</a> yn ein helpu i’w wella.
+footerLink:
+  help: Help
+  accessibility: Datganiad hygyrchedd
+  cookies: Cwcis
+  privacy: Preifatrwydd
+  privacyLink: https://www.gov.uk/government/organisations/department-for-work-pensions/about/personal-information-charter.cy

@@ -1,0 +1,61 @@
+---
+pageTitle: Manylion am gwcis ar y gwasanaeth hwn
+weNeedEssentialCookies: Rydym angen defnyddio rhywfaint o gwcis angenrheidiol i wneud y wefan ‘Gwneud cais am Lwfans Cyflogaeth a Chymorth Dull Newydd’ weithio.
+youCanChange: Gallwch <a class="govuk-link" href="${url}">newid pa gwcis rydych yn hapus i ni eu defnyddio</a>.
+ifCookiesOff: Os yw eich cwcis wedi cael eu troi i ffwrdd
+youWillSeeAnError: Fe welwch neges gwall pan geisiwch ddefnyddio’r wefan os yw’ch cwcis wedi eu analluogi
+howToTurnCookiesOn: Mae sut i droi cwcis ymlaen yn dibynnu ar y <a class="govuk-link" href="${url}">porwr rydych yn ei ddefnyddio</a> a pha mor gyfredol yw.
+findOutHowToChange: 'Darganfyddwch sut i newid eich gosodiadau ar gyfer y porwyr mwyaf poblogaidd, yn cynnwys:'
+ie: Internet Explorer
+firefox: Mozilla Firefox
+chrome: Google Chrome
+safari: <a class="govuk-link" href="${url}">Safari</a>, a ddefnyddir yn fwyaf cyffredin ar iPad, iPhone a chyfrifiaduron eraill Apple
+findOutHowToManage: Darganfyddwch <a class="govuk-link" href="${url}">sut i reoli cwcis</a> ar gyfer porwyr eraill.
+cookiesThatMeasure: Cwcis sy’n mesur defnydd o wefan
+weUseGoogleAnalytics: Rydym yn defnyddio meddalwedd Google Analytics i gasglu gwybodaeth am sut rydych yn defnyddio’r wefan. Rydym yn defnyddio’r wybodaeth yma i wella’r wefan hon.
+weDoNotAllowGoogle: Nid ydym yn caniatau i Google ddefnyddio neu’r rannu’r data am sut rydych yn defnyddio’r wefan hon.
+googleCollects: 'Mae cwcis Google analytics yn casglu a storio gwybodaeth am:'
+pageYouVisit: y dudalen rydych yn ymweld â hi - beth rydych yn clicio arno pan yn defnyddio’r wefan
+howLong: pa mor hir rydych yn ei dreulio ar bob tudalen
+howYouGotHere: sut rydych wedi cyrraedd y wefan
+googleAnalyticsCookies: Cwcis Google analytics
+performanceCookies: Cwcis sy’n helpu perfformiad
+weUseSomePerfCookies: Rydym yn defnyddio rhai cwcis i helpu i sicrhau bod y wefan hon yn gweithio’n gyson i bawb.
+perfCookieHeading: Cwcis perfformiad
+sessionCookies: Cwcis sy’n helpu i gadw eich gwybodaeth yn ddiogel
+weUseSessionCookies: Rydym yn defnyddio cwcis sesiwn i gadw’ch gwybodaeth yn ddiogel wrth i chi symud yn ôl ac ymlaen trwy’r wefan.
+automaticallyRemoved: 'Mae’r cwcis hyn yn cael eu dileu o’ch cyfrifiadur yn awtomatig pan fyddwch yn cwblhau’ch cais neu os byddwch:'
+dontDoAnything: ddim yn gwneud dim am 30 munud
+closeBrowser: cau eich porwr
+switchOffComputer: troi eich cyfrifiadur i ffwrdd
+securityCookies: Cwcis diogelwch
+cookiesMessage: Neges cwcis
+youMaySeeABanner: Efallai y byddwch yn gweld baner pan ymwelwch â’r wefan hon yn eich gwahodd i dderbyn cwcis neu adolygu’ch gosodiadau. Byddwn yn gosod cwcis fel bod eich cyfrifiadur yn gwybod eich bod wedi ei weld ac i beidio â’i ddangos eto, a hefyd i storio’ch gosodiadau.
+serviceCookies: Cwcis gwasanaeth
+table:
+  headings:
+    name: Enw
+    purpose: Diben
+    expires: Dod i ben
+  ga:
+    purpose: Yn cyfrif faint o bobl sy’n ymweld â’r wefan trwy olrhain a ydynt wedi
+      ymweld o’r blaen.
+    expires: 60 munud neu pan rydych yn cau eich porwr
+  gat:
+    purpose: Yn cyfrif faint o dudalennau sy’n cael eu gweld a pha mor aml.
+    expires: 10 munud
+  routing_stage:
+    purpose: Cwcis sy’n ein helpu i ddyrannu traffig gweinydd i wneud profiad y defnyddiwr
+      mor llyfn â phosibl.
+    expires: 30 munud
+  routing_stage_sig:
+    purpose: Cwcis sy’n ein helpu i ddyrannu traffig gweinydd i wneud profiad y defnyddiwr
+      mor llyfn â phosibl.
+    expires: 30 munud
+  session:
+    purpose: I gofio ble rydych chi yn y cais a’ch atebion blaenorol fel y gallwch
+      chi symud yn ôl ac ymlaen trwy’r wefan.
+    expires: "{{sessionMinutes}} munud neu pan rydych yn cau eich porwr"
+  consent:
+    purpose: Arbed eich gosodiadau caniatâd cwcis
+    expires: 1 blwyddyn

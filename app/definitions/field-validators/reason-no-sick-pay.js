@@ -1,17 +1,14 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
+const appLogger = logger();
+appLogger.info('No statutory sick pay reason validator');
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
-appLogger.info('No statutory sick pay reason');
-
-module.exports = {
-  statutoryPayNoReason: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('statutoryPayNoReason').validators([
+    r.required.make({
       errorMsg: 'reason-no-sick-pay:error',
     }),
   ]),
-};
+];

@@ -1,17 +1,18 @@
 /**
- * required
+ * Required.
  */
-const { encode } = require('punycode/');
+import { encode } from 'punycode';
 
 /**
  * Validates email address.
  *
  * JavaScript rewrite of validate_email_address from [notification-utils]{@link https://github.com/alphagov/notifications-utils/blob/e428bdd0ca82f7b97833e707eea95dae849713fb/notifications_utils/recipients.py}.
  *
- * @param  {string} email Email to validate
- * @return {boolean} Returns true if email passes validation
+ * @param  {string} email Email to validate.
+ * @returns {boolean} Returns true if email passes validation.
  */
-exports.validateEmail = (email) => {
+// eslint-disable-next-line import/prefer-default-export
+const validateEmail = (email) => {
   // Invalid characters: whitespace, quotes and apostrophes, semicolons and colons and GBP sign.
   // Note: Normal apostrophe eg `Firstname-o'surname@domain.com` is allowed.
   const emailRegex = /^[^\s",;:@£“”‘’]+@([^.@][^@]+)$/;
@@ -31,7 +32,6 @@ exports.validateEmail = (email) => {
   if (rootDomain.includes('..')) {
     return false;
   }
-
 
   // Internationalized domain name (idna) - Internet domain name that contains a
   // language-specific script or alphabet, such as Arabic, Chinese, Cyrillic, Devanagari, Hebrew or
@@ -60,4 +60,8 @@ exports.validateEmail = (email) => {
   }
 
   return true;
+};
+
+export default {
+  validateEmail,
 };

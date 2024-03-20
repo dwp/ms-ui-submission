@@ -4,7 +4,7 @@
  *
  * The script has the following parameters:
  * ENDPOINT - The endpoint to target the complete-form.js invocation
- * SUBMITCLAIM - Enables completing the declaration and submitting claims
+ * SUBMITCLAIM - Enables completing the declaration and submitting claims.
  */
 const util = require('util');
 const { exec } = require('child_process');
@@ -14,20 +14,19 @@ const { ENDPOINT = 'http://localhost:3000/', SUBMITCLAIM = 'false' } = process.e
 const execAsync = util.promisify(exec);
 
 /**
-  * This function invokes complete-form.js with the passed arguments.
-  * A quick and dirty way of testing various journeys.
-  *
-  * @async
-  * @param {string[]} argumentList - An array of string arguments for complete-form.js
-  * @param {string} endpoint - The endpoint to call
-  * @param {('true'|'false')} submitClaim - Pass either 'true' or 'false' as a string
-  * to enable complete the declaration and submit claim.
-  * @return {undefined}
-  *
-  * @example
-  *
-  *     callCompleteForm(['all=true','coronavirus=true'],'http://localhost:3000/', 'true')
-  */
+ * This function invokes complete-form.js with the passed arguments.
+ * A quick and dirty way of testing various journeys.
+ *
+ * @async
+ * @param {string[]} argumentList - An array of string arguments for complete-form.js.
+ * @param {string} endpoint - The endpoint to call.
+ * @param {('true'|'false')} submitClaim - Pass either 'true' or 'false' as a string
+ * to enable complete the declaration and submit claim.
+ * @returns {undefined}
+ * @example
+ *
+ *     callCompleteForm(['all=true','coronavirus=true'],'http://localhost:3000/', 'true')
+ */
 async function callCompleteForm(argumentList, endpoint, submitClaim) {
   const argument = argumentList.join(' ');
   const output = await execAsync(`ENDPOINT=${endpoint} npm run fill submitClaim=${submitClaim} ${argument}`);

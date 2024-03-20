@@ -1,0 +1,11 @@
+---
+pageTitle: Has your doctor, consultant or specialist nurse completed an SR1 or DS1500
+  form?
+ds1500Report:
+  label: Has your doctor, consultant or specialist nurse completed an SR1 or DS1500 form?
+yes: Yes
+no: No
+hint: An SR1 or DS1500 is a form that gives the Department for Work and Pensions evidence about your illness.
+dontKnow: I'm not sure
+errors:
+    required: Select yes if your doctor or specialist nurse has completed an SR1 or DS1500 form

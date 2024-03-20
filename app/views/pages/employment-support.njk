@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('employment-support:pageTitle', employerName) }}
+    {{ t('employment-support:pageTitle', { employerName : employerName }) }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,7 +12,7 @@
         name: 'support',
         fieldset: {
             legend: {
-                text: t('employment-support:support.label', employerName),
+                text: t('employment-support:support.label', { employerName : employerName }),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
@@ -26,21 +26,21 @@
                     text: t('employment-support:support.yes'),
                     value: 'yes',
                     attributes: {
-                        'data-question': t('employment-support:support.label', employerName),
+                        'data-question': t('employment-support:support.label', { employerName : employerName }),
                         'data-answer': t('employment-support:support.yes')
                     }
                 }, {
                     text: t('employment-support:support.no'),
                     value: 'no',
                     attributes: {
-                        'data-question': t('employment-support:support.label', employerName),
+                        'data-question': t('employment-support:support.label', { employerName : employerName }),
                         'data-answer': t('employment-support:support.no')
                     }
                 }, {
                     text: t('employment-support:support.notSure'),
                     value: 'notSure',
                     attributes: {
-                        'data-question': t('employment-support:support.label', employerName),
+                        'data-question': t('employment-support:support.label', { employerName : employerName }),
                         'data-answer': t('employment-support:support.notSure')
                     }
                 }]

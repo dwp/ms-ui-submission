@@ -1,4 +1,4 @@
-{% from "components/button/macro.njk" import govukButton %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 <div id="timeout" class="timeout-closed">
     <div id="timeout-bg" tabindex="-1"></div>
@@ -23,4 +23,4 @@
     <div id="timeout-value" hidden data-timeout="{{ timeout.sessionExpiry }}"></div>
 </div>
 
-<script src="{{ casa.mountUrl }}govuk/esa/js/timeout.min.js?{{ timeout.packageVersion }}"></script>
+<script src="{{ casa.mountUrl }}casa/assets/js/timeout.js?{{ timeout.packageVersion }}"></script>

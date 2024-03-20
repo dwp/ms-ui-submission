@@ -1,11 +1,11 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "components/button/macro.njk"           import govukButton with context %}
-{% from "components/error-summary/macro.njk"    import govukErrorSummary with context %}
-{% from "components/input/macro.njk"            import govukInput with context %}
-{% from "components/radios/macro.njk"           import govukRadios with context %}
-{% from "components/character-count/macro.njk"  import govukCharacterCount %}
-{% from "components/inset-text/macro.njk"       import govukInsetText with context %}
+{% from "govuk/components/button/macro.njk"           import govukButton with context %}
+{% from "govuk/components/error-summary/macro.njk"    import govukErrorSummary with context %}
+{% from "govuk/components/input/macro.njk"            import govukInput with context %}
+{% from "govuk/components/radios/macro.njk"           import govukRadios with context %}
+{% from "govuk/components/character-count/macro.njk"  import govukCharacterCount %}
+{% from "govuk/components/inset-text/macro.njk"       import govukInsetText with context %}
 
 {% block casaPageTitle %}
     {{ t('feedback:pageTitle') }}

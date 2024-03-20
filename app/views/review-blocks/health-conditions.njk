@@ -15,7 +15,7 @@
                         attributes: { 'id': 'conditions-'+loop.index0 },
                         href: 'check-your-answers?edit&page=conditions&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond', condition.conditionName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond', { conditionName : condition.conditionName })
                     }]
                 }
             }]
@@ -31,13 +31,13 @@
                         attributes: { 'id': 'conditions-'+loop.index0 },
                         href: 'check-your-answers?remove&page=condition&index='+loop.index0,
                         text: t('check-your-answers:remove'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond', condition.conditionName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond', { conditionName : condition.conditionName })
                     },
                     {
                         attributes: { 'id': 'conditions-'+loop.index0 },
                         href: 'check-your-answers?edit&page=conditions&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond', condition.conditionName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextCond', { conditionName : condition.conditionName })
                     }]
                 }
             }]

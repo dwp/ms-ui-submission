@@ -1,10 +1,9 @@
-const chai = require('chai');
-const rewire = require('rewire');
-const sinon = require('sinon');
+import sinon from 'sinon';
+import { assert, expect } from 'chai';
+import employmentDataUtils from '../../../../src/lib/data-utils/employmentDataUtils.js';
+import {JourneyContext} from "@dwp/govuk-casa";
 
-const { assert, expect } = chai;
-
-const employmentDataUtils = rewire('../../../../app/lib/data-utils/employmentDataUtils.js');
+let sandbox;
 
 describe('employmentDataUtils.getEmploymentFromJourneyData', () => {
   it('should build a valid employment object', () => {
@@ -69,14 +68,36 @@ describe('employmentDataUtils.getEmploymentFromJourneyData', () => {
 });
 
 describe('employmentDataUtils.populateEmploymentJourneyData', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should build a valid employment object', () => {
+      const req = {
+          casa: {
+              journeyContext: {
+                  setDataForPage: (p, d) => {
+                      req.casa.journeyContext.data[p] = d;
+                  },
+                  data: {
+                    employed : { other: 'yes', employed : 'yes' }
+                  },
+              },
+          },
+          session: {
+              save: () => {},
+          },
+      };
     const jd = {
       data: {},
       setDataForPage: (p, d) => {
         jd.data[p] = d;
       },
     };
-    employmentDataUtils.populateEmploymentJourneyData(jd, {
+    employmentDataUtils.populateEmploymentJourneyData(req, jd, {
       jobTitle: 'test',
       employerName: 'test',
       employerTel: 'test',
@@ -97,6 +118,7 @@ describe('employmentDataUtils.populateEmploymentJourneyData', () => {
     });
     expect(jd.data).to.eql({
       employed: {
+        employed: 'yes',
         other: 'yes',
         screen: 'employed-other',
       },
@@ -138,29 +160,41 @@ describe('employmentDataUtils.populateEmploymentJourneyData', () => {
 });
 
 describe('employmentDataUtils.clearEmploymentJourneyData', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should remove employment journey data', () => {
     const req = {
-      journeyData: {
-        setDataForPage: (p, d) => {
-          req.journeyData.data[p] = d;
-        },
-        data: {
-          employed: {},
-          'employment-details': {},
-          'employment-off-sick': {},
-          'employment-last-work': {},
-          'employment-status': {},
-          'employment-hours': {},
-          'employment-pay-frequency-samehours': {},
-          'employment-support': {},
-          'employment-expenses': {},
-          'employment-expenses-details': {},
-          'employment-pay-frequency-other': {},
+      session: {
+          save: () => {},
+      },
+      casa: {
+        journeyContext: {
+          setDataForPage: (p, d) => {
+            req.casa.journeyContext.data[p] = undefined;
+          },
+          data: {
+            employed: {},
+            'employment-details': {},
+            'employment-off-sick': {},
+            'employment-last-work': {},
+            'employment-status': {},
+            'employment-hours': {},
+            'employment-pay-frequency-samehours': {},
+            'employment-support': {},
+            'employment-expenses': {},
+            'employment-expenses-details': {},
+            'employment-pay-frequency-other': {},
+          },
         },
       },
     };
     employmentDataUtils.clearEmploymentJourneyData(req);
-    expect(req.journeyData.data).to.eql({
+    expect(req.casa.journeyContext.data).to.eql({
       employed: undefined,
       'employment-details': undefined,
       'employment-off-sick': undefined,
@@ -178,79 +212,108 @@ describe('employmentDataUtils.clearEmploymentJourneyData', () => {
 });
 
 describe('employmentDataUtils.updateSpecificEmployment', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should update a specific instance of paid work to the employment Gather and call relevant functions', () => {
     const req = {
-      journeyData: {
-        getData: sinon.stub(),
-        setDataForPage: sinon.stub(),
+      casa: {
+        journeyContext: {
+          data: {
+            'employment-status': {
+              workTypes: 'employed',
+            },
+            'employment-details': {
+              jobTitle: 'new',
+              employerAddress: {},
+            },
+          },
+        },
       },
       session: {
-        editIndex: 0,
-        employmentGather: [],
+        save: () => {},
+        editIndex: '0',
+        employmentGather: [{
+          jobTitle: 'old',
+        }],
       },
     };
-    const getEmploymentFromJourneyData = sinon.stub().returns('data');
-    /* eslint-disable-next-line no-underscore-dangle */
-    employmentDataUtils.__set__('getEmploymentFromJourneyData', getEmploymentFromJourneyData);
-    const clearEmploymentJourneyData = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    employmentDataUtils.__set__('clearEmploymentJourneyData', clearEmploymentJourneyData);
-    employmentDataUtils.updateSpecificEmployment(req);
-    assert(getEmploymentFromJourneyData.calledOnce);
-    assert(clearEmploymentJourneyData.calledOnce);
-    assert(req.journeyData.setDataForPage.calledOnce);
-    assert(req.journeyData.getData.calledOnce);
-    expect(req.session.employmentGather[0]).to.equal('data');
+    employmentDataUtils.updateSpecificEmployment(req.casa.journeyContext.data, req);
+    expect(req.session.employmentGather[0].selfEmployed).to.equal(false);
+    expect(req.session.employmentGather[0].jobTitle).to.equal('new');
   });
 });
 
 describe('employmentDataUtils.addEmploymentToGather', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   it('should add an instance of paid work to the employment Gather and call relevant functions', () => {
     const req = {
-      journeyData: {
-        getData: sinon.stub(),
+      casa: {
+        journeyContext: {
+          setDataForPage: (p, d) => {
+            req.casa.journeyContext.data[p] = undefined;
+          },
+          data: {
+            'employment-status': {
+              workTypes: 'employed',
+            },
+            'employment-details': {
+              jobTitle: 'new',
+              employerAddress: {},
+            },
+          },
+        },
       },
       session: {
+        save: () => {},
         employmentGather: [],
       },
     };
-    const getEmploymentFromJourneyData = sinon.stub().returns('data');
-    /* eslint-disable-next-line no-underscore-dangle */
-    employmentDataUtils.__set__('getEmploymentFromJourneyData', getEmploymentFromJourneyData);
-    const clearEmploymentJourneyData = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    employmentDataUtils.__set__('clearEmploymentJourneyData', clearEmploymentJourneyData);
-    employmentDataUtils.addEmploymentToGather(req);
-    assert(getEmploymentFromJourneyData.calledOnce);
-    assert(clearEmploymentJourneyData.calledOnce);
-    assert(req.journeyData.getData.calledOnce);
-    expect(req.session.employmentGather[0]).to.equal('data');
+    employmentDataUtils.addEmploymentToGather(req.casa.journeyContext.data, req);
+    expect(req.session.employmentGather[0].selfEmployed).to.equal(false);
+    expect(req.session.employmentGather[0].jobTitle).to.equal('new');
   });
 });
 
 describe('employmentDataUtils.getEmployerName', () => {
   it('should return Employer name from employed page when status is not self-employed', () => {
-    const journeyDataValues = {
-      'employment-details': { employerName: 'Employer' },
-      'self-employment-details': { employerName: 'Self Employer' },
-      'employment-status': { workTypes: ['employed'] },
-    };
     const req = {
-      journeyData: {
-        getDataForPage: (page) => journeyDataValues[page],
+      casa: {
+        journeyContext: {
+          data: {
+            data: {
+              'employment-details': { employerName: 'Employer' },
+              'self-employment-details': { employerName: 'Self Employer' },
+              'employment-status': { workTypes: ['employed'] },
+            },
+          },
+        },
       },
     };
     assert.equal(employmentDataUtils.getEmployerName(req), 'Employer');
   });
   it('should return Self Employer name from self-employed page when status is self-employed', () => {
-    const journeyDataValues = {
-      'employment-details': { employerName: 'Employer' },
-      'self-employment-details': { employerName: 'Self Employer' },
-      'employment-status': { workTypes: ['selfEmployed'] },
-    };
     const req = {
-      journeyData: {
-        getDataForPage: (page) => journeyDataValues[page],
+      casa: {
+        journeyContext: {
+          data: {
+            data: {
+              'employment-details': { employerName: 'Employer' },
+              'self-employment-details': { employerName: 'Self Employer' },
+              'employment-status': { workTypes: ['selfEmployed'] },
+            },
+          },
+        },
       },
     };
     assert.equal(employmentDataUtils.getEmployerName(req), 'Self Employer');

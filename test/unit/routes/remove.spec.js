@@ -1,11 +1,23 @@
-const { assert, expect } = require('chai');
-const remove = require('../../../app/routes/remove.js');
+import { assert, expect } from 'chai';
+import remove from '../../../src/routes/remove.js';
+import sinon from 'sinon';
+import {JourneyContext} from "@dwp/govuk-casa";
+
+let sandbox;
+
 
 describe('Remove routes', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   const res = {
-    status: () => ({
-      redirect: () => {},
-    }),
+    status: sinon.stub(),
+    redirect: sinon.stub(),
+    locals: {},
   };
   const router = {};
 
@@ -19,7 +31,7 @@ describe('Remove routes', () => {
         save: () => {},
       },
       journeyData: {
-        getDataForPage: () => {},
+        getData: () => {},
       },
     };
     res.render = (template, viewOptions) => {
@@ -68,11 +80,11 @@ describe('Remove routes', () => {
         journeyData: {},
         save: () => {},
       },
-      journeyData: {
-        getDataForPage: () => ({
-          ssp: 'yes',
-        }),
-        setDataForPage: () => {},
+      casa: {
+        journeyContext: {
+          setDataForPage: () => {},
+          data: () => {},
+        },
       },
     };
     res.status = (statusCode) => ({

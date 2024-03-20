@@ -1,9 +1,9 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "components/character-count/macro.njk" import govukCharacterCount %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% block casaPageTitle %}
-    {{ t('voluntary-work-role:pageTitle', organisationName) }}
+    {{ t('voluntary-work-role:pageTitle', { organisationName : organisationName }) }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,7 +12,7 @@
         id: 'f-role',
         maxlength: 500,
         label: {
-            text: t('voluntary-work-role:role.label', organisationName),
+            text: t('voluntary-work-role:role.label', { organisationName : organisationName }),
             isPageHeading: true,
             classes: 'govuk-label--l'
         },

@@ -1,6 +1,6 @@
-const assert = require('assert');
-const { expect } = require('chai');
-const validator = require('../../../app/lib/EnvValidator');
+import assert from 'assert';
+import { expect } from 'chai';
+import validator from '../../../src/lib/EnvValidator.js';
 
 let testEnv;
 

@@ -1,5 +1,5 @@
-const { expect } = require('chai');
-const edit = require('../../../app/middleware/edit.js');
+import { expect } from 'chai';
+import edit from '../../../src/middleware/edit.js';
 
 describe('edit middleware', () => {
   it('should exist', () => expect(edit).to.not.be.undefined);

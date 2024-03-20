@@ -1,59 +1,97 @@
-const { rules, SimpleField } = require('@dwp/govuk-casa/lib/Validation');
-const dateExists = require('../../lib/validation-rules/date-exists.js');
-const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
-const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
-const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
-const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
-const validateSpecialChar = require('../../lib/validation-rules/special-char-validator.js');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import dateComponentsExist from '../../../src/lib/validators/date-components-exist.js';
+import dateYearLengthIsValid from '../../../src/lib/validators/date-year-length-isValid.js';
+import dateIsReal from '../../../src/lib/validators/date-is-real.js';
+import dateNotAfter from '../../../src/lib/validators/date-not-after.js';
+import validateSpecialChar from '../../../src/lib/validators/special-char-validator.js';
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Hospital details validator');
 
-module.exports = {
-  hospitalName: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('hospitalName').validators([
+    r.required.make({
       errorMsg: 'hospital-details:hospitalName.errors.required',
     }),
-    validateSpecialChar.bind({
-      errorMsg: 'hospital-details:hospitalName.errors.badFormat',
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'hospital-details:hospitalName.errors.badFormat',
+      },
     }),
   ]),
-
-  hospitalWard: SimpleField([
-    rules.required.bind({
+  field('hospitalWard').validators([
+    r.required.make({
       errorMsg: 'hospital-details:hospitalWard.errors.required',
     }),
-    validateSpecialChar.bind({
-      errorMsg: 'hospital-details:hospitalWard.errors.badFormat',
-      specialChars: ['<', '>'],
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'hospital-details:hospitalWard.errors.badFormat',
+      },
     }),
   ]),
-
-  admissionDate: SimpleField([
-    dateExists.bind({
+  field('admissionDate').validators([
+    r.required.make({
       errorMsg: 'hospital-details:admissionDate.errors.required',
+      focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
     }),
-    dateComponentsExist.bind({
-      errorMsgDayMissing: 'hospital-details:admissionDate.errors.missingDay',
-      errorMsgMonthMissing: 'hospital-details:admissionDate.errors.missingMonth',
-      errorMsgYearMissing: 'hospital-details:admissionDate.errors.missingYear',
-      errorMsgDayAndMonthMissing: 'hospital-details:admissionDate.errors.missingDayAndMonth',
-      errorMsgDayAndYearMissing: 'hospital-details:admissionDate.errors.missingDayAndYear',
-      errorMsgMonthAndYearMissing: 'hospital-details:admissionDate.errors.missingMonthAndYear',
+    dateComponentsExist.make({
+      errorMsgDayMissing: {
+        summary: 'hospital-details:admissionDate.errors.missingDay',
+        focusSuffix: ['[dd]'],
+      },
+      errorMsgMonthMissing: {
+        summary: 'hospital-details:admissionDate.errors.missingMonth',
+        focusSuffix: ['[mm]'],
+      },
+      errorMsgYearMissing: {
+        summary: 'hospital-details:admissionDate.errors.missingYear',
+        focusSuffix: ['[yyyy]'],
+      },
+      errorMsgDayAndMonthMissing: {
+        summary: 'hospital-details:admissionDate.errors.missingDayAndMonth',
+        focusSuffix: ['[dd]', '[mm]'],
+      },
+      errorMsgDayAndYearMissing: {
+        summary: 'hospital-details:admissionDate.errors.missingDayAndYear',
+        focusSuffix: ['[dd]', '[yyyy]'],
+      },
+      errorMsgMonthAndYearMissing: {
+        summary: 'hospital-details:admissionDate.errors.missingMonthAndYear',
+        focusSuffix: ['[mm]', '[yyyy]'],
+      },
     }),
-    dateYearLengthIsValid.bind({
-      errorMsg: 'hospital-details:admissionDate.errors.badFormatYear',
+    dateYearLengthIsValid.make({
+      errorMsg: {
+        summary: 'hospital-details:admissionDate.errors.badFormatYear',
+        focusSuffix: ['[yyyy]'],
+      },
     }),
-    dateIsReal.bind({
-      errorMsg: 'hospital-details:admissionDate.errors.notReal',
-      errorMsgDigits: 'hospital-details:admissionDate.errors.notRealDigits',
+    dateIsReal.make({
+      errorMsg: {
+        summary: 'hospital-details:admissionDate.errors.notReal',
+      },
+      errorMsgDigits: {
+        summary: 'hospital-details:admissionDate.errors.notRealDigits',
+      },
     }),
-    dateNotAfter.bind({
-      errorMsg: 'hospital-details:admissionDate.errors.inFuture',
+    dateNotAfter.make({
+      allowSingleDigitDay: true,
+      allowSingleDigitMonth: true,
+      errorMsg: {
+        summary: 'hospital-details:admissionDate.errors.inFuture',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-
+  ]).processors([
+    // Trim spaces from each attribute
+    (value) => ({
+      dd: value.dd.replace(/\s+/g, ''),
+      mm: value.mm.replace(/\s+/g, ''),
+      yyyy: value.yyyy.replace(/\s+/g, ''),
+    }),
   ]),
-};
+];
+
+// Code commented out if causing the app not to load

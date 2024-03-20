@@ -1,13 +1,25 @@
-const { assert, expect } = require('chai');
-const cyaRoute = require('../../../app/routes/check-your-answers.js');
+import { assert, expect } from 'chai';
+import cyaRoute from '../../../src/routes/check-your-answers.js';
+import { JourneyContext } from '@dwp/govuk-casa';
+import sinon from "sinon";
+
+let sandbox;
 
 describe('Check your answer routes', () => {
+  beforeEach(() => {
+    sandbox = sinon.createSandbox();
+    sandbox.stub(JourneyContext, 'putContext');
+  });
+  afterEach(() => {
+    sandbox.restore();
+  });
   const res = {
     status: () => ({
       render: () => {},
     }),
   };
   const router = {};
+  const next = () => {};
 
   it('should set up a GET route, and render the check-your-answers page when called', () => {
     res.render = (template, viewOptions) => {
@@ -18,9 +30,17 @@ describe('Check your answer routes', () => {
       assert.equal(path, '/check-your-answers');
       callback({
         csrfToken: () => {},
-        session: {},
-        journeyData: {
-          getData: () => {},
+        session: {
+          save: () => {},
+        },
+        casa: {
+          journeyContext: {
+            setDataForPage: () => {},
+            getData: () => {},
+            data: {
+              'statutory-sick-pay-end': '10/10/2001',
+            },
+          },
         },
         query: {},
       }, res);
@@ -43,10 +63,15 @@ describe('Check your answer routes', () => {
         body: {
           reviewed: 'true',
         },
+        casa: {
+          journeyContext: {
+            data: () => {},
+          },
+        },
         session: {
           save: () => {},
         },
-      }, res);
+      }, res, next);
     };
     cyaRoute(router, {}, '/', null);
   });
@@ -61,8 +86,11 @@ describe('Check your answer routes', () => {
         voluntaryGather: [{}],
         save: () => {},
       },
-      journeyData: {
-        setDataForPage: () => {},
+      casa: {
+        journeyContext: {
+          data: () => {},
+          setDataForPage: () => {},
+        },
       },
     };
     res.status = (statusCode) => ({
@@ -92,8 +120,11 @@ describe('Check your answer routes', () => {
         insuranceGather: [{}],
         save: () => {},
       },
-      journeyData: {
-        setDataForPage: () => {},
+      casa: {
+        journeyContext: {
+          data: () => {},
+          setDataForPage: () => {},
+        },
       },
     };
     res.status = (statusCode) => ({
@@ -123,8 +154,11 @@ describe('Check your answer routes', () => {
         pensionGather: [{}],
         save: () => {},
       },
-      journeyData: {
-        setDataForPage: () => {},
+      casa: {
+        journeyContext: {
+          data: () => {},
+          setDataForPage: () => {},
+        },
       },
     };
     res.status = (statusCode) => ({
@@ -152,12 +186,15 @@ describe('Check your answer routes', () => {
       },
       session: {
         employmentGather: [{ workTypes: ['employed'] }],
-        save: (cb) => {
-          cb();
-        },
+        save: () => {},
       },
-      journeyData: {
-        setDataForPage: () => {},
+      casa: {
+        journeyContext: {
+          data: {
+            employed : { other: 'yes', employed : 'yes' } 
+          },
+          setDataForPage: () => {},
+        },
       },
     };
     res.status = (statusCode) => ({
@@ -189,8 +226,11 @@ describe('Check your answer routes', () => {
           cb();
         },
       },
-      journeyData: {
-        setDataForPage: () => {},
+      casa: {
+        journeyContext: {
+          data: () => {},
+          setDataForPage: () => {},
+        },
       },
     };
     res.status = (statusCode) => ({

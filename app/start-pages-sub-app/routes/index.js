@@ -1,8 +1,8 @@
-const Logger = require('../../lib/Logger');
+import Logger from '../../../src/lib/logger.js';
 
 const appLogger = Logger();
 
-module.exports = (router) => {
+export default (router) => {
   router.get('/', (req, res) => {
     if (req.query.lang === 'cy') {
       appLogger.info(`${req.method}: /`);

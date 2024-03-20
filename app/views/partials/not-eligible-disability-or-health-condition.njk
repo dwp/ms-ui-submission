@@ -1,0 +1,13 @@
+<script nonce="{{ cspNonce }}">
+document.addEventListener('click', function (event) {
+    if (!event.target.matches('#continue-button')) return;
+
+    if (document.getElementById('f-whatDoYouWantToDo').checked) {
+        event.preventDefault();
+        window.location.href = "https://gov.uk/universal-credit/";
+    } else if (document.getElementById('f-whatDoYouWantToDo-2').checked) {
+        event.preventDefault();
+        window.location.href = "https://gov.uk/jobseekers-allowance/";
+    }
+  }, false);
+</script>

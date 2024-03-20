@@ -1,7 +1,7 @@
 /**
- * Format single digit days or months to have a leading zero
+ * Format single digit days or months to have a leading zero.
  *
- * @param {mixed} digit number to check
- * @return {string} the formatted digit
+ * @param {mixed} digit Number to check.
+ * @returns {string} The formatted digit.
  */
-module.exports = (digit) => (String(digit).length > 1 ? String(digit) : `0${digit}`);
+export default (digit) => (String(digit).length > 1 ? String(digit) : `0${digit}`);

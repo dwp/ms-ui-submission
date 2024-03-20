@@ -1,23 +1,11 @@
 {% extends "casa/layouts/journey.njk" %}
 
-{% from "components/error-summary/macro.njk" import govukErrorSummary with context %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary with context %}
 {% from "casa/components/journey-form/macro.njk" import casaJourneyForm with context %}
-{% from "components/footer/macro.njk" import govukFooter with context %}
+{% from "govuk/components/footer/macro.njk" import govukFooter with context %}
 
 {% block head %}
-  {%- if cookieMessage === "accept" -%}
-    {% include "partials/gtm-script.njk" %}
-  {%- endif %}
 {%  include "includes/application-styles.njk" %}
-{% endblock %}
-
-{% block bodyStart %}
-  {%- if cookieMessage === "accept" -%}
-    {% include "partials/gtm-noscript.njk" %}
-  {%- endif %}
-  {% if cookieMessage === "unset" or cookieChoiceMade %}
-    {% include "partials/cookie-message.njk" %}
-  {% endif %}
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,7 +16,7 @@
             href: '/before-you-start'
         }) }}
     {% elif page_path == '/check-your-answers' or page_path == '/complete' %}
-    {% else %}
+    {% elif casa.journeyPreviousUrl or page_path == '/remove' %}
         {{ govukBackLink({
             text: t('app:back'),
             href: '/back'
@@ -50,24 +38,19 @@
                 errorList: formErrorsGovukArray
             }) }}
         {% endif %}
-
         {% call casaJourneyForm({
             csrfToken: casa.csrfToken,
             inEditMode: inEditMode,
             casaMountUrl: casa.mountUrl,
             page_path: page_path,
             cancelForm: cancelForm,
-            errorsFlag: errorsFlag
+            errorsFlag: errorsFlag,
+            buttonBarHidden: buttonBarHidden,
+            editOriginUrl: editOriginUrl,
+            activeContextId: activeContextId
         }) %}
         {% block journey_form %}{% endblock %}
         {% endcall %}
-
-        {% if inEditMode and cancelForm and not errorsFlag %}
-        <form class="govuk-body cancel-form" action="/cancel" method="post" autocomplete="off" novalidate>
-            <input type="hidden" name="_csrf" value="{{ casa.csrfToken }}" />
-            <button class="button-link">{{ t('app:cancel') }}</button>
-        </form>
-        {% endif %}
     </div>
 
     <div class="govuk-grid-column-one-third">

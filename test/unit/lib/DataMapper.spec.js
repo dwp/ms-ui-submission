@@ -1,5 +1,5 @@
-const { expect } = require('chai');
-const dataMapper = require('../../../app/lib/DataMapper');
+import { expect } from 'chai';
+import dataMapper from '../../../src/lib/DataMapper.js';
 
 describe('DataMapper', () => {
   let i18nTranslator = {
@@ -269,17 +269,15 @@ describe('DataMapper', () => {
     },
   };
 
-  const journeyData = {
-    getDataForPage: (page) => journeyDataValues[page],
-  };
+  const journeyData = journeyDataValues;
 
   it('should exist', () => {
-    const dm = dataMapper(i18nTranslator, journeyData, session, applicationRef);
+    const dm = dataMapper(i18nTranslator.t, journeyData, session, applicationRef);
     return expect(dm).to.not.be.undefined;
   });
 
   it('should build a data object', () => {
-    const dm = dataMapper(i18nTranslator, journeyData, session, applicationRef);
+    const dm = dataMapper(i18nTranslator.t, journeyData, session, applicationRef);
     return expect(dm).to.have.property('ref', 'ref');
   });
   it('should build a data object with alternate options', () => {
@@ -288,11 +286,11 @@ describe('DataMapper', () => {
       getLanguage: () => 'cy',
     };
     const jd = { ...journeyData };
-    jd.getDataForPage('statutory-sick-pay').ssp = 'no';
-    jd.getDataForPage('reason-no-sick-pay').statutoryPayNoReason = 'esa12';
-    jd.getDataForPage('mobile').mobile = 'no';
-    jd.getDataForPage('email').emailProvided = 'no';
-    jd.getDataForPage('pension').inherited = '';
+    jd['statutory-sick-pay'].ssp = 'no';
+    jd['reason-no-sick-pay'].statutoryPayNoReason = 'esa12';
+    jd.mobile.mobile = 'no';
+    jd.email.emailProvided = 'no';
+    jd.pension.inherited = '';
     const s = { ...session };
     s.voluntaryGather[0].sameHours = 'no';
     s.employmentGather[0].offSick = 'yes';
@@ -309,7 +307,7 @@ describe('DataMapper', () => {
       yyyy: '',
     };
     s.insuranceGather[0].premiums = 'yes';
-    const dm = dataMapper(i18nTranslator, jd, s, applicationRef);
+    const dm = dataMapper(i18nTranslator.t, jd, s, applicationRef);
     expect(dm).to.have.property('ref', 'ref');
     expect(dm.data_capture.pensions[0]).to.have.property('start_date', '');
     expect(dm.data_capture.pensions[0]).to.have.property('inherited', '');
@@ -317,11 +315,11 @@ describe('DataMapper', () => {
   });
   it('should build a data object with other alternate options', () => {
     const jd = { ...journeyData };
-    jd.getDataForPage('statutory-sick-pay').ssp = 'no';
-    jd.getDataForPage('reason-no-sick-pay').statutoryPayNoReason = 'esa12';
-    jd.getDataForPage('mobile').mobile = 'no';
-    jd.getDataForPage('email').emailProvided = 'no';
-    jd.getDataForPage('pension').inherited = '';
+    jd['statutory-sick-pay'].ssp = 'no';
+    jd['reason-no-sick-pay'].statutoryPayNoReason = 'esa12';
+    jd.mobile.mobile = 'no';
+    jd.email.emailProvided = 'no';
+    jd.pension.inherited = '';
     const s = { ...session };
     s.voluntaryGather[0].sameHours = 'no';
     s.employmentGather[0].offSick = 'no';
@@ -340,7 +338,7 @@ describe('DataMapper', () => {
       yyyy: '',
     };
     s.insuranceGather[0].premiums = 'yes';
-    const dm = dataMapper(i18nTranslator, jd, s, applicationRef);
+    const dm = dataMapper(i18nTranslator.t, jd, s, applicationRef);
     expect(dm).to.have.property('ref', 'ref');
     expect(dm.data_capture.pensions[0]).to.have.property('start_date', '');
     expect(dm.data_capture.pensions[0]).to.have.property('inherited', '');

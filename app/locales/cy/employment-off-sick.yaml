@@ -1,0 +1,8 @@
+---
+pageTitle: Ydych chi i ffwrdd yn sâl o'ch swydd yn {{employerName}}?
+offSick:
+  label: Ydych chi i ffwrdd yn sâl o'ch swydd yn {{employerName}}?
+  yes: Ydw
+  no: Na
+  errors:
+    required: Dewiswch ydw os ydych i ffwrdd o’ch gwaith

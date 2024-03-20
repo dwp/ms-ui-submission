@@ -1,0 +1,28 @@
+---
+pageTitle: What is your address?
+address:
+  label: What is your address?
+yes: Yes
+no: 'No'
+correspondence:
+  label: Can we send letters about your claim to this address?
+  errors:
+    required: Select yes if you want letters sending to this address
+errors:
+  address:
+    required: Enter an address
+  address1:
+    required: 'Enter a building or street '
+    badFormat: The building or street must contain only letters, numbers, commas or full stops
+  address2:
+    required: Enter a building or street
+    badFormat: The building or street must contain only letters, numbers, commas or full stops
+  address3:
+    required: Enter a town or city
+    badFormat: Town or city must contain only letters, commas or full stops
+  address4:
+    required: Enter a county
+    badFormat: Enter a valid county
+  postcode:
+    required: Enter a postcode
+    badFormat: Enter a real postcode

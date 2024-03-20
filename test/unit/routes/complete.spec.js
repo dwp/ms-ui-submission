@@ -1,5 +1,5 @@
-const { assert } = require('chai');
-const completeRoute = require('../../../app/routes/complete.js');
+import { assert } from 'chai';
+import completeRoute from '../../../src/routes/complete.js';
 
 describe('Complete route', () => {
   const casaApp = {};
@@ -11,10 +11,16 @@ describe('Complete route', () => {
       t: () => this,
       getLanguage: () => 'en',
     }),
+    casa: {
+      journeyContext: {},
+    },
     session: {
       cyaVisited: true,
       save: (cb) => {
         cb(new Error('save error'));
+      },
+      destroy: (cb) => {
+        cb();
       },
       employmentGather: [
         {
@@ -30,49 +36,21 @@ describe('Complete route', () => {
       ],
       pensionGather: {},
       insuranceGather: {},
-      journeyData: {
-        getDataForPage: () => ({
-          conditions: [],
-          nino: 'test',
-          sortCode: {
-            sortCode: '010101',
-          },
-          claimStartDate: {
-            dd: '1',
-            mm: '1',
-            yyyy: '1111',
-          },
-          dateOfBirth: {
-            dd: '1',
-            mm: '1',
-            yyyy: '1111',
-          },
-          address: {
-            address1: 'test',
-            address2: 'test',
-            address3: 'test',
-            postcode: 'test',
-          },
-          employed: {
-            employed: 'yes',
-          },
-          'statutory-sick-pay': {
-            ssp: 'yes',
-          },
-          'statutory-sick-pay-recent': {
-            sspRecent: 'yes',
-          },
-        }),
-      },
-    },
-    journeyData: {
-      getDataForPage: () => ({
+      journeyContext: {
         conditions: [],
         nino: 'test',
+        pension: {},
+        'universal-credit': {},
+        'live-less-than-12-months': {},
         sortCode: {
           sortCode: '010101',
         },
         claimStartDate: {
+          dd: '1',
+          mm: '1',
+          yyyy: '1111',
+        },
+        dateOfBirth: {
           dd: '1',
           mm: '1',
           yyyy: '1111',
@@ -92,7 +70,7 @@ describe('Complete route', () => {
         'statutory-sick-pay-recent': {
           sspRecent: 'yes',
         },
-      }),
+      },
     },
   };
 
@@ -104,7 +82,6 @@ describe('Complete route', () => {
   };
   const router = {};
   it('should set up a GET route, and render the complete page', (done) => {
-    casaApp.endSession = () => Promise.resolve();
     res.redirect = () => done();
     res.render = (template) => {
       try {
@@ -122,10 +99,13 @@ describe('Complete route', () => {
   });
 
   it('should render the complete page if the session does not end successfully', (done) => {
-    casaApp.endSession = () => Promise.reject(new Error({
-      message: 'oh no!',
-      stack: {},
-    }));
+
+    req.session.destroy = (cb) => {
+      cb(new Error({
+        message: 'oh no!',
+        stack: {},
+      }));
+    };
     res.render = (template) => {
       try {
         assert.equal(template, 'pages/complete.njk');
@@ -146,15 +126,17 @@ describe('Complete route', () => {
       const testReq = {
         ...req,
         journeyData: {
-          getDataForPage: () => (
+          getData: () => (
             {
-              ...req.journeyData.getDataForPage(),
+              ...req.casa.journeyContext.getData(),
               sspRecent: 'yes',
             }),
         },
       };
 
-      casaApp.endSession = () => Promise.resolve();
+      req.session.destroy = (cb) => {
+        cb();
+      };
       res.redirect = () => done();
       res.render = (template, { displaySSP1Content }) => {
         try {
@@ -175,15 +157,14 @@ describe('Complete route', () => {
       const testReq = {
         ...req,
         journeyData: {
-          getDataForPage: () => (
+          getData: () => (
             {
-              ...req.journeyData.getDataForPage(),
+              ...req.casa.journeyContext.getData(),
               sspRecent: 'no',
             }),
         },
       };
 
-      casaApp.endSession = () => Promise.resolve();
       res.redirect = () => done();
       res.render = (template, { displaySSP1Content }) => {
         try {
@@ -208,16 +189,15 @@ describe('Complete route', () => {
           employmentGather: undefined,
         },
         journeyData: {
-          getDataForPage: () => (
+          getData: () => (
             {
-              ...req.journeyData.getDataForPage(),
+              ...req.casa.journeyContext.getData(),
               employed: 'no',
               sspRecent: 'yes',
             }),
         },
       };
 
-      casaApp.endSession = () => Promise.resolve();
       res.redirect = () => done();
       res.render = (template, { displaySSP1Content }) => {
         try {
@@ -241,17 +221,10 @@ describe('Complete route', () => {
           ...req.session,
           employmentGather: undefined,
         },
-        journeyData: {
-          getDataForPage: () => (
-            {
-              ...req.journeyData.getDataForPage(),
-              employed: 'no',
-              sspRecent: 'no',
-            }),
-        },
       };
+      testReq.session.journeyContext.employed.employed = 'no';
+      testReq.session.journeyContext['statutory-sick-pay-recent'].sspRecent = 'no';
 
-      casaApp.endSession = () => Promise.resolve();
       res.redirect = () => done();
       res.render = (template, { displaySSP1Content }) => {
         try {
@@ -283,7 +256,6 @@ describe('Complete route', () => {
         },
       };
 
-      casaApp.endSession = () => Promise.resolve();
       res.redirect = () => done();
       res.render = (template, { displaySSP1Content }) => {
         try {
@@ -303,16 +275,9 @@ describe('Complete route', () => {
     it('should set displaySSP1Content to false when \'yes\' is selected on /live-less-than-12-months page', (done) => {
       const testReq = {
         ...req,
-        journeyData: {
-          getDataForPage: () => (
-            {
-              ...req.journeyData.getDataForPage(),
-              severeCondition: 'yes',
-            }),
-        },
       };
+      testReq.session.journeyContext['live-less-than-12-months'].severeCondition = 'yes';
 
-      casaApp.endSession = () => Promise.resolve();
       res.redirect = () => done();
       res.render = (template, { displaySSP1Content }) => {
         try {

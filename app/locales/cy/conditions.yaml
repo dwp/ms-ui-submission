@@ -1,0 +1,24 @@
+---
+pageTitle: Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?
+label: Pa gyflwr iechyd, salwch, anabledd neu anaf sydd gennych?
+body1: Byddwch yn gallu dweud mwy wrthym am eich cyflwr a sut mae’n effeithio arnoch yn y cam nesaf o’r broses gwneud cais.
+hint1: Os oes gennych fwy nag un cyflwr iechyd, fe allwch ychwanegu rhai wedyn. Gallwch roi hyd at 12 cyflwr iechyd, mewn unrhyw drefn.
+name:
+  label: Enw cyflwr rhif
+  errors:
+    required: Rhowch enw cyflwr rhif
+conditionStartDate:
+  label: Pryd wnaeth o ddechrau gyntaf
+  hint: <p>Os nad ydych yn gwybod yr union ddyddiad, gallwch roi amcangyfrif.</p><p class="govuk-hint">Er enghraifft, 30 3 1997</p>
+  errors:
+    required: Rhowch y dyddiad y dechreuodd eich cyflwr
+    missingDay: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod
+    missingMonth: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys mis
+    missingYear: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys blwyddyn
+    missingDayAndMonth: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod a mis
+    missingDayAndYear: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys diwrnod a blwyddyn
+    missingMonthAndYear: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr gynnwys mis a blwyddyn
+    badFormatYear: Rhowch y dyddiad y dechreuodd eich cyflwr gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01
+    notReal: Rhowch ddyddiad gwirioneddol ar gyfer pryd y dechreuodd eich cyflwr
+    notRealDigits: Rhowch ddyddiad gwirioneddol ar gyfer pryd y dechreuodd eich cyflwr, drwy ddefnyddio rhifau yn unig
+    inFuture: Mae’n rhaid i’r dyddiad y dechreuodd eich cyflwr fod yn y gorffennol

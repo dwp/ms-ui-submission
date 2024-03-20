@@ -1,6 +1,6 @@
-{% from "components/button/macro.njk" import govukButton %}
-{% from "components/details/macro.njk" import govukDetails %}
-{% from "components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% extends "layouts/custom-journey.njk" %}
 
 {% block casaPageTitle %}
@@ -52,7 +52,7 @@
 
             {% if (not isRtiClaim) %}
                 <p class="govuk-body">
-                    {{ t('complete:claimantCommitment.text1', fourteenDaysLater) | safe }}
+                    {{ t('complete:claimantCommitment.text1', {fourteenDaysLater : fourteenDaysLater}) | safe }}
                 </p>
                 <p class="govuk-body">
                     {{ t('complete:claimantCommitment.text2') | safe }}
@@ -145,7 +145,7 @@
 
             {% if (isRtiClaim) %}
               <p class="govuk-body">
-                {{ t('complete:medicalEvidence.yesSRTI.text1', fourteenDaysLater) | safe  }}
+                {{ t('complete:medicalEvidence.yesSRTI.text1', { fourteenDaysLater : fourteenDaysLater }) | safe  }}
               </p>
               <h3 class="govuk-heading-m">
                 {{ t('complete:medicalEvidence.yesSRTI.heading') }}

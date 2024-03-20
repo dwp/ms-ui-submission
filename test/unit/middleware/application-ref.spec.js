@@ -1,15 +1,16 @@
-const { expect } = require('chai');
-const appRef = require('../../../app/middleware/application-ref.js');
-const journey = require('../../../app/definitions/journey');
+import { expect } from 'chai';
+import appRef from '../../../src/middleware/application-ref.js';
+import plan from "../../../app/definitions/plan.js";
 
 describe('Application ref', () => {
   it('should exist', () => expect(appRef).to.not.be.undefined);
 
   it('should set middleware on the get-universal-credit page', () => {
-    const startPage = journey.allWaypoints()[0];
+    let startPage = plan().getWaypoints()[0];
+    startPage = `/${startPage}`;
 
     const router = {
-      all: (path) => {
+      use: (path) => {
         expect(path).to.equal('/who-is-applying');
       },
     };
@@ -24,7 +25,7 @@ describe('Application ref', () => {
       },
     };
     const router = {
-      all: (path, callback) => {
+      use: (path, callback) => {
         callback(req, {}, () => {
           expect(req.session.applicationRef).to.equal('TEST1');
         });
@@ -41,7 +42,7 @@ describe('Application ref', () => {
       },
     };
     const router = {
-      all: (path, callback) => {
+      use: (path, callback) => {
         callback(req, {}, () => {
           expect(req.session.applicationRef).to.equal('2PJE5M');
         });
@@ -69,7 +70,7 @@ describe('Application ref', () => {
       }),
     };
     const router = {
-      all: (path, callback) => {
+      use: (path, callback) => {
         callback(req, res, () => {
           expect(req.session.applicationRef).to.equal('2PJE5M');
         });
@@ -90,7 +91,7 @@ describe('Application ref', () => {
       },
     };
     const router = {
-      all: (path, callback) => {
+      use: (path, callback) => {
         callback(req, {}, () => {
           expect(req.session.applicationRef).to.equal('APPLICATION-REF');
         });

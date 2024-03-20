@@ -1,7 +1,7 @@
 {% extends "layouts/custom-journey.njk" %}
 
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
-{% from "components/details/macro.njk" import govukDetails with context %}
+{% from "govuk/components/details/macro.njk" import govukDetails with context %}
 
 {% block casaPageTitle %}
     {{ t('bank-details:pageTitle') }}
@@ -75,7 +75,7 @@
         casaErrors: formErrors
     }) }}
 
-<style>
+<style nonce="{{ cspNonce }}">
     #f-sortCode label {
         position: absolute !important;
         top: -9999px !important;

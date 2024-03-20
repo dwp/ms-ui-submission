@@ -1,5 +1,5 @@
-const { expect } = require('chai');
-const pagePath = require('../../../app/middleware/page-path.js');
+import { expect } from 'chai';
+import pagePath from '../../../src/middleware/page-path.js';
 
 describe('Page path', () => {
   it('should exist', () => expect(pagePath).to.not.be.undefined);

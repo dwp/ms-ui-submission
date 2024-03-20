@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('claim-start-date-after-statutory-sick-pay:pageTitle',sspEndDate | dayAfterDate(htmlLang)) }}
+    {{ t('claim-start-date-after-statutory-sick-pay:pageTitle', { calculatedDate : sspEndDate | dayAfterDate(sspEndDate, htmlLang) }) }}
 {% endblock %}
 
 {% block journey_form %}
@@ -11,7 +11,7 @@
         name: 'claimStartDateAfterSsp',
         fieldset: {
             legend: {
-                text: t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.label', sspEndDate | dayAfterDate(htmlLang)) | safe,
+                text: t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.label', { calculatedDate : sspEndDate | dayAfterDate(sspEndDate, htmlLang) }) | safe,
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
@@ -25,14 +25,14 @@
             text: t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.yes'),
             value: 'yes',
             attributes: {
-                'data-question': t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.label', sspEndDate | dayAfterDate(htmlLang)),
+                'data-question': t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.label', { calculatedDate : sspEndDate | dayAfterDate(sspEndDate, htmlLang) }),
                 'data-answer': t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.yes')
             }
         }, {
             text: t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.no'),
             value: 'no',
             attributes: {
-                'data-question': t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.label', sspEndDate | dayAfterDate(htmlLang)),
+                'data-question': t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.label', { calculatedDate : sspEndDate | dayAfterDate(sspEndDate, htmlLang) }),
                 'data-answer': t('claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.no')
             }
         }]

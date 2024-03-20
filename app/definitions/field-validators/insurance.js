@@ -1,33 +1,38 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Insurance validator');
 
-module.exports = {
-  insurance: SimpleField([
-    rules.required.bind({
-      errorMsg: 'insurance:insurance.errors.required',
-    }),
-    rules.inArray.bind({
-      source: ['yes', 'no', 'notsure'],
-      errorMsg: 'insurance:insurance.errors.required',
-    }),
-  ], (pageData) => pageData.screen === 'insurance'),
-
-  other: SimpleField([
-    rules.required.bind({
-      errorMsg: 'insurance:other.errors.required',
-    }),
-  ], (pageData) => pageData.screen === 'insurance-other'),
-
-  screen: SimpleField([
-    rules.inArray.bind({
+export default () => [
+  field('insurance').validators(
+    [
+      r.required.make({
+        errorMsg: 'insurance:insurance.errors.required',
+      }),
+      r.inArray.make({
+        source: ['yes', 'no', 'notsure'],
+        errorMsg: 'insurance:insurance.errors.required',
+      }),
+    ],
+    (pageData) => pageData.screen === 'insurance',
+    (pageData) => console.log('pageData', pageData)
+  ),
+  field('other').validators(
+    [
+      r.required.make({
+        errorMsg: 'insurance:other.errors.required',
+      }),
+    ],
+    (pageData) => pageData.screen === 'insurance-other',
+  ).conditions([
+    // Only validate the `other` field if screen field equal to `insurance-other`
+    ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.screen === 'insurance-other',
+  ]),
+  field('screen').validators([
+    r.inArray.make({
       source: ['insurance', 'insurance-other'],
     }),
   ]),
-};
+];

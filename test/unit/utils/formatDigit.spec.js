@@ -1,7 +1,6 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const formatDigit = require('../../../app/utils/formatDigit.js');
+import { expect } from 'chai';
+import formatDigitDefault from '../../../app/utils/formatDigit.js';
+const formatDigit = formatDigitDefault;
 
 describe('format digit', () => {
   it('format date to format single digit to digit with leading zero', () => {

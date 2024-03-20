@@ -1,5 +1,5 @@
-const { assert } = require('chai');
-const thankyouRoute = require('../../../app/routes/thankyou.js');
+import { assert } from 'chai';
+import thankyouRoute from '../../../src/routes/thankyou.js';
 
 describe('Thankyou route', () => {
   it('should render the thankyou page', () => {

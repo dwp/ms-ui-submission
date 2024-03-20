@@ -1,9 +1,10 @@
-const chai = require('chai');
-const sinon = require('sinon');
+import * as chai from 'chai';
+import { assert, expect } from 'chai';
+import sinon from 'sinon';
+import sinonChai from "sinon-chai";
+chai.use(sinonChai);
 
-const { assert, expect } = chai;
-
-const backLinkRoute = require('../../../../app/middleware/navigation-override/back-link-route');
+import backLinkRoute from '../../../../src/middleware/navigation-override/back-link-route.js';
 
 describe('backLinkRoute', () => {
   let router;
@@ -21,6 +22,11 @@ describe('backLinkRoute', () => {
         historyStack: [{ path: '/last-page' }],
         nextBackLink: '/previous-page',
         save: sinon.stub().yields(),
+      },
+      casa: {
+        journeyContext: {
+          data: {}
+        },
       },
       path: '/this-page',
       get: sinon.stub().returns('http://localhost:3000/thispage'),
@@ -41,11 +47,11 @@ describe('backLinkRoute', () => {
     router.get = (path) => {
       expect(path).to.equal('/back');
     };
-    backLinkRoute(router);
+    backLinkRoute.backLinkRoute(router);
   });
   describe('if there are entries in the historyStack', () => {
     beforeEach(() => {
-      backLinkRoute(router);
+      backLinkRoute.backLinkRoute(router);
     });
     it('should pop the last entry from the history stack', () => {
       expect(req.session.historyStack.length).to.equal(0);
@@ -66,7 +72,7 @@ describe('backLinkRoute', () => {
       req.session.historyStack = [];
     });
     it('should redirect to the result of req.get(\'Referrer\') if on the same domain', () => {
-      backLinkRoute(router);
+      backLinkRoute.backLinkRoute(router);
       expect(req.session.historyStack.length).to.equal(0);
       expect(req.session.backClicked).to.equal(false);
       assert(req.session.save.notCalled);
@@ -75,7 +81,7 @@ describe('backLinkRoute', () => {
     });
     it('should redirect to the result of req.get(\'Referrer\') if not this domain', () => {
       req.headers.host = 'notlocalhost:3000';
-      backLinkRoute(router);
+      backLinkRoute.backLinkRoute(router);
       expect(req.session.backClicked).to.equal(false);
       assert(req.session.save.notCalled);
       expect(res.status().redirect).to.have.been.calledWith('/');

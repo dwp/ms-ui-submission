@@ -3,7 +3,7 @@
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 
 {% block casaPageTitle %}
-    {{ t('employment-expenses:pageTitle', employerName) }}
+    {{ t('employment-expenses:pageTitle', { employerName : employerName }) }}
 {% endblock %}
 
 {% block journey_form %}
@@ -12,7 +12,7 @@
         name: 'expenses',
         fieldset: {
             legend: {
-                text: t('employment-expenses:expenses.label', employerName),
+                text: t('employment-expenses:expenses.label', { employerName : employerName }),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
@@ -23,14 +23,14 @@
             value: 'yes',
             text: t('employment-expenses:expenses.yes'),
             attributes: {
-                'data-question': t('employment-expenses:expenses.label', employerName),
+                'data-question': t('employment-expenses:expenses.label', { employerName : employerName }),
                 'data-answer': t('employment-expenses:expenses.yes')
             }
         }, {
             value: 'no',
             text: t('employment-expenses:expenses.no'),
             attributes: {
-                'data-question': t('employment-expenses:expenses.label', employerName),
+                'data-question': t('employment-expenses:expenses.label', { employerName : employerName }),
                 'data-answer': t('employment-expenses:expenses.no')
             }
         }]

@@ -6,10 +6,10 @@ project:
   - project_id: 26977135
     component_name: ms-ui-submission
 
-    version: 4.6.0
+    version: 5.0.0
 
     last_verified:
-      date: "2023-09-25"
+      date: "2024-03-11"
       name: "@stephen.nimako"
 
     tags:

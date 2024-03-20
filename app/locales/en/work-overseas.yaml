@@ -1,0 +1,8 @@
+---
+pageTitle: Have you worked abroad in the last 5 years?
+heading: Have you worked abroad in the last 5 years?
+yes: Yes
+no: No
+hint: <p class="govuk-body">This helps us to understand any gaps in your UK National Insurance record. You might have made social security payments abroad that count towards this benefit.</p>
+errors:
+  required: Select yes if you have worked abroad in the last 5 years

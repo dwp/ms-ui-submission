@@ -1,0 +1,37 @@
+{% extends "govuk/template.njk" %}
+
+
+{% block head %}
+  {% include "casa/partials/styles.njk" %}
+{% endblock %}
+
+
+{% block skipLink %}
+  {# Hardcoding content for the skip link as t() may not be available on some error pages #}
+  {{ govukSkipLink({
+    href: '#main-content',
+    text: "Neidio i'r prif gynnwys" if locale === 'cy' else 'Skip to main content'
+  }) }}
+{% endblock %}
+
+
+{% block header %}
+  {{ govukHeader({
+    assetsPath: assetPath + "/images",
+    serviceName: t('common:serviceName') if t else '',
+    serviceUrl: casa.mountUrl,
+    homepageUrl: "https://www.gov.uk/"
+  }) }}
+{% endblock %}
+
+
+{% block bodyEnd %}
+  {% include "casa/partials/scripts.njk" %}
+{% endblock %}
+
+
+{# CASA Wrappers #}
+
+{% block pageTitle %}
+  {% block casaPageTitle %}{% endblock %}
+{% endblock %}

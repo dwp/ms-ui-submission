@@ -1,11 +1,11 @@
 <h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingPaidWork') }}</h2>
 
-{% if not journeyData['employed'].other %}
+{% if not journeyData['employed'].other or (not employmentGather or employmentGather.length === 0) %}
 
     {{ govukSummaryList({
         rows: [{
             key: { text: t('check-your-answers:currentlyEmployed') },
-            value: { text: t('app:' + journeyData['employed'].employed ) },
+            value: { text: t('app:no' ) },
             actions: {
                 items: [{
                     attributes: { 'id': 'employed'},
@@ -21,7 +21,7 @@
 
     {% for emp in employmentGather %}
 
-        {{ cyaHeader(t('check-your-answers:yourJobAt') + ' ' + emp.employerName, 'employment', loop.index0, t('check-your-answers:removeVisuallyHiddenTextPaidWork', emp.employerName)) }}
+        {{ cyaHeader(t('check-your-answers:yourJobAt') + ' ' + emp.employerName, 'employment', loop.index0, t('check-your-answers:removeVisuallyHiddenTextPaidWork', { employerName : emp.employerName })) }}
 
         {% set workTypes %}
             {% for type in emp.workTypes %}
@@ -55,9 +55,9 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'employment-status-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=employment-status&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=employment-status&index='+loop.index0,
                     text: t('check-your-answers:change'),
-                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentStatus', emp.employerName)
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentStatus', { employerName : emp.employerName })
                 }]
             }
         } %}
@@ -69,7 +69,7 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'employment-details-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=self-employment-details&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=self-employment-details&index='+loop.index0,
                         text: t('check-your-answers:change'),
                         visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSelfEmploymentDetails')
                     }]
@@ -82,9 +82,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'employment-details-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=employment-details&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=employment-details&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentDetails', emp.employerName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentDetails', { employerName : emp.employerName })
                     }]
                 }
             } %}
@@ -97,9 +97,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'off-sick-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=employment-off-sick&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=employment-off-sick&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOffSick', emp.employerName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextOffSick', { employerName : emp.employerName })
                     }]
                 }
          } %}
@@ -112,9 +112,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'last-work-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=employment-last-work&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=employment-last-work&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLastWork', emp.employerName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextLastWork', { employerName : emp.employerName })
                     }]
                 }
             } %}
@@ -135,9 +135,9 @@
                     actions: {
                         items: [{
                             attributes: { 'id': 'employment-hours-'+loop.index0 },
-                            href: 'check-your-answers?edit&page=employment-hours&index='+loop.index0,
+                            href: 'check-your-answers?edit=true&page=employment-hours&index='+loop.index0,
                             text: t('check-your-answers:change'),
-                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentHours', emp.employerName)
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentHours', { employerName : emp.employerName })
                         }]
                     }
                 } %}
@@ -150,9 +150,9 @@
                         actions: {
                             items: [{
                                 attributes: { 'id': 'employment-pay-frequency-'+loop.index0 },
-                                href: 'check-your-answers?edit&page=employment-pay-frequency-samehours&index='+loop.index0,
+                                href: 'check-your-answers?edit=true&page=employment-pay-frequency-samehours&index='+loop.index0,
                                 text: t('check-your-answers:change'),
-                                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEarnings', emp.employerName)
+                                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEarnings', { employerName : emp.employerName })
                             }]
                         }
                     } %}
@@ -163,9 +163,9 @@
                         actions: {
                             items: [{
                                 attributes: { 'id': 'employment-pay-frequency-'+loop.index0 },
-                                href: 'check-your-answers?edit&page=employment-pay-frequency-other&index='+loop.index0,
+                                href: 'check-your-answers?edit=true&page=employment-pay-frequency-other&index='+loop.index0,
                                 text: t('check-your-answers:change'),
-                                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEarnings', emp.employerName)
+                                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEarnings', { employerName : emp.employerName })
                             }]
                         }
                     } %}
@@ -178,9 +178,9 @@
                     actions: {
                         items: [{
                             attributes: { 'id': 'employment-support-'+loop.index0 },
-                            href: 'check-your-answers?edit&page=employment-support&index='+loop.index0,
+                            href: 'check-your-answers?edit=true&page=employment-support&index='+loop.index0,
                             text: t('check-your-answers:change'),
-                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSupportWorker', emp.employerName)
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextSupportWorker', { employerName : emp.employerName })
                         }]
                     }
                 }), null) }}
@@ -191,9 +191,9 @@
                     actions: {
                         items: [{
                             attributes: { 'id': 'employment-expenses-'+loop.index0 },
-                            href: 'check-your-answers?edit&page=employment-expenses&index='+loop.index0,
+                            href: 'check-your-answers?edit=true&page=employment-expenses&index='+loop.index0,
                             text: t('check-your-answers:change'),
-                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentExpenses', emp.employerName)
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentExpenses', { employerName : emp.employerName })
                         }]
                     }
                 }), null) }}
@@ -205,9 +205,9 @@
                     actions: {
                         items: [{
                             attributes: { 'id': 'employment-expenses-details-'+loop.index0 },
-                            href: 'check-your-answers?edit&page=employment-expenses-details&index='+loop.index0,
+                            href: 'check-your-answers?edit=true&page=employment-expenses-details&index='+loop.index0,
                             text: t('check-your-answers:change'),
-                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentExpensesDetails', emp.employerName)
+                            visuallyHiddenText: t('check-your-answers:visuallyHiddenTextEmploymentExpensesDetails', { employerName : emp.employerName })
                         }]
                     }
                 }), null) }}

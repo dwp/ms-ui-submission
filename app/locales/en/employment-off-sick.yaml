@@ -1,0 +1,8 @@
+---
+pageTitle: Are you off sick from your job at {{employerName}}?
+offSick:
+  label: Are you off sick from your job at {{employerName}}?
+  yes: Yes
+  no: No
+  errors:
+    required: Select yes if you are off work from your job

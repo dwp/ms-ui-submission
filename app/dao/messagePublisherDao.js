@@ -1,6 +1,6 @@
-const { SQSClient, SendMessageCommand } = require('@aws-sdk/client-sqs');
+import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
 
-exports.publishMessage = (message, config, msgAttributes = {}) => {
+const publishMessage = (message, config, msgAttributes = {}) => {
   const { SQS_ENDPOINT_OVERRIDE, SQS_AWS_REGION, QUEUE_URL } = config;
 
   const clientConfig = { region: SQS_AWS_REGION };
@@ -17,4 +17,8 @@ exports.publishMessage = (message, config, msgAttributes = {}) => {
   });
 
   return client.send(command);
+};
+
+export default {
+  publishMessage,
 };

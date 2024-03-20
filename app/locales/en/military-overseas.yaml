@@ -1,0 +1,8 @@
+---
+pageTitle: In the last 12 weeks, have you lived abroad with a family member who was posted there with the armed forces?
+heading: In the last 12 weeks, have you lived abroad with a family member who was posted there with the armed forces?
+hint: <p class="govuk-body">This helps us to understand any gaps in your UK National Insurance record.</p>
+yes: Yes
+no: No
+errors:
+  required: Select yes if you have lived abroad with a family member in the armed forces in the last 12 weeks

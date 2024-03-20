@@ -1,7 +1,7 @@
-const chai = require('chai');
+import { expect } from 'chai';
+import pingDefault from '../../../../app/start-pages-sub-app/routes/ping.js';
 
-const { expect } = chai;
-const ping = require('../../../../app/start-pages-sub-app/routes/ping.js');
+const ping = pingDefault;
 
 describe('ping', () => {
   it('should set up a ping route handler', () => {
@@ -14,7 +14,7 @@ describe('ping', () => {
       },
     };
     const router = {
-      get: (route, middleware, callback) => {
+      get: (route, callback) => {
         expect(route).to.equal('/ping');
         callback({}, res);
       },

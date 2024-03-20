@@ -1,21 +1,18 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Remove function validator');
 
-module.exports = {
-  remove: SimpleField([
-    rules.required.bind({
-      inArray: {
-        source: ['yes', 'no'],
-        errorMsg: 'remove:remove.errors.required',
-      },
+export default () => [
+  field('remove').validators([
+    r.required.make({
+      errorMsg: 'remove:remove.errors.required',
+    }),
+    r.inArray.make({
+      source: ['yes', 'no'],
       errorMsg: 'remove:remove.errors.required',
     }),
   ]),
-};
+];

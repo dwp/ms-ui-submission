@@ -1,0 +1,21 @@
+---
+pageTitle: Manylion gwaith gwirfoddol
+heading: Manylion gwaith gwirfoddol
+hint: Os ydych yn gwirfoddoli i fwy nag un sefydliad, gofynnir i chi am y rhai eraill yn nes ymlaen.
+organisationName:
+  label: Enw’r sefydliad
+  errors:
+    required: Rhowch enw’r sefydliad
+organisationAddress:
+  label: Cyfeiriad y sefydliad
+  address1:
+    errors:
+      required: Rhowch linell 1 o gyfeiriad y sefydliad
+      badFormat: Mae’n rhaid i’r adeilad neu’r stryd ond cynnwys llythrennau, rhifau, atalnodau neu atalnodau llawn
+  address3:
+    errors:
+      badFormat: Mae’n rhaid i tref neu ddinas ond cynnwys llythrennau, atalnodau neu atalnodau llawn
+  postcode:
+    errors:
+      required: Rhowch god post, fel AA1 1AA
+      badFormat: Rhowch god post gwirioneddol

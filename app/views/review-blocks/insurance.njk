@@ -21,7 +21,7 @@
 
     {% for insurer in insuranceGather %}
 
-        {{ cyaHeader(t('check-your-answers:yourPolicyWith') + ' ' + insurer.insuranceProvider, 'insurance', loop.index0, t('check-your-answers:removeVisuallyHiddenTextInsurance', insurer.insuranceProvider)) }}
+        {{ cyaHeader(t('check-your-answers:yourPolicyWith') + ' ' + insurer.insuranceProvider, 'insurance', loop.index0, t('check-your-answers:removeVisuallyHiddenTextInsurance', { insuranceProvider : insurer.insuranceProvider })) }}
 
         {% set insuranceDetails %}
             {{ insurer.insuranceProvider }}<br>
@@ -41,7 +41,7 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'insurance-details-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=insurance-details&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=insurance-details&index='+loop.index0,
                     text: t('check-your-answers:change'),
                     visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsuranceDetails')
                 }]
@@ -52,9 +52,9 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'insurance-premiums-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=insurance-premiums&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=insurance-premiums&index='+loop.index0,
                     text: t('check-your-answers:change'),
-                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsurancePremiums', insurer.insuranceProvider)
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsurancePremiums', { insuranceProvider : insurer.insuranceProvider })
                 }]
             }
         }] %}
@@ -72,7 +72,7 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'insurance-employer-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=insurance-employer&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=insurance-employer&index='+loop.index0,
                         text: t('check-your-answers:change'),
                         visuallyHiddenText: t('check-your-answers:insuranceEmployer')
                     }]
@@ -87,9 +87,9 @@
             actions: {
                 items: [{
                     attributes: { 'id': 'insurance-payment-'+loop.index0 },
-                    href: 'check-your-answers?edit&page=insurance-payment&index='+loop.index0,
+                    href: 'check-your-answers?edit=true&page=insurance-payment&index='+loop.index0,
                     text: t('check-your-answers:change'),
-                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsuranceAmount', insurer.insuranceProvider)
+                    visuallyHiddenText: t('check-your-answers:visuallyHiddenTextInsuranceAmount', { insuranceProvider : insurer.insuranceProvider })
                 }]
             }
         } %}

@@ -1,0 +1,14 @@
+---
+pageTitle: Oes gennych chi rif ffôn symudol?
+mobile:
+  label: Oes gennych chi rif ffôn symudol?
+  yes: Oes
+  no: Na
+  hint: <p class="govuk-body">Byddwn yn defnyddio’r rhif hwn i gysylltu â chi am eich cais.</p>
+  errors:
+    required: Dewiswch oes os oes gennych rif ffôn symudol
+number:
+  label: Rhif ffôn symudol
+  errors:
+    required: Rhowch eich rhif ffôn symudol
+    badFormat: Rhowch rif ffôn symudol gwirioneddol

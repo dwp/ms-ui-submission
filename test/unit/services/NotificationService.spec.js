@@ -1,10 +1,11 @@
-const sinon = require('sinon');
-const chai = require('chai');
-const cryptoUtils = require('../../../app/utils/cryptoUtils');
-const messagePublisherDao = require('../../../app/dao/messagePublisherDao');
+import sinon from 'sinon';
+import { assert } from 'chai';
+import messagePublisherDao from '../../../app/dao/messagePublisherDao.js';
+import notificationService from '../../../app/services/NotificationService.js';
+import cryptoUtils from "../../../app/utils/cryptoUtils.js";
 
+const { processNotifications } = notificationService;
 
-const { assert } = chai;
 
 describe('when processNotifications is called', () => {
   afterEach(() => {
@@ -28,8 +29,6 @@ describe('when processNotifications is called', () => {
 
     encryptMessageBodyMock.expects('encryptMessageBody').once().resolves(encryptedMessage);
     messagePublisherDaoMock.expects('publishMessage').once().resolves(awsResponse);
-
-    const { processNotifications } = require('../../../app/services/NotificationService');
 
     const response = await processNotifications(mobileNumber, templateId, config);
 

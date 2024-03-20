@@ -1,0 +1,8 @@
+---
+pageTitle: Ydy {{employerName}} yn talu unrhyw dreuliau i chi?
+expenses:
+  label: Ydy {{employerName}} yn talu unrhyw dreuliau i chi?
+  yes: Ydy
+  no: Na
+  errors:
+    required: Dewiswch ydy os yw eich cyflogwr yn talu unrhyw dreuliau i chi

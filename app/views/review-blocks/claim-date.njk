@@ -4,14 +4,14 @@
 {% if journeyData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp | length %}
 
     {% set claimStartDateAfterSspRow = {
-        key: { text: t('check-your-answers:claimStartDateAfterSsp', journeyData['statutory-sick-pay-end'].sspEndDate | dayAfterDate(htmlLang)) | safe},
+        key: { text: t('check-your-answers:claimStartDateAfterSsp', { calculatedDate : journeyData['statutory-sick-pay-end'].sspEndDate | dayAfterDate(htmlLang) }) | safe},
         value: { text: t('app:' + journeyData['claim-start-date-after-statutory-sick-pay'].claimStartDateAfterSsp) },
         actions: {
             items: [{
                 attributes: { 'id': 'claim-start-date-after-statutory-sick-pay' },
                 href: "claim-start-date-after-statutory-sick-pay?edit",
                 text: t('check-your-answers:change'),
-                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimStartDateAfterSsp', journeyData['statutory-sick-pay-end'].sspEndDate | dayAfterDate(htmlLang))
+                visuallyHiddenText: t('check-your-answers:visuallyHiddenTextClaimStartDateAfterSsp', { calculatedDate : journeyData['statutory-sick-pay-end'].sspEndDate | dayAfterDate(htmlLang) })
             }]
         }
     } %}

@@ -29,9 +29,7 @@
             },
             hint: {
                 text: t('another-health-condition:condition.hint'),
-                attributes: {
-                    style: 'color:black'
-                }
+                classes: 'govuk-hint-black'
             },
             casaValue: formData.anotherCondition,
             casaErrors: formErrors,
@@ -40,14 +38,14 @@
                 value: 'yes',
                 attributes: {
                     'data-question': t('another-health-condition:condition.label'),
-                    'data-answer': t('another-health-condition:condition.yes')
+                    'data-answer': t('another-health-condition:yes')
                 }
             }, {
                 text: t('another-health-condition:condition.no'),
                 value: 'no',
                 attributes: {
                     'data-question': t('another-health-condition:condition.label'),
-                    'data-answer': t('another-health-condition:condition.no')
+                    'data-answer': t('another-health-condition:no')
                 }
             }]
         }) }}

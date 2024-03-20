@@ -1,5 +1,5 @@
-{% from "components/input/macro.njk" import govukInput %}
-{% from "components/fieldset/macro.njk" import govukFieldset %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
 
 {# Build up fieldset attributes #}
 {% set fieldsetAttributes = params.fieldset or {} %}
@@ -15,25 +15,25 @@
 
 {# Address labels #}
 {% macro address(line) %}
-    {% if isCustomLabels %}
-      {{t('macros:postalAddressObject' + '.labels' + '.' + line) | safe}}
-    {% else %}
-        {{t('macros:postalAddressObject' + '.' + line) | safe}}
-    {% endif %}
+  {% if isCustomLabels %}
+    {{t('macros:postalAddressObject' + '.labels' + '.' + line) | safe}}
+  {% else %}
+    {{t('macros:postalAddressObject' + '.' + line) | safe}}
+  {% endif %}
 {% endmacro %}
 
 {% if params.casaErrors[params.name] %}
-<div class="govuk-form-group govuk-form-group--error" id="f-{{params.name}}-error">
-{% endif %}
+  <div class="govuk-form-group govuk-form-group--error" id="f-{{params.name}}-error">
+  {% endif %}
 
-{% call govukFieldset(fieldsetAttributes) %}
+  {% call govukFieldset(fieldsetAttributes) %}
 
-{% if params.casaErrors[params.name] %}
-<span class="govuk-error-message">{{ t(params.casaErrors[params.name][0].inline) }}</span>
-{% endif %}
+  {% if params.casaErrors[params.name] %}
+    <span class="govuk-error-message">{{ t(params.casaErrors[params.name][0].inline) }}</span>
+  {% endif %}
 
   {# Line 1 #}
-  {% set fieldErrors = params.casaErrors[params.name+"[address1]"] %}
+  {% set fieldErrors = params.casaErrors[params.name + "[address1]"] %}
   {% set fieldAttributes = {} %}
   {% if fieldErrors %}
     {% set fieldAttributes = mergeObjects(fieldAttributes, {'data-validation': {fn: params.name + '[address1]', va: fieldErrors[0].validator} | dump}) %}
@@ -53,7 +53,7 @@
   }) }}
 
   {# Line 2 #}
-  {% set fieldErrors = params.casaErrors[params.name+"[address2]"] %}
+  {% set fieldErrors = params.casaErrors[params.name + "[address2]"] %}
   {% set fieldAttributes = {} %}
   {% if fieldErrors %}
     {% set fieldAttributes = mergeObjects(fieldAttributes, {'data-validation': {fn: params.name + '[address2]', va: fieldErrors[0].validator} | dump}) %}
@@ -73,7 +73,7 @@
   }) }}
 
   {# Town #}
-  {% set fieldErrors = params.casaErrors[params.name+"[address3]"] %}
+  {% set fieldErrors = params.casaErrors[params.name + "[address3]"] %}
   {% set fieldAttributes = {} %}
   {% if fieldErrors %}
     {% set fieldAttributes = mergeObjects(fieldAttributes, {'data-validation': {fn: params.name + '[address3]', va: fieldErrors[0].validator} | dump}) %}
@@ -94,7 +94,7 @@
   }) }}
 
   {# Postcode #}
-  {% set fieldErrors = params.casaErrors[params.name+"[postcode]"] %}
+  {% set fieldErrors = params.casaErrors[params.name + "[postcode]"] %}
   {% set fieldAttributes = {} %}
   {% if fieldErrors %}
     {% set fieldAttributes = mergeObjects(fieldAttributes, {'data-validation': {fn: params.name + '[postcode]', va: fieldErrors[0].validator} | dump}) %}
@@ -113,8 +113,8 @@
       text: t(fieldErrors[0].inline)
     } if fieldErrors else null
   }) }}
-{% endcall %}
+  {% endcall %}
 
-{% if params.casaErrors[params.name] %}
-</div>
+  {% if params.casaErrors[params.name] %}
+  </div>
 {% endif %}

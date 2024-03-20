@@ -1,11 +1,8 @@
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
+import chai, { assert } from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+import NotifyService from '../../../src/lib/NotifyService.js';
 
 chai.use(chaiAsPromised);
-
-const { assert } = chai;
-
-const { notifyEmail } = require('../../../app/lib/NotifyService.js');
 
 describe('Notify service', () => {
   const notifyTemplateData = {
@@ -19,14 +16,14 @@ describe('Notify service', () => {
   const notifyUrl = 'http://localhost';
   it('should set up the notify service, send a feedback email, and return a resolved promise', (done) => {
     assert.isFulfilled(
-      notifyEmail(notifyTemplateData, notifyEmailTo, notifyApiKey, notifyProxy, notifyUrl),
+      NotifyService.notifyEmail(notifyTemplateData, notifyEmailTo, notifyApiKey, notifyProxy, notifyUrl),
     );
     done();
   });
   it('should return a rejected promise if it gets an error from the notify service', (done) => {
     notifyApiKey = 'test';
     assert.isRejected(
-      notifyEmail(notifyTemplateData, notifyEmailTo, notifyApiKey, notifyProxy, notifyUrl),
+      NotifyService.notifyEmail(notifyTemplateData, notifyEmailTo, notifyApiKey, notifyProxy, notifyUrl),
     );
     done();
   });

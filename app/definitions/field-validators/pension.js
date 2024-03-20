@@ -1,33 +1,37 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Pension validator');
 
-module.exports = {
-  pension: SimpleField([
-    rules.inArray.bind({
-      source: ['yes', 'no', 'notsure'],
-      errorMsg: 'pension:pension.errors.required',
-    }),
-    rules.required.bind({
-      errorMsg: 'pension:pension.errors.required',
-    }),
-  ], (pageData) => pageData.screen === 'pension'),
-
-  other: SimpleField([
-    rules.required.bind({
-      errorMsg: 'pension:other.errors.required',
-    }),
-  ], (pageData) => pageData.screen === 'pension-other'),
-
-  screen: SimpleField([
-    rules.inArray.bind({
+export default () => [
+  field('pension').validators(
+    [
+      r.required.make({
+        errorMsg: 'pension:pension.errors.required',
+      }),
+      r.inArray.make({
+        source: ['yes', 'no', 'notsure'],
+        errorMsg: 'pension:pension.errors.required',
+      }),
+    ],
+    (pageData) => pageData.screen === 'pension',
+  ),
+  field('other').validators(
+    [
+      r.required.make({
+        errorMsg: 'pension:other.errors.required',
+      }),
+    ],
+    (pageData) => pageData.screen === 'pension-other',
+  ).conditions([
+    // Only validate the `other` field if screen field equal to `pension-other`
+    ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.screen === 'pension-other',
+  ]),
+  field('screen').validators([
+    r.inArray.make({
       source: ['pension', 'pension-other'],
     }),
   ]),
-};
+];

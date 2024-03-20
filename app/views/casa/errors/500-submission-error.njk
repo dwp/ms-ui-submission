@@ -1,4 +1,5 @@
-{% extends "casa/errors/error-template.njk" %}
+{% extends "casa/layouts/error-template.njk" %}
+{% from "govuk/components/error-template" %}
 
 {% block casaPageTitle %}
     {{ t('500-submission-error:pageTitle') }} - {{ t('app:commonTitle') }}

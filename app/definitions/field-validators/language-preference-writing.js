@@ -1,17 +1,14 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Language preference writing validator');
 
-module.exports = {
-  langPrefWriting: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('langPrefWriting').validators([
+    r.required.make({
       errorMsg: 'language-preference-writing:langPref.errors.required',
     }),
   ]),
-};
+];

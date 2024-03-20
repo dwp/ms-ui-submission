@@ -1,0 +1,8 @@
+---
+pageTitle: Ydych chi’n aros mewn ysbyty fel claf mewnol ar hyn o bryd?
+hospitalInpatient:
+  label: Ydych chi’n aros mewn ysbyty fel claf mewnol ar hyn o bryd?
+  yes: Ydw
+  no: Na
+  errors:
+    required: Dewiswch ydw os ydych yn yr ysbyty fel claf mewnol ar hyn o bryd

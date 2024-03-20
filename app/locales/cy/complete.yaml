@@ -1,0 +1,123 @@
+---
+pageTitle: Beth sy’n digwydd nesaf
+header: Cais wedi’i anfon
+refReminder: Eich rhif cyfeirnod yw eich rhif Yswiriant Gwladol
+whatNow:
+  title: Beth sy’n digwydd nesaf
+claimantCommitment:
+  text1: Byddwn yn cysylltu â chi erbyn <span class="nobr">{{fourteenDaysLater}}</span>. Byddwn yn trefnu
+    apwyntiad ‘Ymrwymiad Hawlydd’ i chi oni bai bod eich Ymarferydd Iechyd wedi dweud
+    wrthych bod gennych lai na 12 mis i fyw. Mae hyn fel arfer dros y ffôn – oni bai
+    eich bod wedi dweud wrthym eich bod angen dull amgen.
+  text2: 'Byddwn yn siarad â chi am beth sydd angen i chi ei wneud i gael ESA Dull
+    Newydd, yn cynnwys gofyn i chi:'
+  conditionalBulletPoints:
+    li1: egluro sut mae eich salwch neu anabledd yn effeithio ar eich gallu i weithio
+    li2: darparu tystiolaeth meddygol
+    li3: cytuno i ddweud wrthym os bydd eich amgylchiadau’n newid
+  text3: Rhaid i chi gytuno i’ch Ymrwymiad Hawlydd cyn y gallwch gael ESA Dull Newydd.
+  text4: Ar ôl eich apwyntiad Ymrwymiad Hawlydd, byddwn yn anfon holiadur Gallu i
+    Weithio atoch y dylech ei gwblhau a'i ddychwelyd. Bydd yn gofyn i chi am eich
+    salwch, anabledd, anaf neu gyflwr iechyd presennol a sut mae'n effeithio ar eich
+    gallu i weithio.
+  text5: Efallai y gofynnir i chi hefyd gael Asesiad Gallu i Weithio gyda gweithiwr
+    gofal iechyd proffesiynol. Mae hyn yn ein helpu i roi'r cymorth cywir i chi i'ch
+    helpu i weithio pan fyddwch yn gallu. Gallai hyn fod yn waith nad ydych wedi'i
+    wneud, neu wedi meddwl am ei wneud, o'r blaen. Nid oes rhaid i bawb gael asesiad,
+    ond os gofynnir i chi fynychu un, rhaid i chi fynd.
+  text6: 'Efallai y bydd eich taliadau ESA Dull Newydd yn cael eu stopio os:'
+  esaPayments:
+    li1: nid ydych yn cwblhau nac yn dychwelyd yr holiadur
+    li2: nid ydych yn mynychu asesiad y gofynnwyd i chi ei wneud
+  text7: Os ydych hefyd wedi gwneud cais am Gredyd Cynhwysol, efallai y gofynnir i
+    chi gwblhau holiadur neu fynychu Asesiad Gallu i Weithio. Os felly, rhaid i chi
+    gwblhau a dychwelyd yr holiadur a mynychu'r asesiad, neu efallai y bydd eich taliadau
+    ESA Dull Newydd yn cael eu stopio.
+medicalEvidence:
+  medicalEvidenceHeading: Anfonwch dystiolaeth feddygol atom i gefnogi eich cais
+  ssp1Text: Anfonwch eich SSP1 atom. Gallwch gael hwn gan eich cyflogwr.
+  text1: Os yw eich doctor, ymgynghorydd neu nyrs wedi dweud y gallai fod gennych
+    lai na 12 mis i fyw, gallwch ofyn iddynt gwblhau ffurflen SR1. Mae ffurflen SR1
+    yn darparu tystiolaeth am eich salwch ac yn cael ei hanfon yn uniongyrchol i'r
+    DWP. Gall eich helpu i gael budd-daliadau ar gyfradd uwch a dechrau eu cael yn
+    gyflymach nag arfer.
+  text2: Gallwch hunan-ardystio am 7 diwrnod cyntaf eich cais ond mae angen i chi
+    anfon tystiolaeth feddygol atom o ddiwrnod 8 ymlaen.
+  text3: Y math mwyaf cyffredin o dystysgrif feddygol yw nodyn ffitrwydd (a elwir
+    hefyd yn ddatganiad ffitrwydd i weithio neu nodyn salwch), ond rydym hefyd yn
+    derbyn mathau eraill o dystiolaeth feddygol.
+  conditionalReveal:
+    heading: Mathau eraill o dystiolaeth feddygol
+    text1: 'Yn ogystal â nodiadau ffitrwydd, rydym hefyd yn derbyn y tystysgrifau
+      meddygol hyn:'
+    li1: Med10 (tystysgrif ysbyty a roddir i gleifion mewnol os yw’ch triniaeth yn
+      parhau mwy na 7 diwrnod)
+    li2: MATB1 (os ydych yn feichiog ond na allwch gael Tâl Mamolaeth Statudol na
+      Lwfans Mamolaeth)
+    li3: CF73 (ffurflen a gyhoeddir gan ysbyty seiciatryddol)
+    li4: SR1 (ffurflen wedi’i chwblhau a’i hanfon i ni gan ddoctor, ymgynghorydd neu
+      nyrs arbenigol os ydynt yn meddwl efallai na fyddwch yn byw am fwy na 12 mis,
+      oherwydd eich cyflwr)
+    text2: Gallai mathau eraill o dystiolaeth gynnwys datganiad meddyg, adroddiad
+      ymgynghorydd neu hysbysiad Awdurdod Lleol.
+    text3: Dylech nodi, mae ffurflenni DS1500 yn cael eu diddymu a dylai eich clinigydd
+      roi ffurflen SR1 i chi yn ei le.
+  text4: Bydd angen i chi barhau i anfon tystiolaeth feddygol atom cyn belled â’ch
+    bod ddim digon abl i weithio. Byddwn yn dweud wrthych pryd y gallwch roi’r gorau
+    i’w hanfon. Er enghraifft, os yw’ch nodyn ffitrwydd am 14 diwrnod, bydd angen
+    i chi i anfon un arall atom pan fydd yn rhedeg allan.
+  yesSRTI:
+    heading: Anfonwch eich ffurflen SR1 os oes gennych un.
+    text1: Byddwn yn cysylltu â chi erbyn <span class="nobr">{{fourteenDaysLater}}</span> os ydym angen
+      mwy o wybodaeth.
+    text2: Mae hwn fel arfer yn cael ei anfon i’r DWP gan eich doctor neu nyrs arbenigol.
+    text3: 'Os oes gennych gopi, anfonwch hi i:'
+    text4: Nid oes angen i chi anfon ffurflen SR1 arall os ydych eisoes wedi anfon
+      un ar gyfer cais am Daliad Annibyniaeth Personol (PIP) neu Daliad Anabledd Oedolyn
+      (ADP).
+    text5: Os nad oes gennych ffurflen SR1 gallwch ofyn i'ch doctor neu nyrs arbenigol
+      gwblhau un. Nid oes rhaid i chi dalu amdani.
+    text6: Dylech nodi, mae ffurflenni DS1500 yn cael eu diddymu a dylai eich clinigydd
+      roi ffurflen SR1 i chi yn ei le.
+sendEvidence:
+  heading: Sut i anfon eich tystiolaeth
+  text1: Os oes gennych nodyn ffitrwydd, gallwch ddefnyddio’r <a class="govuk-link"
+    href="https://www.gov.uk/anfon-eich-nodyn-ffitrwydd-ar-gyfer-eich-cais-esa" target="_blank">gwasanaeth
+    Anfon eich nodyn ffitrwydd  (agor mewn tab newydd)</a> i’w anfon atom ar-lein.
+  text2: Os oes gennych fath arall o dystiolaeth feddygol, gallwch ei hanfon atom
+    trwy’r post. Gallwch hefyd bostio’ch nodyn ffitrwydd.
+  ssp1Text: Os oes gennych fath arall o dystiolaeth feddygol, gallwch ei hanfon atom
+    trwy’r post. Gallwch hefyd anfon eich nodyn ffitrwydd neu SSP1.
+  insetText:
+    heading: Ble i anfon eich tystiolaeth drwy'r post
+    line1: Freepost DWP ESA 26
+universalCreditYes:
+  heading: Dweud wrth Gredyd Cynhwysol
+  text1: Os ydych yn cael neu wedi gwneud cais am Gredyd Cynhwysol byddwch angen dweud
+    wrthynt eich bod wedi gwneud cais am ESA Dull Newydd. Gallwch wneud hyn drwy <a
+    class="govuk-link" href="https://www.gov.uk/mewngofnodi-ich-cyfrif-credyd-cynhwysol"
+    target="_blank">fewngofnodi i’ch cyfrif Credyd Cynhwysol (agor mewn tab newydd)</a>
+    a defnyddio eich dyddlyfr i gysylltu â’ch rheolwr achos.
+  text2: Rhaid i chi hefyd roi manylion eich tystiolaeth feddygol yn eich cyfrif Credyd
+    Cynhwysol. Er enghraifft, os oes gennych nodyn ffitrwydd, nid oes angen i chi
+    ei anfon at Gredyd Cynhwysol, ond rhaid i chi roi’r dyddiadau.
+universalCreditNo:
+  heading: Ydych chi angen help gyda chostau tai neu gymorth dros bartner neu blentyn?
+  text1: Os ydych ar incwm isel neu allan o waith, gallwch wneud cais am Gredyd Cynhwysol
+    fel rhan o gais ddeuol gyda ESA Dull Newydd
+  text2: Yn wahanol i ESA Dull Newydd, gallwch wneud cais gyda phartner a chael cymorth
+    gyda chostau tai, plant a gofal plant.
+  text3: Mae’n rhaid i chi a’ch partner gael llai na £16,000 mewn cynilion a buddsoddiadau
+    i fod yn gymwys.
+  text4: Darganfyddwch <a class="govuk-link" href="https://www.gov.uk/how-to-claim-universal-credit"
+    target="_blank">sut i wneud cais am Gredyd Cynhwysol ar GOV.UK (agor mewn tab
+    newydd)</a>.
+feedback:
+  feedbackHeading: Rhowch eich adborth i ni
+  feedbackQuestionLink: <a class="govuk-link" href="/feedback" target="_blank">Beth
+    oeddech chi’n ei feddwl am y gwasanaeth hwn? (agor mewn tab newydd)</a>. Mae’n
+    cymryd 30 eiliad.
+  researchQuestion: Gwirfoddolwch i <a class="govuk-link" href="https://forms.office.com/pages/responsepage.aspx?id=6fbxllcQF0GsKIDN_ob4w3C0kR238l1Nq4_w4WOy9kNUQVJRQzNQN1RXNlVFMk4xMEUxTlBCWjNPOS4u"
+    target="_blank">gymryd rhan mewn ymchwil (agor mewn tab newydd)</a> i helpu i
+    wella’r gwasanaeth. Ar hyn o bryd mae’r ffurflen a’r gweithgareddau ymchwil dilynnol
+    ond ar gael drwy gyfrwng y Saesneg.

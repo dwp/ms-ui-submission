@@ -14,7 +14,7 @@
     {% set yearError = formErrors['dueDate'][0].inline | matchYear or formErrors['dueDate'][0].errorType | includesYear %}
 
         {% set dateParams = {
-             name: 'dueDate',
+             namePrefix: 'dueDate',
              fieldset: {
                  legend: {
                      text: t('pregnant-due-date:dueDate.label'),
@@ -23,7 +23,7 @@
                  }
              },
              hint: {
-                 html: t('pregnant-due-date:dueDate.hint', dueDateHint )
+                 html: t('pregnant-due-date:dueDate.hint', { dueDateHint : dueDateHint } )
              },
              casaValue: formData.dueDate,
              casaErrors: formErrors
@@ -41,7 +41,7 @@
             } %}
          {% endif %}
 
-         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+         {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
 
 
 {% endblock %}

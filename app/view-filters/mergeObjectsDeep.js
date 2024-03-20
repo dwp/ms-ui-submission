@@ -1,12 +1,14 @@
-const merge = require('lodash.merge');
+import merge from 'lodash.merge';
 
+// eslint-disable-next-line jsdoc/require-throws
 /**
  * Merge the given objects. The first object given will _not_ be mutated.
  *
- * @param  {object} objects... Objects to be merged
- * @return {object} Merged object
+ * @param  { object } objects... Objects to be merged.
+ * @param { ...any } objects Any to be merged.
+ * @returns { object } Merged object.
  */
-module.exports = function mergeObjectsDeep(...objects) {
+export default function mergeObjectsDeep(...objects) {
   // Validate
   if (!objects || !objects.length) {
     throw new Error('You must specify some objects to merge');
@@ -17,4 +19,4 @@ module.exports = function mergeObjectsDeep(...objects) {
     }
   });
   return merge(...objects);
-};
+}

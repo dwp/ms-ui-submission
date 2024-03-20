@@ -1,0 +1,24 @@
+---
+pageTitle: Ydych chi’n cael taliadau rheolaidd o bensiwn neu flwydd-dal?
+pension:
+  label: Ydych chi’n cael taliadau rheolaidd o bensiwn neu flwydd-dal?
+  yes: Ydw
+  no: Na
+  notsure: Nid wyf yn siwr
+  p: Nid oes angen i chi ddweud wrthym am daliadau pensiwn lwmp swm unigol.
+  pensions: 'Mae pensiynau’n cynnwys:'
+  li1: pensiynau gweithle
+  li2: pensiynau personol
+  li3: pensiynau gwasanaeth cyhoeddus
+  li4: pensiynau rhanddeiliaid
+  li5: pensiwn o gynllun pensiwn hunangyflogedig
+  annuity: Mae blwydd-dal yn gynnyrch yswiriant sy’n eich galluogi i gyfnewid eich cynilion pensiwn am incwm rheolaidd gwarantedig a fydd yn parhau am weddill eich oes.
+  errors:
+    required: Dewiswch ydw os ydych yn cael taliadau rheolaidd o bensiwn neu flwydd-dal
+list: 'Rydych wedi ychwanegu manylion ar gyfer:'
+blank: darparwr pensiwn
+pageTitleOther: Pensiwn neu flwydd-daliadau eraill
+other:
+  label: Ydych chi’n cael pensiynau neu flwydd-daliadau eraill?
+  errors:
+    required: Dewiswch ydw os ydych yn cael pensiynau neu flwydd-daliadau eraill

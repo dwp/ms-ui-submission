@@ -1,0 +1,37 @@
+---
+pageTitle: Tell us about your job
+heading: Tell us about your job
+hint: If you have more than one job, we will ask about your other jobs later.
+jobTitle:
+  label: Job title
+  errors:
+    required: Enter your job title
+employerName:
+  label: Name of employer
+  errors:
+    required: Enter your employer's name
+employerTel:
+  label: Phone number
+  errors:
+    required: Enter your employer's phone number
+    badFormat: Enter a real phone number
+employerAddress:
+  label: Employer address
+  address1:
+    label: Address line 1
+    errors:
+      required: Enter line 1 of the address
+      badFormat: The address must contain only letters, numbers, commas or full stops
+  address2:
+    label: Address line 2 (optional)
+    errors:
+      badFormat: The address must contain only letters, numbers, commas or full stops
+  address3:
+    label: Town or city
+    errors:
+      required: Enter a town or city
+      badFormat: Town or city must contain only letters, commas or full stops
+postcode:
+  errors:
+    required: Enter a postcode
+    badFormat: Enter a real postcode

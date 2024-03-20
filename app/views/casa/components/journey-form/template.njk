@@ -1,26 +1,28 @@
-{% from "components/button/macro.njk" import govukButton %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
-<form action="#" method="post" autocomplete="off" novalidate>
+<form action="{{ params.formUrl }}" method="post" autocomplete="{{ params.autoComplete | default('off', true) }}" novalidate class="casa-journey-form">
   <input type="hidden" name="_csrf" value="{{ params.csrfToken }}" />
   {% if params.inEditMode %}<input type="hidden" name="edit" value="true" />{% endif %}
+  {% if params.inEditMode and params.editOriginUrl %}<input type="hidden" name="editorigin" value="{{ params.editOriginUrl }}" />{% endif %}
+  {% if params.activeContextId %}<input type="hidden" name="contextid" value="{{ params.activeContextId }}" />{% endif %}
 
   {# FORM CONTENT HERE #}
   {{ caller() }}
+
   {% if not params.buttonBarHidden %}
-    <p class="govuk-body">
-        {% if params.page_path !== '/feedback' and params.page_path !== '/thankyou' %}
-          {{ govukButton({
-            attributes: {
-              id: 'continue-button',
-              'data-button-action': params.page_path + ' > ' + (t('app:saveChanges') if params.inEditMode else t('app:continue'))
-            },
-            text: t('app:saveChanges') if params.inEditMode else (t('doctor-declaration:understoodButton') if params.page_path === '/doctor-declaration' else t('app:continue'))
-          }) }}
-          
-          {% if params.inEditMode and not params.cancelForm and not params.errorsFlag %}
-            <a href="{{ params.casa.mountUrl }}check-your-answers" class="casa-cancel-review-link govuk-link--no-visited-state">{{ t('app:cancel') }}</a>
-          {% endif %}
-        {% endif %}
-    </p>
+    <div class="govuk-button-group casa-form-control-block">
+      {{ govukButton({
+        attributes: {
+          id: 'continue-button',
+          'data-button-action': params.page_path + ' > ' + (t('common:form.buttons.saveChanges.label') if params.inEditMode else t('app:continue'))
+        },
+        text: params.buttonText if params.buttonText else (t('common:form.buttons.saveChanges.label') if params.inEditMode else t('app:continue')),
+        preventDoubleClick: true
+      }) }}
+
+      {% if params.inEditMode %}
+        <a href="{{ editOriginUrl }}" class="govuk-link govuk-link--no-visited-state">{{ t('app:cancel') }}</a>
+      {% endif %}
+    </div>
   {% endif %}
 </form>

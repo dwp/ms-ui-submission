@@ -1,5 +1,6 @@
-const { assert } = require('chai');
-const { validateEmail } = require('../../../app/utils/email-validator.js');
+import { assert } from 'chai';
+import validateEmails from '../../../app/utils/email-validator.js';
+const { validateEmail } = validateEmails;
 
 describe('email-validator', () => {
   it('Returns true for simple email address', () => {

@@ -1,0 +1,11 @@
+---
+pageTitle: Mae dyddiad cychwyn eich cais fwy na 3 mis yn ôl
+lateClaim:
+  h1: Mae dyddiad cychwyn eich cais fwy na 3 mis yn ôl
+  yes: Ydw
+  no: Na
+  p1: <p class="govuk-body">Gallwch ond cael ESA Dull Newydd am hyd at 3 mis yn y gorffennol, onibai:</p><ul class="govuk-list govuk-list--bullet"><li>rydych chi neu rywun arall wedi dweud wrthym yn barod eich bod eisiau gwneud cais</li><li>fe wnaeth eich cyflogwr gymryd mwy na 3 mis i'ch hysbysu eich fod heb hawl i Dâl</li></ul>
+  p2: Mae'n bosib y byddwn angen cysylltu â  gyda chi.
+  label: Ydych chi'n siwr eich bod eisiau hawlio o {{calcDate}}?
+  errors:
+    required: Dewiswch ydw os rydych eisiau hawlio o’r dyddiad hwn

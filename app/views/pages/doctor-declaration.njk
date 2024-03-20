@@ -1,6 +1,7 @@
 {% extends "layouts/custom-journey.njk" %}
 
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block casaPageTitle %}
     {{ t('doctor-declaration:pageTitle') }}
@@ -33,7 +34,6 @@
     </div>
 
     <h2 class="govuk-heading-m">{{ t('doctor-declaration:question') }}</h2>
-
     {{ casaGovukRadios({
         name: 'docShareWithDWP',
         casaValue: formData.docShareWithDWP,
@@ -56,5 +56,14 @@
             }
         }]
     }) }}
+
+    {{ govukButton({
+        attributes: {
+          id: 'continue-button',
+          'data-button-action': t('app:continue')
+        },
+        text: t('doctor-declaration:understoodButton')
+      }) }}
+
 
 {% endblock %}

@@ -1,27 +1,26 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Voluntary work hours validator');
 
-module.exports = {
-  sameHours: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('sameHours').validators([
+    r.required.make({
       errorMsg: 'voluntary-work-hours:sameHours.errors.required',
     }),
   ]),
-
-  hours: SimpleField([
-    rules.required.bind({
+  field('hours').validators([
+    r.required.make({
       errorMsg: 'voluntary-work-hours:hours.errors.required',
     }),
-    rules.regex.bind({
+    r.regex.make({
       pattern: /^\d{1,2}(\.\d)?$/,
       errorMsg: 'voluntary-work-hours:hours.errors.badFormat',
     }),
-  ], (pageData) => pageData.sameHours === 'yes'),
-};
+  ]).conditions([
+    // Only validate the `hours` field if user selects yes
+    ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.sameHours === 'yes',
+  ]),
+];

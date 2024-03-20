@@ -1,14 +1,14 @@
-const { SQSClient, SendMessageCommand } = require('@aws-sdk/client-sqs');
+import { SQSClient, SendMessageCommand } from '@aws-sdk/client-sqs';
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+import pkg from 'aws-sdk-client-mock';
+import messagePublisherDao from '../../../app/dao/messagePublisherDao.js';
 
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
+const { mockClient } = pkg;
 
 chai.use(chaiAsPromised);
 
 const { assert } = chai;
-
-const { mockClient } = require('aws-sdk-client-mock');
-const { publishMessage } = require('../../../app/dao/messagePublisherDao');
 
 describe('when publishMessage is called', () => {
   let sqsMock;
@@ -34,7 +34,7 @@ describe('when publishMessage is called', () => {
       });
 
     assert.isFulfilled(
-      publishMessage('hello world', config),
+      messagePublisherDao.publishMessage('hello world', config),
     );
     done();
   });
@@ -45,7 +45,7 @@ describe('when publishMessage is called', () => {
       .rejects();
 
     assert.isRejected(
-      publishMessage('hello world', config),
+      messagePublisherDao.publishMessage('hello world', config),
     );
     done();
   });

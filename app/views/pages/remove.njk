@@ -1,18 +1,10 @@
 {% extends "layouts/custom-journey.njk" %}
 
 {% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
-{% from "components/button/macro.njk" import govukButton %}
-
-{% set map = {
-    voluntary: 'organisationName',
-    employment: 'employerName',
-    pension: 'pensionProvider',
-    insurance: 'insuranceProvider',
-    condition: 'conditionName'
-} %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
 
 {% block casaPageTitle %}
-    {{ t('remove:remove.' + section, gather[index][map[section]]) }}
+    {{ t('remove:remove.' + section, {removeItemName : removeItemName}) }}
 {% endblock %}
 
 {% block content %}
@@ -33,7 +25,7 @@
                 name: 'remove',
                 fieldset: {
                     legend: {
-                        text: t('remove:remove.' + section, gather[index][map[section]]),
+                        text: t('remove:remove.' + section, {removeItemName : removeItemName}),
                         isPageHeading: true,
                         classes: 'govuk-fieldset__legend--l'
                     }
@@ -44,14 +36,14 @@
                     value: 'yes',
                     text: t('remove:remove.yes'),
                     attributes: {
-                        'data-question': t('remove:remove.' + section, gather[index][map[section]]),
+                        'data-question': t('remove:remove.' + section, {removeItemName : removeItemName}),
                         'data-answer': t('remove:remove.yes')
                     }
                 }, {
                     value: 'no',
                     text: t('remove:remove.no'),
                     attributes: {
-                        'data-question': t('remove:remove.' + section, gather[index][map[section]]),
+                        'data-question': t('remove:remove.' + section, {removeItemName : removeItemName}),
                         'data-answer': t('remove:remove.no')
                     }
                 }]

@@ -21,7 +21,7 @@
 {% if journeyData['statutory-sick-pay-recent'].sspRecent | length %}
     {% set sspRecentRow = {
         key: { text: t('check-your-answers:sspRecent') },
-        value: { text: t('ssp-recent:sspRecent.' + journeyData['statutory-sick-pay-recent'].sspRecent) },
+        value: { text: t('statutory-sick-pay-recent:sspRecent.' + journeyData['statutory-sick-pay-recent'].sspRecent) },
         actions: {
             items: [{
                 attributes: { 'id': 'statutory-sick-pay-recent' },

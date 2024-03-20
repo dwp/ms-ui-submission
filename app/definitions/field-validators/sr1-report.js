@@ -1,21 +1,18 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
+const appLogger = logger();
+appLogger.info('DS1500 report fields validations');
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
-appLogger.info('sr1 report validator');
-
-module.exports = {
-  sr1Report: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('sr1Report').validators([
+    r.required.make({
       errorMsg: 'sr1-report:sr1Report.errors.required',
     }),
-    rules.inArray.bind({
+    r.inArray.make({
       source: ['yes', 'no', 'dontKnow'],
       errorMsg: 'sr1-report:sr1Report.errors.required',
     }),
   ]),
-};
+];

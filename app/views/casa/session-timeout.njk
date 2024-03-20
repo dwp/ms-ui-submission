@@ -1,8 +1,8 @@
 {% extends "casa/layouts/main.njk" %}
 
-{% from "components/footer/macro.njk" import govukFooter with context %}
-{% from 'components/button/macro.njk' import govukButton %}
-{% from 'components/inset-text/macro.njk' import govukInsetText %}
+{% from "govuk/components/footer/macro.njk" import govukFooter with context %}
+{% from 'govuk/components/button/macro.njk' import govukButton %}
+{% from 'govuk/components/inset-text/macro.njk' import govukInsetText %}
 
 {% set mainClasses %}{{ mainClasses }} govuk-main-wrapper--l{% endset %}
 
@@ -10,26 +10,18 @@
     {{ t('session-timeout:title') }}
 {% endblock %}
 
-{% block head %}
-  {%- if cookieMessage === "accept" -%}
-    {% include "partials/gtm-script.njk" %}
-  {%- endif %}
-{%  include "includes/application-styles.njk" %}
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
 {% endblock %}
 
-{% block bodyStart %}
-  {%- if cookieMessage === "accept" -%}
-    {% include "partials/gtm-noscript.njk" %}
-  {%- endif %}
-  {% if cookieMessage === "unset" or cookieChoiceMade %}
-    {% include "partials/cookie-message.njk" %}
-  {% endif %}
+{% block head %}
+{%  include "includes/application-styles.njk" %}
 {% endblock %}
 
 {% block content %}
   <h1 class="govuk-heading-l">{{ t('session-timeout:heading') }}</h1>
 
-  <p class="govuk-body">{{ t('session-timeout:message1', timeout.sessionTimeout) }}</p>
+  <p class="govuk-body">{{ t('session-timeout:message1', { sessionTimeout : timeout.sessionTimeout }) }}</p>
   <p class="govuk-body">{{ t('session-timeout:message2') }}</p>
 
   {{ govukInsetText({

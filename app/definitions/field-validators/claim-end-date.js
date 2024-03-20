@@ -1,50 +1,91 @@
-const { rules, SimpleField } = require('@dwp/govuk-casa/lib/Validation');
-const dateExists = require('../../lib/validation-rules/date-exists.js');
-const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
-const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
-const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
-const dateNotBefore = require('../../lib/validation-rules/date-not-before.js');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import dateComponentsExist from '../../../src/lib/validators/date-components-exist.js';
+import dateYearLengthIsValid from '../../../src/lib/validators/date-year-length-isValid.js';
+import dateIsReal from '../../../src/lib/validators/date-is-real.js';
+import dateNotBefore from '../../../src/lib/validators/date-not-before.js';
 
-const Logger = require('../../lib/Logger');
+const appLogger = logger();
+appLogger.info('Claim End Date field validations');
 
-const appLogger = Logger();
-
-appLogger.info('Claim end date validator');
-
-module.exports = {
-  hiddenClaimStartDate: SimpleField([
-    rules.optional,
+export default () => [
+  field('hiddenClaimStartDate', { optional: true }).validators([
+    r.required.make(),
   ]),
-  claimEnd: SimpleField([
-    rules.required.bind({
+  field('claimEnd').validators([
+    r.required.make({
       errorMsg: 'claim-end-date:claimEnd.errors.required',
     }),
-    rules.inArray.bind({
+    r.inArray.make({
       source: ['yes', 'no'],
       errorMsg: 'claim-end-date:claimEnd.errors.required',
     }),
   ]),
-  claimEndDate: SimpleField([
-    dateExists.bind({
-      errorMsg: 'claim-end-date:claimEndDate.errors.required',
+  field('claimEndDate').validators([
+    r.required.make({
+      errorMsg: {
+        summary: 'claim-end-date:claimEndDate.errors.required',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-    dateComponentsExist.bind({
-      errorMsgDayMissing: 'claim-end-date:claimEndDate.errors.missingDay',
-      errorMsgMonthMissing: 'claim-end-date:claimEndDate.errors.missingMonth',
-      errorMsgYearMissing: 'claim-end-date:claimEndDate.errors.missingYear',
-      errorMsgDayAndMonthMissing: 'claim-end-date:claimEndDate.errors.missingDayAndMonth',
-      errorMsgDayAndYearMissing: 'claim-end-date:claimEndDate.errors.missingDayAndYear',
-      errorMsgMonthAndYearMissing: 'claim-end-date:claimEndDate.errors.missingMonthAndYear',
+    dateComponentsExist.make({
+      errorMsgDayMissing: {
+        summary: 'claim-end-date:claimEndDate.errors.missingDay',
+        focusSuffix: ['[dd]'],
+      },
+      errorMsgMonthMissing: {
+        summary: 'claim-end-date:claimEndDate.errors.missingMonth',
+        focusSuffix: ['[mm]'],
+      },
+      errorMsgYearMissing: {
+        summary: 'claim-end-date:claimEndDate.errors.missingYear',
+        focusSuffix: ['[yyyy]'],
+      },
+      errorMsgDayAndMonthMissing: {
+        summary: 'claim-end-date:claimEndDate.errors.missingDayAndMonth',
+        focusSuffix: ['[dd]', '[mm]'],
+      },
+      errorMsgDayAndYearMissing: {
+        summary: 'claim-end-date:claimEndDate.errors.missingDayAndYear',
+        focusSuffix: ['[dd]', '[yyyy]'],
+      },
+      errorMsgMonthAndYearMissing: {
+        summary: 'claim-end-date:claimEndDate.errors.missingMonthAndYear',
+        focusSuffix: ['[mm]', '[yyyy]'],
+      },
     }),
-    dateYearLengthIsValid.bind({
-      errorMsg: 'claim-end-date:claimEndDate.errors.badFormatYear',
+    dateYearLengthIsValid.make({
+      errorMsg: {
+        summary: 'claim-end-date:claimEndDate.errors.badFormatYear',
+        focusSuffix: ['[yyyy]'],
+      },
     }),
-    dateIsReal.bind({
-      errorMsg: 'claim-end-date:claimEndDate.errors.notReal',
-      errorMsgDigits: 'claim-end-date:claimEndDate.errors.notRealDigits',
+    dateIsReal.make({
+      errorMsg: {
+        summary: 'claim-end-date:claimEndDate.errors.notReal',
+      },
+      errorMsgDigits: {
+        summary: 'claim-end-date:claimEndDate.errors.notRealDigits',
+      },
     }),
-    dateNotBefore.bind({
-      errorMsg: 'claim-end-date:claimEndDate.errors.outOfRange',
+    dateNotBefore.make({
+      allowSingleDigitDay: true,
+      allowSingleDigitMonth: true,
+      errorMsg: {
+        summary: 'claim-end-date:claimEndDate.errors.outOfRange',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-  ], (pageData) => pageData.claimEnd === 'yes'),
-};
+  ]).conditions([
+    // Only validate the `claim date` field if user selects yes
+    ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.claimEnd === 'yes',
+  ]).processors([
+    // Trim spaces from each attribute
+    (value) => ({
+      dd: value.dd.replace(/\s+/g, ''),
+      mm: value.mm.replace(/\s+/g, ''),
+      yyyy: value.yyyy.replace(/\s+/g, ''),
+    }),
+  ]),
+];

@@ -1,0 +1,22 @@
+---
+pageTitle: Enillion - {{employerName}}
+heading: Enillion
+frequency:
+  label: Pa mor aml ydych chi’n cael eich talu gan {{employerName}}?
+  daily: Dyddiol
+  weekly: Wythnosol
+  every2Weeks: Bob 2 wythnos
+  every4Weeks: Bob 4 wythnos
+  monthly: Misol
+  quarterly: Chwarterol
+  every6Months: Bob 6 mis
+  annually: Blynyddol
+  errors:
+    required: Dewiswch pa mor aml ydych chi’n cael eich talu
+netPay:
+  label: Faint oedd eich taliad diwethaf gan {{employerName}}?
+  hint: Dyma’r union swm a dalwyd i’ch cyfrif banc.
+  errors:
+    required: Rhowch faint a gawsoch yn eich tâl diwethaf
+    notNum: Rhaid i’r swm rydych yn cael eich talu ond cynnwys rhifau
+    badFormat: Rhowch y swm yn y ffurf cywir, fel 125 neu 125.50

@@ -1,17 +1,14 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
+const appLogger = logger();
+appLogger.info('Claim start date after statutory sick pay validations');
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
-appLogger.info('Claim start date after statutory sick pay validator');
-
-module.exports = {
-  claimStartDateAfterSsp: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('claimStartDateAfterSsp').validators([
+    r.required.make({
       errorMsg: 'claim-start-date-after-statutory-sick-pay:claimStartDateAfterSsp.errors.required',
     }),
   ]),
-};
+];

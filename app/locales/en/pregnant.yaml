@@ -1,0 +1,8 @@
+---
+pageTitle: Are you pregnant?
+pregnant:
+  label: Are you pregnant?
+  yes: Yes
+  no: No
+  errors:
+    required: Select yes if you are pregnant

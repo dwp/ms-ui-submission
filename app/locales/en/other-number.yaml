@@ -1,0 +1,14 @@
+---
+pageTitle: Is there another number you can be contacted on?
+other:
+  label: Is there another number you can be contacted on?
+  yes: Yes
+  no: No
+  hint: We'll use this number to contact you about your claim.
+  errors:
+    required: Select yes if you have another number
+number:
+  label: Telephone number
+  errors:
+    required: Enter your telephone number
+    badFormat: Enter a real telephone number

@@ -1,17 +1,24 @@
-const { SimpleField, rules: { required, inArray, email } } = require('@dwp/govuk-casa/lib/Validation');
-const { validateEmail } = require('../../lib/validation-rules/email-validator');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import emailValidator from '../../../src/lib/validators/email-validator.js';
 
-module.exports = {
-  emailProvided: SimpleField([
-    required.bind({ errorMsg: 'email:radio.errors.required' }),
-    inArray.bind({ source: ['yes', 'no'], errorMsg: 'email:radio.errors.required' }),
+const appLogger = logger();
+appLogger.info('Email fields validations');
+
+export default () => [
+  field('emailProvided').validators([
+    r.inArray.make({
+      source: ['yes', 'no'],
+      errorMsg: 'email:radio.errors.required',
+    }),
   ]),
-  email: SimpleField(
-    [
-      required.bind({ errorMsg: 'email:input.errors.required' }),
-      email.bind({ errorMsg: 'email:input.errors.badFormat' }),
-      validateEmail.bind({ errorMsg: 'email:input.errors.badFormat' }),
-    ],
-    (pageData) => pageData.emailProvided === 'yes',
-  ),
-};
+
+  field('email').validators([
+    r.required.make({ errorMsg: 'email:input.errors.required' }),
+    emailValidator.make({ errorMsg: 'email:input.errors.badFormat' }),
+  ]).conditions([
+    // Only validate the `email` field if user selects yes
+    ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.emailProvided === 'yes',
+  ]),
+];

@@ -1,0 +1,8 @@
+---
+pageTitle: Details of expenses - {{employerName}}
+expensesDetails:
+  label: What are the expenses for and how much do you get?
+  hint: Give as much information as you can.
+  errors:
+    required: Enter details of any expenses and how much you get
+    maxLength: Enter details of any expenses and how much you get in 500 characters or fewer (including spaces)

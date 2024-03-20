@@ -1,0 +1,27 @@
+---
+pageTitle: Remove
+heading: Check your answers before sending your application
+remove:
+  yes: Yes
+  no: No
+  voluntary: Are you sure you want to remove your role at {{removeItemName}}?
+  employment: Are you sure you want to remove your job at {{removeItemName}}?
+  pension: Are you sure you want to remove your pension with {{pensionProvider}}?
+  insurance: Are you sure you want to remove your policy with {{insuranceProvider}}?
+  condition: Are you sure you want to remove {{removeItemName}} from your health conditions?
+  errors:
+      required: Select yes if you would like to remove the details you entered for this section
+removed:
+  list: 'You have removed details for:'
+  voluntary: Do you do any other voluntary work?
+  employment: Do you have another job?
+  pension: Are you getting any other pensions or annuities?
+  insurance: Are you getting money from any other permanent health insurance policy?
+  condition: Do you have another health condition, illness, disability or injury?
+  errors:
+    required:
+      voluntary: Select yes if you do any other voluntary work
+      employment: Select yes if you have another job
+      pension: Select yes if you're getting any other pensions or annuities
+      insurance: Select yes if you're getting money from another permanent health insurance policy
+      condition: Select yes if you have another health condition, illness, disability or injury

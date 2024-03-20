@@ -1,51 +1,57 @@
-{% from "components/date-input/macro.njk" import govukDateInput %}
+{% from 'govuk/components/date-input/macro.njk' import govukDateInput %}
 
-{% set fieldErrors = params.casaErrors[params.name] %}
+{% set fieldErrors = params.casaErrors[params.namePrefix] %}
+{% set hasSuffixHighlights = true if fieldErrors[0].focusSuffix.length else false %}
 
 {%- set inputErrorClass %}
   {{ 'govuk-input--error' if fieldErrors }}
 {% endset -%}
 
-{# Build up attributes #}
+{# Generate validation data- attributes #}
 {% set mergedAttributes = params.attributes or {} %}
 {% if fieldErrors %}
   {% set mergedAttributes = mergeObjects(mergedAttributes, {
-    'data-validation': {fn: params.name, va: fieldErrors[0].validator} | dump
+    'data-validation': {fn: params.namePrefix, va: fieldErrors[0].validator} | dump
   }) %}
 {% endif %}
 
 {# Merge parameters #}
-{% set mergedParams = mergeObjectsDeep({
-  id: params.id if params.id else 'f-' + params.name,
+{% set mergedParams = mergeObjects(params, {
+  id: params.id if params.id else 'f-' + params.namePrefix,
   namePrefix: '',
   attributes: mergedAttributes,
-  items: [{
-    label: t('macros:dateInput.day'),
-    name: params.name + '[dd]',
-    id: 'f-' + params.name + '[dd]',
-    value: params.casaValue.dd,
-    classes: 'govuk-input--width-2 ' + inputErrorClass,
-    autocomplete: 'bday-day'
-  }, {
-    label: t('macros:dateInput.month'),
-    name: params.name + '[mm]',
-    id: 'f-' + params.name+ '[mm]',
-    value: params.casaValue.mm,
-    classes: 'govuk-input--width-2 ' + inputErrorClass,
-    attributes: attributes_mm,
-    autocomplete: 'bday-month'
-  }, {
-    label: t('macros:dateInput.year'),
-    name: params.name + '[yyyy]',
-    id: 'f-' + params.name + '[yyyy]',
-    value: params.casaValue.yyyy,
-    classes: 'govuk-input--width-4 ' + inputErrorClass,
-    autocomplete: 'bday-year'
-  }],
+  items: [
+    mergeObjects({
+      label: t('macros:dateInput.day'),
+      classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[dd]') or not hasSuffixHighlights)
+    }, params.items[0] if params.items[0] else {}, {
+      id: 'f-' + params.namePrefix + '[dd]',
+      name: params.namePrefix + '[dd]',
+      value: params.casaValue.dd
+    }),
+    mergeObjects({
+      label: t('macros:dateInput.month'),
+      classes: 'govuk-input--width-2 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[mm]') or not hasSuffixHighlights)
+    }, params.items[1] if params.items[1] else {}, {
+      id: 'f-' + params.namePrefix + '[mm]',
+      name: params.namePrefix + '[mm]',
+      value: params.casaValue.mm
+    }),
+    mergeObjects({
+      label: t('macros:dateInput.year'),
+      classes: 'govuk-input--width-4 ' + (inputErrorClass if includes(fieldErrors[0].focusSuffix, '[yyyy]') or not hasSuffixHighlights)
+    }, params.items[2] if params.items[2] else {}, {
+      id: 'f-' + params.namePrefix + '[yyyy]',
+      name: params.namePrefix + '[yyyy]',
+      value: params.casaValue.yyyy
+    })
+  ],
   errorMessage: {
-    text: t(params.casaErrors[params.name][0].inline)
-  } if params.casaErrors[params.name] else null
-}, params) %}
-
+    text: t(params.casaErrors[params.namePrefix][0].inline, params.casaErrors[params.namePrefix][0].variables),
+    attributes: {
+      'data-ga-question': params.fieldset.legend.text or params.fieldset.legend.html | striptags
+    } if params.casaWithAnalytics else {}
+  } if params.casaErrors[params.namePrefix] else null
+}) %}
 
 {{ govukDateInput(mergedParams) }}

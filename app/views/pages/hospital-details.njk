@@ -1,6 +1,5 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "casa/components/radios/macro.njk" import casaGovukRadios with context %}
 {% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
@@ -37,7 +36,7 @@
         {% set yearError = formErrors['admissionDate'][0].inline | matchYear or formErrors['admissionDate'][0].errorType | includesYear %}
 
         {% set dateParams = {
-             name: 'admissionDate',
+             namePrefix: 'admissionDate',
              fieldset: {
                  legend: {
                      text: t('hospital-details:admissionDate.label'),
@@ -45,7 +44,7 @@
                  }
              },
              hint: {
-                 html: t('hospital-details:admissionDate.hint', admissionDateHint )
+                 html: t('hospital-details:admissionDate.hint', { admissionDateHint : admissionDateHint } )
              },
              casaValue: formData.admissionDate,
              casaErrors: formErrors
@@ -63,6 +62,6 @@
             } %}
          {% endif %}
 
-         {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+         {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
 
 {% endblock %}

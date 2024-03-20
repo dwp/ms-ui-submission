@@ -13,7 +13,7 @@
     {% set yearError = formErrors['claimStartDate'][0].inline | matchYear or formErrors['claimStartDate'][0].errorType | includesYear %}
 
     {% set dateParams = {
-        name: 'claimStartDate',
+        namePrefix: 'claimStartDate',
         fieldset: {
              legend: {
                  text: t('claim-start-date:claimStartDate.label'),
@@ -22,7 +22,7 @@
              }
         },
         hint: {
-            html: t('claim-start-date:claimStartDate.hint', claimStartDateHint )
+            html: t('claim-start-date:claimStartDate.hint', { claimStartDateHint: claimStartDateHint })
         },
         casaValue: formData.claimStartDate,
         casaErrors: formErrors
@@ -40,7 +40,7 @@
         } %}
      {% endif %}
 
-     {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
-     <input type="hidden" name="hiddenSspEndDate" value={{ hiddenSspEndDate }} />
+     {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
+     <input type="hidden" name="hiddenSspEndDate" value="{{ hiddenSspEndDate }}" />
 
 {% endblock %}

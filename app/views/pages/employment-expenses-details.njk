@@ -1,9 +1,9 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "components/character-count/macro.njk" import govukCharacterCount %}
+{% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
 {% block casaPageTitle %}
-    {{ t('employment-expenses-details:pageTitle', employerName) }}
+    {{ t('employment-expenses-details:pageTitle', { employerName : employerName }) }}
 {% endblock %}
 
 {% block journey_form %}

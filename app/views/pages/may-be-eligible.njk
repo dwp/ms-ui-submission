@@ -1,7 +1,7 @@
 {% extends "layouts/custom-journey.njk" %}
-{% from "components/inset-text/macro.njk" import govukInsetText %}
-{% from "components/button/macro.njk" import govukButton %}
-{% from "components/details/macro.njk" import govukDetails %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% block pageTitle %}
     {{ t('may-be-eligible:pageTitle') }} - {{ t('app:commonTitle') }}
@@ -40,11 +40,24 @@
                     html: onlineHelpDetails
                 }) }}
                 <p class="govuk-body">
-                {{ govukButton({
-                    text: t('may-be-eligible:button'),
-                    href: "/name",
-                    classes: 'govuk-button govuk-!-margin-bottom-8'
-                }) }}
+                {% call casaJourneyForm({
+                          csrfToken: casa.csrfToken,
+                          inEditMode: inEditMode,
+                          casaMountUrl: casa.mountUrl,
+                          buttonBarHidden: true,
+                          page_path: page_path
+                      }) %}
+                      {% block journey_button %}
+                        {{ govukButton({
+                          text: t('may-be-eligible:button'),
+                          preventDoubleClick: true,
+                          classes: 'govuk-button govuk-!-margin-bottom-8',
+                          attributes: {
+                            id: 'continue-button'
+                          }
+                        }) }}
+                      {% endblock %}
+                {% endcall %}
                 </p>
             </div>
         </div>

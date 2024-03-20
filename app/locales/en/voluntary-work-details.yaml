@@ -1,0 +1,24 @@
+---
+pageTitle: Voluntary work details
+heading: Voluntary work details
+hint: If you volunteer for more than one organisation, you will be asked about the others later.
+organisationName:
+  label: Organisation name
+  errors:
+    required: Enter organisation name
+organisationAddress:
+  label: Organisation address
+  address1:
+    errors:
+      required: Enter line 1 of the organisation address
+      badFormat: The building or street must contain only letters, numbers, commas or full stops
+  address2:
+    errors:
+      badFormat: The building or street must contain only letters, numbers, commas or full stops
+  address3:
+    errors:
+      badFormat: Town or city must contain only letters, commas or full stops
+  postcode:
+    errors:
+      required: Enter a postcode, like AA1 1AA
+      badFormat: Enter a real postcode

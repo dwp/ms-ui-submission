@@ -111,53 +111,53 @@ services:
       - redis-cluster
       - stub
 
-  app-local:
-    container_name: app_ui
-    environment:
-      DEBUG: ${DEBUG}
-      LOG_LEVEL: ${LOG_LEVEL}
-      SERVER_PORT: ${APP_PORT}
-      SERVER_SSL_ENABLED: ${SERVER_SSL_ENABLED}
-      ESA_CONTROLLER_URL: ${SUB_HANDLER_URL}
-      SESSIONS_SECRET: ${SESSIONS_SECRET}
-      SESSIONS_TTL: ${SESSIONS_TTL}
-      SESSIONS_DIR: ${SESSIONS_DIR}
-      REDIS_KMS_ID: ${REDIS_KMS_ID}
-      REDIS_AWS_REGION: ${AWS_REGION}
-      NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
-      NOTIFY_APIKEY: ${NOTIFY_APIKEY}
-      NOTIFY_PROXY: ${NOTIFY_PROXY}
-      AWS_ACCESS_KEY_ID: dummyaccess
-      AWS_SECRET_ACCESS_KEY: dummysecret
-      LOCALSTACK_HOSTNAME: ${LOCALSTACK_HOSTNAME}
-      REDIS_PORT: ${REDIS_PORT}
-      REDIS_HOST: ${REDIS_HOST}
-      REDIS_ENCRYPTION_TRANSIT: ${REDIS_ENCRYPTION_TRANSIT}
-      KMS_ENDPOINT_URL: ${KMS_ENDPOINT_URL}
-      REDIS_MAX_RETRY: ${REDIS_MAX_RETRY}
-      NOTIFY_URL: ${NOTIFY_URL}
-      GOOGLE_TAG_MANAGER_ID: ${GOOGLE_TAG_MANAGER_ID}
-      QUEUE_URL: ${QUEUE_URL}
-      SQS_AWS_REGION: ${SQS_AWS_REGION}
-      SQS_ENDPOINT_OVERRIDE: ${SQS_ENDPOINT_OVERRIDE}
-      ENC_KEY_ALIAS: ${ENC_KEY_ALIAS}
-      SMS_API_KEY: ${SMS_API_KEY}
-    networks:
-      - test
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        - NODE_VERSION=$NODE_VERSION
-        - HTTP_PROXY=$HTTP_PROXY
-        - HTTPS_PROXY=$HTTPS_PROXY
-    ports:
-      - '$APP_PORT:$APP_PORT'
-    depends_on:
-      - localstack
-      - localstack-init
-      - redis-cluster
-      - stub
+#  app-local:
+#    container_name: app_ui
+#    environment:
+#      DEBUG: ${DEBUG}
+#      LOG_LEVEL: ${LOG_LEVEL}
+#      SERVER_PORT: ${APP_PORT}
+#      SERVER_SSL_ENABLED: ${SERVER_SSL_ENABLED}
+#      ESA_CONTROLLER_URL: ${SUB_HANDLER_URL}
+#      SESSIONS_SECRET: ${SESSIONS_SECRET}
+#      SESSIONS_TTL: ${SESSIONS_TTL}
+#      SESSIONS_DIR: ${SESSIONS_DIR}
+#      REDIS_KMS_ID: ${REDIS_KMS_ID}
+#      REDIS_AWS_REGION: ${AWS_REGION}
+#      NOTIFY_EMAILTO: ${NOTIFY_EMAILTO}
+#      NOTIFY_APIKEY: ${NOTIFY_APIKEY}
+#      NOTIFY_PROXY: ${NOTIFY_PROXY}
+#      AWS_ACCESS_KEY_ID: dummyaccess
+#      AWS_SECRET_ACCESS_KEY: dummysecret
+#      LOCALSTACK_HOSTNAME: ${LOCALSTACK_HOSTNAME}
+#      REDIS_PORT: ${REDIS_PORT}
+#      REDIS_HOST: ${REDIS_HOST}
+#      REDIS_ENCRYPTION_TRANSIT: ${REDIS_ENCRYPTION_TRANSIT}
+#      KMS_ENDPOINT_URL: ${KMS_ENDPOINT_URL}
+#      REDIS_MAX_RETRY: ${REDIS_MAX_RETRY}
+#      NOTIFY_URL: ${NOTIFY_URL}
+#      GOOGLE_TAG_MANAGER_ID: ${GOOGLE_TAG_MANAGER_ID}
+#      QUEUE_URL: ${QUEUE_URL}
+#      SQS_AWS_REGION: ${SQS_AWS_REGION}
+#      SQS_ENDPOINT_OVERRIDE: ${SQS_ENDPOINT_OVERRIDE}
+#      ENC_KEY_ALIAS: ${ENC_KEY_ALIAS}
+#      SMS_API_KEY: ${SMS_API_KEY}
+#    networks:
+#      - test
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#      args:
+#        - NODE_VERSION=$NODE_VERSION
+#        - HTTP_PROXY=$HTTP_PROXY
+#        - HTTPS_PROXY=$HTTPS_PROXY
+#    ports:
+#      - '$APP_PORT:$APP_PORT'
+#    depends_on:
+#      - localstack
+#      - localstack-init
+#      - redis-cluster
+#      - stub
 
   selenium:
     container_name: selenium_chrome
@@ -170,53 +170,50 @@ services:
       - test
 
 #To use develop image prior to merge (when working in CI)
-  smoke_test:
-    container_name: maven_smoke_test
+  maven_smoke_test:
     image: '${TEST_IMAGE_CONTAINER}'
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE
+      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE_SAAS
       - TEST_RUNNER=SmokeTests
     volumes:
       - '.:/usr/src/mymaven/.'
       - './smoke-reports:/target/smoke-reports/'
-      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
+      - $MVN_SETTINGS_FILE_SAAS:$MVN_SETTINGS_FILE_SAAS
     networks:
       - test
     depends_on:
       - selenium
 
 #To use develop image prior to merge (when working in CI)
-  journey_test:
-    container_name: maven_journey_test
+  maven_journey_test:
     image: '${TEST_IMAGE_CONTAINER}'
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE
+      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE_SAAS
       - TEST_RUNNER=FeatureTests
     volumes:
       - '.:/usr/src/mymaven/.'
       - './journey-reports:/target/feature-reports/'
-      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
+      - $MVN_SETTINGS_FILE_SAAS:$MVN_SETTINGS_FILE_SAAS
     networks:
       - test
     depends_on:
       - selenium
 
-#To use develop image prior to merge (when working in CI)
-  axe_test:
-    container_name: maven_axe_test
+##To use develop image prior to merge (when working in CI)
+  maven_axe_test:
     image: '${TEST_IMAGE_CONTAINER}'
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE
+      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE_SAAS
       - TEST_RUNNER=AxeTests
     volumes:
       - './aXe-reports:/target/aXe-text-reports/'
-      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
+      - $MVN_SETTINGS_FILE_SAAS:$MVN_SETTINGS_FILE_SAAS
     networks:
       - test
     depends_on:

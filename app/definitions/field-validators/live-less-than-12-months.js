@@ -1,17 +1,14 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Severe condition validator');
 
-module.exports = {
-  severeCondition: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('severeCondition').validators([
+    r.required.make({
       errorMsg: 'live-less-than-12-months:severeCondition.errors.required',
     }),
   ]),
-};
+];

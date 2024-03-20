@@ -1,53 +1,10 @@
 {
-    "1093311": {
-        "active": true,
-        "notes": "Prototype Pollution in lodash - gulp-inline -> gulp-util -> lodash.template"
-    },
-    "1091691": {
-        "active": true,
-        "notes": "Terser insecure use of regular expressions before v4.8.1 and v5.14.2 leads to ReDoS  gulp-minify>terser"
-    },
-    "1091181": {
-       "active": true,
-       "notes": "glob-parent before 5.1.2 vulnerable to Regular Expression Denial of Service in enclosure regex  gulp>glob-watcher>chokidar>glob-parent"
-    },
-    "1091430": {
-       "active": true,
-       "notes": "Path Traversal: 'dir/../../filename' in   @dwp/govuk-casa>moment"
-    },
-    "1091441": {
-        "active": true,
-        "notes": "Moment.js vulnerable to Inefficient Regular Expression Complexity' in   @dwp/govuk-casa>moment"
-     },
-
-     "1094009": {
-        "active": true,
-        "notes": "minimatch ReDoS vulnerability gulp-minify>minimatch"
-     },
-
-     "1094099": {
-        "active": true,
-        "notes": "qs vulnerable to Prototype Pollution @dwp/govuk-casa > body-parser > qs"
-     },
-
-     "1094097": {
-        "active": true,
-        "notes": "qs vulnerable to Prototype Pollution gulp-base64-v2 > request > qs"
-     },
-
-     "1094087": {
+     "1095141": {
          "active": true,
-         "notes": "decode-uri-component vulnerable to Denial of Service (DoS)"
+         "notes": "nth-check vulnerable to Regex Injection via Doctype Entities"
      },
-
-     "1093882": {
+     "1096303": {
          "active": true,
-         "notes": "Inefficient Regular Expression Complexity in nth-check"
-      },
-
-     "1092243": {
-         "active": true,
-         "notes": "fast-xml-parser vulnerable to Regex Injection via Doctype Entities"
+         "notes": "lodash.pick Prototype Pollution in lodash"
      }
-
 }

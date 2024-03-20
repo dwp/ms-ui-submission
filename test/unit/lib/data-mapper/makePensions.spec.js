@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makePensions = require('../../../../app/lib/data-mapper/makePensions.js');
+import { expect } from 'chai';
+import makePensions from '../../../../src/lib/data-mapper/makePensions.js';
 
 describe('setting up pensions data for submission', () => {
   const pensionGather = [

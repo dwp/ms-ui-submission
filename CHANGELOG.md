@@ -1,3 +1,11 @@
+<a name="5-0-0"></a>
+# 5-0-0 (2024-03-12)
+
+* Added missing date var to lang file ([a0b843da](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/a0b843da))
+* build: CASA upgrade from v4 to v8 ([5618d9d0](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/5618d9d0))
+* feature: update to GA4 ([a57704b2](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/a57704b2))
+* chore: update dependencies ([d3e99259](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/d3e99259))
+
 <a name="4-6-0"></a>
 # 4-6-0 (2023-09-26)
 

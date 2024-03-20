@@ -1,17 +1,15 @@
-const { v4: uuidv4 } = require('uuid');
-const Logger = require('../lib/Logger');
-const cryptoUtil = require('../utils/cryptoUtils');
-const { publishMessage } = require('../dao/messagePublisherDao');
-const { buildSMSMessage } = require('../lib/notifications/message-builder');
+import { v4 as uuidv4 } from 'uuid';
+import Logger from '../../src/lib/logger.js';
+import cryptoUtils from '../utils/cryptoUtils.js';
+import messagePublisherDao from '../dao/messagePublisherDao.js';
+import buildSMSMessage from '../../src/lib/notifications/message-builder.js';
 
 const appLogger = Logger();
 
-async function encryptMessageIfNeeded(messageBody, config) {
-  return JSON.stringify((config.ENC_KEY_ALIAS)
-    ? await cryptoUtil.encryptMessageBody(messageBody, config) : messageBody);
-}
+const encryptMessageIfNeeded = async (messageBody, config) => JSON.stringify((config.ENC_KEY_ALIAS)
+  ? await cryptoUtils.encryptMessageBody(messageBody, config) : messageBody);
 
-async function processMessage(mobileNo, smsTemplateId, config) {
+const processMessage = async (mobileNo, smsTemplateId, config) => {
   const id = uuidv4();
   const smsAPIKey = config.SMS_API_KEY;
   const messageObject = buildSMSMessage(
@@ -22,13 +20,19 @@ async function processMessage(mobileNo, smsTemplateId, config) {
   );
   const messageAsString = await encryptMessageIfNeeded(messageObject, config);
 
-  return publishMessage(
+  return messagePublisherDao.publishMessage(
     messageAsString,
     config,
   );
-}
+};
 
-exports.processNotifications = async (mobileNo, smsTemplateId, config) => {
+const processNotifications = async (mobileNo, smsTemplateId, config) => {
   appLogger.info('Processing SMS notification');
   return processMessage(mobileNo, smsTemplateId, config);
+};
+
+export default {
+  encryptMessageIfNeeded,
+  processMessage,
+  processNotifications,
 };

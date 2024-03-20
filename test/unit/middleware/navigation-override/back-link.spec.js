@@ -1,18 +1,31 @@
-const chai = require('chai');
-const sinon = require('sinon');
+import sinon from 'sinon';
 
-const { expect } = chai;
+import { expect } from 'chai';
 
-const backLink = require('../../../../app/middleware/navigation-override/back-link');
+import { JourneyContext } from '@dwp/govuk-casa';
+import backLink from '../../../../src/middleware/navigation-override/back-link.js';
+let sandbox;
+
 
 describe('backLink', () => {
+    beforeEach(() => {
+        sandbox = sinon.createSandbox();
+        sandbox.stub(JourneyContext, 'putContext').resolves();
+    });
+    afterEach(() => {
+        sandbox.restore();
+    });
   let req;
   let next;
   beforeEach(() => {
     req = {
       session: {
         backClicked: true,
+        save: sinon.stub(),
         nextBackLink: '/previous-page',
+      },
+      casa: {
+        journeyContext: sinon.stub()
       },
       path: '/this-page',
     };

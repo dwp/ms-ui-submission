@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makeEmployments = require('../../../../app/lib/data-mapper/makeEmployments.js');
+import { expect } from 'chai';
+import makeEmployments from '../../../../src/lib/data-mapper/makeEmployments.js';
 
 describe('setting up employments data for submission', () => {
   const employmentGather = [

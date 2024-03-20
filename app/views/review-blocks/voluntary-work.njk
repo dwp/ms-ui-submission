@@ -1,12 +1,12 @@
 <h2 class="govuk-heading-m govuk-!-padding-top-6">{{ t('check-your-answers:headingVoluntaryWork') }}</h2>
 
-{% if not journeyData['voluntary-work'].other %}
+{% if not voluntaryGather or voluntaryGather.length === 0%}
 
     {{ govukSummaryList({
         classes: "govuk-!-margin-bottom-9 check-your-answers",
         rows: [{
             key: { text: t('check-your-answers:doingVoluntaryWork') },
-            value: { text: t('app:' + journeyData['voluntary-work'].voluntaryWork ) },
+            value: { text: t('app:no') },
             actions: {
                 items: [{
                     attributes: { 'id': 'voluntary-work' },
@@ -22,7 +22,7 @@
 
     {% for vol in voluntaryGather %}
 
-        {{ cyaHeader(t('check-your-answers:yourRoleAt') + ' ' + vol.organisationName, 'voluntary', loop.index0, t('check-your-answers:removeVisuallyHiddenTextVoluntaryWork', vol.organisationName)) }}
+        {{ cyaHeader(t('check-your-answers:yourRoleAt') + ' ' + vol.organisationName, 'voluntary', loop.index0, t('check-your-answers:removeVisuallyHiddenTextVoluntaryWork', { organisationName : vol.organisationName })) }}
 
         {% set voluntaryWorkDetails %}
             {{ vol.organisationName }}<br>
@@ -51,9 +51,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'voluntary-work-details-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=voluntary-work-details&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=voluntary-work-details&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkDetails', vol.organisationName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkDetails', { organisationName : vol.organisationName })
                     }]
                 }
             }, {
@@ -62,9 +62,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'voluntary-work-type-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=voluntary-work-role&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=voluntary-work-role&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkType', vol.organisationName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkType', { organisationName : vol.organisationName })
                     }]
                 }
             }, {
@@ -73,9 +73,9 @@
                 actions: {
                     items: [{
                         attributes: { 'id': 'voluntary-work-hours-'+loop.index0 },
-                        href: 'check-your-answers?edit&page=voluntary-work-hours&index='+loop.index0,
+                        href: 'check-your-answers?edit=true&page=voluntary-work-hours&index='+loop.index0,
                         text: t('check-your-answers:change'),
-                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkHours', vol.organisationName)
+                        visuallyHiddenText: t('check-your-answers:visuallyHiddenTextVoluntaryWorkHours', { organisationName : vol.organisationName })
                     }]
                 }
             }]
@@ -83,12 +83,14 @@
 
     {% endfor %}
 
-    <h3 class="govuk-heading-m">{{ t('check-your-answers:otherVoluntaryWorkHeading') }}</h3>
+    {% if voluntaryGather and voluntaryGather.length > 0 %}
+        <h3 class="govuk-heading-m">{{ t('check-your-answers:otherVoluntaryWorkHeading') }}</h3>
+    {% endif %}
 
     {{ govukSummaryList({
         rows: [{
             key: { text: t('check-your-answers:doingOtherVoluntaryWork') },
-            value: { text: t('app:' + journeyData['voluntary-work'].other ) },
+            value: { text: t('app:no' ) },
             actions: {
                 items: [{
                     attributes: { 'id': 'other-voluntary' },

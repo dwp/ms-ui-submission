@@ -1,7 +1,5 @@
-const chai = require('chai');
-const { buildSMSMessage } = require('../../../../app/lib/notifications/message-builder');
-
-const { expect } = chai;
+import { expect } from 'chai';
+import buildSMSMessage from '../../../../src/lib/notifications/message-builder.js';
 
 describe('when buildMessage is called', () => {
   it('returns a correctly built message object', () => {

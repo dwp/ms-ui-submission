@@ -1,0 +1,10 @@
+<!-- CASA -->
+<script src="{{ casa.staticMountUrl }}govuk/assets/js/all.js?{{ casaVersion }}"></script>
+<script nonce="{{ cspNonce }}">
+window.GOVUKFrontend.initAll();
+if (window.history.replaceState) {
+  // Prevent re-submission of POST on refreshing page
+  window.history.replaceState(null, null, window.location.href);
+};
+</script>
+<!-- /CASA -->

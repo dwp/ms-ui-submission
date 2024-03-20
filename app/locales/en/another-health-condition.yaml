@@ -1,0 +1,11 @@
+---
+pageTitle: Do you have another health condition, illness, disability or injury?
+list: 'You have added details for:'
+hint: You can only add up to 12 conditions. You can tell us about others at the next stage of your claim.
+condition:
+  label: Do you have another health condition, illness, disability or injury?
+  hint: You can only add up to 12 conditions. You can tell us about others at the next stage of your claim.
+  yes: Yes
+  no: 'No'
+  errors:
+      required: Select yes if you have another health condition, illness, disability or injury

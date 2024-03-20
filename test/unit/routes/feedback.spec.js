@@ -1,10 +1,11 @@
-const { assert, expect } = require('chai');
-const rewire = require('rewire');
-const sinon = require('sinon');
+import { assert, expect } from 'chai';
+import sinon from 'sinon';
 
-const feedback = rewire('../../../app/routes/feedback.js');
+import feedback from '../../../src/routes/feedback.js';
+import notifyEmail from '../../../src/lib/NotifyService.js';
 
 describe('Feedback routes', () => {
+  sinon.stub(notifyEmail, 'notifyEmail').resolves();
   const res = {
     status: () => ({
       redirect: () => {},
@@ -13,6 +14,7 @@ describe('Feedback routes', () => {
   };
   const router = {};
   const req = {
+    t: () => {},
     csrfToken: () => '',
     headers: {
       referer: 'https://localhost:3000/',
@@ -59,9 +61,7 @@ describe('Feedback routes', () => {
     feedback(router);
   });
   it('should set up a POST route and redirect to thankyou page if all req.body fields are present', (done) => {
-    const notifyEmail = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    feedback.__set__('notifyEmail', notifyEmail);
+
     try {
       req.body = {
         referringPage: 'live-less-than-12-months',
@@ -83,9 +83,6 @@ describe('Feedback routes', () => {
     }
   });
   it('should set up a POST route and redirect to thankyou page if rating field is not present', (done) => {
-    const notifyEmail = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    feedback.__set__('notifyEmail', notifyEmail);
     try {
       req.body = {
         referringPage: 'live-less-than-12-months',
@@ -107,9 +104,6 @@ describe('Feedback routes', () => {
     }
   });
   it('should set up a POST route and redirect to thankyou page if comments field is not present', (done) => {
-    const notifyEmail = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    feedback.__set__('notifyEmail', notifyEmail);
     try {
       req.body = {
         referringPage: 'live-less-than-12-months',
@@ -131,11 +125,7 @@ describe('Feedback routes', () => {
     }
   });
   it('should rerender feedback page with error if both rating and comments are empty', (done) => {
-    const notifyEmail = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    feedback.__set__('notifyEmail', notifyEmail);
     try {
-      req.i18nTranslator = { t: () => {} };
       req.body = {
         referringPage: 'live-less-than-12-months',
         rating: '',
@@ -158,9 +148,8 @@ describe('Feedback routes', () => {
     }
   });
   it('should render the errors/500.njk page if it catches a notify error', (done) => {
-    const notifyEmail = sinon.stub().rejects();
-    /* eslint-disable-next-line no-underscore-dangle */
-    feedback.__set__('notifyEmail', notifyEmail);
+    sinon.restore();
+    sinon.stub(notifyEmail, 'notifyEmail').rejects();
     try {
       req.body = {
         referringPage: 'live-less-than-12-months',

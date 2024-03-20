@@ -4,7 +4,7 @@
 {% from "casa/components/input/macro.njk" import casaGovukInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('employment-hours:pageTitle', employerName) }}
+    {{ t('employment-hours:pageTitle', { employerName : employerName }) }}
 {% endblock %}
 
 {% block journey_form %}
@@ -26,7 +26,7 @@
         name: 'sameHours',
         fieldset: {
             legend: {
-                text: t('employment-hours:sameHours.label', employerName),
+                text: t('employment-hours:sameHours.label', { employerName : employerName }),
                 isPageHeading: true,
                 classes: 'govuk-fieldset__legend--l'
             }
@@ -37,7 +37,7 @@
             value: 'yes',
             text: t('employment-hours:sameHours.yes'),
             attributes: {
-                'data-question': t('employment-hours:sameHours.label', employerName),
+                'data-question': t('employment-hours:sameHours.label', { employerName : employerName }),
                 'data-answer': t('employment-hours:sameHours.yes')
             },
             conditional: {
@@ -47,7 +47,7 @@
             value: 'no',
             text: t('employment-hours:sameHours.no'),
             attributes: {
-                'data-question': t('employment-hours:sameHours.label', employerName),
+                'data-question': t('employment-hours:sameHours.label', { employerName : employerName }),
                 'data-answer': t('employment-hours:sameHours.no')
             }
         }]

@@ -1,7 +1,7 @@
 {% extends "layouts/custom-journey.njk" %}
 
-{% from "components/button/macro.njk" import govukButton %}
-{% from "components/back-link/macro.njk" import govukBackLink %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/back-link/macro.njk" import govukBackLink %}
 {# journeyPreviousUrl is set to true stops casa adding the govuk-main-wrapper--l to the main block and messing up the top margin #}
 {%  set journeyPreviousUrl = true %}
 
@@ -24,11 +24,14 @@
             <p class="govuk-body">{{ t('eligibility-start:p1') }}</p>
             <p class="govuk-body">{{ t('eligibility-start:research') | safe }}</p>
             <p class="govuk-body">
-                {{ govukButton({
-                    text: t('eligibility-start:continue'),
-                    href: "/disability-or-health-condition",
-                    classes: 'govuk-button govuk-!-margin-bottom-8'
-                }) }}
+            {% call casaJourneyForm({
+                      csrfToken: casa.csrfToken,
+                      inEditMode: inEditMode,
+                      casaMountUrl: casa.mountUrl,
+                      buttonBarHidden: false,
+                      page_path: page_path
+                  }) %}
+            {% endcall %}
             </p>
         </div>
     </div>

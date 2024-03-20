@@ -1,0 +1,27 @@
+---
+pageTitle: Ym mha ysbyty rydych yn aros ynddi?
+hospitalName:
+  label: Enw’r ysbyty
+  errors:
+    required: Rhowch enw’r ysbyty
+    badFormat: Mae’n rhaid i enw’r ysbyty beidio â chynnwys <, > neu /
+hospitalWard:
+  label: Enw neu rif y ward
+  errors:
+    required: Rhowch enw neu rif y ward
+    badFormat: Mae’n rhaid i enw neu rif y ward beidio â chynnwys < neu >
+admissionDate:
+  label: Dyddiad aethoch chi i’r ysbyty
+  hint: Er enghraifft, <span class="nobr">{{admissionDateHint}}</span>
+  errors:
+    required: Rhowch y dyddiad aethoch chi i’r ysbyty
+    missingDay: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys diwrnod
+    missingMonth: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys mis
+    missingYear: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys blwyddyn
+    missingDayAndMonth: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys diwrnod a mis
+    missingDayAndYear: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys diwrnod a blwyddyn
+    missingMonthAndYear: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty gynnwys mis a blwyddyn
+    badFormatYear: Rhowch y dyddiad aethoch chi i’r ysbyty gyda blwyddyn yn y ffurf gywir, er enghraifft 2001 dim 01
+    notReal: Rhowch ddyddiad aethoch chi i’r ysbyty gwirioneddol
+    notRealDigits: Rhowch ddyddiad aethoch chi i’r ysbyty gwirioneddol drwy ddefnyddio rhifau yn unig
+    inFuture: Mae’n rhaid i’r dyddiad aethoch chi i’r ysbyty fod yn heddiw neu yn y gorffennol

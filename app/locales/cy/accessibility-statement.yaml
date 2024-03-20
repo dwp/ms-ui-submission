@@ -1,0 +1,37 @@
+---
+pageTitle: Datganiad hygyrchedd
+h1: Datganiad hygyrchedd ar gyfer Gwneud Cais am ESA Dull Newydd
+p1: Mae’r gwasanaeth hwn yn rhan o wefan ehangach GOV.UK. Mae <a class="govuk-link" href="https://www.gov.uk/help/accessibility-statement/">datganiad hygyrchedd ar wahân ar gyfer prif wefan GOV.UK.</a>
+p2: Dim ond gwybodaeth am y gwasanaeth Gwneud Cais am Lwfans Cyflogaeth a Chymorth Dull Newydd (ESA) sy’n cael ei gynnwys ar y dudalen hon, ar gael yn <a class="govuk-link" href="https://www.apply-new-style-employment-support-allowance.dwp.gov.uk/?lang=cy">https://www.apply-new-style-employment-support-allowance.dwp.gov.uk</a>
+usingThisService:
+  h2: Defnyddio’r gwasanaeth hwn
+  p1: 'Mae’r gwasanaeth hwn yn cael ei redeg gan yr Adran Gwaith a Phensiynau. Rydym eisiau cyn gymaint o bobl â phosibl i allu defnyddio’r gwasanaeth. Er enghraifft, mae hyn yn golygu y dylech allu:'
+  li1: newid lliwiau, lefelau cyferbyniad a ffontiau
+  li2: chwyddo hyd at 300% heb i’r testun fynd oddi ar y sgrin
+  li3: mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio bysellfwrdd yn unig
+  li4: mynd o ddechrau’r gwasanaeth i’r diwedd gan ddefnyddio meddalwedd adnabod lleferydd
+  li5: gwrando ar y gwasanaeth gan ddefnyddio darllenydd sgrin
+  p2: Rydym hefyd wedi gwneud y cynnwys yn y gwasanaeth mor syml â phosibl i’w ddeall.
+  p3: Mae gan <a class="govuk-link" href="https://mcmw.abilitynet.org.uk/">AbilityNet</a> gyngor ar wneud eich dyfais yn haws i’w defnyddio os oes gennych anabledd.
+howAccessibleThisServiceIs:
+  h2: Pa mor hygyrch yw’r gwasanaeth hwn
+  p1: Mae’r gwasanaeth yn defnyddio arddulliau, patrymau a chydrannau cyffredin o System Ddylunio GOV.UK sy’n cael eu hystyried yn eang i fod yn hygyrch.
+difficultyUsingService:
+  h2: Beth i’w wneud os ydych yn cael anhawster defnyddio’r gwasanaeth hwn
+  p1: Os ydych yn cael anhawster defnyddio’r gwasanaeth hwn, <a class="govuk-link" href="https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact">cysylltwch â DWP am hygyrchedd.</a>
+  p2: Fel rhan o gynnig y gwasanaeth hwn, efallai y bydd angen i ni  anfon negeseuon neu ddogfennau atoch. <a class="govuk-link" href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">Cysylltwch â ni</a> os ydych eu hangen mewn fformat gwahanol, er enghraifft print bras, recordiad sain neu braille.
+reportingAccessibilityProblems:
+  h2: Rhoi gwybod am broblemau hygyrchedd gyda’r gwasanaeth hwn
+  p1: Rydym bob amser yn ceisio gwella hygyrchedd y gwasanaeth hwn. Os byddwch yn dod o hyd i unrhyw broblemau nad ydynt wedi'u rhestru ar y dudalen hon neu os credwch nad ydynt yn bodloni gofynion hygyrchedd, <a class="govuk-link" href="https://secure.dwp.gov.uk/contact-dwp-about-accessibility/contact">cysylltwch â DWP am hygyrchedd.</a>
+enforcementProcedure:
+  h2: Y drefn gorfodaeth
+  p1: Mae’r Comisiwn Cydraddoldeb a Hawliau Dynol (EHRC) yn gyfrifol am orfodi’r ’Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018’ y ’rheolaethau hygyrchedd’). Os nad ydych yn hapus â sut rydym yn ymateb i’ch cwyn, <a class="govuk-link" href="https://www.equalityadvisoryservice.com/">cysylltwch â’r Gwasanaeth Cynghori a Chefnogaeth Cydraddoldeb (EASS).</a>
+technicalInformationAboutServiceAccessibility:
+  h2: Gwybodaeth dechnegol am hygyrchedd y gwasanaeth hwn
+  p1: Mae’r Adran Gwaith a Phensiynau wedi ymrwymo i wneud y gwasanaeth hwn yn hygyrch, yn unol â ’Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018’.
+  p2: Mae’r gwasanaeth hwn yn cydymffurfio’n llawn â fersiwn 2.1 Safon AA Canllawiau Hygyrchedd Cynnwys Gwe.
+howWeTested:
+  h2: Sut gwnaethom brofi’r gwasanaeth
+  p1: Profwyd y gwasanaeth ddiwethaf ar 16 Mawrth 2023 a gwiriwyd ei fod yn cydymffurfio â WCAG 2.1 AA. Cafodd y profion eu cynnal gan yr Adran Gwaith a Phensiynau.
+  p2: Profwyd y gwasanaeth gan ddefnyddio profion â llaw ac awtomataidd.
+  p3: Paratowyd y dudalen hon ar 14 Ebrill 2020 a diweddarwyd ddiwethaf ar 27 Ebrill 2023.

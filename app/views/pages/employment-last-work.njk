@@ -3,7 +3,7 @@
 {% from "casa/components/date-input/macro.njk" import casaGovukDateInput with context %}
 
 {% block casaPageTitle %}
-    {{ t('employment-last-work:pageTitle', employerName) }}
+    {{ t('employment-last-work:pageTitle') }}
 {% endblock %}
 
 {% block journey_form %}
@@ -13,16 +13,16 @@
     {% set yearError = formErrors['lastWorkedDate'][0].inline | matchYear or formErrors['lastWorkedDate'][0].errorType | includesYear %}
 
     {% set dateParams = {
-        name: 'lastWorkedDate',
+        namePrefix: 'lastWorkedDate',
         fieldset: {
             legend: {
-                text: t('employment-last-work:lastWorkedDate.label', employerName),
+                text: t('employment-last-work:lastWorkedDate.label', { employerName : employerName }),
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--l"
             }
         },
         hint: {
-            html: t('employment-last-work:lastWorkedDate.hint', lastWorkedDateHint )
+            html: t('employment-last-work:lastWorkedDate.hint', { lastWorkedDateHint : lastWorkedDateHint } )
         },
         casaValue: formData.lastWorkedDate,
         casaErrors: formErrors
@@ -40,6 +40,6 @@
         } %}
      {% endif %}
 
-     {{ casaGovukDateInput(mergeObjectsDeep(dateParams, dateErrorParams)) }}
+     {{ casaGovukDateInput(mergeObjects(dateParams, dateErrorParams)) }}
 
 {% endblock %}

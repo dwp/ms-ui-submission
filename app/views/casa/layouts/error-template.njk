@@ -1,0 +1,35 @@
+{% extends "casa/layouts/main.njk" %}
+{% from "govuk/components/footer/macro.njk" import govukFooter with context %}
+
+{% block head %}
+{%  include "includes/application-styles.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+    {% include "casa/partials/phase_banner_beta.njk" %}
+{% endblock %}
+
+{% block footer %}
+{{ govukFooter({
+  meta: {
+    items: [
+      {
+        href: "https://www.gov.uk/help",
+        text: t('app:footerLink.help')
+      },
+      {
+        href: "/accessibility-statement",
+        text: t('app:footerLink.accessibility')
+      },
+      {
+        href: cookiePolicyUrl,
+        text: t('app:footerLink.cookies')
+      },
+      {
+        href: t('app:footerLink.privacyLink'),
+        text: t('app:footerLink.privacy')
+      }
+    ]
+  }
+}) }}
+{% endblock %}

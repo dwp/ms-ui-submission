@@ -1,7 +1,7 @@
-const CryptoService = require('dwp-cryptoservice');
-const KmsKeyProvider = require('dwp-cryptoservice/KmsKeyProvider');
+import CryptoService from '@dwp/dwp-cryptoservice';
+import KmsKeyProvider from '@dwp/dwp-cryptoservice/KmsKeyProvider.js';
 
-exports.encryptMessageBody = async (body, config) => {
+const encryptMessageBody = async (body, config) => {
   const providerOptions = {
     cmkId: config.ENC_KEY_ALIAS,
     region: config.SQS_AWS_REGION,
@@ -17,4 +17,8 @@ exports.encryptMessageBody = async (body, config) => {
     cipherkey: cipherObject.cipherkey.toString('base64'),
     ciphertext: cipherObject.ciphertext.toString('base64'),
   };
+};
+
+export default {
+  encryptMessageBody,
 };

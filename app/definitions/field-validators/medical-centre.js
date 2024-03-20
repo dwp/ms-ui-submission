@@ -1,37 +1,88 @@
-const { SimpleField, rules } = require('@dwp/govuk-casa/lib/Validation');
-const validatePostalAddress = require('../../lib/validation-rules/postalAddress-validator.js');
-const validatePhoneNumber = require('../../lib/validation-rules/phone-number-validator.js');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import validateSpecialChar from '../../../src/lib/validators/special-char-validator.js';
+import validatePhoneNumber from '../../../src/lib/validators/phone-number-validator.js';
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Medical centre validator');
 
-module.exports = {
-  name: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('name').validators([
+    r.required.make({
       errorMsg: 'medical-centre:name.errors.required',
     }),
   ]),
-  address: SimpleField([
-    validatePostalAddress.bind({
-      errorMsgAddress1: 'medical-centre:address.address1.errors.required',
-      errorMsgAddress1Format: 'medical-centre:address.address1.errors.badFormat',
-      errorMsgAddress2Format: 'medical-centre:address.address2.errors.badFormat',
-      errorMsgPostcodeFormat: 'medical-centre:postcode.errors.badFormat',
-      altRegex: /^[^0-9]*$/,
+  field('address[address1]').validators([
+    r.required.make({
+      errorMsg: 'medical-centre:address.address1.errors.required',
     }),
   ]),
-  phoneNumber: SimpleField([
-    rules.required.bind({
+  field('address[address3]').validators([
+    r.required.make({
+      errorMsg: 'medical-centre:address.address3.errors.required',
+    }),
+  ]),
+  field('address[postcode]').validators([
+    r.required.make({
+      errorMsg: 'medical-centre:postcode.errors.required',
+    }),
+  ]),
+  field('address').validators([
+    r.postalAddressObject.make({
+      requiredField: ['address1', 'address3', 'postcode'],
+      errorMsgAddress1: {
+        inline: 'medical-centre:address.address1.errors.badFormat',
+        summary: 'medical-centre:address.address1.errors.badFormat',
+        focusSuffix: '[address1]',
+      },
+      errorMsgAddress2: {
+        inline: 'medical-centre:address.address2.errors.badFormat',
+        focusSuffix: '[address2]',
+      },
+      errorMsgAddress3: {
+        inline: 'medical-centre:address.address3.errors.badFormat',
+        summary: 'medical-centre:address.address3.errors.badFormat',
+        focusSuffix: '[address3]',
+      },
+      errorMsgPostcode: {
+        summary: 'medical-centre:postcode.errors.badFormat',
+        focusSuffix: '[postcode]',
+      },
+    }),
+  ]),
+  field('address[address1]').validators([
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'medical-centre:address.address1.errors.badFormat',
+        focusSuffix: '[address1]',
+      },
+    }),
+  ]),
+  field('address[address2]').validators([
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'medical-centre:address.address2.errors.badFormat',
+      },
+      required: false,
+    }),
+  ]),
+  field('address[address3]').validators([
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'medical-centre:address.address3.errors.badFormat',
+      },
+    }),
+  ]),
+  field('phoneNumber').validators([
+    r.required.make({
       errorMsg: 'medical-centre:phoneNumber.errors.required',
     }),
-    validatePhoneNumber.bind({
-      errorMsg: 'medical-centre:phoneNumber.errors.badFormat',
+    validatePhoneNumber.make({
+      errorMsg: {
+        summary: 'medical-centre:phoneNumber.errors.badFormat',
+      },
     }),
   ]),
-  doctor: SimpleField([
-    rules.optional,
-  ]),
-};
+  field('doctor', { optional: true }),
+];

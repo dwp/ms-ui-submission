@@ -1,39 +1,91 @@
-const { SimpleField, rules } = require('@dwp/govuk-casa/lib/Validation');
-const validatePostalAddress = require('../../lib/validation-rules/postalAddress-validator.js');
-const validatePhoneNumber = require('../../lib/validation-rules/phone-number-validator.js');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import isValidPhoneNumber from '../../../src/lib/validators/phone-number-validator.js';
+import validateSpecialChar from '../../../src/lib/validators/special-char-validator.js';
+import logger from '../../../src/lib/logger.js';
 
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Employment details validator');
 
-module.exports = {
-  jobTitle: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('jobTitle').validators([
+    r.required.make({
       errorMsg: 'employment-details:jobTitle.errors.required',
     }),
   ]),
-  employerName: SimpleField([
-    rules.required.bind({
+  field('employerName').validators([
+    r.required.make({
       errorMsg: 'employment-details:employerName.errors.required',
     }),
   ]),
-  employerAddress: SimpleField([
-    validatePostalAddress.bind({
-      errorMsgAddress1: 'employment-details:employerAddress.address1.errors.required',
-      errorMsgAddress1Format: 'employment-details:employerAddress.address1.errors.badFormat',
-      errorMsgAddress2Format: 'employment-details:employerAddress.address2.errors.badFormat',
-      errorMsgPostcodeFormat: 'employment-details:postcode.errors.badFormat',
-      altRegex: /^[^0-9]*$/,
+  field('employerAddress[address1]').validators([
+    r.required.make({
+      errorMsg: 'employment-details:employerAddress.address1.errors.required',
     }),
   ]),
-  employerTel: SimpleField([
-    rules.required.bind({
+  field('employerAddress[address3]').validators([
+    r.required.make({
+      errorMsg: 'employment-details:employerAddress.address3.errors.required',
+    }),
+  ]),
+  field('employerAddress[postcode]').validators([
+    r.required.make({
+      errorMsg: 'employment-details:postcode.errors.required',
+    }),
+  ]),
+  field('employerAddress').validators([
+    r.postalAddressObject.make({
+      requiredField: ['address1', 'address3', 'postcode'],
+      strlenmax: 500,
+      errorMsgAddress1: {
+        inline: 'employment-details:employerAddress.address1.errors.badFormat',
+        summary: 'employment-details:employerAddress.address1.errors.badFormat',
+        focusSuffix: '[address1]',
+      },
+      errorMsgAddress2: {
+        inline: 'employment-details:employerAddress.address2.errors.badFormat',
+        summary: 'employment-details:employerAddress.address2.errors.badFormat',
+      },
+      errorMsgAddress3: {
+        inline: 'employment-details:employerAddress.address3.errors.badFormat',
+        summary: 'employment-details:employerAddress.address3.errors.badFormat',
+        focusSuffix: '[address3]',
+      },
+      errorMsgPostcode: {
+        summary: 'employment-details:postcode.errors.badFormat',
+        focusSuffix: '[postcode]',
+      },
+    }),
+  ]),
+  field('employerAddress[address1]').validators([
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'employment-details:employerAddress.address1.errors.badFormat',
+        focusSuffix: '[address1]',
+      },
+    }),
+  ]),
+  field('employerAddress[address2]').validators([
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'employment-details:employerAddress.address2.errors.badFormat',
+      },
+      required: false,
+    }),
+  ]),
+  field('employerAddress[address3]').validators([
+    validateSpecialChar.make({
+      errorMsg: {
+        summary: 'employment-details:employerAddress.address3.errors.badFormat',
+      },
+    }),
+  ]),
+  field('employerTel').validators([
+    r.required.make({
       errorMsg: 'employment-details:employerTel.errors.required',
     }),
-    validatePhoneNumber.bind({
+    isValidPhoneNumber.make({
       errorMsg: 'employment-details:employerTel.errors.badFormat',
     }),
   ]),
-};
+];

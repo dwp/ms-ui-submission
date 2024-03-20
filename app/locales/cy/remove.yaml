@@ -1,0 +1,27 @@
+---
+pageTitle: Dileu
+heading: Edrychwch dros eich atebion cyn anfon eich cais
+remove:
+  yes: Ydw
+  no: Na
+  voluntary: Ydych chi’n siwr eich bod eisiau dileu eich rôl yn {{organisationName}}?
+  employment: Ydych chi’n siwr eich bod eisiau dileu eich swydd yn {{employerName}}?
+  pension: Ydych chi’n siwr eich bod eisiau dileu eich pensiwn gyda {{pensionProvider}}?
+  insurance: Ydych chi’n siwr eich bod eisiau dileu eich polisi gyda {{insuranceProvider}}?
+  condition: Ydych chi'n siwr eich bod eisiau tynnu {{conditionName}} o'ch cyflyrau iechyd?
+  errors:
+    required: Dewiswch ydw os hoffech ddileu’r manylion rydych wedi’u rhoi ar gyfer yr adran hon
+removed:
+  list: 'Rydych wedi dileu manylion ar gyfer:'
+  voluntary: Ydych chi’n gwneud unrhyw waith gwirfoddol arall?
+  employment: Oes gennych swydd arall?
+  pension: Ydych chi’n cael pensiynau neu flwydd-daliadau eraill?
+  insurance: Ydych chi’n cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall?
+  condition: Oes gennych gyflwr iechyd, salwch, anabledd neu anaf arall?
+  errors:
+    required:
+      voluntary: Dewiswch ydw os ydych yn gwneud unrhyw waith gwirfoddol arall
+      employment: Dewiswch ydw os oes gennych swydd arall
+      pension: Dewiswch ydw os ydych yn cael pensiynau neu flwydd-daliadau eraill
+      insurance: Dewiswch ydw os ydych yn cael unrhyw arian o unrhyw bolisi yswiriant iechyd parhaol arall
+      condition: Dewiswch oes os oes gennych unrhyw gyflwr iechyd, afiechyd, anabledd neu anaf arall

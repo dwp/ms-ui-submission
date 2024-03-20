@@ -1,27 +1,26 @@
-const Validation = require('@dwp/govuk-casa/lib/Validation');
-const validatePhoneNumber = require('../../lib/validation-rules/mobile-phone-number-validator.js');
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import mobilePhoneNumber from '../../../src/lib/validators/mobile-phone-number-validator.js';
 
-const { rules, SimpleField } = Validation;
-
-const Logger = require('../../lib/Logger');
-
-const appLogger = Logger();
-
+const appLogger = logger();
 appLogger.info('Mobile validator');
 
-module.exports = {
-  mobile: SimpleField([
-    rules.required.bind({
+export default () => [
+  field('mobile').validators([
+    r.required.make({
       errorMsg: 'mobile:mobile.errors.required',
     }),
   ]),
-
-  number: SimpleField([
-    rules.required.bind({
+  field('number').validators([
+    r.required.make({
       errorMsg: 'mobile:number.errors.required',
     }),
-    validatePhoneNumber.bind({
+    mobilePhoneNumber.make({
       errorMsg: 'mobile:number.errors.badFormat',
     }),
-  ], (pageData) => pageData.mobile === 'yes'),
-};
+  ]).conditions([
+    // Only validate the `mobile` field if user selects yes
+    ({ journeyContext: c, waypoint: w }) => c.data?.[w]?.mobile === 'yes',
+  ]),
+];

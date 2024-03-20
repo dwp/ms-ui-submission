@@ -1,49 +1,92 @@
-const moment = require('moment');
-const { rules, SimpleField } = require('@dwp/govuk-casa/lib/Validation');
-const dateExists = require('../../lib/validation-rules/date-exists.js');
-const dateComponentsExist = require('../../lib/validation-rules/date-components-exist.js');
-const dateYearLengthIsValid = require('../../lib/validation-rules/date-year-length-isValid.js');
-const dateIsReal = require('../../lib/validation-rules/date-is-real.js');
-const dateNotAfter = require('../../lib/validation-rules/date-not-after.js');
-const dateNotBefore = require('../../lib/validation-rules/date-not-before.js');
+import { DateTime } from 'luxon';
+import { validators as r } from '@dwp/govuk-casa';
+import field from '../../../src/lib/field.js';
+import logger from '../../../src/lib/logger.js';
+import dateComponentsExist from '../../../src/lib/validators/date-components-exist.js';
+import dateYearLengthIsValid from '../../../src/lib/validators/date-year-length-isValid.js';
+import dateIsReal from '../../../src/lib/validators/date-is-real.js';
+import dateNotAfter from '../../../src/lib/validators/date-not-after.js';
+import dateNotBefore from '../../../src/lib/validators/date-not-before.js';
 
-const Logger = require('../../lib/Logger');
+const appLogger = logger();
+appLogger.info('Claim Start Date field validations');
 
-const appLogger = Logger();
+const threeMonthsFuture = () => DateTime.now().startOf('day').plus({ months: 3 });
 
-appLogger.info('Claim start date validator');
-
-const threeMonthsFuture = () => moment().startOf('day').add(3, 'months');
-
-module.exports = {
-  hiddenSspEndDate: SimpleField([
-    rules.optional,
+export default () => [
+  field('hiddenSspEndDate', { optional: true }).validators([
+    r.required.make(),
   ]),
-  claimStartDate: SimpleField([
-    dateExists.bind({
-      errorMsg: 'claim-start-date:claimStartDate.errors.required',
+  field('claimStartDate').validators([
+    r.required.make({
+      errorMsg: {
+        summary: 'claim-start-date:claimStartDate.errors.required',
+        focustSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-    dateComponentsExist.bind({
-      errorMsgDayMissing: 'claim-start-date:claimStartDate.errors.missingDay',
-      errorMsgMonthMissing: 'claim-start-date:claimStartDate.errors.missingMonth',
-      errorMsgYearMissing: 'claim-start-date:claimStartDate.errors.missingYear',
-      errorMsgDayAndMonthMissing: 'claim-start-date:claimStartDate.errors.missingDayAndMonth',
-      errorMsgDayAndYearMissing: 'claim-start-date:claimStartDate.errors.missingDayAndYear',
-      errorMsgMonthAndYearMissing: 'claim-start-date:claimStartDate.errors.missingMonthAndYear',
+    dateComponentsExist.make({
+      errorMsgDayMissing: {
+        summary: 'claim-start-date:claimStartDate.errors.missingDay',
+        focusSuffix: ['[dd]'],
+      },
+      errorMsgMonthMissing: {
+        summary: 'claim-start-date:claimStartDate.errors.missingMonth',
+        focusSuffix: ['[mm]'],
+      },
+      errorMsgYearMissing: {
+        summary: 'claim-start-date:claimStartDate.errors.missingYear',
+        focusSuffix: ['[yyyy]'],
+      },
+      errorMsgDayAndMonthMissing: {
+        summary: 'claim-start-date:claimStartDate.errors.missingDayAndMonth',
+        focusSuffix: ['[dd]', '[mm]'],
+      },
+      errorMsgDayAndYearMissing: {
+        summary: 'claim-start-date:claimStartDate.errors.missingDayAndYear',
+        focusSuffix: ['[dd]', '[yyyy]'],
+      },
+      errorMsgMonthAndYearMissing: {
+        summary: 'claim-start-date:claimStartDate.errors.missingMonthAndYear',
+        focusSuffix: ['[mm]', '[yyyy]'],
+      },
     }),
-    dateYearLengthIsValid.bind({
-      errorMsg: 'claim-start-date:claimStartDate.errors.badFormatYear',
+    dateYearLengthIsValid.make({
+      errorMsg: {
+        summary: 'claim-start-date:claimStartDate.errors.badFormatYear',
+        focusSuffix: ['[yyyy]'],
+      },
     }),
-    dateIsReal.bind({
-      errorMsg: 'claim-start-date:claimStartDate.errors.notReal',
-      errorMsgDigits: 'claim-start-date:claimStartDate.errors.notRealDigits',
+    dateIsReal.make({
+      errorMsg: {
+        summary: 'claim-start-date:claimStartDate.errors.notReal',
+      },
+      errorMsgDigits: {
+        summary: 'claim-start-date:claimStartDate.errors.notRealDigits',
+      },
     }),
-    dateNotAfter.bind({
-      errorMsg: 'claim-start-date:claimStartDate.errors.outOfRange',
+    dateNotAfter.make({
+      allowSingleDigitDay: true,
+      allowSingleDigitMonth: true,
       dateToCheckAgainst: threeMonthsFuture,
+      errorMsg: {
+        summary: 'claim-start-date:claimStartDate.errors.outOfRange',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
     }),
-    dateNotBefore.bind({
-      errorMsg: 'claim-start-date:claimStartDate.errors.beforeSsp',
+    dateNotBefore.make({
+      allowSingleDigitDay: true,
+      allowSingleDigitMonth: true,
+      errorMsg: {
+        summary: 'claim-start-date:claimStartDate.errors.beforeSsp',
+        focusSuffix: ['[dd]', '[mm]', '[yyyy]'],
+      },
+    }),
+  ]).processors([
+    // Trim spaces from each attribute
+    (value) => ({
+      dd: value.dd.replace(/\s+/g, ''),
+      mm: value.mm.replace(/\s+/g, ''),
+      yyyy: value.yyyy.replace(/\s+/g, ''),
     }),
   ]),
-};
+];

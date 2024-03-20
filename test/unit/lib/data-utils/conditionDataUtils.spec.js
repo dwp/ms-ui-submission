@@ -1,10 +1,6 @@
-const chai = require('chai');
-const rewire = require('rewire');
-const sinon = require('sinon');
-
-const { assert, expect } = chai;
-
-const conditionDataUtils = rewire('../../../../app/lib/data-utils/conditionDataUtils.js');
+import sinon from 'sinon';
+import { assert, expect } from 'chai';
+import conditionDataUtils from '../../../../src/lib/data-utils/conditionDataUtils.js';
 
 describe('conditionDataUtils.getConditionFromJourneyData', () => {
   it('should build a valid condition object', () => {
@@ -27,15 +23,26 @@ describe('conditionDataUtils.populateConditionJourneyData', () => {
   it('should build a valid condition object', () => {
     const cd = {
       data: {},
-      setDataForPage: (p, d) => {
-        cd.data[p] = d;
-      },
+      casa: {
+        journeyContext: {
+          setDataForPage: (p, d) => {
+            cd.casa.journeyContext.data[p] = d;
+          },
+          data: {}
+        },
+      }
     };
+    const res = {
+      status: () => ({
+        render: () => {},
+      }),
+    };
+    const next = sinon.stub();
     conditionDataUtils.populateConditionJourneyData(cd, {
       conditionName: 'test',
       conditionStartDate: '02-02-2021',
-    });
-    expect(cd.data).to.eql({
+    }, res, next, 'conditions');
+    expect(cd.casa.journeyContext.data).to.eql({
       conditions: {
         conditionName: 'test',
         conditionStartDate: '02-02-2021',
@@ -50,11 +57,11 @@ describe('conditionDataUtils.populateConditionJourneyData', () => {
 describe('conditionDataUtils.clearConditionJourneyData', () => {
   it('should remove condition journey data', () => {
     const req = {
-      journeyData: {
+      journeyContext: {
         setDataForPage: (p, d) => {
-          req.journeyData.data[p] = d;
+          req.journeyContext.data[p] = d;
         },
-        getDataForPage: (p) => req.journeyData.data[p],
+        getData: (p) => req.casa.journeyContext.data[p],
         data: {
           conditions: {},
           'another-health-condition': {
@@ -64,9 +71,9 @@ describe('conditionDataUtils.clearConditionJourneyData', () => {
       },
     };
     conditionDataUtils.clearConditionJourneyData(req);
-    expect(req.journeyData.data).to.eql({
-      conditions: undefined,
-      'another-health-condition': undefined,
+    expect(req.journeyContext.data).to.eql({
+      conditions: {},
+      'another-health-condition': {'anotherCondition' : 'yes'},
     });
   });
 });
@@ -74,25 +81,24 @@ describe('conditionDataUtils.clearConditionJourneyData', () => {
 describe('conditionDataUtils.updateSpecificCondition', () => {
   it('should update a specific instance of condition to the condition Gather and call relevant functions', () => {
     const req = {
-      journeyData: {
-        getData: sinon.stub(),
-        setDataForPage: sinon.stub(),
+      journeyContext: {
+        conditions: {
+          conditionName: 'data',
+          conditionStartDate: 'data',
+        },
       },
       session: {
         editIndex: 0,
-        conditionGather: [],
+        conditionGather: [{
+          conditionName: 'notdata',
+          conditionStartDate: 'notdata',
+        }],
+        save: sinon.stub(),
       },
     };
-    const getConditionFromJourneyData = sinon.stub().returns('data');
-    /* eslint-disable-next-line no-underscore-dangle */
-    conditionDataUtils.__set__('getConditionFromJourneyData', getConditionFromJourneyData);
-    const clearConditionJourneyData = sinon.stub().resolves();
-    /* eslint-disable-next-line no-underscore-dangle */
-    conditionDataUtils.__set__('clearConditionJourneyData', clearConditionJourneyData);
-    conditionDataUtils.updateSpecificCondition(req);
-    assert(getConditionFromJourneyData.calledOnce);
-    assert(clearConditionJourneyData.calledOnce);
-    expect(req.session.conditionGather[0]).to.equal('data');
+    conditionDataUtils.updateSpecificCondition(req.journeyContext, req);
+    expect(req.session.conditionGather[0].conditionName).to.equal('data');
+    expect(req.session.conditionGather[0].conditionStartDate).to.equal('data');
   });
 });
 
@@ -110,22 +116,22 @@ describe('conditionDataUtils.getConditionsCount', () => {
 describe('conditionDataUtils.addConditionToGather', () => {
   it('should add an instance of condition to the condition Gather and call relevant functions', () => {
     const req = {
-      journeyData: {
-        getData: sinon.stub(),
+      journeyContext: {
+        conditions: {
+          conditionName: 'data',
+          conditionStartDate: 'data',
+        },
       },
       session: {
         conditionGather: [{ condition: 'test' }],
+        save: sinon.stub(),
       },
     };
-    const getConditionFromJourneyData = sinon.stub().returns({ condition: 'test' });
-    /* eslint-disable-next-line no-underscore-dangle */
-    conditionDataUtils.__set__('getConditionFromJourneyData', getConditionFromJourneyData);
-    conditionDataUtils.addConditionToGather(req);
-    assert(getConditionFromJourneyData.calledOnce);
+    conditionDataUtils.addConditionToGather(req.journeyContext, req);
     expect(req.session.conditionGather.length).to.equal(2);
-    conditionDataUtils.addConditionToGather(req, true);
+    conditionDataUtils.addConditionToGather(req.journeyContext, req, true);
     expect(req.session.conditionGather.length).to.equal(2);
-    conditionDataUtils.addConditionToGather(req);
+    conditionDataUtils.addConditionToGather(req.journeyContext, req);
     expect(req.session.conditionGather.length).to.equal(3);
   });
 });

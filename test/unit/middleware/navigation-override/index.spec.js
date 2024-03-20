@@ -1,15 +1,14 @@
-const chai = require('chai');
-const sinon = require('sinon');
-const rewire = require('rewire');
+import sinon from 'sinon';
 
-const { assert } = chai;
-const index = rewire('../../../../app/middleware/navigation-override');
+import { assert } from 'chai';
+
+import index from '../../../../src/middleware/navigation-override/index.js';
+import backLinkRoute from "../../../../src/middleware/navigation-override/back-link-route.js";
 
 describe('navigation-override middleware', () => {
   it('should call router.use', () => {
-    const backLinkRoute = sinon.stub();
     /* eslint-disable-next-line no-underscore-dangle */
-    index.__set__('backLinkRoute', backLinkRoute);
+    sinon.stub(backLinkRoute, 'backLinkRoute');
     const router = {
       use: sinon.stub(),
     };

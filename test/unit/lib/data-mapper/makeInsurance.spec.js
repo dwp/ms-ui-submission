@@ -1,7 +1,5 @@
-const chai = require('chai');
-
-const { expect } = chai;
-const makeInsurance = require('../../../../app/lib/data-mapper/makeInsurance.js');
+import { expect } from 'chai';
+import makeInsurance from '../../../../src/lib/data-mapper/makeInsurance.js';
 
 describe('setting up insurance data for submission', () => {
   const insuranceGather = [

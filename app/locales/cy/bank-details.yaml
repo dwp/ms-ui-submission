@@ -1,0 +1,41 @@
+---
+pageTitle: Manylion cyfrif banc neu gymdeithas adeiladu
+heading: Manylion cyfrif banc neu gymdeithas adeiladu
+summary: Byddwn ond yn ei ddefnyddio i dalu unrhyw fudd-dal y mae gennych hawl iddo. Ni fyddwn yn rhannu manylion eich cyfrif ag unrhyw un arall.
+details: Os nad oes gennych eich cyfrif banc eich hun, gallwn ddefnyddio cyfrif aelod o’r teulu neu ffrind dibynadwy.
+hint: Os oes gennych chi fwy nag un swydd, gofynnir i chi am eich swyddi eraill yn nes ymlaen.
+accountName:
+  label: Enw deiliad y cyfrif
+  hint: Rhowch yr enw fel mae’n ymddangos ar eich cerdyn banc, llyfr siec neu fantolen.
+  errors:
+    required: Rhowch enw deiliad y cyfrif
+    consecSpaces: Ni ddylai enw deiliad y cyfrif gynnwys gofodau olynol
+    consecOther: Ni ddylai enw deiliad y cyfrif gynnwys nodau olynol ac eithrio llythrennau a rhifau
+    startAndEndFormat: Mae’n rhaid i enw deiliad y cyfrif ddechrau a gorffen gyda llythyren neu rif
+    startFormat: Mae’n rhaid i enw deiliad y cyfrif ddechrau gyda llythyren neu rif
+    endFormat: Mae’n rhaid i enw deiliad y cyfrif orffen gyda llythyren neu rif
+    noSpecialChar: Mae’n rhaid i enw deilydd y cyfrif beidio â chynnwys <, > neu /
+bankName:
+  label: Enw’r banc neu gymdeithas adeiladu
+  errors:
+    required: Rhowch enw’r banc neu gymdeithas adeiladu
+    noSpecialChar: Mae’n rhaid i enw’r banc neu gymdeithas adeiladu beidio â chynnwys <, > neu /
+sortCode:
+  label: Cod didoli
+  hint: Rhaid bod yn 6 digid o hyd.
+  errors:
+    required: Rhowch y cod didoli
+    notNum: Rhaid i’r cod didoli gynnwys rhifau yn unig
+    badLength: Rhaid i’r cod didoli gynnwys 6 digid
+accountNumber:
+  label: Rhif y cyfrif
+  hint: Rhaid bod yn 8 digid o hyd.
+  errors:
+    required: Rhowch rif y cyfrif
+    notNum: Rhaid i rif y cyfrif gynnwys rhifau yn unig
+    badLength: Rhaid i rif y cyfrif gynnwys 8 digid
+rollNumber:
+  label: Rhif rol cymdeithas adeiladu (os oes gennych un)
+  hint: Gallwch ddod o hyd iddo ar eich cerdyn, mantolen neu lyfr cyfrif.
+  errors:
+    badFormat: Rhaid i’r rhif rol neu gyfeirnod cymdeithas adeiladu ond cynnwys llythrennau, rhifau, atalnod llawn, gysylltnodau, collnod neu blaen slaes
