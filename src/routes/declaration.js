@@ -65,7 +65,7 @@ export default (casaApp, mountUrl, router, csrf, submissionService, processNotif
             appLogger.info('Application accepted by Submission Handler');
             if (req.session.journeyContext.mobile.mobile === 'yes') {
               const mobileNo = req.session.journeyContext.mobile.number.replace(/[()]/g, '').replace(/\s/g, '').replace('-', '');
-              const smsTemplateId = data.language === 'en' ? templates.SMS_EN_TEMPLATE : templates.SMS_CY_TEMPLATE;
+              const smsTemplateId = data.data_capture.language === 'en' ? templates.SMS_EN_TEMPLATE : templates.SMS_CY_TEMPLATE;
               appLogger.debug('SMS template id:', smsTemplateId);
               try {
                 appLogger.info('SMS notification triggered');

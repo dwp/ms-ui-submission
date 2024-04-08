@@ -1,6 +1,7 @@
 import { assert, expect } from 'chai';
 import sinon from 'sinon';
 import declarationRoute from '../../../src/routes/declaration.js';
+import templates from "../../../src/lib/constants/sms-constants.js";
 
 describe('Declaration routes', () => {
   const casaApp = {};
@@ -215,36 +216,12 @@ describe('Declaration routes', () => {
           coronavirusOtherCondition: 'yes',
         },
       },
-    },
-    // journeyData: {
-    //   getData: () => ({
-    //     name: {
-    //       firstName: 'aa',
-    //       surname: 'dd',
-    //     },
-    //     nino: 'test',
-    //     sortCode: '010101',
-    //     accountNumber: '01 01 01 01',
-    //     claimStartDate: {
-    //       dd: '1',
-    //       mm: '1',
-    //       yyyy: '1111',
-    //     },
-    //     'date-of-birth': {
-    //       dob: {
-    //         dd: '1',
-    //         mm: '1',
-    //         yyyy: '1111',
-    //       },
-    //     },
-    //     address: {
-    //       address1: 'test',
-    //       address2: 'test',
-    //       address3: 'test',
-    //       postcode: 'test',
-    //     },
-    //   }),
-    // },
+    }
+  };
+  const notificationService = (mobileNo, smsTemplateId, config)  => {
+    return Promise.resolve({
+      MessageId: "aaa"
+    });
   };
   const res = {
     status: () => ({
@@ -259,12 +236,6 @@ describe('Declaration routes', () => {
       statusCode: 200,
     }),
   };
-  const notificationService = {
-    sendNotification: () => Promise.resolve({
-      statusCode: 202,
-    }),
-  };
-
   it('should set up a GET route, and render the declaration page when called with cya page already visited', () => {
     const next = sinon.stub();
     router.get = (path, csrfMiddleware, callback) => {
@@ -307,7 +278,48 @@ describe('Declaration routes', () => {
     done();
     assert(next.calledOnce);
   });
+  it('should set up a POST route, test sms and redirect to the complete page when submission service successful', (done) => {
+    router.get = () => {};
+    casaApp.post = () => {};
+    const next = sinon.stub();
+    req.session.journeyContext.mobile.mobile = 'yes';
+    req.session.journeyContext.mobile.number = '123';
+    req.session.cyaVisited = true;
+    router.post = (path, csrfMiddleware, callback) => {
+        assert.equal(path, '/declaration');
+        callback(req, res, next);
+    };
+    const notificationServiceaa = (mobileNo, smsTemplateId, config)  => {
+      assert.equal(smsTemplateId, templates.SMS_EN_TEMPLATE);
+      done();
+      return Promise.resolve({
+        MessageId: "aaa"
+      });
+    };
+    declarationRoute(casaApp, mountUrl, router, csrf, submissionService, notificationServiceaa);
 
+  });
+  it('should set up a POST route, test cy sms and redirect to the complete page when submission service successful', (done) => {
+    router.get = () => {};
+    casaApp.post = () => {};
+    const next = sinon.stub();
+    req.session.journeyContext.mobile.mobile = 'yes';
+    req.session.journeyContext.mobile.number = '123';
+    req.session.cyaVisited = true;
+    req.session.language = 'cy';
+    router.post = (path, csrfMiddleware, callback) => {
+        assert.equal(path, '/declaration');
+        callback(req, res, next);
+    };
+    const notificationServiceCY = (mobileNo, smsTemplateId, config)  => {
+      assert.equal(smsTemplateId, templates.SMS_CY_TEMPLATE);
+      done();
+      return Promise.resolve({
+          MessageId: "aaa"
+      });
+    };
+    declarationRoute(casaApp, mountUrl, router, csrf, submissionService, notificationServiceCY);
+  });
   it('should display an error page if submission handler doesn\'t accept the app', (done) => {
     res.status = (statusCode) => ({
       render: (path) => {
