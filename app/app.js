@@ -46,6 +46,8 @@ import thankyou from '../src/routes/thankyou.js';
 import accessibilitySt from '../src/routes/accessibility-statement.js';
 import telephoneApp from '../src/routes/telephone-application.js';
 import ping from './start-pages-sub-app/routes/ping.js';
+import index from './start-pages-sub-app/routes/index.js';
+import security from './start-pages-sub-app/routes/security.js';
 
 import viewFilters from './view-filters/view-filters.js';
 
@@ -223,7 +225,7 @@ const application = ({
       hook: 'journey.postvalidate',
       middleware: (req, res, next) => {
         const errors = req.casa.journeyContext.getValidationErrorsForPage(req.casa.waypoint);
-        console.log(`Running the example "journey.postvalidate" hook on "${req.path}". There were ${errors.length} errors`);
+        if (errors.length) appLogger.warn(`Running "journey.postvalidate" hook on "${req.path}". There were ${errors.length} validation errors`);
         next();
       },
     }],
@@ -309,6 +311,8 @@ const application = ({
   telephoneApp(ancillaryRouter);
   viewFilters(nunjucksEnv, casaApp);
   welcome(ancillaryRouter);
+  index(ancillaryRouter);
+  security(ancillaryRouter);
   app.use(MOUNT_URL, ping(casaApp));
 
   // Example of how to mount a handler for the `/` index route. Need to use a

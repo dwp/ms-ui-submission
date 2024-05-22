@@ -6,5 +6,9 @@
      "1096303": {
          "active": true,
          "notes": "lodash.pick Prototype Pollution in lodash"
+     },
+     "1096993": {
+         "active": true,
+         "notes": "lodash.template Command Injection in lodash"
      }
 }

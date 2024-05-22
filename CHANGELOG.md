@@ -1,3 +1,8 @@
+<a name="5-2-0"></a>
+# 5-2-0 (2024-05-16)
+
+* fix: welsh language journey error ([26ab22c5](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/26ab22c5))
+
 <a name="5-1-0"></a>
 # 5-1-0 (2024-04-03)
 
