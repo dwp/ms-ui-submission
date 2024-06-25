@@ -1,5 +1,5 @@
 ---
-pageTitle: Does {{employerName}} pay you any expenses?
+pageTitle: Does your employer pay you any expenses?
 expenses:
   label: Does {{employerName}} pay you any expenses?
   yes: Yes

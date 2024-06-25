@@ -1,5 +1,5 @@
 ---
-pageTitle: Earnings - {{employerName}}
+pageTitle: Earnings
 heading: Earnings
 frequency:
   label: How often are you paid by {{employerName}}?

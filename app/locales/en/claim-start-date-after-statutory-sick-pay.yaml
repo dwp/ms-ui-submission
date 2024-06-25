@@ -1,5 +1,5 @@
 ---
-pageTitle: Do you want to claim from {{calculatedDate}}?
+pageTitle: Do you want to claim from this date?
 claimStartDateAfterSsp:
   label: Do you want to claim from <span class="nobr">{{calculatedDate}}</span>?
   hint: <p class="govuk-body">This is the day after your Statutory Sick Pay end date. You can choose a later date, but you cannot get New Style ESA and Statutory Sick Pay at the same time.</p>

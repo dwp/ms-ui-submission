@@ -1,5 +1,5 @@
 ---
-pageTitle: Are you off sick from your job at {{employerName}}?
+pageTitle: Are you off sick from your job?
 offSick:
   label: Are you off sick from your job at {{employerName}}?
   yes: Yes

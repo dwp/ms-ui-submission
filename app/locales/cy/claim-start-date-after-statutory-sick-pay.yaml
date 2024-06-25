@@ -1,5 +1,5 @@
 ---
-pageTitle: Ydych chi eisiau gwneud cais o {{calculatedDate}}?
+pageTitle: Ydych chi eisiau gwneud cais o'r dyddiad hwn?
 claimStartDateAfterSsp:
   label: Ydych chi eisiau gwneud cais o <span class="nobr">{{calculatedDate}}</span>?
   hint: <p class="govuk-body">Dyma'r diwrnod ar ôl eich dyddiad gorffen Tâl Salwch Statudol. Gallwch ddewis dyddiad diweddarach, ond ni allwch gael ESA Dull Newydd a Thâl Salwch Statudol ar yr un pryd.</p>

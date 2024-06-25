@@ -1,7 +1,7 @@
 {
-     "1095141": {
+     "1097496": {
          "active": true,
-         "notes": "nth-check vulnerable to Regex Injection via Doctype Entities"
+         "notes": "braces Uncontrolled resource consumption in braces"
      },
      "1096303": {
          "active": true,

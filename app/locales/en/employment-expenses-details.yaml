@@ -1,5 +1,5 @@
 ---
-pageTitle: Details of expenses - {{employerName}}
+pageTitle: Details of expenses
 expensesDetails:
   label: What are the expenses for and how much do you get?
   hint: Give as much information as you can.

@@ -1,3 +1,9 @@
+<a name="5-3-0"></a>
+# 5-3-0 (2024-06-19)
+
+* fix: remove pii from page titles ([b2034b53](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/b2034b53))
+* chore: update dependencies ([753b53fd](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/753b53fd))
+
 <a name="5-2-0"></a>
 # 5-2-0 (2024-05-16)
 

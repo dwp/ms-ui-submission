@@ -175,12 +175,12 @@ services:
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE_SAAS
+      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
       - TEST_RUNNER=SmokeTests
     volumes:
       - '.:/usr/src/mymaven/.'
       - './smoke-reports:/target/smoke-reports/'
-      - $MVN_SETTINGS_FILE_SAAS:$MVN_SETTINGS_FILE_SAAS
+      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
     networks:
       - test
     depends_on:
@@ -192,12 +192,12 @@ services:
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE_SAAS
+      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
       - TEST_RUNNER=FeatureTests
     volumes:
       - '.:/usr/src/mymaven/.'
       - './journey-reports:/target/feature-reports/'
-      - $MVN_SETTINGS_FILE_SAAS:$MVN_SETTINGS_FILE_SAAS
+      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
     networks:
       - test
     depends_on:
@@ -209,11 +209,11 @@ services:
     environment:
       - APP_URL=http://app_ui:${APP_PORT}
       - SELENIUM_URL=http://selenium_chrome
-      - MVN_SETTINGS_FILE_SAAS=$MVN_SETTINGS_FILE_SAAS
+      - MVN_SETTINGS_FILE=$MVN_SETTINGS_FILE
       - TEST_RUNNER=AxeTests
     volumes:
       - './aXe-reports:/target/aXe-text-reports/'
-      - $MVN_SETTINGS_FILE_SAAS:$MVN_SETTINGS_FILE_SAAS
+      - $MVN_SETTINGS_FILE:$MVN_SETTINGS_FILE
     networks:
       - test
     depends_on:

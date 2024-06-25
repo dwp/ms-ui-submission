@@ -9,6 +9,12 @@ remove:
   pension: Are you sure you want to remove your pension with {{pensionProvider}}?
   insurance: Are you sure you want to remove your policy with {{insuranceProvider}}?
   condition: Are you sure you want to remove {{removeItemName}} from your health conditions?
+  pageTitle:
+    voluntary: Are you sure you want to remove your role?
+    employment: Are you sure you want to remove your job?
+    pension: Are you sure you want to remove your pension?
+    insurance: Are you sure you want to remove your policy?
+    condition: Are you sure you want to remove this health condition?
   errors:
       required: Select yes if you would like to remove the details you entered for this section
 removed:

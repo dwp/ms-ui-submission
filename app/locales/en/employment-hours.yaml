@@ -1,5 +1,5 @@
 ---
-pageTitle: Do you work the same number of hours each week at {{employerName}}?
+pageTitle: Do you work the same number of hours each week?
 sameHours:
   label: Do you work the same number of hours each week at {{employerName}}?
   yes: Yes
