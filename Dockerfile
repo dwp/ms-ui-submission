@@ -7,7 +7,7 @@ ARG GITLAB_REGISTRY_TOKEN
 RUN apk add --update --no-cache git=2.45.2-r0\
      make=4.4.1-r2 \
      build-base=0.5-r3 \
-     python3=3.12.3-r1 \
+     python3=3.12.3-r2 \
      py3-pip=24.0-r2
 
 COPY app/ /app/

@@ -1,3 +1,10 @@
+<a name="5-3-1"></a>
+# 5-3-1 (2024-08-30)
+* chore: update dependencies, python3, & fragments ([41fcfa18](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/41fcfa18))
+* chore: update .nsprc, fragments, dependencies, & metadata ([8548e28f](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/8548e28f)) 
+* chore: update vulnerabilities, dependencies, & fragments ([889fb61d](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/889fb61d))
+* chore: update vulnerabilities & dependencies ([6375acfc](https://gitlab.com/dwp/health/ns-esa/components/ms-ui-submission/-/commit/6375acfc))
+
 <a name="5-3-0"></a>
 # 5-3-0 (2024-06-19)
 

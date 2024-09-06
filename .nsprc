@@ -1,5 +1,5 @@
 {
-     "1097496": {
+     "1098094": {
          "active": true,
          "notes": "braces Uncontrolled resource consumption in braces"
      },
@@ -10,5 +10,17 @@
      "1096993": {
          "active": true,
          "notes": "lodash.template Command Injection in lodash"
-     }
+     },
+     "1097690": {
+         "active": true,
+         "notes": "jsonwebtoken unrestricted key type could lead to legacy keys usage"
+     },
+     "1098559": {
+         "active": true,
+         "notes": "fast-xml-parser vulnerable to ReDOS at currency"
+     },
+     "1098563": {
+              "active": true,
+              "notes": "semver vulnerable to Regular Expression Denial of Service"
+          }
 }

@@ -6,11 +6,11 @@ project:
   - project_id: 26977135
     component_name: ms-ui-submission
 
-    version: 5.3.0
+    version: 5.3.1
 
     last_verified:
-      date: "2024-06-17"
-      name: "@stephen.nimako"
+      date: "2024-08-30"
+      name: "@aayush.srikanth"
 
     tags:
       payments: false
